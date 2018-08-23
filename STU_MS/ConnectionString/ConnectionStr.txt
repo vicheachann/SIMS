@@ -1,0 +1,1 @@
+Server=DESKTOP-MLQILJU\LOCALSERVER;Database=SIMS; Trusted_Connection=false;User=LOCALSERVER;Password=t0them00n

@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD1D7DCE-522A-4D0C-95E3-DD793DC469DB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>STU_MS.My.MyApplication</StartupObject>
+    <RootNamespace>STU_MS</RootNamespace>
+    <AssemblyName>STU_MS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>STU_MS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>STU_MS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo_WO8_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=8.9.0.5, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\Bind.vb" />
+    <Compile Include="Class\CompanyInfo.vb" />
+    <Compile Include="Class\Crud.vb" />
+    <Compile Include="Class\Method.vb" />
+    <Compile Include="Class\GlobalVariable.vb" />
+    <Compile Include="Class\SearchNetwork.vb" />
+    <Compile Include="Class\Status.vb" />
+    <Compile Include="Class\TextBoxExtensions.vb" />
+    <Compile Include="Class\Validate.vb" />
+    <Compile Include="Class\WatermarkTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.vb">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\FrmPrintStudentCard.Designer.vb">
+      <DependentUpon>FrmPrintStudentCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\FrmPrintStudentCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\StudentCard_7.vb">
+      <DependentUpon>StudentCard_7.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\StudentCard_5.vb">
+      <DependentUpon>StudentCard_5.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\StudentCard_4.vb">
+      <DependentUpon>StudentCard_4.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\StudentCard_3.vb">
+      <DependentUpon>StudentCard_3.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\StudentCard_2.vb">
+      <DependentUpon>StudentCard_2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\StudentCard_1.vb">
+      <DependentUpon>StudentCard_1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\StudentCard_6.vb">
+      <DependentUpon>StudentCard_6.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\StudentCard.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentCard.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form\Information\FrmStudentDropStudyReason.Designer.vb">
+      <DependentUpon>FrmStudentDropStudyReason.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\FrmStudentDropStudyReason.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_contract_mistake_type.Designer.vb">
+      <DependentUpon>frm_contract_mistake_type.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_contract_mistake_type.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_school.Designer.vb">
+      <DependentUpon>frm_school.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_school.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_skill.Designer.vb">
+      <DependentUpon>frm_skill.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_skill.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_student_status.Designer.vb">
+      <DependentUpon>frm_student_status.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_student_status.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_heathy.Designer.vb">
+      <DependentUpon>frm_heathy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_heathy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_year_study.Designer.vb">
+      <DependentUpon>frm_year_study.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_year_study.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_batchs.Designer.vb">
+      <DependentUpon>frm_batchs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_batchs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_langugae.Designer.vb">
+      <DependentUpon>frm_langugae.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_langugae.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_marry_status.Designer.vb">
+      <DependentUpon>frm_marry_status.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_marry_status.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_religion.Designer.vb">
+      <DependentUpon>frm_religion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_religion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_occupation.Designer.vb">
+      <DependentUpon>frm_occupation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_occupation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Message\FrmNetworkFailed.Designer.vb">
+      <DependentUpon>FrmNetworkFailed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Message\FrmNetworkFailed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Message\FrmProcess.Designer.vb">
+      <DependentUpon>FrmProcess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Message\FrmProcess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Message\FrmSaveConStringSuccess.Designer.vb">
+      <DependentUpon>FrmSaveConStringSuccess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Message\FrmSaveConStringSuccess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Message\msg_question_big.Designer.vb">
+      <DependentUpon>msg_question_big.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Message\msg_question_big.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Message\FrmWarning.Designer.vb">
+      <DependentUpon>FrmWarning.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Message\FrmWarning.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_class.Designer.vb">
+      <DependentUpon>frm_class.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_class.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReport.Designer.vb">
+      <DependentUpon>FrmReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReportClassMonitor.Designer.vb">
+      <DependentUpon>FrmReportClassMonitor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReportClassMonitor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReportStudentList.Designer.vb">
+      <DependentUpon>FrmReportStudentList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReportStudentList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReportStudentStatistic.Designer.vb">
+      <DependentUpon>FrmReportStudentStatistic.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReportStudentStatistic.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReportStuResult912.Designer.vb">
+      <DependentUpon>FrmReportStuResult912.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\Form\FrmReportStuResult912.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\New Report\FrmDynamicReportViewer.Designer.vb">
+      <DependentUpon>FrmDynamicReportViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\New Report\FrmDynamicReportViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Report\Student_list.Designer.vb">
+      <DependentUpon>Student_list.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\Student_list.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\FrmStuCard.Designer.vb">
+      <DependentUpon>FrmStuCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\CardAndCertificate\FrmStuCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\FrmChangeClass.Designer.vb">
+      <DependentUpon>FrmChangeClass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\FrmChangeClass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudentFormer.Designer.vb">
+      <DependentUpon>FrmStudentFormer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudentFormer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudentResult912.Designer.vb">
+      <DependentUpon>FrmStudentResult912.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudentResult912.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudentStatistic.Designer.vb">
+      <DependentUpon>FrmStudentStatistic.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudentStatistic.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\Student report\FrmStudentReport.Designer.vb">
+      <DependentUpon>FrmStudentReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\Student report\FrmStudentReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_class_monitor.Designer.vb">
+      <DependentUpon>frm_class_monitor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_class_monitor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudentAlumini.Designer.vb">
+      <DependentUpon>FrmStudentAlumini.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudentAlumini.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_contraction_mistake.Designer.vb">
+      <DependentUpon>frm_student_contraction_mistake.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_contraction_mistake.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_blame_letter.Designer.vb">
+      <DependentUpon>frm_student_blame_letter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_blame_letter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_suspent.Designer.vb">
+      <DependentUpon>frm_student_suspent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_suspent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_education.Designer.vb">
+      <DependentUpon>frm_student_education.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_education.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_stop_study.Designer.vb">
+      <DependentUpon>frm_student_stop_study.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_student_stop_study.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\FrmTeacherMeetingAtt.Designer.vb">
+      <DependentUpon>FrmTeacherMeetingAtt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\FrmTeacherMeetingAtt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\FrmTeacherTransfer.Designer.vb">
+      <DependentUpon>FrmTeacherTransfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\FrmTeacherTransfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher_suspend.Designer.vb">
+      <DependentUpon>frm_teacher_suspend.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher_suspend.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_blame_letter.Designer.vb">
+      <DependentUpon>frm_blame_letter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_blame_letter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_grade.Designer.vb">
+      <DependentUpon>frm_grade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_grade.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_professional_level.Designer.vb">
+      <DependentUpon>frm_professional_level.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_professional_level.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_education_level.Designer.vb">
+      <DependentUpon>frm_education_level.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_education_level.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_mission_position.Designer.vb">
+      <DependentUpon>frm_mission_position.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_mission_position.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher_education.Designer.vb">
+      <DependentUpon>frm_teacher_education.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher_education.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_office.Designer.vb">
+      <DependentUpon>frm_office.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_office.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_salary_level.Designer.vb">
+      <DependentUpon>frm_salary_level.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_salary_level.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher_mission.Designer.vb">
+      <DependentUpon>frm_teacher_mission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher_mission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher_status.Designer.vb">
+      <DependentUpon>frm_teacher_status.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher_status.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_position.Designer.vb">
+      <DependentUpon>frm_position.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_position.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Message\FrmMessageSuccess.Designer.vb">
+      <DependentUpon>FrmMessageSuccess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Message\FrmMessageSuccess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Message\FrmMessageError.Designer.vb">
+      <DependentUpon>FrmMessageError.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Message\FrmMessageError.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Information\frm_province.Designer.vb">
+      <DependentUpon>frm_province.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Information\frm_province.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\frm_write.Designer.vb">
+      <DependentUpon>frm_write.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\frm_write.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\frm_change_password.Designer.vb">
+      <DependentUpon>frm_change_password.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\frm_change_password.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\frm_reset_password.Designer.vb">
+      <DependentUpon>frm_reset_password.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\frm_reset_password.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\frm_enable_user.Designer.vb">
+      <DependentUpon>frm_enable_user.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\frm_enable_user.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\frm_edit_user.Designer.vb">
+      <DependentUpon>frm_edit_user.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\frm_edit_user.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\frm_add_user.Designer.vb">
+      <DependentUpon>frm_add_user.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\frm_add_user.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_batch.Designer.vb">
+      <DependentUpon>frm_batch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_batch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMain.Designer.vb">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_score.Designer.vb">
+      <DependentUpon>frm_score.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_score.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudent.Designer.vb">
+      <DependentUpon>FrmStudent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\FrmStudent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\frm_subject.Designer.vb">
+      <DependentUpon>frm_subject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frm_subject.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher.Designer.vb">
+      <DependentUpon>frm_teacher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Teacher\frm_teacher.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class\MoveFrm.vb" />
+    <Compile Include="Form\Message\FrmMessageQuestion.Designer.vb">
+      <DependentUpon>FrmMessageQuestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Message\FrmMessageQuestion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Class\Theme.vb" />
+    <Compile Include="Form\Report\Teacher_list.Designer.vb">
+      <DependentUpon>Teacher_list.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\Teacher_list.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Report\Teacher_CV.Designer.vb">
+      <DependentUpon>Teacher_CV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Report\Teacher_CV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\FrmPrintStudentCard.resx">
+      <DependentUpon>FrmPrintStudentCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\StudentCard_7.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentCard_7.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\StudentCard_5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentCard_5.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\StudentCard_4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentCard_4.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\StudentCard_3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentCard_3.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\StudentCard_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentCard_2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\StudentCard_1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentCard_1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\StudentCard_6.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentCard_6.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\StudentCard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentCard.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\FrmStudentDropStudyReason.resx">
+      <DependentUpon>FrmStudentDropStudyReason.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_contract_mistake_type.resx">
+      <DependentUpon>frm_contract_mistake_type.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_school.resx">
+      <DependentUpon>frm_school.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_skill.resx">
+      <DependentUpon>frm_skill.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_student_status.resx">
+      <DependentUpon>frm_student_status.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_heathy.resx">
+      <DependentUpon>frm_heathy.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_year_study.resx">
+      <DependentUpon>frm_year_study.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_batchs.resx">
+      <DependentUpon>frm_batchs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_langugae.resx">
+      <DependentUpon>frm_langugae.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_marry_status.resx">
+      <DependentUpon>frm_marry_status.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_religion.resx">
+      <DependentUpon>frm_religion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_occupation.resx">
+      <DependentUpon>frm_occupation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Message\FrmNetworkFailed.resx">
+      <DependentUpon>FrmNetworkFailed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Message\FrmProcess.resx">
+      <DependentUpon>FrmProcess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Message\FrmSaveConStringSuccess.resx">
+      <DependentUpon>FrmSaveConStringSuccess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Message\msg_question_big.resx">
+      <DependentUpon>msg_question_big.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Message\FrmWarning.resx">
+      <DependentUpon>FrmWarning.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_class.resx">
+      <DependentUpon>frm_class.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report\Form\FrmReportClassMonitor.resx">
+      <DependentUpon>FrmReportClassMonitor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report\Form\FrmReportStudentList.resx">
+      <DependentUpon>FrmReportStudentList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\New Report\FrmDynamicReportViewer.resx">
+      <DependentUpon>FrmDynamicReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report\RDLC\rpClassMonitor.rdlc" />
+    <EmbeddedResource Include="Form\Report\RDLC\rpStuStatistic.rdlc" />
+    <EmbeddedResource Include="Form\Report\Form\FrmReport.resx">
+      <DependentUpon>FrmReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report\Form\FrmReportStudentStatistic.resx">
+      <DependentUpon>FrmReportStudentStatistic.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report\Form\FrmReportStuResult912.resx">
+      <DependentUpon>FrmReportStuResult912.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report\RDLC\rpStuResult912.rdlc" />
+    <EmbeddedResource Include="Form\Report\rpStudentTotalYearStudyClass.rdlc" />
+    <EmbeddedResource Include="Form\Report\rpStudentListAllStatus_2.rdlc" />
+    <EmbeddedResource Include="Form\Report\rpStudentListAllStatus.rdlc" />
+    <EmbeddedResource Include="Form\Report\rpTeacherMeetingAbsence.rdlc" />
+    <EmbeddedResource Include="Form\Report\Student_list.resx">
+      <DependentUpon>Student_list.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\CardAndCertificate\FrmStuCard.resx">
+      <DependentUpon>FrmStuCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\FrmChangeClass.resx">
+      <DependentUpon>FrmChangeClass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\FrmStudentFormer.resx">
+      <DependentUpon>FrmStudentFormer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\FrmStudentResult912.resx">
+      <DependentUpon>FrmStudentResult912.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\FrmStudentStatistic.resx">
+      <DependentUpon>FrmStudentStatistic.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\rpStudentAlumni.rdlc" />
+    <EmbeddedResource Include="Form\Student\Student report\FrmStudentReport.resx">
+      <DependentUpon>FrmStudentReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_class_monitor.resx">
+      <DependentUpon>frm_class_monitor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\FrmStudentAlumini.resx">
+      <DependentUpon>FrmStudentAlumini.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_student_contraction_mistake.resx">
+      <DependentUpon>frm_student_contraction_mistake.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_student_blame_letter.resx">
+      <DependentUpon>frm_student_blame_letter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_student_suspent.resx">
+      <DependentUpon>frm_student_suspent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_student_education.resx">
+      <DependentUpon>frm_student_education.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_student_stop_study.resx">
+      <DependentUpon>frm_student_stop_study.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\rpStudentFormer.rdlc" />
+    <EmbeddedResource Include="Form\Student\Student report\rpStudentList.rdlc" />
+    <EmbeddedResource Include="Form\Teacher\FrmTeacherMeetingAtt.resx">
+      <DependentUpon>FrmTeacherMeetingAtt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\FrmTeacherTransfer.resx">
+      <DependentUpon>FrmTeacherTransfer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_teacher_suspend.resx">
+      <DependentUpon>frm_teacher_suspend.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_blame_letter.resx">
+      <DependentUpon>frm_blame_letter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_grade.resx">
+      <DependentUpon>frm_grade.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_professional_level.resx">
+      <DependentUpon>frm_professional_level.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_education_level.resx">
+      <DependentUpon>frm_education_level.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_mission_position.resx">
+      <DependentUpon>frm_mission_position.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_teacher_education.resx">
+      <DependentUpon>frm_teacher_education.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_office.resx">
+      <DependentUpon>frm_office.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_salary_level.resx">
+      <DependentUpon>frm_salary_level.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_teacher_mission.resx">
+      <DependentUpon>frm_teacher_mission.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_teacher_status.resx">
+      <DependentUpon>frm_teacher_status.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_position.resx">
+      <DependentUpon>frm_position.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Message\FrmMessageSuccess.resx">
+      <DependentUpon>FrmMessageSuccess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Message\FrmMessageError.resx">
+      <DependentUpon>FrmMessageError.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Information\frm_province.resx">
+      <DependentUpon>frm_province.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\frm_write.resx">
+      <DependentUpon>frm_write.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\frm_change_password.resx">
+      <DependentUpon>frm_change_password.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\frm_reset_password.resx">
+      <DependentUpon>frm_reset_password.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\frm_enable_user.resx">
+      <DependentUpon>frm_enable_user.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\frm_edit_user.resx">
+      <DependentUpon>frm_edit_user.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\frm_add_user.resx">
+      <DependentUpon>frm_add_user.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_batch.resx">
+      <DependentUpon>frm_batch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmMain.resx">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_score.resx">
+      <DependentUpon>frm_score.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\FrmStudent.resx">
+      <DependentUpon>FrmStudent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frm_subject.resx">
+      <DependentUpon>frm_subject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Teacher\frm_teacher.resx">
+      <DependentUpon>frm_teacher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Message\FrmMessageQuestion.resx">
+      <DependentUpon>FrmMessageQuestion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report\rpTeacherList.rdlc" />
+    <EmbeddedResource Include="Form\Report\Teacher_list.resx">
+      <DependentUpon>Teacher_list.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report\Teacher_CV.rdlc" />
+    <EmbeddedResource Include="Form\Report\Teacher_CV.resx">
+      <DependentUpon>Teacher_CV.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo_WO8_icon.ico" />
+    <None Include="Resources\cash1.png" />
+    <None Include="Resources\cash.png" />
+    <None Include="Resources\pro.png" />
+    <None Include="Resources\loading_process.png" />
+    <None Include="Resources\loading %281%29.png" />
+    <None Include="Resources\loading.png" />
+    <None Include="Resources\processing.png" />
+    <None Include="Resources\stopStudy.png" />
+    <None Include="Resources\success.png" />
+    <None Include="Resources\statistic.png" />
+    <None Include="Resources\transfer.png" />
+    <None Include="Resources\SCHOOL_ICON.png" />
+    <None Include="Resources\icons8-view-48.png" />
+    <None Include="Resources\icons8-checklist-64.png" />
+    <None Include="Resources\ALL_15475.png" />
+    <None Include="Resources\Search_42342.png" />
+    <None Include="Resources\select_3534.png" />
+    <None Include="Resources\select_7656.png" />
+    <None Include="Resources\Printer-icon_43242.png" />
+    <None Include="Resources\move_back_4324.png" />
+    <None Include="Resources\down_4233.png" />
+    <None Include="Resources\up_4324.png" />
+    <None Include="Resources\select_31231.png" />
+    <None Include="Resources\CLASS_MONITOR_4324.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\save_432432.png" />
+    <None Include="Resources\UPGRADE_87442.png" />
+    <None Include="Resources\SEARCH_324.png" />
+    <None Include="Resources\Change Password.png" />
+    <None Include="Resources\PASSWORD_32.png" />
+    <None Include="Resources\Age-Child-Female-Light-icon.png" />
+    <None Include="Resources\user-student-icon.png" />
+    <None Include="Resources\CLASS_323.png" />
+    <None Include="Resources\YEAR_STUDY.png" />
+    <None Include="Resources\STUDENT_EDU.png" />
+    <None Include="Resources\promise.png" />
+    <None Include="Resources\question_89.png" />
+    <None Include="Resources\Notary-icon.png" />
+    <None Include="Resources\new_student.png" />
+    <None Include="Resources\search_blue.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\blame.png" />
+    <None Include="Resources\class1.png" />
+    <None Include="Resources\textbooks.png" />
+    <None Include="Resources\professional_level.png" />
+    <None Include="Resources\marry_status.png" />
+    <None Include="Resources\religion.png" />
+    <None Include="Resources\job-title.png" />
+    <None Include="Resources\office_1.png" />
+    <None Include="Resources\office.png" />
+    <None Include="Resources\salary_level.png" />
+    <None Include="Resources\mission.png" />
+    <None Include="Resources\working_condition.png" />
+    <None Include="Resources\world.png" />
+    <None Include="Resources\user-student.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\Untitled-1.png" />
+    <None Include="Resources\unnamed.png" />
+    <None Include="Resources\Unlock.png" />
+    <None Include="Resources\Successul.png" />
+    <None Include="Resources\subject.png" />
+    <None Include="Resources\student.png" />
+    <None Include="Resources\SkyBlue.png" />
+    <None Include="Resources\skill_9432423.png" />
+    <None Include="Resources\skill_94234.png" />
+    <None Include="Resources\skill.png" />
+    <None Include="Resources\skiddll.png" />
+    <None Include="Resources\semester.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\red-close-button-png-image-2878.png" />
+    <None Include="Resources\position.png" />
+    <None Include="Resources\photo_ID.jpeg" />
+    <None Include="Resources\minimize-icon-7.png" />
+    <None Include="Resources\minimize-box-blue.png" />
+    <None Include="Resources\logo_moey.png" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\light_green.png" />
+    <None Include="Resources\letter.png" />
+    <None Include="Resources\languages_business_icon.png" />
+    <None Include="Resources\language.png" />
+    <None Include="Resources\invide.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\infor.png" />
+    <None Include="Resources\icon-usa.png" />
+    <None Include="Resources\Home-Server-icon.png" />
+    <None Include="Resources\green.png" />
+    <None Include="Resources\Graduate-female-icon.png" />
+    <None Include="Resources\Feedbin-Icon-home-search.svg1.png" />
+    <None Include="Resources\Feedbin-Icon-home-search.svg.png" />
+    <None Include="Resources\Fail.png" />
+    <None Include="Resources\faculty.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\English-Language-Flag-1-icon.png" />
+    <None Include="Resources\empty_photo.jpg" />
+    <None Include="Resources\edituser.png" />
+    <None Include="Resources\dark_blue.png" />
+    <None Include="Resources\Culture1.png" />
+    <None Include="Resources\Culture.png" />
+    <None Include="Resources\class.png" />
+    <None Include="Resources\checkmark-done-exam-list-pencil-todo-35275ec20d4b5ecc-512x512.png" />
+    <None Include="Resources\certificate-outline-filled.png" />
+    <None Include="Resources\certificate-flat.png" />
+    <None Include="Resources\certificate.png" />
+    <None Include="Resources\card.png" />
+    <None Include="Resources\calutre_324.png" />
+    <None Include="Resources\BSS.png" />
+    <None Include="Resources\blue_small.png" />
+    <None Include="Resources\blue.png" />
+    <None Include="Resources\batch.png" />
+    <None Include="Resources\Apps-preferences-desktop-user-password-icon.png" />
+    <None Include="Resources\adduser.png" />
+    <None Include="Resources\082565-green-metallic-orb-icon-business-key3.png" />
+    <None Include="Resources\6erPQlXs.png" />
+    <None Include="Resources\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

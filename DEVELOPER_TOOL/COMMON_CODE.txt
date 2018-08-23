@@ -1,0 +1,4 @@
+            dg(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+
+
+

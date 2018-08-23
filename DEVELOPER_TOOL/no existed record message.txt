@@ -1,0 +1,4 @@
+If (DataSet1.STU_CARD.Rows.Count <= 0) Then
+                obj.ShowMsg("??????????????", frm_warning, "")
+                Exit Sub
+            End If
