@@ -4383,7 +4383,7 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AdddtStudentFormerRow(ByVal ROW_NUMBER As String, ByVal NAME As String, ByVal GENDER As String, ByVal BATCH As String, ByVal FIRST_YEAR_STUDY As String, ByVal FINISH_YEAR As String, ByVal PHONE_NUMBER As String) As dtStudentFormerRow
+        Public Overloads Function AdddtStudentFormerRow(ByVal ROW_NUMBER As Integer, ByVal NAME As String, ByVal GENDER As String, ByVal BATCH As String, ByVal FIRST_YEAR_STUDY As String, ByVal FINISH_YEAR As String, ByVal PHONE_NUMBER As String) As dtStudentFormerRow
             Dim rowdtStudentFormerRow As dtStudentFormerRow = CType(Me.NewRow,dtStudentFormerRow)
             Dim columnValuesArray() As Object = New Object() {ROW_NUMBER, NAME, GENDER, BATCH, FIRST_YEAR_STUDY, FINISH_YEAR, PHONE_NUMBER}
             rowdtStudentFormerRow.ItemArray = columnValuesArray
@@ -4420,7 +4420,7 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnROW_NUMBER = New Global.System.Data.DataColumn("ROW_NUMBER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnROW_NUMBER = New Global.System.Data.DataColumn("ROW_NUMBER", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnROW_NUMBER)
             Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNAME)
@@ -8006,10 +8006,10 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ROW_NUMBER() As String
+        Public Property ROW_NUMBER() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentFormer.ROW_NUMBERColumn),String)
+                    Return CType(Me(Me.tabledtStudentFormer.ROW_NUMBERColumn),Integer)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'ROW_NUMBER' in table 'dtStudentFormer' is DBNull.", e)
                 End Try

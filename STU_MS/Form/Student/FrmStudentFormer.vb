@@ -719,6 +719,7 @@ Public Class FrmStudentFormer
 
             formReport.SetupReport("DataSet1", "STU_MS.rpStudentFormer.rdlc", BindingSource1)
             obj.SendParam("paramSchoolName", obj.GetSchoolName(), formReport.ReportViewer)
+            obj.SendParam("paramProvince", obj.GetProvinceName(), formReport.ReportViewer)
             formReport.ReportViewer.RefreshReport()
             formReport.ShowDialog()
         Catch ex As Exception

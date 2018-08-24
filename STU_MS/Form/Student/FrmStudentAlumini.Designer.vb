@@ -23,20 +23,10 @@ Partial Class FrmStudentAlumini
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
-        Me.dgDetail = New System.Windows.Forms.DataGridView()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.lblDetailNew = New System.Windows.Forms.Label()
         Me.txtSponserAmountKHR = New System.Windows.Forms.TextBox()
@@ -54,12 +44,25 @@ Partial Class FrmStudentAlumini
         Me.lbl_position = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
+        Me.dgDetail = New System.Windows.Forms.DataGridView()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pnlSearch = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtAdvancedSearch = New System.Windows.Forms.TextBox()
         Me.lblPrint = New System.Windows.Forms.Label()
         Me.cboTeacher = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.dgSearch = New System.Windows.Forms.DataGridView()
         Me.cboSearchByYear = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -81,10 +84,6 @@ Partial Class FrmStudentAlumini
         Me.txtAmountUSD = New System.Windows.Forms.TextBox()
         Me.txtAmountKHR = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.PanelX2 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.lblDisplayAll = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtAdvancedSearch = New System.Windows.Forms.TextBox()
         Me.PanelAdvSearch = New DevComponents.DotNetBar.PanelEx()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
@@ -94,13 +93,17 @@ Partial Class FrmStudentAlumini
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.picSearch = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx1.SuspendLayout()
-        CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupPanel1.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
+        Me.GroupPanel1.SuspendLayout()
+        CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlSearch.SuspendLayout()
         Me.GroupPanel2.SuspendLayout()
         CType(Me.dgSearch, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelX2.SuspendLayout()
         Me.PanelAdvSearch.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx2.SuspendLayout()
@@ -109,16 +112,15 @@ Partial Class FrmStudentAlumini
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelEx1
         '
         Me.PanelEx1.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx1.Controls.Add(Me.dgDetail)
-        Me.PanelEx1.Controls.Add(Me.GroupPanel1)
         Me.PanelEx1.Controls.Add(Me.PanelEx3)
-        Me.PanelEx1.Controls.Add(Me.PanelX2)
         Me.PanelEx1.Controls.Add(Me.PanelAdvSearch)
         Me.PanelEx1.Controls.Add(Me.PanelEx2)
         Me.PanelEx1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -135,91 +137,49 @@ Partial Class FrmStudentAlumini
         Me.PanelEx1.Style.GradientAngle = 90
         Me.PanelEx1.TabIndex = 0
         '
-        'dgDetail
+        'PanelEx3
         '
-        Me.dgDetail.AllowUserToAddRows = False
-        Me.dgDetail.AllowUserToDeleteRows = False
-        Me.dgDetail.AllowUserToOrderColumns = True
-        Me.dgDetail.AllowUserToResizeColumns = False
-        Me.dgDetail.AllowUserToResizeRows = False
-        Me.dgDetail.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dgDetail.BackgroundColor = System.Drawing.Color.White
-        Me.dgDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgDetail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column7, Me.Column6, Me.Column10, Me.Column1, Me.Column8})
-        Me.dgDetail.Location = New System.Drawing.Point(5, 421)
-        Me.dgDetail.MultiSelect = False
-        Me.dgDetail.Name = "dgDetail"
-        Me.dgDetail.RowHeadersVisible = False
-        Me.dgDetail.RowHeadersWidth = 100
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgDetail.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgDetail.RowTemplate.Height = 25
-        Me.dgDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgDetail.Size = New System.Drawing.Size(1248, 239)
-        Me.dgDetail.TabIndex = 337
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "លរ"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 50
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "student_ID"
-        Me.Column2.Name = "Column2"
-        Me.Column2.Visible = False
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "ឈ្មោះសិស្ស"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 150
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "position_ID"
-        Me.Column4.Name = "Column4"
-        Me.Column4.Visible = False
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "មុខតំណែង"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 200
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "ទឹកប្រាក់ឧបត្ថម (ដុល្លា)"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 200
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "ទឹកប្រាក់ឧបត្ថម (រៀល)"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 200
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "ផ្សេងៗ"
-        Me.Column10.Name = "Column10"
-        Me.Column10.Width = 450
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "RECORD_ID"
-        Me.Column1.Name = "Column1"
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "ALUMNI_ID"
-        Me.Column8.Name = "Column8"
+        Me.PanelEx3.CanvasColor = System.Drawing.SystemColors.Control
+        Me.PanelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx3.Controls.Add(Me.GroupPanel1)
+        Me.PanelEx3.Controls.Add(Me.dgDetail)
+        Me.PanelEx3.Controls.Add(Me.pnlSearch)
+        Me.PanelEx3.Controls.Add(Me.lblPrint)
+        Me.PanelEx3.Controls.Add(Me.cboTeacher)
+        Me.PanelEx3.Controls.Add(Me.Label23)
+        Me.PanelEx3.Controls.Add(Me.GroupPanel2)
+        Me.PanelEx3.Controls.Add(Me.Label2)
+        Me.PanelEx3.Controls.Add(Me.Label3)
+        Me.PanelEx3.Controls.Add(Me.dtDateNote)
+        Me.PanelEx3.Controls.Add(Me.lblNew)
+        Me.PanelEx3.Controls.Add(Me.Label5)
+        Me.PanelEx3.Controls.Add(Me.lblDelete)
+        Me.PanelEx3.Controls.Add(Me.lblUpdate)
+        Me.PanelEx3.Controls.Add(Me.txtAlumniID)
+        Me.PanelEx3.Controls.Add(Me.lblSave)
+        Me.PanelEx3.Controls.Add(Me.Label12)
+        Me.PanelEx3.Controls.Add(Me.Label21)
+        Me.PanelEx3.Controls.Add(Me.Label6)
+        Me.PanelEx3.Controls.Add(Me.Label20)
+        Me.PanelEx3.Controls.Add(Me.Label10)
+        Me.PanelEx3.Controls.Add(Me.txtRemark)
+        Me.PanelEx3.Controls.Add(Me.dtDateCelebration)
+        Me.PanelEx3.Controls.Add(Me.txtAmountUSD)
+        Me.PanelEx3.Controls.Add(Me.txtAmountKHR)
+        Me.PanelEx3.Controls.Add(Me.Label15)
+        Me.PanelEx3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelEx3.Location = New System.Drawing.Point(0, 42)
+        Me.PanelEx3.Name = "PanelEx3"
+        Me.PanelEx3.Size = New System.Drawing.Size(1255, 621)
+        Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
+        Me.PanelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.PanelEx3.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.PanelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.PanelEx3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.PanelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.PanelEx3.Style.GradientAngle = 90
+        Me.PanelEx3.TabIndex = 347
+        Me.PanelEx3.Text = "​"
         '
         'GroupPanel1
         '
@@ -241,10 +201,9 @@ Partial Class FrmStudentAlumini
         Me.GroupPanel1.Controls.Add(Me.lbl_position)
         Me.GroupPanel1.Controls.Add(Me.Label19)
         Me.GroupPanel1.Controls.Add(Me.Label18)
-        Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupPanel1.Location = New System.Drawing.Point(0, 361)
+        Me.GroupPanel1.Location = New System.Drawing.Point(4, 294)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1255, 54)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1247, 54)
         '
         '
         '
@@ -463,46 +422,167 @@ Partial Class FrmStudentAlumini
         Me.Label18.TabIndex = 322
         Me.Label18.Text = "*"
         '
-        'PanelEx3
+        'dgDetail
         '
-        Me.PanelEx3.CanvasColor = System.Drawing.SystemColors.Control
-        Me.PanelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx3.Controls.Add(Me.lblPrint)
-        Me.PanelEx3.Controls.Add(Me.cboTeacher)
-        Me.PanelEx3.Controls.Add(Me.Label23)
-        Me.PanelEx3.Controls.Add(Me.GroupPanel2)
-        Me.PanelEx3.Controls.Add(Me.Label2)
-        Me.PanelEx3.Controls.Add(Me.Label3)
-        Me.PanelEx3.Controls.Add(Me.dtDateNote)
-        Me.PanelEx3.Controls.Add(Me.lblNew)
-        Me.PanelEx3.Controls.Add(Me.Label5)
-        Me.PanelEx3.Controls.Add(Me.lblDelete)
-        Me.PanelEx3.Controls.Add(Me.lblUpdate)
-        Me.PanelEx3.Controls.Add(Me.txtAlumniID)
-        Me.PanelEx3.Controls.Add(Me.lblSave)
-        Me.PanelEx3.Controls.Add(Me.Label12)
-        Me.PanelEx3.Controls.Add(Me.Label21)
-        Me.PanelEx3.Controls.Add(Me.Label6)
-        Me.PanelEx3.Controls.Add(Me.Label20)
-        Me.PanelEx3.Controls.Add(Me.Label10)
-        Me.PanelEx3.Controls.Add(Me.txtRemark)
-        Me.PanelEx3.Controls.Add(Me.dtDateCelebration)
-        Me.PanelEx3.Controls.Add(Me.txtAmountUSD)
-        Me.PanelEx3.Controls.Add(Me.txtAmountKHR)
-        Me.PanelEx3.Controls.Add(Me.Label15)
-        Me.PanelEx3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelEx3.Location = New System.Drawing.Point(0, 93)
-        Me.PanelEx3.Name = "PanelEx3"
-        Me.PanelEx3.Size = New System.Drawing.Size(1255, 268)
-        Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
-        Me.PanelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.PanelEx3.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
-        Me.PanelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.PanelEx3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.PanelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.PanelEx3.Style.GradientAngle = 90
-        Me.PanelEx3.TabIndex = 347
-        Me.PanelEx3.Text = "​"
+        Me.dgDetail.AllowUserToAddRows = False
+        Me.dgDetail.AllowUserToDeleteRows = False
+        Me.dgDetail.AllowUserToOrderColumns = True
+        Me.dgDetail.AllowUserToResizeColumns = False
+        Me.dgDetail.AllowUserToResizeRows = False
+        Me.dgDetail.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgDetail.BackgroundColor = System.Drawing.Color.White
+        Me.dgDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgDetail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column7, Me.Column6, Me.Column10, Me.Column1, Me.Column8})
+        Me.dgDetail.Location = New System.Drawing.Point(3, 348)
+        Me.dgDetail.MultiSelect = False
+        Me.dgDetail.Name = "dgDetail"
+        Me.dgDetail.RowHeadersVisible = False
+        Me.dgDetail.RowHeadersWidth = 100
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgDetail.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgDetail.RowTemplate.Height = 25
+        Me.dgDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgDetail.Size = New System.Drawing.Size(1248, 270)
+        Me.dgDetail.TabIndex = 337
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "លរ"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 50
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "student_ID"
+        Me.Column2.Name = "Column2"
+        Me.Column2.Visible = False
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "ឈ្មោះសិស្ស"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 150
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "position_ID"
+        Me.Column4.Name = "Column4"
+        Me.Column4.Visible = False
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "មុខតំណែង"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 200
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "ទឹកប្រាក់ឧបត្ថម (ដុល្លា)"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 200
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "ទឹកប្រាក់ឧបត្ថម (រៀល)"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 200
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "ផ្សេងៗ"
+        Me.Column10.Name = "Column10"
+        Me.Column10.Width = 450
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "RECORD_ID"
+        Me.Column1.Name = "Column1"
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "ALUMNI_ID"
+        Me.Column8.Name = "Column8"
+        '
+        'pnlSearch
+        '
+        Me.pnlSearch.CanvasColor = System.Drawing.SystemColors.Control
+        Me.pnlSearch.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.pnlSearch.Controls.Add(Me.picSearch)
+        Me.pnlSearch.Controls.Add(Me.CheckBox1)
+        Me.pnlSearch.Controls.Add(Me.Label8)
+        Me.pnlSearch.Controls.Add(Me.txtAdvancedSearch)
+        Me.pnlSearch.Location = New System.Drawing.Point(279, 6)
+        Me.pnlSearch.Name = "pnlSearch"
+        Me.pnlSearch.Size = New System.Drawing.Size(609, 51)
+        '
+        '
+        '
+        Me.pnlSearch.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlSearch.Style.BackColorGradientAngle = 90
+        Me.pnlSearch.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.pnlSearch.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlSearch.Style.BorderBottomWidth = 1
+        Me.pnlSearch.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.pnlSearch.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlSearch.Style.BorderLeftWidth = 1
+        Me.pnlSearch.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlSearch.Style.BorderRightWidth = 1
+        Me.pnlSearch.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlSearch.Style.BorderTopWidth = 1
+        Me.pnlSearch.Style.Class = ""
+        Me.pnlSearch.Style.CornerDiameter = 4
+        Me.pnlSearch.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.pnlSearch.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.pnlSearch.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.pnlSearch.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.pnlSearch.StyleMouseDown.Class = ""
+        Me.pnlSearch.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.pnlSearch.StyleMouseOver.Class = ""
+        Me.pnlSearch.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.pnlSearch.TabIndex = 344
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.ForeColor = System.Drawing.Color.Blue
+        Me.CheckBox1.Location = New System.Drawing.Point(489, 6)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(94, 36)
+        Me.CheckBox1.TabIndex = 348
+        Me.CheckBox1.Text = "ទាំងអស់"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(7, 8)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(256, 32)
+        Me.Label8.TabIndex = 340
+        Me.Label8.Text = "ស្វែងរកតាមឈ្មោះ និងកាលបរិច្ឆេទ"
+        '
+        'txtAdvancedSearch
+        '
+        Me.txtAdvancedSearch.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAdvancedSearch.Location = New System.Drawing.Point(268, 3)
+        Me.txtAdvancedSearch.Name = "txtAdvancedSearch"
+        Me.txtAdvancedSearch.Size = New System.Drawing.Size(209, 40)
+        Me.txtAdvancedSearch.TabIndex = 342
+        Me.txtAdvancedSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblPrint
         '
@@ -511,7 +591,7 @@ Partial Class FrmStudentAlumini
         Me.lblPrint.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblPrint.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrint.ForeColor = System.Drawing.Color.Blue
-        Me.lblPrint.Location = New System.Drawing.Point(780, 214)
+        Me.lblPrint.Location = New System.Drawing.Point(784, 250)
         Me.lblPrint.Name = "lblPrint"
         Me.lblPrint.Size = New System.Drawing.Size(84, 38)
         Me.lblPrint.TabIndex = 346
@@ -523,7 +603,7 @@ Partial Class FrmStudentAlumini
         Me.cboTeacher.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTeacher.FormattingEnabled = True
         Me.cboTeacher.IntegralHeight = False
-        Me.cboTeacher.Location = New System.Drawing.Point(251, 16)
+        Me.cboTeacher.Location = New System.Drawing.Point(251, 74)
         Me.cboTeacher.Name = "cboTeacher"
         Me.cboTeacher.Size = New System.Drawing.Size(200, 40)
         Me.cboTeacher.TabIndex = 188
@@ -534,7 +614,7 @@ Partial Class FrmStudentAlumini
         Me.Label23.BackColor = System.Drawing.Color.Transparent
         Me.Label23.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.Color.Red
-        Me.Label23.Location = New System.Drawing.Point(231, 20)
+        Me.Label23.Location = New System.Drawing.Point(231, 78)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(19, 30)
         Me.Label23.TabIndex = 336
@@ -544,12 +624,12 @@ Partial Class FrmStudentAlumini
         '
         Me.GroupPanel2.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanel2.Controls.Add(Me.Label13)
+        Me.GroupPanel2.Controls.Add(Me.GroupPanel3)
+        Me.GroupPanel2.Controls.Add(Me.Label4)
         Me.GroupPanel2.Controls.Add(Me.dgSearch)
-        Me.GroupPanel2.Controls.Add(Me.cboSearchByYear)
-        Me.GroupPanel2.Location = New System.Drawing.Point(932, 16)
+        Me.GroupPanel2.Location = New System.Drawing.Point(995, 9)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(259, 201)
+        Me.GroupPanel2.Size = New System.Drawing.Size(196, 240)
         '
         '
         '
@@ -583,17 +663,6 @@ Partial Class FrmStudentAlumini
         Me.GroupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel2.TabIndex = 345
         '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(5, 7)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(123, 32)
-        Me.Label13.TabIndex = 346
-        Me.Label13.Text = "ស្វែករកព័ត៌មាន"
-        '
         'dgSearch
         '
         Me.dgSearch.AllowUserToAddRows = False
@@ -603,23 +672,23 @@ Partial Class FrmStudentAlumini
         Me.dgSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgSearch.BackgroundColor = System.Drawing.Color.White
         Me.dgSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgSearch.Location = New System.Drawing.Point(6, 46)
+        Me.dgSearch.Location = New System.Drawing.Point(5, 87)
         Me.dgSearch.MultiSelect = False
         Me.dgSearch.Name = "dgSearch"
         Me.dgSearch.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgSearch.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgSearch.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgSearch.RowHeadersVisible = False
         Me.dgSearch.RowTemplate.Height = 25
         Me.dgSearch.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgSearch.Size = New System.Drawing.Size(238, 139)
+        Me.dgSearch.Size = New System.Drawing.Size(181, 140)
         Me.dgSearch.TabIndex = 341
         '
         'cboSearchByYear
@@ -631,9 +700,9 @@ Partial Class FrmStudentAlumini
         Me.cboSearchByYear.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboSearchByYear.FormattingEnabled = True
         Me.cboSearchByYear.IntegralHeight = False
-        Me.cboSearchByYear.Location = New System.Drawing.Point(134, 3)
+        Me.cboSearchByYear.Location = New System.Drawing.Point(3, 3)
         Me.cboSearchByYear.Name = "cboSearchByYear"
-        Me.cboSearchByYear.Size = New System.Drawing.Size(110, 38)
+        Me.cboSearchByYear.Size = New System.Drawing.Size(66, 38)
         Me.cboSearchByYear.TabIndex = 11
         Me.cboSearchByYear.Text = "2018"
         Me.cboSearchByYear.ValueMember = "PU_ID"
@@ -643,7 +712,7 @@ Partial Class FrmStudentAlumini
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(466, 21)
+        Me.Label2.Location = New System.Drawing.Point(466, 79)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(111, 32)
         Me.Label2.TabIndex = 189
@@ -654,7 +723,7 @@ Partial Class FrmStudentAlumini
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(86, 19)
+        Me.Label3.Location = New System.Drawing.Point(62, 77)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(131, 32)
         Me.Label3.TabIndex = 191
@@ -666,7 +735,7 @@ Partial Class FrmStudentAlumini
         Me.dtDateNote.Enabled = False
         Me.dtDateNote.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.dtDateNote.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtDateNote.Location = New System.Drawing.Point(251, 100)
+        Me.dtDateNote.Location = New System.Drawing.Point(251, 158)
         Me.dtDateNote.Name = "dtDateNote"
         Me.dtDateNote.Size = New System.Drawing.Size(200, 38)
         Me.dtDateNote.TabIndex = 209
@@ -679,7 +748,7 @@ Partial Class FrmStudentAlumini
         Me.lblNew.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblNew.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNew.ForeColor = System.Drawing.Color.Blue
-        Me.lblNew.Location = New System.Drawing.Point(456, 214)
+        Me.lblNew.Location = New System.Drawing.Point(460, 250)
         Me.lblNew.Name = "lblNew"
         Me.lblNew.Size = New System.Drawing.Size(89, 38)
         Me.lblNew.TabIndex = 143
@@ -691,7 +760,7 @@ Partial Class FrmStudentAlumini
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Khmer OS", 12.0!)
         Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(86, 107)
+        Me.Label5.Location = New System.Drawing.Point(62, 165)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(81, 32)
         Me.Label5.TabIndex = 210
@@ -704,7 +773,7 @@ Partial Class FrmStudentAlumini
         Me.lblDelete.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblDelete.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDelete.ForeColor = System.Drawing.Color.Blue
-        Me.lblDelete.Location = New System.Drawing.Point(718, 214)
+        Me.lblDelete.Location = New System.Drawing.Point(722, 250)
         Me.lblDelete.Name = "lblDelete"
         Me.lblDelete.Size = New System.Drawing.Size(53, 38)
         Me.lblDelete.TabIndex = 108
@@ -717,7 +786,7 @@ Partial Class FrmStudentAlumini
         Me.lblUpdate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblUpdate.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUpdate.ForeColor = System.Drawing.Color.Blue
-        Me.lblUpdate.Location = New System.Drawing.Point(642, 215)
+        Me.lblUpdate.Location = New System.Drawing.Point(646, 251)
         Me.lblUpdate.Name = "lblUpdate"
         Me.lblUpdate.Size = New System.Drawing.Size(66, 38)
         Me.lblUpdate.TabIndex = 107
@@ -727,7 +796,7 @@ Partial Class FrmStudentAlumini
         '
         Me.txtAlumniID.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.txtAlumniID.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAlumniID.Location = New System.Drawing.Point(251, 141)
+        Me.txtAlumniID.Location = New System.Drawing.Point(251, 199)
         Me.txtAlumniID.Name = "txtAlumniID"
         Me.txtAlumniID.Size = New System.Drawing.Size(200, 40)
         Me.txtAlumniID.TabIndex = 339
@@ -740,7 +809,7 @@ Partial Class FrmStudentAlumini
         Me.lblSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblSave.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSave.ForeColor = System.Drawing.Color.Blue
-        Me.lblSave.Location = New System.Drawing.Point(555, 215)
+        Me.lblSave.Location = New System.Drawing.Point(559, 251)
         Me.lblSave.Name = "lblSave"
         Me.lblSave.Size = New System.Drawing.Size(80, 38)
         Me.lblSave.TabIndex = 106
@@ -752,7 +821,7 @@ Partial Class FrmStudentAlumini
         Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Red
-        Me.Label12.Location = New System.Drawing.Point(230, 61)
+        Me.Label12.Location = New System.Drawing.Point(230, 119)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(19, 30)
         Me.Label12.TabIndex = 213
@@ -764,7 +833,7 @@ Partial Class FrmStudentAlumini
         Me.Label21.BackColor = System.Drawing.Color.Transparent
         Me.Label21.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.Maroon
-        Me.Label21.Location = New System.Drawing.Point(570, 61)
+        Me.Label21.Location = New System.Drawing.Point(570, 119)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(57, 30)
         Me.Label21.TabIndex = 335
@@ -775,7 +844,7 @@ Partial Class FrmStudentAlumini
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(86, 64)
+        Me.Label6.Location = New System.Drawing.Point(62, 122)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(117, 32)
         Me.Label6.TabIndex = 222
@@ -787,7 +856,7 @@ Partial Class FrmStudentAlumini
         Me.Label20.BackColor = System.Drawing.Color.Transparent
         Me.Label20.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.Maroon
-        Me.Label20.Location = New System.Drawing.Point(570, 22)
+        Me.Label20.Location = New System.Drawing.Point(570, 80)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(58, 30)
         Me.Label20.TabIndex = 335
@@ -798,7 +867,7 @@ Partial Class FrmStudentAlumini
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(466, 97)
+        Me.Label10.Location = New System.Drawing.Point(466, 155)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(63, 32)
         Me.Label10.TabIndex = 223
@@ -807,7 +876,7 @@ Partial Class FrmStudentAlumini
         'txtRemark
         '
         Me.txtRemark.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRemark.Location = New System.Drawing.Point(664, 102)
+        Me.txtRemark.Location = New System.Drawing.Point(685, 160)
         Me.txtRemark.Name = "txtRemark"
         Me.txtRemark.Size = New System.Drawing.Size(200, 40)
         Me.txtRemark.TabIndex = 235
@@ -817,7 +886,7 @@ Partial Class FrmStudentAlumini
         Me.dtDateCelebration.CustomFormat = "yyyy-MM-dd"
         Me.dtDateCelebration.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtDateCelebration.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtDateCelebration.Location = New System.Drawing.Point(251, 58)
+        Me.dtDateCelebration.Location = New System.Drawing.Point(251, 116)
         Me.dtDateCelebration.Name = "dtDateCelebration"
         Me.dtDateCelebration.Size = New System.Drawing.Size(200, 40)
         Me.dtDateCelebration.TabIndex = 225
@@ -827,7 +896,7 @@ Partial Class FrmStudentAlumini
         '
         Me.txtAmountUSD.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.txtAmountUSD.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAmountUSD.Location = New System.Drawing.Point(664, 60)
+        Me.txtAmountUSD.Location = New System.Drawing.Point(685, 118)
         Me.txtAmountUSD.Name = "txtAmountUSD"
         Me.txtAmountUSD.Size = New System.Drawing.Size(200, 40)
         Me.txtAmountUSD.TabIndex = 234
@@ -837,7 +906,7 @@ Partial Class FrmStudentAlumini
         '
         Me.txtAmountKHR.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.txtAmountKHR.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAmountKHR.Location = New System.Drawing.Point(664, 18)
+        Me.txtAmountKHR.Location = New System.Drawing.Point(685, 76)
         Me.txtAmountKHR.Name = "txtAmountKHR"
         Me.txtAmountKHR.Size = New System.Drawing.Size(200, 40)
         Me.txtAmountKHR.TabIndex = 227
@@ -848,87 +917,11 @@ Partial Class FrmStudentAlumini
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.Color.Transparent
         Me.Label15.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(466, 60)
+        Me.Label15.Location = New System.Drawing.Point(466, 118)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(111, 32)
         Me.Label15.TabIndex = 233
         Me.Label15.Text = "ទឹកប្រាក់សរុប"
-        '
-        'PanelX2
-        '
-        Me.PanelX2.CanvasColor = System.Drawing.SystemColors.Control
-        Me.PanelX2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.PanelX2.Controls.Add(Me.lblDisplayAll)
-        Me.PanelX2.Controls.Add(Me.Label8)
-        Me.PanelX2.Controls.Add(Me.txtAdvancedSearch)
-        Me.PanelX2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelX2.Location = New System.Drawing.Point(0, 42)
-        Me.PanelX2.Name = "PanelX2"
-        Me.PanelX2.Size = New System.Drawing.Size(1255, 51)
-        '
-        '
-        '
-        Me.PanelX2.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PanelX2.Style.BackColorGradientAngle = 90
-        Me.PanelX2.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.PanelX2.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.PanelX2.Style.BorderBottomWidth = 1
-        Me.PanelX2.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.PanelX2.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.PanelX2.Style.BorderLeftWidth = 1
-        Me.PanelX2.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.PanelX2.Style.BorderRightWidth = 1
-        Me.PanelX2.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.PanelX2.Style.BorderTopWidth = 1
-        Me.PanelX2.Style.Class = ""
-        Me.PanelX2.Style.CornerDiameter = 4
-        Me.PanelX2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.PanelX2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.PanelX2.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.PanelX2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.PanelX2.StyleMouseDown.Class = ""
-        Me.PanelX2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.PanelX2.StyleMouseOver.Class = ""
-        Me.PanelX2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.PanelX2.TabIndex = 344
-        '
-        'lblDisplayAll
-        '
-        Me.lblDisplayAll.AutoSize = True
-        Me.lblDisplayAll.BackColor = System.Drawing.Color.Transparent
-        Me.lblDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblDisplayAll.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDisplayAll.ForeColor = System.Drawing.Color.Blue
-        Me.lblDisplayAll.Location = New System.Drawing.Point(750, 5)
-        Me.lblDisplayAll.Name = "lblDisplayAll"
-        Me.lblDisplayAll.Size = New System.Drawing.Size(147, 38)
-        Me.lblDisplayAll.TabIndex = 347
-        Me.lblDisplayAll.Text = "បង្ហាញទាំងអស់"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(472, 6)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(69, 32)
-        Me.Label8.TabIndex = 340
-        Me.Label8.Text = "ស្វែងរក"
-        '
-        'txtAdvancedSearch
-        '
-        Me.txtAdvancedSearch.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAdvancedSearch.Location = New System.Drawing.Point(544, 2)
-        Me.txtAdvancedSearch.Name = "txtAdvancedSearch"
-        Me.txtAdvancedSearch.Size = New System.Drawing.Size(200, 40)
-        Me.txtAdvancedSearch.TabIndex = 342
         '
         'PanelAdvSearch
         '
@@ -1034,6 +1027,84 @@ Partial Class FrmStudentAlumini
         Me.BindingSource1.DataMember = "dtStudentAlumni"
         Me.BindingSource1.DataSource = Me.DataSet1
         '
+        'picSearch
+        '
+        Me.picSearch.BackColor = System.Drawing.Color.White
+        Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.Search_42342
+        Me.picSearch.Location = New System.Drawing.Point(273, 7)
+        Me.picSearch.Name = "picSearch"
+        Me.picSearch.Size = New System.Drawing.Size(33, 30)
+        Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picSearch.TabIndex = 347
+        Me.picSearch.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Blue
+        Me.Label4.Location = New System.Drawing.Point(3, 2)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(183, 32)
+        Me.Label4.TabIndex = 336
+        Me.Label4.Text = "ស្វែងរកតាមកាលបរិច្ខេទ"
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox2.ForeColor = System.Drawing.Color.Blue
+        Me.CheckBox2.Location = New System.Drawing.Point(78, 6)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(94, 36)
+        Me.CheckBox2.TabIndex = 349
+        Me.CheckBox2.Text = "ទាំងអស់"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'GroupPanel3
+        '
+        Me.GroupPanel3.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel3.Controls.Add(Me.CheckBox2)
+        Me.GroupPanel3.Controls.Add(Me.cboSearchByYear)
+        Me.GroupPanel3.Location = New System.Drawing.Point(5, 34)
+        Me.GroupPanel3.Name = "GroupPanel3"
+        Me.GroupPanel3.Size = New System.Drawing.Size(181, 51)
+        '
+        '
+        '
+        Me.GroupPanel3.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GroupPanel3.Style.BackColorGradientAngle = 90
+        Me.GroupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.GroupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel3.Style.BorderBottomWidth = 1
+        Me.GroupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.GroupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel3.Style.BorderLeftWidth = 1
+        Me.GroupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel3.Style.BorderRightWidth = 1
+        Me.GroupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel3.Style.BorderTopWidth = 1
+        Me.GroupPanel3.Style.Class = ""
+        Me.GroupPanel3.Style.CornerDiameter = 4
+        Me.GroupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.GroupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanel3.StyleMouseDown.Class = ""
+        Me.GroupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanel3.StyleMouseOver.Class = ""
+        Me.GroupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanel3.TabIndex = 349
+        '
         'FrmStudentAlumini
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1045,16 +1116,16 @@ Partial Class FrmStudentAlumini
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.PanelEx1.ResumeLayout(False)
-        CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupPanel1.ResumeLayout(False)
-        Me.GroupPanel1.PerformLayout()
         Me.PanelEx3.ResumeLayout(False)
         Me.PanelEx3.PerformLayout()
+        Me.GroupPanel1.ResumeLayout(False)
+        Me.GroupPanel1.PerformLayout()
+        CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlSearch.ResumeLayout(False)
+        Me.pnlSearch.PerformLayout()
         Me.GroupPanel2.ResumeLayout(False)
         Me.GroupPanel2.PerformLayout()
         CType(Me.dgSearch, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelX2.ResumeLayout(False)
-        Me.PanelX2.PerformLayout()
         Me.PanelAdvSearch.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx2.ResumeLayout(False)
@@ -1064,6 +1135,9 @@ Partial Class FrmStudentAlumini
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupPanel3.ResumeLayout(False)
+        Me.GroupPanel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1114,10 +1188,9 @@ Partial Class FrmStudentAlumini
     Friend WithEvents txtSponserAmountKHR As System.Windows.Forms.TextBox
     Friend WithEvents txtAdvancedSearch As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents PanelX2 As DevComponents.DotNetBar.Controls.GroupPanel
+    Friend WithEvents pnlSearch As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents GroupPanel2 As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents Label13 As Label
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents btn_close As PictureBox
     Friend WithEvents lblDetailNew As Label
@@ -1133,7 +1206,11 @@ Partial Class FrmStudentAlumini
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents lblPrint As Label
-    Friend WithEvents lblDisplayAll As Label
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents picSearch As PictureBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents GroupPanel3 As DevComponents.DotNetBar.Controls.GroupPanel
 End Class

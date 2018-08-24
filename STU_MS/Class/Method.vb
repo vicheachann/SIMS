@@ -305,6 +305,26 @@ Public Class Method
         End Try
         Return schoolName
     End Function
+    Public Function GetProvinceName() As String
+        Dim province As String = ""
+        Try
+            OpenConnection()
+            cmd = New SqlCommand("SELECT TOP(1) PROVINCE FROM dbo.TBL_SCHOOL_INFO", conn)
+            da = New SqlDataAdapter(cmd)
+            dt = New DataTable
+            da.Fill(dt)
+
+            If dt.Rows.Count > 0 Then
+                province = dt.Rows(0)(0).ToString()
+            Else
+                MessageBox.Show("Cannot retrive Province name from server...!")
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return province
+    End Function
+
     Public Function GetLastOrdinalNumber(ByVal sql As String) As String
         Dim lastOrdinalNumber As Integer
         Try

@@ -763,13 +763,7 @@ Public Class FrmStudentAlumini
         End Try
     End Sub
 
-    Private Sub lblDisplayAll_MouseHover(sender As Object, e As EventArgs) Handles lblDisplayAll.MouseHover
-        t.Hover(lblDisplayAll)
-    End Sub
 
-    Private Sub lblDisplayAll_MouseLeave(sender As Object, e As EventArgs) Handles lblDisplayAll.MouseLeave
-        t.Leave(lblDisplayAll)
-    End Sub
 
     Private Sub lblPrint_MouseHover(sender As Object, e As EventArgs) Handles lblPrint.MouseHover
         t.Hover(lblPrint)
@@ -779,9 +773,7 @@ Public Class FrmStudentAlumini
         t.Leave(lblPrint)
     End Sub
 
-    Private Sub lblDisplayAll_Click(sender As Object, e As EventArgs) Handles lblDisplayAll.Click
-        SelectSearch()
-    End Sub
+
 
     Private Sub lblNew_MouseHover(sender As Object, e As EventArgs) Handles lblNew.MouseHover
         t.Hover(lblNew)
@@ -794,14 +786,18 @@ Public Class FrmStudentAlumini
     Private Sub lblPrint_Click(sender As Object, e As EventArgs) Handles lblPrint.Click
         Try
             DataSet1.dtStudentAlumni.Clear()
+            Dim rowNumber As Integer = 1
             For i As Integer = 0 To dgDetail.RowCount - 1
-                DataSet1.dtStudentAlumni.Rows.Add(Convert.ToInt32(dgDetail.Rows(i).Cells(0).Value), dgDetail.Rows(i).Cells(2).Value.ToString, dgDetail.Rows(i).Cells(4).Value.ToString, dgDetail.Rows(i).Cells(5).Value.ToString, dgDetail.Rows(i).Cells(6).Value.ToString, dgDetail.Rows(i).Cells(7).Value.ToString)
+                DataSet1.dtStudentAlumni.Rows.Add(rowNumber, dgDetail.Rows(i).Cells(2).Value.ToString, dgDetail.Rows(i).Cells(4).Value.ToString, dgDetail.Rows(i).Cells(5).Value.ToString, dgDetail.Rows(i).Cells(6).Value.ToString, dgDetail.Rows(i).Cells(7).Value.ToString)
+                rowNumber += 1
             Next
+
             '  
             Dim formReport As New FrmDynamicReportViewer
 
             formReport.SetupReport("DataSet1", "STU_MS.rpStudentAlumni.rdlc", BindingSource1)
             obj.SendParam("paramSchoolName", obj.GetSchoolName(), formReport.ReportViewer)
+            obj.SendParam("paramProvince", obj.GetProvinceName(), formReport.ReportViewer)
             obj.SendParam("paramTeacherName", cboTeacher.Text, formReport.ReportViewer)
             obj.SendParam("paramCelebrationDate", dtDateCelebration.Text, formReport.ReportViewer)
             obj.SendParam("paramTotalKHR", txtAmountKHR.Text + " រៀល", formReport.ReportViewer)

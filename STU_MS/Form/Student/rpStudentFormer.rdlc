@@ -12,8 +12,8 @@
                 <Value>ព្រះរាជាណាចក្រកម្ពុជា</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS Muol Light</FontFamily>
-                  <FontSize>9pt</FontSize>
+                  <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -29,8 +29,8 @@
                 <Value>ជាតិ សាសនា ព្រះមហាក្សត្រ</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS Muol Light</FontFamily>
-                  <FontSize>9pt</FontSize>
+                  <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -43,8 +43,8 @@
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
         <Top>0.01857in</Top>
-        <Left>2.97663in</Left>
-        <Height>0.57292in</Height>
+        <Left>3.10163in</Left>
+        <Height>0.70834in</Height>
         <Width>2.04575in</Width>
         <Style>
           <Border>
@@ -66,21 +66,23 @@
                 <Value>បញ្ជីរាយនាមអតីតសិស្ស</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS Muol Light</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.70955in</Top>
+        <Top>0.89705in</Top>
         <Left>3.22663in</Left>
-        <Height>0.29676in</Height>
-        <Width>1.54294in</Width>
+        <Height>0.26551in</Height>
+        <Width>1.82452in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -102,21 +104,22 @@
                 <Value>=Sum(Microsoft.VisualBasic.Interaction.iif(Fields!GENDER.Value = "ស្រី", 1, 0))</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS Muol Light</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.70423in</Top>
-        <Left>7.04753in</Left>
-        <Height>0.24652in</Height>
-        <Width>0.25094in</Width>
+        <Top>0.93525in</Top>
+        <Left>7.16383in</Left>
+        <Height>0.26898in</Height>
+        <Width>0.38808in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -138,8 +141,7 @@
                 <Value>សិស្សសរុប</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -149,10 +151,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.70423in</Top>
-        <Left>5.39748in</Left>
-        <Height>0.24652in</Height>
-        <Width>0.75563in</Width>
+        <Top>0.93525in</Top>
+        <Left>5.22646in</Left>
+        <Height>0.26898in</Height>
+        <Width>0.75043in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -174,21 +176,22 @@
                 <Value>នាក់   ស្រី</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.70423in</Top>
-        <Left>6.43785in</Left>
-        <Height>0.24652in</Height>
-        <Width>0.54024in</Width>
+        <Top>0.93525in</Top>
+        <Left>6.40657in</Left>
+        <Height>0.26898in</Height>
+        <Width>0.71559in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -210,8 +213,7 @@
                 <Value>=Count(Fields!ROW_NUMBER.Value)</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS Muol Light</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -221,10 +223,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.70423in</Top>
-        <Left>6.11059in</Left>
-        <Height>0.24652in</Height>
-        <Width>0.32726in</Width>
+        <Top>0.93525in</Top>
+        <Left>6.02375in</Left>
+        <Height>0.26898in</Height>
+        <Width>0.34115in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -246,21 +248,22 @@
                 <Value>នាក់ </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.70423in</Top>
-        <Left>7.43735in</Left>
-        <Height>0.24652in</Height>
-        <Width>0.29642in</Width>
+        <Top>0.93525in</Top>
+        <Left>7.59358in</Left>
+        <Height>0.26898in</Height>
+        <Width>0.33364in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -282,8 +285,8 @@
                 <Value>ថ្ងៃ..........ខែ.............ឆ្នាំ........... ព.ស.........</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontFamily>Khmer</FontFamily>
+                  <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -297,8 +300,8 @@
                 <Value>ធ្វើនៅ............ថ្ងៃទី.........ខែ.........ឆ្នាំ ២០......</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer OS</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontFamily>Khmer</FontFamily>
+                  <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -308,10 +311,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>1.52042in</Top>
-        <Left>4.99654in</Left>
+        <Top>1.77389in</Top>
+        <Left>4.98351in</Left>
         <Height>0.51042in</Height>
-        <Width>2.73723in</Width>
+        <Width>3.07953in</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -338,8 +341,8 @@
                           <TextRun>
                             <Value>លរ</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -378,25 +381,25 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.07973cm</Width>
+              <Width>3.70343cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.10065cm</Width>
+              <Width>1.06289cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.93822cm</Width>
+              <Width>1.24442cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.84085cm</Width>
+              <Width>2.52589cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.70943cm</Width>
+              <Width>2.67167cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.42879cm</Width>
+              <Width>2.68207cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.49714cm</Width>
+              <Width>5.1798cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -415,7 +418,7 @@
                               <Value>=Fields!NAME.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -457,7 +460,7 @@
                               <Value>=Fields!GENDER.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -501,7 +504,7 @@
                               <Value>=Fields!BATCH.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -545,7 +548,7 @@
                               <Value>=Fields!FIRST_YEAR_STUDY.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -589,7 +592,7 @@
                               <Value>=Fields!FINISH_YEAR.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -633,7 +636,7 @@
                               <Value>=Fields!PHONE_NUMBER.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -677,7 +680,7 @@
                               <Value />
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -736,8 +739,8 @@
                           <TextRun>
                             <Value>គ្តោតនាម និងនាមខ្លួន</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -782,8 +785,8 @@
                           <TextRun>
                             <Value>ភេទ</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -827,8 +830,8 @@
                           <TextRun>
                             <Value>ជំនាន់</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -872,8 +875,8 @@
                           <TextRun>
                             <Value>ឆ្នាំសិក្សាដំបូង</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -917,8 +920,8 @@
                           <TextRun>
                             <Value>ឆ្នាំបញ្ចប់</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -962,8 +965,8 @@
                           <TextRun>
                             <Value>លេខទូរស័ព្ទ</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1007,8 +1010,8 @@
                           <TextRun>
                             <Value>ផ្សេងៗ</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1055,7 +1058,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>0.70818cm</Size>
+                <Size>1.0692cm</Size>
                 <CellContents>
                   <Textbox Name="ROW_NUMBER">
                     <CanGrow>true</CanGrow>
@@ -1067,7 +1070,7 @@
                             <Value>=Fields!ROW_NUMBER.Value</Value>
                             <Style>
                               <FontFamily>Khmer OS</FontFamily>
-                              <FontSize>8pt</FontSize>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1104,10 +1107,10 @@
         </TablixRowHierarchy>
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.55603cm</Top>
+        <Top>3.1293cm</Top>
         <Left>0.34078cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.30299cm</Width>
+        <Width>20.13935cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -1137,9 +1140,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.48385in</Top>
-        <Left>3.62594in</Left>
-        <Height>0.29676in</Height>
+        <Top>0.66093in</Top>
+        <Left>3.72222in</Left>
+        <Height>0.23612in</Height>
         <Width>0.72838in</Width>
         <ZIndex>9</ZIndex>
         <Style>
@@ -1161,7 +1164,7 @@
               <TextRun>
                 <Value>=Parameters!paramSchoolName.Value</Value>
                 <Style>
-                  <FontFamily>Khmer OS Muol Light</FontFamily>
+                  <FontFamily>Limon NU R1</FontFamily>
                   <FontSize>9pt</FontSize>
                 </Style>
               </TextRun>
@@ -1170,10 +1173,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.55843cm</Top>
+        <Top>1.44921cm</Top>
         <Left>0.34078cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.02917cm</Width>
+        <Height>0.65291cm</Height>
+        <Width>4.00343cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -1185,11 +1188,79 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!paramProvince.Value</Value>
+                <Style>
+                  <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.68165cm</Top>
+        <Left>1.13658cm</Left>
+        <Height>0.76756cm</Height>
+        <Width>4.47763cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ខេត្ត</Value>
+                <Style>
+                  <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.68165cm</Top>
+        <Left>0.34078cm</Left>
+        <Height>0.76756cm</Height>
+        <Width>0.72524cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.15833cm</Height>
+    <Height>5.90799cm</Height>
     <Style />
   </Body>
-  <Width>19.80852cm</Width>
+  <Width>20.78833cm</Width>
   <Page>
     <PageFooter>
       <Height>0.79403cm</Height>
@@ -1205,7 +1276,7 @@
                 <TextRun>
                   <Value>="ទំព័រទី " + Globals!PageNumber.ToString() + " នៃ " + Globals!TotalPages.ToString()</Value>
                   <Style>
-                    <FontFamily>Khmer OS</FontFamily>
+                    <FontFamily>Khmer</FontFamily>
                     <FontSize>7pt</FontSize>
                     <Color>DimGray</Color>
                   </Style>
@@ -1216,9 +1287,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0cm</Top>
-          <Left>15.57699cm</Left>
+          <Left>16.97928cm</Left>
           <Height>0.79403cm</Height>
-          <Width>2.96112cm</Width>
+          <Width>3.50085cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1272,10 +1343,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>0.5cm</LeftMargin>
-    <RightMargin>0.5cm</RightMargin>
+    <LeftMargin>0.1cm</LeftMargin>
+    <RightMargin>0.1cm</RightMargin>
     <TopMargin>1cm</TopMargin>
-    <BottomMargin>0.5cm</BottomMargin>
+    <BottomMargin>0.1cm</BottomMargin>
     <ColumnSpacing>1.27cm</ColumnSpacing>
     <Style />
   </Page>
@@ -1337,6 +1408,12 @@
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="paramSchoolName">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="paramProvince">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>

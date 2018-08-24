@@ -12,6 +12,7 @@
                 <Value>ព្រះរាជាណាចក្រកម្ពុជា</Value>
                 <Style>
                   <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -25,6 +26,7 @@
                 <Value>ជាតិ សាសនា ព្រះមហាក្សត្រ</Value>
                 <Style>
                   <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -36,7 +38,7 @@
         <rd:DefaultName>Textbox44</rd:DefaultName>
         <Top>0.01857in</Top>
         <Left>2.85163in</Left>
-        <Height>0.55263in</Height>
+        <Height>0.74317in</Height>
         <Width>2.04294in</Width>
         <Style>
           <Border>
@@ -59,19 +61,22 @@
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.83455in</Top>
-        <Left>2.93496in</Left>
-        <Height>0.29676in</Height>
-        <Width>1.95961in</Width>
+        <Top>1.0445in</Top>
+        <Left>2.80996in</Left>
+        <Height>0.37013in</Height>
+        <Width>2.23434in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -90,10 +95,10 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ថ្ងៃ.............ខែ.............ឆ្នាំ........... ព.ស...........</Value>
+                <Value>ថ្ងៃ......................ខែ.............ឆ្នាំ........... ព.ស...........</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -104,10 +109,10 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ធ្វើនៅ................ថ្ងៃទី..........ខែ..........ឆ្នាំ ២០........</Value>
+                <Value>ធ្វើនៅ..................ថ្ងៃទី..........ខែ..............ឆ្នាំ ២០.......</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -117,10 +122,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>2.1004in</Top>
-        <Left>4.55922in</Left>
+        <Top>2.45099in</Top>
+        <Left>4.67786in</Left>
         <Height>0.51042in</Height>
-        <Width>3.08647in</Width>
+        <Width>3.38338in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -148,7 +153,7 @@
                           <TextRun>
                             <Value>លរ</Value>
                             <Style>
-                              <FontFamily>Limon NU S1</FontFamily>
+                              <FontFamily>Khmer</FontFamily>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -188,19 +193,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.0935cm</Width>
+              <Width>4.05056cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.70409cm</Width>
+              <Width>3.09095cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.28032cm</Width>
+              <Width>3.98646cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.56899cm</Width>
+              <Width>4.06346cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.91855cm</Width>
+              <Width>3.97987cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -218,13 +223,13 @@
                             <TextRun>
                               <Value xml:space="preserve"> </Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!NAME.Value</Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -265,13 +270,13 @@
                             <TextRun>
                               <Value xml:space="preserve">  </Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!POSITION.Value</Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -314,13 +319,13 @@
                             <TextRun>
                               <Value xml:space="preserve"> </Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!SPONSOR_USD.Value</Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -363,13 +368,13 @@
                             <TextRun>
                               <Value xml:space="preserve"> </Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                             <TextRun>
                               <Value>=Fields!SPONSOR_KHR.Value</Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -412,7 +417,7 @@
                             <TextRun>
                               <Value>=Fields!REMARK.Value</Value>
                               <Style>
-                                <FontFamily>Limon NU S1</FontFamily>
+                                <FontFamily>Khmer</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -470,15 +475,9 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value xml:space="preserve"> </Value>
+                            <Value> គ្តោតនាម និងនាមខ្លួន</Value>
                             <Style>
-                              <FontFamily>Khmer OS</FontFamily>
-                            </Style>
-                          </TextRun>
-                          <TextRun>
-                            <Value>គ្តោតនាម និងនាមខ្លួន</Value>
-                            <Style>
-                              <FontFamily>Limon NU S1</FontFamily>
+                              <FontFamily>Khmer</FontFamily>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -526,7 +525,7 @@
                           <TextRun>
                             <Value>  មុខតំណែង</Value>
                             <Style>
-                              <FontFamily>Limon NU S1</FontFamily>
+                              <FontFamily>Khmer</FontFamily>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -573,7 +572,7 @@
                             <Value> ទឹកប្រាក់ឧបត្ថម (ដុល្លា)</Value>
                             <Style>
                               <FontStyle>Normal</FontStyle>
-                              <FontFamily>Limon NU S1</FontFamily>
+                              <FontFamily>Khmer</FontFamily>
                               <FontWeight>Normal</FontWeight>
                               <TextDecoration>None</TextDecoration>
                               <Color>#000000</Color>
@@ -623,7 +622,7 @@
                             <Value> ទឹកប្រាក់ឧបត្ថម (រៀល)</Value>
                             <Style>
                               <FontStyle>Normal</FontStyle>
-                              <FontFamily>Limon NU S1</FontFamily>
+                              <FontFamily>Khmer</FontFamily>
                               <FontWeight>Normal</FontWeight>
                               <TextDecoration>None</TextDecoration>
                               <Color>#000000</Color>
@@ -672,7 +671,7 @@
                           <TextRun>
                             <Value>ផ្សេងៗ</Value>
                             <Style>
-                              <FontFamily>Limon NU S1</FontFamily>
+                              <FontFamily>Khmer</FontFamily>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -720,7 +719,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>0.72195cm</Size>
+                <Size>0.96346cm</Size>
                 <CellContents>
                   <Textbox Name="ROW_NUMBER">
                     <CanGrow>true</CanGrow>
@@ -731,7 +730,7 @@
                           <TextRun>
                             <Value>=Fields!ROW_NUMBER.Value</Value>
                             <Style>
-                              <FontFamily>Limon NU S1</FontFamily>
+                              <FontFamily>Khmer</FontFamily>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -768,10 +767,10 @@
         </TablixRowHierarchy>
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
-        <Top>3.12048cm</Top>
-        <Left>0.13263cm</Left>
+        <Top>4.07298cm</Top>
+        <Left>0.34078cm</Left>
         <Height>1.36787cm</Height>
-        <Width>19.28742cm</Width>
+        <Width>20.13476cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -801,43 +800,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.60885in</Top>
+        <Top>0.73385in</Top>
         <Left>3.50094in</Left>
         <Height>0.29676in</Height>
         <Width>0.72838in</Width>
         <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!paramSchoolName.Value</Value>
-                <Style>
-                  <FontFamily>Limon NU R1</FontFamily>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.55843cm</Top>
-        <Left>0.34078cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.02917cm</Width>
-        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -857,7 +824,7 @@
               <TextRun>
                 <Value>ឈ្មោះគ្រូបង្រៀន :</Value>
                 <Style>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -865,11 +832,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.33482cm</Top>
-        <Left>0.34078cm</Left>
+        <Top>2.28732cm</Top>
+        <Left>0.36724cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.28834cm</Width>
-        <ZIndex>6</ZIndex>
+        <Width>3.12618cm</Width>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -889,7 +856,7 @@
               <TextRun>
                 <Value>=Parameters!paramTeacherName.Value</Value>
                 <Style>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -897,11 +864,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.33482cm</Top>
-        <Left>2.66439cm</Left>
+        <Top>2.28732cm</Top>
+        <Left>3.66981cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.02917cm</Width>
-        <ZIndex>7</ZIndex>
+        <Width>2.8175cm</Width>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -921,7 +888,7 @@
               <TextRun>
                 <Value>ថ្ងៃប្រារព្ធកម្មវិធី :</Value>
                 <Style>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -929,11 +896,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.95603cm</Top>
-        <Left>0.34078cm</Left>
+        <Top>2.99315cm</Top>
+        <Left>0.36724cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.28834cm</Width>
-        <ZIndex>8</ZIndex>
+        <Width>3.12618cm</Width>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -953,7 +920,7 @@
               <TextRun>
                 <Value>=Parameters!paramCelebrationDate.Value</Value>
                 <Style>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -961,11 +928,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.95603cm</Top>
-        <Left>2.62912cm</Left>
+        <Top>2.99315cm</Top>
+        <Left>3.66981cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.02917cm</Width>
-        <ZIndex>9</ZIndex>
+        <Width>2.8175cm</Width>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -983,10 +950,10 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>​​ទឹកប្រាក់សរុប :</Value>
+                <Value>​​  ទឹកប្រាក់សរុប :</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -996,11 +963,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>1.78096in</Top>
-        <Left>1.55437in</Left>
+        <Top>2.14543in</Top>
+        <Left>2.10819in</Left>
         <Height>0.25in</Height>
-        <Width>1.03683in</Width>
-        <ZIndex>10</ZIndex>
+        <Width>1.08313in</Width>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1021,7 +988,7 @@
                 <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -1030,7 +997,7 @@
                 <Value>=Parameters!paramTotalUSDD.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -1042,11 +1009,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>1.76707in</Top>
-        <Left>2.61897in</Left>
+        <Top>2.14543in</Top>
+        <Left>3.3251in</Left>
         <Height>0.26389in</Height>
-        <Width>1.29147in</Width>
-        <ZIndex>11</ZIndex>
+        <Width>1.56947in</Width>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1081,7 +1048,7 @@
                 <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -1090,7 +1057,7 @@
                 <Value>=Parameters!paramTotalKHR.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Limon NU S1</FontFamily>
+                  <FontFamily>Khmer</FontFamily>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
@@ -1102,11 +1069,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>1.76707in</Top>
-        <Left>3.91044in</Left>
-        <Height>0.26389in</Height>
-        <Width>1.40512in</Width>
-        <ZIndex>12</ZIndex>
+        <Top>2.14207in</Top>
+        <Left>4.89457in</Left>
+        <Height>0.26725in</Height>
+        <Width>1.59979in</Width>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1131,11 +1098,112 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!paramSchoolName.Value</Value>
+                <Style>
+                  <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.45802cm</Top>
+        <Left>0.36724cm</Left>
+        <Height>0.65291cm</Height>
+        <Width>4.00343cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!paramProvince.Value</Value>
+                <Style>
+                  <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.69046cm</Top>
+        <Left>1.16304cm</Left>
+        <Height>0.76756cm</Height>
+        <Width>4.47763cm</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox12">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ខេត្ត</Value>
+                <Style>
+                  <FontFamily>Limon NU R1</FontFamily>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.69046cm</Top>
+        <Left>0.36724cm</Left>
+        <Height>0.76756cm</Height>
+        <Width>0.72524cm</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>6.82939cm</Height>
+    <Height>7.60802cm</Height>
     <Style />
   </Body>
-  <Width>19.5cm</Width>
+  <Width>20.78833cm</Width>
   <Page>
     <PageFooter>
       <Height>0.82931cm</Height>
@@ -1151,7 +1219,7 @@
                 <TextRun>
                   <Value>="ទំព័រទី " + Globals!PageNumber.ToString() + " នៃ " + Globals!TotalPages.ToString()</Value>
                   <Style>
-                    <FontFamily>Limon NU S1</FontFamily>
+                    <FontFamily>Khmer</FontFamily>
                     <FontSize>8pt</FontSize>
                     <Color>DimGray</Color>
                   </Style>
@@ -1161,10 +1229,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0cm</Top>
-          <Left>16.45893cm</Left>
+          <Top>0.03528cm</Top>
+          <Left>17.01555cm</Left>
           <Height>0.79403cm</Height>
-          <Width>2.96112cm</Width>
+          <Width>2.32612cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1184,7 +1252,7 @@
                 <TextRun>
                   <Value>="កាលបរិច្ឆេទបោះពុម្ព: "&amp;Format(Now,"dd/MM/yyyy hh:mm tt")</Value>
                   <Style>
-                    <FontFamily>Limon NU S1</FontFamily>
+                    <FontFamily>Khmer</FontFamily>
                     <FontSize>8pt</FontSize>
                     <Color>DimGray</Color>
                   </Style>
@@ -1218,10 +1286,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>0.5cm</LeftMargin>
-    <RightMargin>0.5cm</RightMargin>
+    <LeftMargin>0.1cm</LeftMargin>
+    <RightMargin>0.1cm</RightMargin>
     <TopMargin>1cm</TopMargin>
-    <BottomMargin>0.5cm</BottomMargin>
+    <BottomMargin>0.1cm</BottomMargin>
     <ColumnSpacing>1.27cm</ColumnSpacing>
     <Style />
   </Page>
@@ -1303,6 +1371,12 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="paramTotalUSDD">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="paramProvince">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>
