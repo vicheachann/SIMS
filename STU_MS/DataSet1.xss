@@ -15,7 +15,7 @@
     <Shape ID="DesignTable:STU_STATISTIC" ZOrder="8" X="558" Y="41" Height="28" Width="181" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="425" SplitterPosition="24" />
     <Shape ID="DesignTable:STU_CLASS_MONITOR" ZOrder="7" X="561" Y="72" Height="28" Width="195" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="45" SplitterPosition="24" />
     <Shape ID="DesignTable:STU_CARD" ZOrder="6" X="367" Y="80" Height="28" Width="150" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="235" SplitterPosition="24" />
-    <Shape ID="DesignTable:dtStudentFormer" ZOrder="2" X="277" Y="176" Height="163" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
+    <Shape ID="DesignTable:dtStudentFormer" ZOrder="2" X="277" Y="176" Height="181" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="177" />
     <Shape ID="DesignTable:dtStudentAlumni" ZOrder="1" X="566" Y="220" Height="143" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="139" />
   </Shapes>
   <Connectors />

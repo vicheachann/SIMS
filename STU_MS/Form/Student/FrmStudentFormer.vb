@@ -709,13 +709,23 @@ Public Class FrmStudentFormer
 
     Private Sub lblPrintStudent_Click(sender As Object, e As EventArgs) Handles lblPrintStudent.Click
         Try
+            '---- This code we bind from dataGrid to dataset ---- 
+            'DataSet1.dtStudentFormer.Clear()
+            'Dim index As Integer = 1
+            'For i As Integer = 0 To dgMain.RowCount - 1
+            '    DataSet1.dtStudentFormer.Rows.Add(index, dgMain.Rows(i).Cells(3).Value.ToString, dgMain.Rows(i).Cells(5).Value.ToString, dgMain.Rows(i).Cells(15).Value.ToString, dgMain.Rows(i).Cells(11).Value.ToString, "", dgMain.Rows(i).Cells(7).Value.ToString)
+            '    index += 1
+            'Next
+
+            '------ This code we change bind from View server to dataset -------'
+            Call obj.OpenConnection()
+            Dim sql As String = "SELECT  * FROM dbo.V_STUDENT_FORMER_LIST"
+            cmd = New SqlCommand(sql, conn)
+            da = New SqlDataAdapter(cmd)
+
             DataSet1.dtStudentFormer.Clear()
-            Dim index As Integer = 1
-            For i As Integer = 0 To dgMain.RowCount - 1
-                DataSet1.dtStudentFormer.Rows.Add(index, dgMain.Rows(i).Cells(3).Value.ToString, dgMain.Rows(i).Cells(5).Value.ToString, dgMain.Rows(i).Cells(15).Value.ToString, dgMain.Rows(i).Cells(11).Value.ToString, "", dgMain.Rows(i).Cells(7).Value.ToString)
-                index += 1
-            Next
-            '  
+            da.Fill(DataSet1.dtStudentFormer)
+
             Dim formReport As New FrmDynamicReportViewer
 
             formReport.SetupReport("DataSet1", "STU_MS.rpStudentFormer.rdlc", BindingSource1)

@@ -62,6 +62,10 @@ Public Class FrmStudentAlumini
             cboSearchByYear_DropDown(sender, e)
             cboTeacher_DropDown(sender, e)
             Call BindDgSearch()
+
+            If (dgSearch.SelectedRows.Count = 0) Then
+                lblNew_Click(sender, e)
+            End If
         Catch ex As Exception
             _ExceptionMessage = ex.Message
             Call obj.ShowMsg("Loading error !", FrmMessageError, _ErrorSound)
