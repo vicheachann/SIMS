@@ -23,11 +23,11 @@ Public Class FrmStudentFormer
         Try
             If (Validation.IsEmpty(txtStuNameKh, "ឈ្មោះសិស្ស")) Then Exit Sub
 
-
-            Dim batchID As String = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = " & cboBatch.Text & "")
+            'Using this when allow null insert to database
+            'Using replaceNullWithZero function because BATCH field is int 
+            Dim batchID As String = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = " & obj.ReplaceNullWithZero(cboBatch.Text) & "")
             obj.Insert("INSERT INTO dbo.TBS_STUDENT_INFO_FORMER(STUDENT_ID_SCHOOL,STUDENT_CODE,SNAME_KH,SNAME_LATIN,GENDER,DOB,S_PHONE_LINE_1,S_PHONE_LINE_2,EMAIL_1,JOIN_SCHOOL_DATE,FIRST_YEAR_STUDY,[DESCRIPTION],BATCH_ID)VALUES(N'" & txtStuIDSchool.Text & "',N'" & txtStuCode.Text & "',N'" & txtStuNameKh.Text & "','" & txtStuNameEn.Text & "',N'" & cboStuGender.Text & "','" & dtStuDOB.Value & "',N'" & txtStuPhone1.Text & "',N'" & txtStuPhone2.Text & "',N'" & txtStuEmail.Text & "','" & dtStuJoinSchoolDate.Value & "',N'" & cboStuFirstYearStudy.Text & "',N'" & txtStuRemark.Text & "'," & batchID & ")")
             Call SelectStudent()
-
         Catch ex As Exception
             obj.ShowMsg("មិនអាចបញ្ចូលព័ត៌មានបាន", FrmMessageError, "Error.wav")
         End Try
@@ -247,6 +247,7 @@ Public Class FrmStudentFormer
 
                 obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, _ShowMessageSound)
                 If USER_CLICK_OK = True Then
+
                     If (Validation.IsEmpty(txtStuNameKh, "ឈ្មោះសិស្ស")) Then Exit Sub
 
                     idx = dgMain.SelectedCells(0).RowIndex.ToString()
@@ -309,7 +310,7 @@ Public Class FrmStudentFormer
                 Dim motherOcuppationID As String = obj.GetID("SELECT OCCUPATION_ID FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_KH = N'" & cboMotherOccupation.Text & "'")
                 Dim guaOccupationID As String = obj.GetID("SELECT OCCUPATION_ID FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_KH = N'" & cboGuaOccupation.Text & "'")
 
-                Call obj.Update_1("UPDATE dbo.TBS_STUDENT_INFO_FORMER SET FATHER_NAME = N'" & txtFatherName.Text & "',FATHER_OCCUPATION_ID= " & fatherOcuppcationID & ",FATHER_PHONE_LINE_1= N'" & txtFatherPhone1.Text & "',FATHER_PHONE_LINE_2= N'" & txtFatherPhone2.Text & "',MOTHER_NAME= N'" & txtMotherName.Text & "',MOTHER_OCCUPATION_ID = " & motherOcuppationID & ",MOTHER_PHONE_LINE_1= N'" & txtMotherPhone1.Text & "',MOTHER_PHONE_LINE_2= N'" & txtMotherPhone2.Text & "',GUARDIAN_NAME= N'" & txtGuaName.Text & "',GUARDIAN_OCCUPATION_ID= " & guaOccupationID & ",GUARDIAN_PHONE_LINE_1= N'" & txtGuaPhone1.Text & "',GUARDIAN_PHONE_LINE_2= N'" & txtGuaPhone2.Text & "' WHERE STUDENT_ID = " & dgMain.SelectedRows(0).Cells(0).Value & "")
+                Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO_FORMER SET FATHER_NAME = N'" & txtFatherName.Text & "',FATHER_OCCUPATION_ID= " & fatherOcuppcationID & ",FATHER_PHONE_LINE_1= N'" & txtFatherPhone1.Text & "',FATHER_PHONE_LINE_2= N'" & txtFatherPhone2.Text & "',MOTHER_NAME= N'" & txtMotherName.Text & "',MOTHER_OCCUPATION_ID = " & motherOcuppationID & ",MOTHER_PHONE_LINE_1= N'" & txtMotherPhone1.Text & "',MOTHER_PHONE_LINE_2= N'" & txtMotherPhone2.Text & "',GUARDIAN_NAME= N'" & txtGuaName.Text & "',GUARDIAN_OCCUPATION_ID= " & guaOccupationID & ",GUARDIAN_PHONE_LINE_1= N'" & txtGuaPhone1.Text & "',GUARDIAN_PHONE_LINE_2= N'" & txtGuaPhone2.Text & "' WHERE STUDENT_ID = " & dgMain.SelectedRows(0).Cells(0).Value & "")
 
                 If (lblParentSave.Text = "រក្សាទុក") Then
                     obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
@@ -480,7 +481,7 @@ Public Class FrmStudentFormer
                     USER_CLICK_OK = False
                 End If
             ElseIf lblAddressSave.Text = "រក្សាទុក" Then
-                Call obj.Update_1(sql)
+                Call obj.UpdateNoMsg(sql)
                 obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
                 Call SelectStudent()
                 dgMain.Rows(idx).Selected = True

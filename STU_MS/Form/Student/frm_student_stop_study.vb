@@ -112,7 +112,7 @@ Public Class frm_student_stop_study
             End If
 
             obj.Insert("INSERT INTO dbo.TBS_STUDENT_STOP_STUDY (STUDENT_ID,STUDENT_STOP_REASON_ID,[DESCRIPTION],DATE_STOP,YEAR_STUDY,CLASS_STOP,DATE_NOTE,FLAGE)VALUES(" & cboStudentName.SelectedValue & "," & cboReason.SelectedValue & ",N'" & txt_des.Text & "','" & dtDateStop.Text & "',N'" & cbo_year_study.Text & "',N'" & cbo_class_stop.Text & "',GETDATE(),1)")
-            obj.Update_1("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 4  WHERE STUDENT_ID = " & cboStudentName.SelectedValue & "")
+            obj.UpdateNoMsg("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 4  WHERE STUDENT_ID = " & cboStudentName.SelectedValue & "")
             Call Selection()
         Catch ex As Exception
             _ExceptionMessage = ex.Message
@@ -241,7 +241,7 @@ Public Class frm_student_stop_study
             obj.ShowMsg("តើអ្នកចង់លុបព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, "")
             If USER_CLICK_OK = True Then
                 obj.Delete("DELETE from dbo.TBS_STUDENT_STOP_STUDY WHERE RECORD_ID = " & txtRecordID.Text & "")
-                obj.Update_1("UPDATE  dbo.TBS_STUDENT_INFO Set STUDENT_STATUS_ID = 1  WHERE STUDENT_ID = " & dgMain.SelectedCells(2).Value & "")
+                obj.UpdateNoMsg("UPDATE  dbo.TBS_STUDENT_INFO Set STUDENT_STATUS_ID = 1  WHERE STUDENT_ID = " & dgMain.SelectedCells(2).Value & "")
                 Call Selection()
                 Call PreInsertSelection()
                 USER_CLICK_OK = False

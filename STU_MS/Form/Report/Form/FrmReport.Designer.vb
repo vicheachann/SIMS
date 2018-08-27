@@ -31,22 +31,23 @@ Partial Class FrmReport
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
         Me.PanelEx4 = New DevComponents.DotNetBar.PanelEx()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ListReport = New System.Windows.Forms.ListBox()
-        Me.ReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
-        Me.pnlStuList = New System.Windows.Forms.Panel()
+        Me.pnlYearStudyAndClass = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.cboStuList_class = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboStuList_year = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.pnlYearStudy = New System.Windows.Forms.Panel()
-        Me.cboYearStudy = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ListReport = New System.Windows.Forms.ListBox()
+        Me.ReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
+        Me.pnlViewButton = New System.Windows.Forms.Panel()
         Me.lblView = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pnlYearStudy = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cboYearStudy = New System.Windows.Forms.ComboBox()
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.TeacherMeetingAbsence_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.V_STUDENT_LIST_ALL_STATUS_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.bsStudentList = New System.Windows.Forms.BindingSource(Me.components)
         Me.V_TEACHER_LIST_ALL_STATUS_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs = New System.Windows.Forms.BindingSource(Me.components)
         Me.PanelEx2.SuspendLayout()
@@ -55,13 +56,14 @@ Partial Class FrmReport
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx1.SuspendLayout()
         Me.PanelEx4.SuspendLayout()
+        Me.pnlYearStudyAndClass.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
-        Me.pnlStuList.SuspendLayout()
-        Me.pnlYearStudy.SuspendLayout()
+        Me.pnlViewButton.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlYearStudy.SuspendLayout()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TeacherMeetingAbsence_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.V_STUDENT_LIST_ALL_STATUS_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.V_TEACHER_LIST_ALL_STATUS_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -123,11 +125,11 @@ Partial Class FrmReport
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Khmer OS Muol Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(44, 3)
+        Me.Label1.Location = New System.Drawing.Point(46, 7)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(126, 38)
+        Me.Label1.Size = New System.Drawing.Size(114, 29)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "របាយការណ៍"
         '
@@ -136,6 +138,7 @@ Partial Class FrmReport
         Me.PanelEx1.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.PanelEx1.Controls.Add(Me.PanelEx4)
+        Me.PanelEx1.Controls.Add(Me.pnlYearStudyAndClass)
         Me.PanelEx1.Controls.Add(Me.ListReport)
         Me.PanelEx1.Controls.Add(Me.ReportViewer)
         Me.PanelEx1.Controls.Add(Me.PanelEx3)
@@ -181,35 +184,123 @@ Partial Class FrmReport
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Design by Smart Business Software Solution"
         '
+        'pnlYearStudyAndClass
+        '
+        Me.pnlYearStudyAndClass.CanvasColor = System.Drawing.SystemColors.Control
+        Me.pnlYearStudyAndClass.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.pnlYearStudyAndClass.Controls.Add(Me.Label4)
+        Me.pnlYearStudyAndClass.Controls.Add(Me.cboStuList_class)
+        Me.pnlYearStudyAndClass.Controls.Add(Me.Label5)
+        Me.pnlYearStudyAndClass.Controls.Add(Me.cboStuList_year)
+        Me.pnlYearStudyAndClass.Location = New System.Drawing.Point(283, 9)
+        Me.pnlYearStudyAndClass.Name = "pnlYearStudyAndClass"
+        Me.pnlYearStudyAndClass.Size = New System.Drawing.Size(362, 49)
+        '
+        '
+        '
+        Me.pnlYearStudyAndClass.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlYearStudyAndClass.Style.BackColorGradientAngle = 90
+        Me.pnlYearStudyAndClass.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.pnlYearStudyAndClass.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudyAndClass.Style.BorderBottomWidth = 1
+        Me.pnlYearStudyAndClass.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.pnlYearStudyAndClass.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudyAndClass.Style.BorderLeftWidth = 1
+        Me.pnlYearStudyAndClass.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudyAndClass.Style.BorderRightWidth = 1
+        Me.pnlYearStudyAndClass.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudyAndClass.Style.BorderTopWidth = 1
+        Me.pnlYearStudyAndClass.Style.Class = ""
+        Me.pnlYearStudyAndClass.Style.CornerDiameter = 4
+        Me.pnlYearStudyAndClass.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.pnlYearStudyAndClass.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.pnlYearStudyAndClass.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.pnlYearStudyAndClass.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.pnlYearStudyAndClass.StyleMouseDown.Class = ""
+        Me.pnlYearStudyAndClass.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.pnlYearStudyAndClass.StyleMouseOver.Class = ""
+        Me.pnlYearStudyAndClass.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.pnlYearStudyAndClass.TabIndex = 345
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label4.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label4.Location = New System.Drawing.Point(0, 4)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(79, 34)
+        Me.Label4.TabIndex = 302
+        Me.Label4.Text = "ឆ្នាំសិក្សា"
+        '
+        'cboStuList_class
+        '
+        Me.cboStuList_class.DropDownHeight = 135
+        Me.cboStuList_class.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.cboStuList_class.FormattingEnabled = True
+        Me.cboStuList_class.IntegralHeight = False
+        Me.cboStuList_class.Location = New System.Drawing.Point(242, 2)
+        Me.cboStuList_class.Name = "cboStuList_class"
+        Me.cboStuList_class.Size = New System.Drawing.Size(103, 38)
+        Me.cboStuList_class.TabIndex = 303
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label5.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label5.Location = New System.Drawing.Point(193, 3)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(47, 34)
+        Me.Label5.TabIndex = 304
+        Me.Label5.Text = "ថ្នាក់"
+        '
+        'cboStuList_year
+        '
+        Me.cboStuList_year.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.cboStuList_year.FormattingEnabled = True
+        Me.cboStuList_year.Location = New System.Drawing.Point(85, 2)
+        Me.cboStuList_year.Name = "cboStuList_year"
+        Me.cboStuList_year.Size = New System.Drawing.Size(103, 38)
+        Me.cboStuList_year.TabIndex = 301
+        '
         'ListReport
         '
-        Me.ListReport.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListReport.Font = New System.Drawing.Font("Khmer", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListReport.FormattingEnabled = True
-        Me.ListReport.ItemHeight = 30
+        Me.ListReport.ItemHeight = 26
         Me.ListReport.Items.AddRange(New Object() {"Report1", "Report2", "Report3"})
-        Me.ListReport.Location = New System.Drawing.Point(5, 62)
+        Me.ListReport.Location = New System.Drawing.Point(5, 88)
         Me.ListReport.Name = "ListReport"
-        Me.ListReport.Size = New System.Drawing.Size(265, 634)
+        Me.ListReport.Size = New System.Drawing.Size(265, 602)
         Me.ListReport.TabIndex = 169
         '
         'ReportViewer
         '
-        Me.ReportViewer.Location = New System.Drawing.Point(276, 61)
+        Me.ReportViewer.Location = New System.Drawing.Point(276, 88)
         Me.ReportViewer.Name = "ReportViewer"
-        Me.ReportViewer.Size = New System.Drawing.Size(1082, 635)
+        Me.ReportViewer.Size = New System.Drawing.Size(1082, 608)
         Me.ReportViewer.TabIndex = 2
         '
         'PanelEx3
         '
         Me.PanelEx3.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx3.Controls.Add(Me.pnlStuList)
+        Me.PanelEx3.Controls.Add(Me.pnlViewButton)
         Me.PanelEx3.Controls.Add(Me.pnlYearStudy)
-        Me.PanelEx3.Controls.Add(Me.PictureBox1)
-        Me.PanelEx3.Controls.Add(Me.lblView)
         Me.PanelEx3.Location = New System.Drawing.Point(3, 2)
         Me.PanelEx3.Name = "PanelEx3"
-        Me.PanelEx3.Size = New System.Drawing.Size(1355, 53)
+        Me.PanelEx3.Size = New System.Drawing.Size(1355, 61)
         Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx3.Style.BackColor2.Color = System.Drawing.Color.LightSteelBlue
@@ -220,81 +311,79 @@ Partial Class FrmReport
         Me.PanelEx3.Style.GradientAngle = 90
         Me.PanelEx3.TabIndex = 0
         '
-        'pnlStuList
+        'pnlViewButton
         '
-        Me.pnlStuList.Controls.Add(Me.cboStuList_class)
-        Me.pnlStuList.Controls.Add(Me.Label5)
-        Me.pnlStuList.Controls.Add(Me.cboStuList_year)
-        Me.pnlStuList.Controls.Add(Me.Label4)
-        Me.pnlStuList.Location = New System.Drawing.Point(224, 3)
-        Me.pnlStuList.Name = "pnlStuList"
-        Me.pnlStuList.Size = New System.Drawing.Size(404, 47)
-        Me.pnlStuList.TabIndex = 305
-        Me.pnlStuList.Visible = False
+        Me.pnlViewButton.Controls.Add(Me.lblView)
+        Me.pnlViewButton.Controls.Add(Me.PictureBox1)
+        Me.pnlViewButton.Location = New System.Drawing.Point(647, 6)
+        Me.pnlViewButton.Name = "pnlViewButton"
+        Me.pnlViewButton.Size = New System.Drawing.Size(108, 49)
+        Me.pnlViewButton.TabIndex = 347
         '
-        'cboStuList_class
+        'lblView
         '
-        Me.cboStuList_class.DropDownHeight = 135
-        Me.cboStuList_class.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.cboStuList_class.FormattingEnabled = True
-        Me.cboStuList_class.IntegralHeight = False
-        Me.cboStuList_class.Location = New System.Drawing.Point(267, 4)
-        Me.cboStuList_class.Name = "cboStuList_class"
-        Me.cboStuList_class.Size = New System.Drawing.Size(128, 38)
-        Me.cboStuList_class.TabIndex = 303
+        Me.lblView.AutoSize = True
+        Me.lblView.BackColor = System.Drawing.Color.Transparent
+        Me.lblView.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblView.Font = New System.Drawing.Font("Khmer OS", 12.75!)
+        Me.lblView.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblView.Location = New System.Drawing.Point(49, 7)
+        Me.lblView.Name = "lblView"
+        Me.lblView.Size = New System.Drawing.Size(53, 34)
+        Me.lblView.TabIndex = 303
+        Me.lblView.Text = "មើល"
         '
-        'Label5
+        'PictureBox1
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label5.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(218, 6)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(47, 34)
-        Me.Label5.TabIndex = 304
-        Me.Label5.Text = "ថ្នាក់"
-        '
-        'cboStuList_year
-        '
-        Me.cboStuList_year.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.cboStuList_year.FormattingEnabled = True
-        Me.cboStuList_year.Location = New System.Drawing.Point(79, 4)
-        Me.cboStuList_year.Name = "cboStuList_year"
-        Me.cboStuList_year.Size = New System.Drawing.Size(128, 38)
-        Me.cboStuList_year.TabIndex = 301
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label4.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(3, 6)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(79, 34)
-        Me.Label4.TabIndex = 302
-        Me.Label4.Text = "ឆ្នាំសិក្សា"
+        Me.PictureBox1.Image = Global.STU_MS.My.Resources.Resources.icons8_view_48
+        Me.PictureBox1.Location = New System.Drawing.Point(9, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(39, 35)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 306
+        Me.PictureBox1.TabStop = False
         '
         'pnlYearStudy
         '
-        Me.pnlYearStudy.Controls.Add(Me.cboYearStudy)
+        Me.pnlYearStudy.CanvasColor = System.Drawing.SystemColors.Control
+        Me.pnlYearStudy.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
         Me.pnlYearStudy.Controls.Add(Me.Label2)
-        Me.pnlYearStudy.Location = New System.Drawing.Point(223, 2)
+        Me.pnlYearStudy.Controls.Add(Me.cboYearStudy)
+        Me.pnlYearStudy.Location = New System.Drawing.Point(279, 6)
         Me.pnlYearStudy.Name = "pnlYearStudy"
-        Me.pnlYearStudy.Size = New System.Drawing.Size(214, 47)
-        Me.pnlYearStudy.TabIndex = 304
+        Me.pnlYearStudy.Size = New System.Drawing.Size(203, 49)
         '
-        'cboYearStudy
         '
-        Me.cboYearStudy.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.cboYearStudy.FormattingEnabled = True
-        Me.cboYearStudy.Location = New System.Drawing.Point(79, 4)
-        Me.cboYearStudy.Name = "cboYearStudy"
-        Me.cboYearStudy.Size = New System.Drawing.Size(128, 38)
-        Me.cboYearStudy.TabIndex = 301
+        '
+        Me.pnlYearStudy.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlYearStudy.Style.BackColorGradientAngle = 90
+        Me.pnlYearStudy.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.pnlYearStudy.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudy.Style.BorderBottomWidth = 1
+        Me.pnlYearStudy.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.pnlYearStudy.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudy.Style.BorderLeftWidth = 1
+        Me.pnlYearStudy.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudy.Style.BorderRightWidth = 1
+        Me.pnlYearStudy.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudy.Style.BorderTopWidth = 1
+        Me.pnlYearStudy.Style.Class = ""
+        Me.pnlYearStudy.Style.CornerDiameter = 4
+        Me.pnlYearStudy.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.pnlYearStudy.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.pnlYearStudy.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.pnlYearStudy.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.pnlYearStudy.StyleMouseDown.Class = ""
+        Me.pnlYearStudy.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.pnlYearStudy.StyleMouseOver.Class = ""
+        Me.pnlYearStudy.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.pnlYearStudy.TabIndex = 346
         '
         'Label2
         '
@@ -303,34 +392,20 @@ Partial Class FrmReport
         Me.Label2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label2.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(3, 6)
+        Me.Label2.Location = New System.Drawing.Point(3, 3)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(79, 34)
         Me.Label2.TabIndex = 302
         Me.Label2.Text = "ឆ្នាំសិក្សា"
         '
-        'PictureBox1
+        'cboYearStudy
         '
-        Me.PictureBox1.Image = Global.STU_MS.My.Resources.Resources.icons8_view_48
-        Me.PictureBox1.Location = New System.Drawing.Point(14, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(39, 35)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 306
-        Me.PictureBox1.TabStop = False
-        '
-        'lblView
-        '
-        Me.lblView.AutoSize = True
-        Me.lblView.BackColor = System.Drawing.Color.Transparent
-        Me.lblView.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblView.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblView.ForeColor = System.Drawing.Color.Blue
-        Me.lblView.Location = New System.Drawing.Point(59, 8)
-        Me.lblView.Name = "lblView"
-        Me.lblView.Size = New System.Drawing.Size(148, 34)
-        Me.lblView.TabIndex = 303
-        Me.lblView.Text = "មើលរបាយការណ៏"
+        Me.cboYearStudy.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.cboYearStudy.FormattingEnabled = True
+        Me.cboYearStudy.Location = New System.Drawing.Point(88, 2)
+        Me.cboYearStudy.Name = "cboYearStudy"
+        Me.cboYearStudy.Size = New System.Drawing.Size(103, 38)
+        Me.cboYearStudy.TabIndex = 301
         '
         'DataSet1
         '
@@ -342,10 +417,10 @@ Partial Class FrmReport
         Me.TeacherMeetingAbsence_BindingSource.DataMember = "dtTeacherMeetingAbsence"
         Me.TeacherMeetingAbsence_BindingSource.DataSource = Me.DataSet1
         '
-        'V_STUDENT_LIST_ALL_STATUS_BindingSource
+        'bsStudentList
         '
-        Me.V_STUDENT_LIST_ALL_STATUS_BindingSource.DataMember = "V_STUDENT_LIST_ALL_STATUS"
-        Me.V_STUDENT_LIST_ALL_STATUS_BindingSource.DataSource = Me.DataSet1
+        Me.bsStudentList.DataMember = "dtStudent"
+        Me.bsStudentList.DataSource = Me.DataSet1
         '
         'V_TEACHER_LIST_ALL_STATUS_BindingSource
         '
@@ -379,16 +454,17 @@ Partial Class FrmReport
         Me.PanelEx1.ResumeLayout(False)
         Me.PanelEx4.ResumeLayout(False)
         Me.PanelEx4.PerformLayout()
+        Me.pnlYearStudyAndClass.ResumeLayout(False)
+        Me.pnlYearStudyAndClass.PerformLayout()
         Me.PanelEx3.ResumeLayout(False)
-        Me.PanelEx3.PerformLayout()
-        Me.pnlStuList.ResumeLayout(False)
-        Me.pnlStuList.PerformLayout()
+        Me.pnlViewButton.ResumeLayout(False)
+        Me.pnlViewButton.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlYearStudy.ResumeLayout(False)
         Me.pnlYearStudy.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TeacherMeetingAbsence_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.V_STUDENT_LIST_ALL_STATUS_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.V_TEACHER_LIST_ALL_STATUS_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -410,14 +486,15 @@ Partial Class FrmReport
     Friend WithEvents PanelEx4 As DevComponents.DotNetBar.PanelEx
     Friend WithEvents Label3 As Label
     Friend WithEvents lblView As Label
-    Friend WithEvents pnlYearStudy As Panel
-    Friend WithEvents pnlStuList As Panel
     Friend WithEvents cboStuList_class As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents cboStuList_year As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents V_STUDENT_LIST_ALL_STATUS_BindingSource As BindingSource
+    Friend WithEvents bsStudentList As BindingSource
     Friend WithEvents V_TEACHER_LIST_ALL_STATUS_BindingSource As BindingSource
     Friend WithEvents V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs As BindingSource
+    Friend WithEvents pnlYearStudyAndClass As DevComponents.DotNetBar.Controls.GroupPanel
+    Friend WithEvents pnlYearStudy As DevComponents.DotNetBar.Controls.GroupPanel
+    Friend WithEvents pnlViewButton As Panel
 End Class

@@ -23,8 +23,8 @@ Partial Class FrmStudentAlumini
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
@@ -56,15 +56,19 @@ Partial Class FrmStudentAlumini
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlSearch = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.picSearch = New System.Windows.Forms.PictureBox()
+        Me.cbAll = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtAdvancedSearch = New System.Windows.Forms.TextBox()
         Me.lblPrint = New System.Windows.Forms.Label()
         Me.cboTeacher = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.dgSearch = New System.Windows.Forms.DataGridView()
+        Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.cbAllSearch = New System.Windows.Forms.CheckBox()
         Me.cboSearchByYear = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.dgSearch = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtDateNote = New System.Windows.Forms.DateTimePicker()
@@ -93,16 +97,14 @@ Partial Class FrmStudentAlumini
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.picSearch = New System.Windows.Forms.PictureBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelEx1.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
         Me.GroupPanel1.SuspendLayout()
         CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlSearch.SuspendLayout()
+        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel2.SuspendLayout()
+        Me.GroupPanel3.SuspendLayout()
         CType(Me.dgSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelAdvSearch.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,8 +114,6 @@ Partial Class FrmStudentAlumini
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelEx1
@@ -438,8 +438,8 @@ Partial Class FrmStudentAlumini
         Me.dgDetail.Name = "dgDetail"
         Me.dgDetail.RowHeadersVisible = False
         Me.dgDetail.RowHeadersWidth = 100
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgDetail.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgDetail.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dgDetail.RowTemplate.Height = 25
         Me.dgDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgDetail.Size = New System.Drawing.Size(1248, 270)
@@ -513,7 +513,7 @@ Partial Class FrmStudentAlumini
         Me.pnlSearch.CanvasColor = System.Drawing.SystemColors.Control
         Me.pnlSearch.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
         Me.pnlSearch.Controls.Add(Me.picSearch)
-        Me.pnlSearch.Controls.Add(Me.CheckBox1)
+        Me.pnlSearch.Controls.Add(Me.cbAll)
         Me.pnlSearch.Controls.Add(Me.Label8)
         Me.pnlSearch.Controls.Add(Me.txtAdvancedSearch)
         Me.pnlSearch.Location = New System.Drawing.Point(279, 6)
@@ -552,17 +552,29 @@ Partial Class FrmStudentAlumini
         Me.pnlSearch.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.pnlSearch.TabIndex = 344
         '
-        'CheckBox1
+        'picSearch
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.ForeColor = System.Drawing.Color.Blue
-        Me.CheckBox1.Location = New System.Drawing.Point(489, 6)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(94, 36)
-        Me.CheckBox1.TabIndex = 348
-        Me.CheckBox1.Text = "ទាំងអស់"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.picSearch.BackColor = System.Drawing.Color.White
+        Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.Search_42342
+        Me.picSearch.Location = New System.Drawing.Point(273, 7)
+        Me.picSearch.Name = "picSearch"
+        Me.picSearch.Size = New System.Drawing.Size(33, 30)
+        Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picSearch.TabIndex = 347
+        Me.picSearch.TabStop = False
+        '
+        'cbAll
+        '
+        Me.cbAll.AutoSize = True
+        Me.cbAll.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAll.ForeColor = System.Drawing.Color.Blue
+        Me.cbAll.Location = New System.Drawing.Point(489, 6)
+        Me.cbAll.Name = "cbAll"
+        Me.cbAll.Size = New System.Drawing.Size(94, 36)
+        Me.cbAll.TabIndex = 348
+        Me.cbAll.Text = "ទាំងអស់"
+        Me.cbAll.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -663,33 +675,59 @@ Partial Class FrmStudentAlumini
         Me.GroupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel2.TabIndex = 345
         '
-        'dgSearch
+        'GroupPanel3
         '
-        Me.dgSearch.AllowUserToAddRows = False
-        Me.dgSearch.AllowUserToDeleteRows = False
-        Me.dgSearch.AllowUserToResizeColumns = False
-        Me.dgSearch.AllowUserToResizeRows = False
-        Me.dgSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgSearch.BackgroundColor = System.Drawing.Color.White
-        Me.dgSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgSearch.Location = New System.Drawing.Point(5, 87)
-        Me.dgSearch.MultiSelect = False
-        Me.dgSearch.Name = "dgSearch"
-        Me.dgSearch.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgSearch.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgSearch.RowHeadersVisible = False
-        Me.dgSearch.RowTemplate.Height = 25
-        Me.dgSearch.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgSearch.Size = New System.Drawing.Size(181, 140)
-        Me.dgSearch.TabIndex = 341
+        Me.GroupPanel3.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel3.Controls.Add(Me.cbAllSearch)
+        Me.GroupPanel3.Controls.Add(Me.cboSearchByYear)
+        Me.GroupPanel3.Location = New System.Drawing.Point(5, 34)
+        Me.GroupPanel3.Name = "GroupPanel3"
+        Me.GroupPanel3.Size = New System.Drawing.Size(181, 51)
+        '
+        '
+        '
+        Me.GroupPanel3.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GroupPanel3.Style.BackColorGradientAngle = 90
+        Me.GroupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.GroupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel3.Style.BorderBottomWidth = 1
+        Me.GroupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.GroupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel3.Style.BorderLeftWidth = 1
+        Me.GroupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel3.Style.BorderRightWidth = 1
+        Me.GroupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel3.Style.BorderTopWidth = 1
+        Me.GroupPanel3.Style.Class = ""
+        Me.GroupPanel3.Style.CornerDiameter = 4
+        Me.GroupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.GroupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanel3.StyleMouseDown.Class = ""
+        Me.GroupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanel3.StyleMouseOver.Class = ""
+        Me.GroupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanel3.TabIndex = 349
+        '
+        'cbAllSearch
+        '
+        Me.cbAllSearch.AutoSize = True
+        Me.cbAllSearch.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAllSearch.ForeColor = System.Drawing.Color.Blue
+        Me.cbAllSearch.Location = New System.Drawing.Point(78, 6)
+        Me.cbAllSearch.Name = "cbAllSearch"
+        Me.cbAllSearch.Size = New System.Drawing.Size(94, 36)
+        Me.cbAllSearch.TabIndex = 349
+        Me.cbAllSearch.Text = "ទាំងអស់"
+        Me.cbAllSearch.UseVisualStyleBackColor = True
         '
         'cboSearchByYear
         '
@@ -706,6 +744,46 @@ Partial Class FrmStudentAlumini
         Me.cboSearchByYear.TabIndex = 11
         Me.cboSearchByYear.Text = "2018"
         Me.cboSearchByYear.ValueMember = "PU_ID"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Blue
+        Me.Label4.Location = New System.Drawing.Point(3, 2)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(183, 32)
+        Me.Label4.TabIndex = 336
+        Me.Label4.Text = "ស្វែងរកតាមកាលបរិច្ខេទ"
+        '
+        'dgSearch
+        '
+        Me.dgSearch.AllowUserToAddRows = False
+        Me.dgSearch.AllowUserToDeleteRows = False
+        Me.dgSearch.AllowUserToResizeColumns = False
+        Me.dgSearch.AllowUserToResizeRows = False
+        Me.dgSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgSearch.BackgroundColor = System.Drawing.Color.White
+        Me.dgSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgSearch.Location = New System.Drawing.Point(5, 87)
+        Me.dgSearch.MultiSelect = False
+        Me.dgSearch.Name = "dgSearch"
+        Me.dgSearch.ReadOnly = True
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgSearch.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.dgSearch.RowHeadersVisible = False
+        Me.dgSearch.RowTemplate.Height = 25
+        Me.dgSearch.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgSearch.Size = New System.Drawing.Size(181, 140)
+        Me.dgSearch.TabIndex = 341
         '
         'Label2
         '
@@ -1027,84 +1105,6 @@ Partial Class FrmStudentAlumini
         Me.BindingSource1.DataMember = "dtStudentAlumni"
         Me.BindingSource1.DataSource = Me.DataSet1
         '
-        'picSearch
-        '
-        Me.picSearch.BackColor = System.Drawing.Color.White
-        Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.Search_42342
-        Me.picSearch.Location = New System.Drawing.Point(273, 7)
-        Me.picSearch.Name = "picSearch"
-        Me.picSearch.Size = New System.Drawing.Size(33, 30)
-        Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picSearch.TabIndex = 347
-        Me.picSearch.TabStop = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Blue
-        Me.Label4.Location = New System.Drawing.Point(3, 2)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(183, 32)
-        Me.Label4.TabIndex = 336
-        Me.Label4.Text = "ស្វែងរកតាមកាលបរិច្ខេទ"
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.ForeColor = System.Drawing.Color.Blue
-        Me.CheckBox2.Location = New System.Drawing.Point(78, 6)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(94, 36)
-        Me.CheckBox2.TabIndex = 349
-        Me.CheckBox2.Text = "ទាំងអស់"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'GroupPanel3
-        '
-        Me.GroupPanel3.CanvasColor = System.Drawing.SystemColors.Control
-        Me.GroupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanel3.Controls.Add(Me.CheckBox2)
-        Me.GroupPanel3.Controls.Add(Me.cboSearchByYear)
-        Me.GroupPanel3.Location = New System.Drawing.Point(5, 34)
-        Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(181, 51)
-        '
-        '
-        '
-        Me.GroupPanel3.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.GroupPanel3.Style.BackColorGradientAngle = 90
-        Me.GroupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.GroupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel3.Style.BorderBottomWidth = 1
-        Me.GroupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.GroupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel3.Style.BorderLeftWidth = 1
-        Me.GroupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel3.Style.BorderRightWidth = 1
-        Me.GroupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel3.Style.BorderTopWidth = 1
-        Me.GroupPanel3.Style.Class = ""
-        Me.GroupPanel3.Style.CornerDiameter = 4
-        Me.GroupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.GroupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanel3.StyleMouseDown.Class = ""
-        Me.GroupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanel3.StyleMouseOver.Class = ""
-        Me.GroupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanel3.TabIndex = 349
-        '
         'FrmStudentAlumini
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1123,8 +1123,11 @@ Partial Class FrmStudentAlumini
         CType(Me.dgDetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlSearch.ResumeLayout(False)
         Me.pnlSearch.PerformLayout()
+        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel2.ResumeLayout(False)
         Me.GroupPanel2.PerformLayout()
+        Me.GroupPanel3.ResumeLayout(False)
+        Me.GroupPanel3.PerformLayout()
         CType(Me.dgSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelAdvSearch.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1135,9 +1138,6 @@ Partial Class FrmStudentAlumini
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupPanel3.ResumeLayout(False)
-        Me.GroupPanel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1208,9 +1208,9 @@ Partial Class FrmStudentAlumini
     Friend WithEvents lblPrint As Label
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents BindingSource1 As BindingSource
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents cbAll As CheckBox
     Friend WithEvents picSearch As PictureBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents cbAllSearch As CheckBox
     Friend WithEvents GroupPanel3 As DevComponents.DotNetBar.Controls.GroupPanel
 End Class

@@ -120,7 +120,7 @@
             obj.Insert("INSERT INTO dbo.TBL_TEACHER_SUSPEND (SUSPEND_LETTER_NUMBER," & vbCrLf &
 "SUSPEND_NUMER,TEACHER_ID,[START_DATE],END_DATE,DURATION,REASON,[DESCRIPTION]," & vbCrLf &
 "DATE_NOTE)VALUES(N'" & txt_suspend_letter_num.Text & "',N'" & txt_suspend_num.Text & "'," & cbo_teacher.SelectedValue & ",'" & dt_start_date.Text & "','" & dt_end_date.Text & "'," & txt_duration.Text & ",N'" & txt_reason.Text & "',N'" & txt_remark.Text & "',GETDATE())")
-            obj.Update_1("UPDATE dbo.TBL_TEACHER SET TEACHER_STATUS_ID = 2 WHERE TEACHER_ID =" & cbo_teacher.SelectedValue & "")
+            obj.UpdateNoMsg("UPDATE dbo.TBL_TEACHER SET TEACHER_STATUS_ID = 2 WHERE TEACHER_ID =" & cbo_teacher.SelectedValue & "")
             Call Selection()
         Catch ex As Exception
             _ExceptionMessage = ex.Message

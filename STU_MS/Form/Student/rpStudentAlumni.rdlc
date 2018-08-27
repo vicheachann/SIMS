@@ -37,7 +37,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
         <Top>0.01857in</Top>
-        <Left>2.85163in</Left>
+        <Left>3.16413in</Left>
         <Height>0.74317in</Height>
         <Width>2.04294in</Width>
         <Style>
@@ -57,7 +57,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>បញ្ជីរាយនាមមូលនិធិអតីតសិស្ស</Value>
+                <Value>អ្នកចូលរួមមូលនិធិអតីតសិស្ស</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Limon NU R1</FontFamily>
@@ -73,10 +73,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>1.0445in</Top>
-        <Left>2.80996in</Left>
+        <Top>1.17785in</Top>
+        <Left>3.16413in</Left>
         <Height>0.37013in</Height>
-        <Width>2.23434in</Width>
+        <Width>2.22502in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -344,7 +344,7 @@
                           <Style>Solid</Style>
                         </TopBorder>
                         <BottomBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </BottomBorder>
                         <LeftBorder>
                           <Style>Solid</Style>
@@ -393,7 +393,7 @@
                           <Style>Solid</Style>
                         </TopBorder>
                         <BottomBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </BottomBorder>
                         <LeftBorder>
                           <Style>Solid</Style>
@@ -796,12 +796,14 @@
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
         <Top>0.73385in</Top>
-        <Left>3.50094in</Left>
+        <Left>3.87594in</Left>
         <Height>0.29676in</Height>
         <Width>0.72838in</Width>
         <ZIndex>4</ZIndex>
@@ -1009,9 +1011,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>2.14543in</Top>
+        <Top>2.14207in</Top>
         <Left>3.3251in</Left>
-        <Height>0.26389in</Height>
+        <Height>0.26726in</Height>
         <Width>1.56947in</Width>
         <ZIndex>10</ZIndex>
         <Style>
@@ -1071,7 +1073,7 @@
         <rd:DefaultName>Textbox44</rd:DefaultName>
         <Top>2.14207in</Top>
         <Left>4.89457in</Left>
-        <Height>0.26725in</Height>
+        <Height>0.26726in</Height>
         <Width>1.59979in</Width>
         <ZIndex>11</ZIndex>
         <Style>

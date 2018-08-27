@@ -315,12 +315,6 @@
     <Compile Include="Form\New Report\FrmDynamicReportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Report\Student_list.Designer.vb">
-      <DependentUpon>Student_list.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form\Report\Student_list.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Form\CardAndCertificate\FrmStuCard.Designer.vb">
       <DependentUpon>FrmStuCard.vb</DependentUpon>
     </Compile>
@@ -349,12 +343,6 @@
       <DependentUpon>FrmStudentStatistic.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\Student\FrmStudentStatistic.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\Student\Student report\FrmStudentReport.Designer.vb">
-      <DependentUpon>FrmStudentReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form\Student\Student report\FrmStudentReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Student\frm_class_monitor.Designer.vb">
@@ -733,9 +721,6 @@
     <EmbeddedResource Include="Form\Report\rpStudentListAllStatus_2.rdlc" />
     <EmbeddedResource Include="Form\Report\rpStudentListAllStatus.rdlc" />
     <EmbeddedResource Include="Form\Report\rpTeacherMeetingAbsence.rdlc" />
-    <EmbeddedResource Include="Form\Report\Student_list.resx">
-      <DependentUpon>Student_list.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form\CardAndCertificate\FrmStuCard.resx">
       <DependentUpon>FrmStuCard.vb</DependentUpon>
     </EmbeddedResource>
@@ -752,9 +737,6 @@
       <DependentUpon>FrmStudentStatistic.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Student\rpStudentAlumni.rdlc" />
-    <EmbeddedResource Include="Form\Student\Student report\FrmStudentReport.resx">
-      <DependentUpon>FrmStudentReport.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form\Student\frm_class_monitor.resx">
       <DependentUpon>frm_class_monitor.vb</DependentUpon>
     </EmbeddedResource>
@@ -777,7 +759,7 @@
       <DependentUpon>frm_student_stop_study.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Student\rpStudentFormer.rdlc" />
-    <EmbeddedResource Include="Form\Student\Student report\rpStudentList.rdlc" />
+    <EmbeddedResource Include="Form\Student\rpStudentList.rdlc" />
     <EmbeddedResource Include="Form\Teacher\FrmTeacherMeetingAtt.resx">
       <DependentUpon>FrmTeacherMeetingAtt.vb</DependentUpon>
     </EmbeddedResource>

@@ -5,7 +5,7 @@ Imports Microsoft.Reporting.WinForms
 
 Public Class Method
 
-    Public Sub Insert_1(ByVal SQL As String)
+    Public Sub InsertNoMsg(ByVal SQL As String)
         Try
             OpenConnection()
             cmd = New SqlCommand(SQL, conn)
@@ -144,7 +144,7 @@ Public Class Method
         End Try
     End Sub
 
-    Public Sub Update_1(ByVal sql As String)
+    Public Sub UpdateNoMsg(ByVal sql As String)
         Try
             OpenConnection()
             cmd = New SqlCommand(sql, conn)
@@ -438,5 +438,36 @@ Public Class Method
         End Try
         Return value
     End Function
+
+    Public Function IsAlreadyInsert(ByVal dg As DataGridView, ByVal cellIndex As Integer, ByVal insertValue As String) As Boolean
+        Dim existed As Boolean = False
+        Try
+            For Each row As DataGridViewRow In dg.Rows
+                If insertValue = row.Cells(cellIndex).Value Then
+                    ShowMsg("ព័ត៌មាននេះបានបញ្ចូលរួចរាល់ !", FrmWarning, _WarningSound)
+                    existed = True
+                End If
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return existed
+    End Function
+    Public Function IsNewestRecord(ByVal id As String) As Boolean
+        Dim newest As Boolean = False
+        If (id = "") Then
+            newest = True
+        End If
+        Return newest
+    End Function
+    Public Function IsEmptyDataGridView(ByVal dg As DataGridView) As Boolean
+        Dim empty As Boolean = False
+        If dg.RowCount <= 0 Then
+            ShowMsg("សូមបញ្ចូលព័ត៌មានជាមុខ​!", FrmWarning, "Error.wav")
+            empty = True
+        End If
+        Return empty
+    End Function
+
 
 End Class

@@ -94,187 +94,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox59">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Sum(Microsoft.VisualBasic.Interaction.iif(Fields!GENDER.Value = "ស្រី", 1, 0))</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.93525in</Top>
-        <Left>7.16383in</Left>
-        <Height>0.26898in</Height>
-        <Width>0.38808in</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox57">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>សិស្សសរុប</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.93525in</Top>
-        <Left>5.22646in</Left>
-        <Height>0.26898in</Height>
-        <Width>0.75043in</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox60">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>នាក់   ស្រី</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.93525in</Top>
-        <Left>6.40657in</Left>
-        <Height>0.26898in</Height>
-        <Width>0.71559in</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox61">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Count(Fields!ROW_NUMBER.Value)</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.93525in</Top>
-        <Left>6.02375in</Left>
-        <Height>0.26898in</Height>
-        <Width>0.34115in</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox62">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>នាក់ </Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Khmer</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.93525in</Top>
-        <Left>7.59358in</Left>
-        <Height>0.26898in</Height>
-        <Width>0.33364in</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox63">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -315,7 +134,7 @@
         <Left>4.98351in</Left>
         <Height>0.51042in</Height>
         <Width>3.07953in</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -393,13 +212,16 @@
               <Width>2.52589cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.67167cm</Width>
+              <Width>2.16896cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.68207cm</Width>
+              <Width>2.17936cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.1798cm</Width>
+              <Width>2.92376cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.22159cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -408,14 +230,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="NAME">
+                    <Textbox Name="SNAME_KH">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!NAME.Value</Value>
+                              <Value>=Fields!SNAME_KH.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -425,7 +247,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>NAME</rd:DefaultName>
+                      <rd:DefaultName>SNAME_KH</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -626,14 +448,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PHONE_NUMBER">
+                    <Textbox Name="S_PHONE_LINE_1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PHONE_NUMBER.Value</Value>
+                              <Value>=Fields!S_PHONE_LINE_1.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -645,7 +467,51 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PHONE_NUMBER</rd:DefaultName>
+                      <rd:DefaultName>S_PHONE_LINE_1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.5pt</Width>
+                        </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                        </LeftBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="NUM_JOIN_ALUMNI">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!NUM_JOIN_ALUMNI.Value</Value>
+                              <Style>
+                                <FontFamily>Khmer OS</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>NUM_JOIN_ALUMNI</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1001,6 +867,51 @@
               <TablixHeader>
                 <Size>0.6cm</Size>
                 <CellContents>
+                  <Textbox Name="Textbox13">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>​ ចំនួនបានចូលរួម</Value>
+                            <Style>
+                              <FontFamily>Khmer</FontFamily>
+                              <FontSize>9pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox13</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>None</Style>
+                        <Width>0.5pt</Width>
+                      </Border>
+                      <TopBorder>
+                        <Style>Solid</Style>
+                      </TopBorder>
+                      <RightBorder>
+                        <Style>Solid</Style>
+                      </RightBorder>
+                      <BackgroundColor>WhiteSmoke</BackgroundColor>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+            </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>0.6cm</Size>
+                <CellContents>
                   <Textbox Name="Textbox47">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
@@ -1067,7 +978,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!ROW_NUMBER.Value</Value>
+                            <Value>=Sum(Fields!ROW_NUMBER.Value)</Value>
                             <Style>
                               <FontFamily>Khmer OS</FontFamily>
                               <FontSize>9pt</FontSize>
@@ -1107,11 +1018,11 @@
         </TablixRowHierarchy>
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
-        <Top>3.1293cm</Top>
-        <Left>0.34078cm</Left>
+        <Top>3.16457cm</Top>
+        <Left>0.38062cm</Left>
         <Height>1.2cm</Height>
-        <Width>20.13935cm</Width>
-        <ZIndex>8</ZIndex>
+        <Width>20.09951cm</Width>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1144,7 +1055,7 @@
         <Left>3.72222in</Left>
         <Height>0.23612in</Height>
         <Width>0.72838in</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1177,7 +1088,7 @@
         <Left>0.34078cm</Left>
         <Height>0.65291cm</Height>
         <Width>4.00343cm</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1212,7 +1123,7 @@
         <Left>1.13658cm</Left>
         <Height>0.76756cm</Height>
         <Width>4.47763cm</Width>
-        <ZIndex>11</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1245,6 +1156,194 @@
         <Left>0.34078cm</Left>
         <Height>0.76756cm</Height>
         <Width>0.72524cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox59">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Microsoft.VisualBasic.Interaction.iif(Fields!GENDER.Value = "ស្រី", 1, 0))</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox44</rd:DefaultName>
+        <Top>0.96648in</Top>
+        <Left>7.1336in</Left>
+        <Height>0.26552in</Height>
+        <Width>0.2509in</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox57">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>សិស្សសរុប</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox44</rd:DefaultName>
+        <Top>0.96648in</Top>
+        <Left>5.63192in</Left>
+        <Height>0.26552in</Height>
+        <Width>0.61085in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox60">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>នាក់   ស្រី</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox44</rd:DefaultName>
+        <Top>0.96648in</Top>
+        <Left>6.52775in</Left>
+        <Height>0.26552in</Height>
+        <Width>0.57807in</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox61">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Count(Fields!ROW_NUMBER.Value)</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox44</rd:DefaultName>
+        <Top>0.96648in</Top>
+        <Left>6.27055in</Left>
+        <Height>0.26552in</Height>
+        <Width>0.22942in</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox62">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>នាក់ </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox44</rd:DefaultName>
+        <Top>0.96648in</Top>
+        <Left>7.41228in</Left>
+        <Height>0.26552in</Height>
+        <Width>0.36934in</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -1345,7 +1444,7 @@
     <PageWidth>21cm</PageWidth>
     <LeftMargin>0.1cm</LeftMargin>
     <RightMargin>0.1cm</RightMargin>
-    <TopMargin>1cm</TopMargin>
+    <TopMargin>0.7cm</TopMargin>
     <BottomMargin>0.1cm</BottomMargin>
     <ColumnSpacing>1.27cm</ColumnSpacing>
     <Style />
@@ -1357,7 +1456,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>e571a3bc-4463-462b-9780-7101bcd1658b</rd:DataSourceID>
+      <rd:DataSourceID>5cbe0648-fbe4-4462-a0a4-76e62c051107</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1369,10 +1468,10 @@
       <Fields>
         <Field Name="ROW_NUMBER">
           <DataField>ROW_NUMBER</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="NAME">
-          <DataField>NAME</DataField>
+        <Field Name="SNAME_KH">
+          <DataField>SNAME_KH</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="GENDER">
@@ -1391,14 +1490,18 @@
           <DataField>FINISH_YEAR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PHONE_NUMBER">
-          <DataField>PHONE_NUMBER</DataField>
+        <Field Name="S_PHONE_LINE_1">
+          <DataField>S_PHONE_LINE_1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NUM_JOIN_ALUMNI">
+          <DataField>NUM_JOIN_ALUMNI</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\X40\Desktop\SIMS_2018_08_22\STU_MS\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\GitHub\SIMS\STU_MS\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>dtStudentFormer</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

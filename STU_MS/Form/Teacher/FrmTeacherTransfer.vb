@@ -69,8 +69,8 @@ Public Class FrmTeacherTransfer
         End If
 
         Try
-            obj.Insert_1("INSERT INTO dbo.TBL_TEACHER_TRANSFER (TEACHER_ID,DATE_TRANSFER,DATE_NOTE,TRANSFER_TO,TRANSFER_PROVINCE,TRANSFER_REASON,[DESCRIPTION],CURRENT_SUBJECT,TEACHER_ID_MANAGER,DISTRICT_MANAGER,OBJECTIVE)VALUES(" & cboTeacher.SelectedValue & ",'" & dtTransferDate.Value & "',GETDATE(),N'" & txtTransferTo.Text & "',N'" & cboTransferToProvince.Text & "',N'" & txtReason.Text & "',N'" & txtRemark.Text & "',N'" & cboCurrentSubject.Text & "'," & cboTeacherManager.SelectedValue & ",N'" & txtDistrictManager.Text & "',N'" & txtObjective.Text & "')")
-            obj.Update_1("UPDATE dbo.TBL_TEACHER SET TEACHER_STATUS_ID = 3 WHERE TEACHER_ID = " & cboTeacher.SelectedValue & "")
+            obj.InsertNoMsg("INSERT INTO dbo.TBL_TEACHER_TRANSFER (TEACHER_ID,DATE_TRANSFER,DATE_NOTE,TRANSFER_TO,TRANSFER_PROVINCE,TRANSFER_REASON,[DESCRIPTION],CURRENT_SUBJECT,TEACHER_ID_MANAGER,DISTRICT_MANAGER,OBJECTIVE)VALUES(" & cboTeacher.SelectedValue & ",'" & dtTransferDate.Value & "',GETDATE(),N'" & txtTransferTo.Text & "',N'" & cboTransferToProvince.Text & "',N'" & txtReason.Text & "',N'" & txtRemark.Text & "',N'" & cboCurrentSubject.Text & "'," & cboTeacherManager.SelectedValue & ",N'" & txtDistrictManager.Text & "',N'" & txtObjective.Text & "')")
+            obj.UpdateNoMsg("UPDATE dbo.TBL_TEACHER SET TEACHER_STATUS_ID = 3 WHERE TEACHER_ID = " & cboTeacher.SelectedValue & "")
 
             Call obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, "success.wav")
             Call Selection()
@@ -275,7 +275,7 @@ Public Class FrmTeacherTransfer
         obj.ShowMsg("តើអ្នកចង់លុបព័ត៏មាននេះដែលឬទេ ?", FrmMessageQuestion, "ShowMessage.wav")
         If USER_CLICK_OK = True Then
             obj.Delete("DELETE FROM dbo.TBL_TEACHER_TRANSFER WHERE RECORD_ID = " & dg.SelectedCells(0).Value & " AND TEACHER_ID = " & dg.SelectedCells(1).Value & "AND DATE_TRANSFER = '" & dg.SelectedCells(4).Value & "'")
-            obj.Update_1("UPDATE dbo.TBL_TEACHER SET TEACHER_STATUS_ID = 1 WHERE TEACHER_ID = " & dg.SelectedCells(1).Value & "")
+            obj.UpdateNoMsg("UPDATE dbo.TBL_TEACHER SET TEACHER_STATUS_ID = 1 WHERE TEACHER_ID = " & dg.SelectedCells(1).Value & "")
             Call Selection()
 
         End If

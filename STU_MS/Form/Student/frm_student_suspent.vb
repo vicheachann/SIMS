@@ -248,7 +248,7 @@
             obj.ShowMsg("តើអ្នកចង់លប់ព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, "ShowMessage.wav")
             If USER_CLICK_OK = True Then
                 obj.Delete("DELETE FROM dbo.TBS_STUDENT_SUSPEND WHERE RECORD_ID =" & datagrid.SelectedCells(0).Value & " AND STUDENT_ID = " & datagrid.SelectedCells(2).Value & "  AND START_DATE = '" & datagrid.SelectedCells(4).Value & "'")
-                obj.Update_1("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 1 WHERE STUDENT_ID = " & datagrid.SelectedCells(2).Value & "")
+                obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 1 WHERE STUDENT_ID = " & datagrid.SelectedCells(2).Value & "")
                 Call Selection()
                 USER_CLICK_OK = False
             End If
@@ -269,7 +269,7 @@
 
     Private Sub UpdateStudentStatus()
         Try
-            obj.Update_1("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 2 WHERE STUDENT_ID = " & cbo_student_name.SelectedValue & "")
+            obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 2 WHERE STUDENT_ID = " & cbo_student_name.SelectedValue & "")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

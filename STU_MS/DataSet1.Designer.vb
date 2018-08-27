@@ -4243,7 +4243,7 @@ Partial Public Class DataSet1
         
         Private columnROW_NUMBER As Global.System.Data.DataColumn
         
-        Private columnNAME As Global.System.Data.DataColumn
+        Private columnSNAME_KH As Global.System.Data.DataColumn
         
         Private columnGENDER As Global.System.Data.DataColumn
         
@@ -4253,7 +4253,9 @@ Partial Public Class DataSet1
         
         Private columnFINISH_YEAR As Global.System.Data.DataColumn
         
-        Private columnPHONE_NUMBER As Global.System.Data.DataColumn
+        Private columnS_PHONE_LINE_1 As Global.System.Data.DataColumn
+        
+        Private columnNUM_JOIN_ALUMNI As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -4300,9 +4302,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NAMEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property SNAME_KHColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNAME
+                Return Me.columnSNAME_KH
             End Get
         End Property
         
@@ -4340,9 +4342,17 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property PHONE_NUMBERColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property S_PHONE_LINE_1Column() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPHONE_NUMBER
+                Return Me.columnS_PHONE_LINE_1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NUM_JOIN_ALUMNIColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNUM_JOIN_ALUMNI
             End Get
         End Property
         
@@ -4383,9 +4393,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AdddtStudentFormerRow(ByVal ROW_NUMBER As Integer, ByVal NAME As String, ByVal GENDER As String, ByVal BATCH As String, ByVal FIRST_YEAR_STUDY As String, ByVal FINISH_YEAR As String, ByVal PHONE_NUMBER As String) As dtStudentFormerRow
+        Public Overloads Function AdddtStudentFormerRow(ByVal ROW_NUMBER As Integer, ByVal SNAME_KH As String, ByVal GENDER As String, ByVal BATCH As String, ByVal FIRST_YEAR_STUDY As String, ByVal FINISH_YEAR As String, ByVal S_PHONE_LINE_1 As String, ByVal NUM_JOIN_ALUMNI As String) As dtStudentFormerRow
             Dim rowdtStudentFormerRow As dtStudentFormerRow = CType(Me.NewRow,dtStudentFormerRow)
-            Dim columnValuesArray() As Object = New Object() {ROW_NUMBER, NAME, GENDER, BATCH, FIRST_YEAR_STUDY, FINISH_YEAR, PHONE_NUMBER}
+            Dim columnValuesArray() As Object = New Object() {ROW_NUMBER, SNAME_KH, GENDER, BATCH, FIRST_YEAR_STUDY, FINISH_YEAR, S_PHONE_LINE_1, NUM_JOIN_ALUMNI}
             rowdtStudentFormerRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtStudentFormerRow)
             Return rowdtStudentFormerRow
@@ -4409,12 +4419,13 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnROW_NUMBER = MyBase.Columns("ROW_NUMBER")
-            Me.columnNAME = MyBase.Columns("NAME")
+            Me.columnSNAME_KH = MyBase.Columns("SNAME_KH")
             Me.columnGENDER = MyBase.Columns("GENDER")
             Me.columnBATCH = MyBase.Columns("BATCH")
             Me.columnFIRST_YEAR_STUDY = MyBase.Columns("FIRST_YEAR_STUDY")
             Me.columnFINISH_YEAR = MyBase.Columns("FINISH_YEAR")
-            Me.columnPHONE_NUMBER = MyBase.Columns("PHONE_NUMBER")
+            Me.columnS_PHONE_LINE_1 = MyBase.Columns("S_PHONE_LINE_1")
+            Me.columnNUM_JOIN_ALUMNI = MyBase.Columns("NUM_JOIN_ALUMNI")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4422,8 +4433,8 @@ Partial Public Class DataSet1
         Private Sub InitClass()
             Me.columnROW_NUMBER = New Global.System.Data.DataColumn("ROW_NUMBER", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnROW_NUMBER)
-            Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNAME)
+            Me.columnSNAME_KH = New Global.System.Data.DataColumn("SNAME_KH", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSNAME_KH)
             Me.columnGENDER = New Global.System.Data.DataColumn("GENDER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnGENDER)
             Me.columnBATCH = New Global.System.Data.DataColumn("BATCH", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -4432,8 +4443,10 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnFIRST_YEAR_STUDY)
             Me.columnFINISH_YEAR = New Global.System.Data.DataColumn("FINISH_YEAR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFINISH_YEAR)
-            Me.columnPHONE_NUMBER = New Global.System.Data.DataColumn("PHONE_NUMBER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPHONE_NUMBER)
+            Me.columnS_PHONE_LINE_1 = New Global.System.Data.DataColumn("S_PHONE_LINE_1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnS_PHONE_LINE_1)
+            Me.columnNUM_JOIN_ALUMNI = New Global.System.Data.DataColumn("NUM_JOIN_ALUMNI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNUM_JOIN_ALUMNI)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8021,16 +8034,16 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NAME() As String
+        Public Property SNAME_KH() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentFormer.NAMEColumn),String)
+                    Return CType(Me(Me.tabledtStudentFormer.SNAME_KHColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NAME' in table 'dtStudentFormer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SNAME_KH' in table 'dtStudentFormer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentFormer.NAMEColumn) = value
+                Me(Me.tabledtStudentFormer.SNAME_KHColumn) = value
             End Set
         End Property
         
@@ -8096,16 +8109,31 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property PHONE_NUMBER() As String
+        Public Property S_PHONE_LINE_1() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentFormer.PHONE_NUMBERColumn),String)
+                    Return CType(Me(Me.tabledtStudentFormer.S_PHONE_LINE_1Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'PHONE_NUMBER' in table 'dtStudentFormer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'S_PHONE_LINE_1' in table 'dtStudentFormer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentFormer.PHONE_NUMBERColumn) = value
+                Me(Me.tabledtStudentFormer.S_PHONE_LINE_1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property NUM_JOIN_ALUMNI() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStudentFormer.NUM_JOIN_ALUMNIColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NUM_JOIN_ALUMNI' in table 'dtStudentFormer' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStudentFormer.NUM_JOIN_ALUMNIColumn) = value
             End Set
         End Property
         
@@ -8123,14 +8151,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNAMENull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentFormer.NAMEColumn)
+        Public Function IsSNAME_KHNull() As Boolean
+            Return Me.IsNull(Me.tabledtStudentFormer.SNAME_KHColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNAMENull()
-            Me(Me.tabledtStudentFormer.NAMEColumn) = Global.System.Convert.DBNull
+        Public Sub SetSNAME_KHNull()
+            Me(Me.tabledtStudentFormer.SNAME_KHColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8183,14 +8211,26 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsPHONE_NUMBERNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentFormer.PHONE_NUMBERColumn)
+        Public Function IsS_PHONE_LINE_1Null() As Boolean
+            Return Me.IsNull(Me.tabledtStudentFormer.S_PHONE_LINE_1Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetPHONE_NUMBERNull()
-            Me(Me.tabledtStudentFormer.PHONE_NUMBERColumn) = Global.System.Convert.DBNull
+        Public Sub SetS_PHONE_LINE_1Null()
+            Me(Me.tabledtStudentFormer.S_PHONE_LINE_1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNUM_JOIN_ALUMNINull() As Boolean
+            Return Me.IsNull(Me.tabledtStudentFormer.NUM_JOIN_ALUMNIColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNUM_JOIN_ALUMNINull()
+            Me(Me.tabledtStudentFormer.NUM_JOIN_ALUMNIColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

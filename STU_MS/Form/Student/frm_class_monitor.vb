@@ -281,7 +281,7 @@ Public Class frm_class_monitor
             Try
                 For i As Integer = 0 To dgSelected.RowCount - 1
                     If (CheckExisted("SELECT  STUDENT_ID,YEAR_STUDY,CLASS_ID FROM dbo.TBS_STUDENT_CLASS_MONITOR WHERE STUDENT_ID = " & dgSelected.Rows(i).Cells(1).Value & " AND YEAR_STUDY = N'" & dgSelected.Rows(i).Cells(6).Value & "' AND CLASS_ID = " & dgSelected.Rows(i).Cells(7).Value & "", "TBS_STUDENT_CLASS_MONITOR") = False) Then
-                        obj.Insert_1("INSERT INTO dbo.TBS_STUDENT_CLASS_MONITOR(STUDENT_ID,YEAR_STUDY,CLASS_ID,CLASS_MONITOR_NUM, REMARK,DATE_NOTE)VALUES(" & dgSelected.Rows(i).Cells(1).Value & ",N'" & dgSelected.Rows(i).Cells(6).Value & "'," & dgSelected.Rows(i).Cells(7).Value & "," & dgSelected.Rows(i).Cells(5).Value & ",'',GETDATE())")
+                        obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_CLASS_MONITOR(STUDENT_ID,YEAR_STUDY,CLASS_ID,CLASS_MONITOR_NUM, REMARK,DATE_NOTE)VALUES(" & dgSelected.Rows(i).Cells(1).Value & ",N'" & dgSelected.Rows(i).Cells(6).Value & "'," & dgSelected.Rows(i).Cells(7).Value & "," & dgSelected.Rows(i).Cells(5).Value & ",'',GETDATE())")
                     End If
                 Next
             Catch ex As Exception
@@ -507,9 +507,9 @@ Public Class frm_class_monitor
                 For i As Integer = 0 To dgSelected.RowCount - 1
                     Try
                         If (obj.CheckExisted("SELECT RECORD_ID FROM dbo.TBS_STUDENT_CLASS_MONITOR WHERE RECORD_ID = " & dgSelected.Rows(i).Cells(8).Value & "", "TBS_STUDENT_CLASS_MONITOR" & "")) = True Then
-                            Call obj.Update_1("UPDATE dbo.TBS_STUDENT_CLASS_MONITOR SET CLASS_MONITOR_NUM = " & dgSelected.Rows(i).Cells(5).Value & " WHERE RECORD_ID = " & dgSelected.Rows(i).Cells(8).Value & "")
+                            Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_CLASS_MONITOR SET CLASS_MONITOR_NUM = " & dgSelected.Rows(i).Cells(5).Value & " WHERE RECORD_ID = " & dgSelected.Rows(i).Cells(8).Value & "")
                         Else
-                            obj.Insert_1("INSERT INTO dbo.TBS_STUDENT_CLASS_MONITOR(STUDENT_ID,YEAR_STUDY,CLASS_ID,CLASS_MONITOR_NUM, REMARK,DATE_NOTE)VALUES(" & dgSelected.Rows(i).Cells(1).Value & ",N'" & dgSelected.Rows(i).Cells(6).Value & "'," & dgSelected.Rows(i).Cells(7).Value & "," & dgSelected.Rows(i).Cells(5).Value & ",'',GETDATE())")
+                            obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_CLASS_MONITOR(STUDENT_ID,YEAR_STUDY,CLASS_ID,CLASS_MONITOR_NUM, REMARK,DATE_NOTE)VALUES(" & dgSelected.Rows(i).Cells(1).Value & ",N'" & dgSelected.Rows(i).Cells(6).Value & "'," & dgSelected.Rows(i).Cells(7).Value & "," & dgSelected.Rows(i).Cells(5).Value & ",'',GETDATE())")
                         End If
                     Catch ex As Exception
                         MessageBox.Show(ex.Message)

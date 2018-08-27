@@ -299,11 +299,11 @@
                 obj.Update("UPDATE dbo.TBL_SUBJECT SET SUB_CODE = N'" & txtCode.Text & "',SUBJECT_KH = N'" & txtTitleKh.Text & "',SUBJECT_EN =N'" & txtTitleEn.Text & "',SUB_SHORT_NAME = N'" & txtShortName.Text & "',SUB_ORDER = " & txtOrdinalNumber.Text & " ,GRADE_12_MIN_SCORE = " & txtMin12.Text & ",GRADE_12_MAX_SCORE=" & txtMax12.Text & ",GRADE_12_MULTIPLE =" & txtMulti12.Text & " ,MIN_SCORE = " & txtMin.Text & " ,MAX_SCORE = " & txtMax.Text & ",MULTIPLE = " & txtMulti.Text & " WHERE SUBJECT_ID = " & dg.SelectedCells(0).Value & "")
 
                 If (dg.SelectedCells(6).Value > Convert.ToInt32(txtOrdinalNumber.Text)) Then
-                    obj.Update_1("UPDATE dbo.TBL_SUBJECT SET SUB_ORDER = SUB_ORDER +1 WHERE SUB_ORDER >= " & txtOrdinalNumber.Text & " AND SUB_ORDER <= " & dg.SelectedCells(6).Value & ";")
-                    obj.Update_1("UPDATE dbo.TBL_SUBJECT SET SUB_ORDER  = " & txtOrdinalNumber.Text & " WHERE SUBJECT_ID = " & dg.SelectedCells(0).Value & ";")
+                    obj.UpdateNoMsg("UPDATE dbo.TBL_SUBJECT SET SUB_ORDER = SUB_ORDER +1 WHERE SUB_ORDER >= " & txtOrdinalNumber.Text & " AND SUB_ORDER <= " & dg.SelectedCells(6).Value & ";")
+                    obj.UpdateNoMsg("UPDATE dbo.TBL_SUBJECT SET SUB_ORDER  = " & txtOrdinalNumber.Text & " WHERE SUBJECT_ID = " & dg.SelectedCells(0).Value & ";")
                 Else
-                    obj.Update_1("UPDATE dbo.TBL_SUBJECT SET SUB_ORDER = SUB_ORDER -1 WHERE SUB_ORDER >= " & dg.SelectedCells(6).Value & " AND SUB_ORDER <= " & txtOrdinalNumber.Text & ";")
-                    obj.Update_1("UPDATE dbo.TBL_SUBJECT SET SUB_ORDER  = " & txtOrdinalNumber.Text & " WHERE SUBJECT_ID = " & dg.SelectedCells(0).Value & ";")
+                    obj.UpdateNoMsg("UPDATE dbo.TBL_SUBJECT SET SUB_ORDER = SUB_ORDER -1 WHERE SUB_ORDER >= " & dg.SelectedCells(6).Value & " AND SUB_ORDER <= " & txtOrdinalNumber.Text & ";")
+                    obj.UpdateNoMsg("UPDATE dbo.TBL_SUBJECT SET SUB_ORDER  = " & txtOrdinalNumber.Text & " WHERE SUBJECT_ID = " & dg.SelectedCells(0).Value & ";")
                 End If
 
 

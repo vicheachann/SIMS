@@ -388,7 +388,7 @@ Public Class frm_student_education
                 For i As Integer = 0 To dg.RowCount - 1
                     Dim isSelected As Boolean = dg.Rows(i).Cells(1).Value
                     If isSelected = True Then
-                        obj.Insert_1("INSERT INTO dbo.TBS_STUDENT_STUDY_INFO (STUDENT_ID,CLASS_ID,YEAR_STUDY,CLASS_OLD,YEAR_STUDY_OLD,REMARK,DATE_NOTE,STUDY_INFO_STATUS_ID,TEACHER_ID)VALUES(" & dg.Rows(i).Cells(3).Value & "," & dg.Rows(i).Cells(14).Value & ",N'" & dg.Rows(i).Cells(13).Value & "',N'" & dg.Rows(i).Cells(12).Value & "',N'" & dg.Rows(i).Cells(11).Value & "',N'" & dg.Rows(i).Cells(16).Value & "',GETDATE()," & dg.Rows(i).Cells(9).Value & "," & cboTeacher.SelectedValue & ")")
+                        obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_STUDY_INFO (STUDENT_ID,CLASS_ID,YEAR_STUDY,CLASS_OLD,YEAR_STUDY_OLD,REMARK,DATE_NOTE,STUDY_INFO_STATUS_ID,TEACHER_ID)VALUES(" & dg.Rows(i).Cells(3).Value & "," & dg.Rows(i).Cells(14).Value & ",N'" & dg.Rows(i).Cells(13).Value & "',N'" & dg.Rows(i).Cells(12).Value & "',N'" & dg.Rows(i).Cells(11).Value & "',N'" & dg.Rows(i).Cells(16).Value & "',GETDATE()," & dg.Rows(i).Cells(9).Value & "," & cboTeacher.SelectedValue & ")")
                     End If
                 Next
                 Call obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, "success.wav")

@@ -3,11 +3,12 @@ Imports System.Drawing.Drawing2D
 Imports System.Runtime.InteropServices
 
 Public Class FrmStudentAlumini
+
     Dim obj As New Method
     Dim ValidateState As Boolean
     Dim t As New Theme
-    Dim cboStudentDropped As Boolean = False
-    Dim cboTeacherDropped As Boolean = False
+    Dim IsCboStudentDropped As Boolean = False
+    Dim IsCboTeacherDropped As Boolean = False
     Dim teacherID As Integer = 0
 
 #Region "Shadow effect"
@@ -58,70 +59,27 @@ Public Class FrmStudentAlumini
         Try
             Me.ResizeRedraw = True
             txtAdvancedSearch.SetWaterMark("ស្វែងរក...")
-
             cboSearchByYear_DropDown(sender, e)
             cboTeacher_DropDown(sender, e)
-            Call SelectSearch()
+            Call BindDgSearch()
         Catch ex As Exception
             _ExceptionMessage = ex.Message
             Call obj.ShowMsg("Loading error !", FrmMessageError, _ErrorSound)
         End Try
     End Sub
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Private Sub cboStudent_Dropdown(sender As Object, e As EventArgs) Handles cboStudent.DropDown
-        cboStudentDropped = True
+        IsCboStudentDropped = True
         obj.BindComboBox("SELECT STUDENT_ID,SNAME_KH FROM dbo.TBS_STUDENT_INFO_FORMER", cboStudent, "SNAME_KH", "STUDENT_ID")
     End Sub
 
     Private Sub cboTeacher_DropDown(sender As Object, e As EventArgs) Handles cboTeacher.DropDown
-
-        obj.BindComboBox("select  TEACHER_ID,T_NAME_KH from dbo.TBL_TEACHER", cboTeacher, "T_NAME_KH", "TEACHER_ID")
+        IsCboTeacherDropped = True
+        obj.BindComboBox("SELECT  TEACHER_ID,T_NAME_KH FROM dbo.TBL_TEACHER", cboTeacher, "T_NAME_KH", "TEACHER_ID")
     End Sub
 
     Private Sub cbo_position_DropDown(sender As Object, e As EventArgs) Handles cboPosition.DropDown
-        obj.BindComboBox("select OCCUPATION_ID,OCCUPATION_KH from dbo.TBL_OCCUPATION", cboPosition, "OCCUPATION_KH", "OCCUPATION_ID")
-
+        obj.BindComboBox("SELECT OCCUPATION_ID,OCCUPATION_KH FROM dbo.TBL_OCCUPATION", cboPosition, "OCCUPATION_KH", "OCCUPATION_ID")
     End Sub
 
     Private Sub lbl_position_Click(sender As Object, e As EventArgs) Handles lbl_position.Click
@@ -144,39 +102,25 @@ Public Class FrmStudentAlumini
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+
+
+
     Private Sub lblInsert_Click(sender As Object, e As EventArgs) Handles lblInsert.Click
         Try
-            'Empty control
             If (Validation.IsEmpty(cboStudent, "សិស្ស")) Then Exit Sub
             If (Validation.IsEmpty(cboPosition, "មុខដំណែង")) Then Exit Sub
+            If (obj.IsAlreadyInsert(dgDetail, 1, cboStudent.SelectedValue)) Then Exit Sub
 
-            'Existed student
-
-            For Each row As DataGridViewRow In dgDetail.Rows
-                If cboStudent.SelectedValue = row.Cells(1).Value Then
-                    obj.ShowMsg("ឈ្មោះនេះត្រូវបានបញ្ចូលរួចរាល់", FrmWarning, _WarningSound)
-                    Exit Sub
-                End If
-            Next
-
-            'Null value replacement
-            If txtSponserAmountUSDD.Text = "" Then
-                txtSponserAmountUSDD.Text = 0
-            End If
-            If txtSponserAmountKHR.Text = "" Then
-                txtSponserAmountKHR.Text = 0
-            End If
-
-            If (txtAlumniID.Text <> "") Then
-                obj.ShowMsg("តើអ្នកចង់បញ្ចូលសិស្សថ្មីដែលឬទេ ?", FrmMessageQuestion, _ShowMessageSound)
-                If USER_CLICK_OK = True Then
-                    obj.Insert("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES(" & txtAlumniID.Text & "," & cboStudent.SelectedValue & "," & cboPosition.SelectedValue & "," & txtSponserAmountUSDD.Text & "," & txtSponserAmountKHR.Text & ",NULL)")
-                    Call Selection()
-                End If
-            Else
+            If (obj.IsNewestRecord(txtAlumniID.Text)) Then
                 dgDetail.Rows.Add("", cboStudent.SelectedValue, cboStudent.Text, cboPosition.SelectedValue, cboPosition.Text, txtSponserAmountUSDD.Text, txtSponserAmountKHR.Text)
+            Else
+                obj.ShowMsg("តើអ្នកចង់បន្ថែមសិស្សថ្មីដែលឬទេ ?", FrmMessageQuestion, _ShowMessageSound)
+                If USER_CLICK_OK = True Then
+                    obj.Insert("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES(" & txtAlumniID.Text & "," & cboStudent.SelectedValue & "," & cboPosition.SelectedValue & "," & obj.ReplaceNullWithZero(txtSponserAmountUSDD.Text) & "," & obj.ReplaceNullWithZero(txtSponserAmountKHR.Text) & ",NULL)")
+                    Call SelectMasterDetail()
+                End If
             End If
-
             lblDetailNew_Click(sender, e)
         Catch ex As Exception
             _ExceptionMessage = ex.Message
@@ -185,27 +129,7 @@ Public Class FrmStudentAlumini
 
     End Sub
 
-    Private Function ValidateControl_detail() As Boolean
-        'student name
-        If cboStudent.Text = "" Then
-            cboStudent.BackColor = Color.LavenderBlush
-            cboStudent.Focus()
-            ValidateState = False
-        Else
-            ValidateState = True
-        End If
-        'position
-        If cboPosition.Text = "" Then
-            cboPosition.BackColor = Color.LavenderBlush
-            cboPosition.Focus()
-            ValidateState = False
-        Else
-            ValidateState = True
-        End If
 
-
-        Return ValidateState
-    End Function
 
     Private Function ValidateControl_master() As Boolean
         'teacher name
@@ -216,9 +140,6 @@ Public Class FrmStudentAlumini
         Else
             ValidateState = True
         End If
-
-
-
         Return ValidateState
     End Function
 
@@ -230,11 +151,7 @@ Public Class FrmStudentAlumini
         cboStudent.BackColor = Color.White
     End Sub
 
-
-
     Private Sub dgDetail_SelectionChanged(sender As Object, e As EventArgs) Handles dgDetail.SelectionChanged
-
-
         Try
             If (dgDetail.SelectedRows.Count = 0) Then
                 Call ClearDetail()
@@ -297,7 +214,7 @@ Public Class FrmStudentAlumini
                     obj.ShowMsg("តើអ្នកចង់កែប្រែទិន្នន័យនេះដែលឬទេ?", FrmMessageQuestion, _ShowMessageSound)
                     If USER_CLICK_OK = True Then
 
-                        If (cboStudentDropped = False) Then
+                        If (IsCboStudentDropped = False) Then
                             cboStudent_Dropdown(sender, e)
                             cboStudent.SelectedValue = dgDetail.SelectedCells(1).Value
                         End If
@@ -305,7 +222,7 @@ Public Class FrmStudentAlumini
                         Dim positionID As String = obj.GetID("SELECT OCCUPATION_ID FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_KH = N'" & cboPosition.Text & "'")
                         obj.Update("UPDATE dbo.TBS_STUDENT_ALUMNI_DETAILS SET STUDENT_ID = " & cboStudent.SelectedValue & " ,POSITION_ID = " & positionID & " ,SPONSOR_US = " & txtSponserAmountUSDD.Text & ",SPONSOR_KH = " & txtSponserAmountKHR.Text & " ,REMARK =N'" & dgDetail.SelectedCells(7).Value & "'  WHERE RECORD_ID =" & dgDetail.SelectedCells(8).Value & " AND ALUMNI_ID = " & dgDetail.SelectedCells(9).Value & "")
                         obj.Update("UPDATE dbo.TBS_STUDENT_ALUMNI_MASTER SET AMOUNT_US = " & txtAmountUSD.Text & " ,AMOUNT_KH = " & txtAmountKHR.Text & " WHERE ALUMNI_ID = " & txtAlumniID.Text & "")
-                        Call Selection()
+                        Call SelectMasterDetail()
                     End If
                 Else 'Newest record (Not yet save)
                     dgDetail.SelectedRows(0).Cells(1).Value = cboStudent.SelectedValue
@@ -342,8 +259,8 @@ Public Class FrmStudentAlumini
                 obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យនេះដែលឬទេ", FrmMessageQuestion, _SuccessSound)
                 If USER_CLICK_OK = True Then
                     Call obj.Delete("DELETE FROM dbo.TBS_STUDENT_ALUMNI_DETAILS WHERE RECORD_ID = " & recordID & " AND ALUMNI_ID = " & alumniID & " AND STUDENT_ID = " & studentID & "")
-                    obj.Update_1("UPDATE dbo.TBS_STUDENT_ALUMNI_MASTER SET AMOUNT_US = " & txtAmountUSD.Text & " ,AMOUNT_KH = " & txtAmountKHR.Text & " WHERE ALUMNI_ID = " & alumniID & "")
-                    Call Selection()
+                    obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_ALUMNI_MASTER SET AMOUNT_US = " & txtAmountUSD.Text & " ,AMOUNT_KH = " & txtAmountKHR.Text & " WHERE ALUMNI_ID = " & alumniID & "")
+                    Call SelectMasterDetail()
                     USER_CLICK_OK = False
                 End If
             End If
@@ -377,38 +294,20 @@ Public Class FrmStudentAlumini
         teacherID = 0
     End Sub
 
-    Private Sub btn_save_Click(sender As Object, e As EventArgs) Handles lblSave.Click
+
+
+    Private Sub lblSave_Click(sender As Object, e As EventArgs) Handles lblSave.Click
         Try
-            'Validate on empty datagrid
-            If dgDetail.RowCount <= 0 Then
-                obj.ShowMsg("សូមបញ្ចូលព័ត៌មានជាមុខ​!", FrmWarning, "Error.wav")
-                Exit Sub
-            End If
+            If (obj.IsEmptyDataGridView(dgDetail)) Then Exit Sub
+            If (Validation.IsEmpty(cboTeacher, "គ្រូ")) Then Exit Sub
 
-            'validate on empty control
-            If cboTeacher.Text = "" Then
-                obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, "Error.wav")
-                ValidateControl_master()
-                If ValidateControl_master() = False Then
-                    Exit Sub
-                End If
-                Exit Sub
-            End If
-            If txtAmountKHR.Text = "" Then
-                txtAmountKHR.Text = 0
-            End If
-
-            If txtAmountUSD.Text = "" Then
-                txtAmountUSD.Text = 0
-            End If
-
-            obj.Insert_1("INSERT INTO dbo.TBS_STUDENT_ALUMNI_MASTER(TEACHER_ID,DATE_CELEBRATION,DATE_NOTE,AMOUNT_US,AMOUNT_KH,REMARK)VALUES(" & cboTeacher.SelectedValue & ",'" & dtDateCelebration.Value & "',GETDATE()," & txtAmountUSD.Text & "," & txtAmountKHR.Text & ",N'" & txtRemark.Text & "')")
+            obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_ALUMNI_MASTER(TEACHER_ID,DATE_CELEBRATION,DATE_NOTE,AMOUNT_US,AMOUNT_KH,REMARK)VALUES(" & cboTeacher.SelectedValue & ",'" & dtDateCelebration.Value & "',GETDATE()," & obj.ReplaceNullWithZero(txtAmountUSD.Text) & "," & obj.ReplaceNullWithZero(txtAmountKHR.Text) & ",N'" & txtRemark.Text & "')")
             For i As Integer = 0 To dgDetail.RowCount - 1
-                obj.Insert_1("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES((SELECT MAX(ALUMNI_ID) FROM dbo.TBS_STUDENT_ALUMNI_MASTER)," & dgDetail.Rows(i).Cells(1).Value & "," & dgDetail.Rows(i).Cells(3).Value & "," & dgDetail.Rows(i).Cells(5).Value & "," & dgDetail.Rows(i).Cells(6).Value & ",N'" & dgDetail.Rows(i).Cells(7).Value & "')")
+                obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES((SELECT MAX(ALUMNI_ID) FROM dbo.TBS_STUDENT_ALUMNI_MASTER)," & dgDetail.Rows(i).Cells(1).Value & "," & dgDetail.Rows(i).Cells(3).Value & "," & dgDetail.Rows(i).Cells(5).Value & "," & dgDetail.Rows(i).Cells(6).Value & ",N'" & dgDetail.Rows(i).Cells(7).Value & "')")
             Next
             Call obj.ShowMsg("ទិន្នន័យរក្សាទុកបានសម្រេច!", FrmMessageSuccess, "")
             lblNew_Click(sender, e)
-            SelectSearch()
+            BindDgSearch()
         Catch ex As Exception
             _ExceptionMessage = ex.Message
             Call obj.ShowMsg("មិនអាចរក្សាទុកទិន្នន័យបាន", FrmMessageError, _ErrorSound)
@@ -424,10 +323,10 @@ Public Class FrmStudentAlumini
     End Sub
 
     Private Sub cboSearchByYear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSearchByYear.SelectedIndexChanged
-        Call SelectSearch()
+        Call BindDgSearch()
     End Sub
 
-    Private Sub SelectSearch()
+    Private Sub BindDgSearch()
         Try
             Dim sql = "SELECT A.ALUMNI_ID, A.DATE_CELEBRATION FROM dbo.TBS_STUDENT_ALUMNI_MASTER AS A WHERE YEAR(A.DATE_CELEBRATION) = '" & cboSearchByYear.Text & "'"
             obj.BindDataGridView(sql, dgSearch)
@@ -449,54 +348,7 @@ Public Class FrmStudentAlumini
         End Try
     End Sub
 
-    '    Private Sub dg_search_SelectionChanged(sender As Object, e As EventArgs) Handles dg_search.SelectionChanged
-    '        Try
-    '            Call obj.OpenConnection()
-    '            cmd = New SqlCommand("SELECT MISSION_ID,MISSION_NUMBER,MISSION_DATE,MISSION_MEANING,MISSION_TO,LOCATION,DESCRIPTION,DATE_NOTE" & vbCrLf &
-    '"FROM dbo.TBL_TEACHER_MISSION_MASTER WHERE MISSION_ID =" & cbo_search_mission_number.SelectedValue & "", con)
-    '            da = New SqlDataAdapter(cmd)
-    '            dt = New DataTable
-    '            da.Fill(dt)
 
-    '            If dt.Rows.Count > 0 Then
-    '                txt_MISSION_ID.Text = dt.Rows(0)(0).ToString()
-    '                txt_MISSION_NUMBER.Text = dt.Rows(0)(1).ToString()
-    '                dt_MISSION_DATE.Text = dt.Rows(0)(2).ToString()
-    '                txt_MISSION_MEANING.Text = dt.Rows(0)(3).ToString()
-    '                txt_MISSION_TO.Text = dt.Rows(0)(4).ToString()
-    '                txt_LOCATION.Text = dt.Rows(0)(5).ToString()
-    '                txt_DESCRIPTION.Text = dt.Rows(0)(6).ToString()
-    '                dt_datenote.Text = dt.Rows(0)(7).ToString()
-    '            End If
-
-    '            Call obj.OpenConnection()
-    '            cmd = New SqlCommand("SELECT TMD.RECORD_ID,T.T_NAME_KH, TMD.TEACHER_ID, TM.MISSION_POSITION_KH, TMD.MISSION_POSITION_ID, TMD.DESCRIPTION" & vbCrLf &
-    '"FROM         dbo.TBL_TEACHER_MISSION_DETAIL AS TMD INNER JOIN" & vbCrLf &
-    '"                      dbo.TBL_MISSION_POSITION AS TM ON TMD.MISSION_POSITION_ID = TM.MISSION_POSITION_ID INNER JOIN" & vbCrLf &
-    '"                      dbo.TBL_TEACHER AS T ON TMD.TEACHER_ID = T.TEACHER_ID WHERE TMD.MISSION_ID = " & cbo_search_mission_number.SelectedValue & " ", con)
-
-    '            da = New SqlDataAdapter(cmd)
-    '            dt = New DataTable
-    '            da.Fill(dt)
-    '            dg_detail.Rows.Clear()
-
-    '            If dt.Rows.Count > 0 Then
-
-    '                For i As Integer = 0 To dt.Rows.Count - 1
-    '                    dg_detail.Rows.Add(dt.Rows(i)(0).ToString(), dt.Rows(i)(1).ToString(), dt.Rows(i)(2).ToString(), dt.Rows(i)(3).ToString(), dt.Rows(i)(4).ToString(), dt.Rows(i)(5).ToString())
-    '                    dg_detail.Columns(2).Visible = False
-    '                    dg_detail.Columns(4).Visible = False
-    '                    dg_detail.Columns(0).Visible = False
-    '                Next
-    '            End If
-    '            lbl_new.Enabled = True
-    '            lbl_save.Enabled = False
-    '            lbl_update.Enabled = True
-    '        Catch ex As Exception
-    '            error_reason = ex.Message
-    '            obj.ShowMsg("ពុំស្វែងរកទិន្នន័យបានទេ!", msg_fail)
-    'End Try
-    'End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs)
 
@@ -506,8 +358,9 @@ Public Class FrmStudentAlumini
         dgSearch_SelectionChanged(sender, e)
     End Sub
 
-    Private Sub Selection()
+    Private Sub SelectMasterDetail()
         Try
+            ClearAll()
             Call obj.OpenConnection()
             cmd = New SqlCommand("SELECT S.ALUMNI_ID, T.T_NAME_KH, S.DATE_CELEBRATION, S.DATE_NOTE, S.AMOUNT_US, S.AMOUNT_KH, S.REMARK,S.TEACHER_ID FROM dbo.TBS_STUDENT_ALUMNI_MASTER AS S INNER JOIN dbo.TBL_TEACHER AS T ON S.TEACHER_ID = T.TEACHER_ID WHERE S.ALUMNI_ID = " & dgSearch.SelectedCells(0).Value & "", conn)
             da = New SqlDataAdapter(cmd)
@@ -523,13 +376,13 @@ Public Class FrmStudentAlumini
                 txtRemark.Text = If(IsDBNull(dt.Rows(0)(6).ToString), "", dt.Rows(0)(6).ToString)
                 teacherID = If(IsDBNull(dt.Rows(0)(7).ToString), "", dt.Rows(0)(7).ToString)
             End If
-            Call obj.OpenConnection()
+
             cmd = New SqlCommand("SELECT D.STUDENT_ID, S.SNAME_KH, D.POSITION_ID, O.OCCUPATION_KH, D.SPONSOR_US, D.SPONSOR_KH,D.REMARK, D.RECORD_ID, D.ALUMNI_ID FROM  dbo.TBS_STUDENT_ALUMNI_DETAILS AS D LEFT JOIN dbo.TBS_STUDENT_INFO_FORMER AS S ON D.STUDENT_ID = S.STUDENT_ID LEFT JOIN dbo.TBL_OCCUPATION AS O ON D.POSITION_ID = O.OCCUPATION_ID WHERE D.ALUMNI_ID =   " & dgSearch.SelectedCells(0).Value & "", conn)
             da = New SqlDataAdapter(cmd)
             dt = New DataTable
             da.Fill(dt)
-            dgDetail.Rows.Clear()
 
+            dgDetail.Rows.Clear()
             If dt.Rows.Count > 0 Then
                 For i As Integer = 0 To dt.Rows.Count - 1
                     dgDetail.Rows.Add("", dt.Rows(i)("STUDENT_ID").ToString(), dt.Rows(i)("SNAME_KH").ToString(), dt.Rows(i)("POSITION_ID").ToString(), dt.Rows(i)("OCCUPATION_KH").ToString(), dt.Rows(i)("SPONSOR_US").ToString(), dt.Rows(i)("SPONSOR_KH").ToString(), dt.Rows(i)("REMARK").ToString(), dt.Rows(i)("RECORD_ID").ToString(), dt.Rows(i)("ALUMNI_ID").ToString())
@@ -546,23 +399,44 @@ Public Class FrmStudentAlumini
             Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, _ErrorSound)
         End Try
     End Sub
+    Private Sub ClearAll()
+        ClearMaster()
+        ClearDetail()
+        dgDetail.Rows.Clear()
+    End Sub
 
     Private Sub dgSearch_SelectionChanged(sender As Object, e As EventArgs) Handles dgSearch.SelectionChanged
         Try
+
             If (dgSearch.SelectedRows.Count = 0) Then
-                ClearMaster()
-                ClearDetail()
-                dgDetail.Rows.Clear()
+                ClearAll()
             Else
-                Call ClearMaster()
-                Call Selection()
+                Call SelectMasterDetail()
             End If
         Catch ex As Exception
-            MessageBox.Show("Problem select data from database")
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
+    Private Sub UpdateMasterDetail()
+        Try
+            obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_ALUMNI_MASTER SET TEACHER_ID = " & cboTeacher.SelectedValue & " ,DATE_CELEBRATION = '" & dtDateCelebration.Text & "',AMOUNT_US = " & obj.ReplaceNullWithZero(txtAmountUSD.Text) & " ,AMOUNT_KH = " & obj.ReplaceNullWithZero(txtAmountKHR.Text) & ",REMARK = N'" & txtRemark.Text & "' WHERE ALUMNI_ID = " & txtAlumniID.Text & "")
+
+            If (dgDetail.Rows.Count > 0) Then
+                For i As Integer = 0 To dgDetail.RowCount - 1
+                    If (obj.CheckExisted("SELECT RECORD_ID FROM dbo.TBS_STUDENT_ALUMNI_DETAILS WHERE RECORD_ID = " & (If(dgDetail.Rows(i).Cells(8).Value Is Nothing, "0", dgDetail.Rows(i).Cells(8).Value)) & " ", "TBS_STUDENT_ALUMNI_DETAILS") = False) Then
+                        obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES(" & txtAlumniID.Text & "," & dgDetail.Rows(i).Cells(1).Value & "," & dgDetail.Rows(i).Cells(3).Value & "," & dgDetail.Rows(i).Cells(5).Value & "," & dgDetail.Rows(i).Cells(6).Value & ",N'" & dgDetail.Rows(i).Cells(7).Value & "')")
+                    Else
+                        Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_ALUMNI_DETAILS SET STUDENT_ID =" & dgDetail.Rows(i).Cells(1).Value.ToString() & " ,POSITION_ID = " & dgDetail.Rows(i).Cells(3).Value.ToString() & ", SPONSOR_US = " & dgDetail.Rows(i).Cells(5).Value.ToString() & ",SPONSOR_KH = " & dgDetail.Rows(i).Cells(6).Value.ToString() & ",REMARK =N'" & dgDetail.Rows(i).Cells(7).Value.ToString() & "' WHERE RECORD_ID = " & dgDetail.Rows(i).Cells(8).Value.ToString & " AND ALUMNI_ID = " & dgDetail.Rows(i).Cells(9).Value.ToString & "")
+                    End If
+                Next
+            End If
+
+            Call obj.ShowMsg("ទិន្នន័យត្រូវបានកែប្រែ", FrmMessageSuccess, _SuccessSound)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
     Private Sub lblUpdate_Click(sender As Object, e As EventArgs) Handles lblUpdate.Click
         Try
             obj.ShowMsg("តើអ្នកចង់កែប្រែទិន្នន័យនេះដែលឬទេ?", FrmMessageQuestion, "ShowMessage.wav")
@@ -570,50 +444,18 @@ Public Class FrmStudentAlumini
 
                 If txtAlumniID.Text = "" Then
                     obj.ShowMsg("សូមជ្រើសរើសព័ត៌មានដែលចង់កែប្រែ", FrmWarning, _WarningSound)
-                    Exit Sub
-                End If
+                Else
+                    If (obj.IsEmptyDataGridView(dgDetail)) Then Exit Sub
+                    If (Validation.IsEmpty(cboTeacher, "គ្រូ")) Then Exit Sub
 
-                If dgDetail.RowCount <= 0 Then
-                    obj.ShowMsg("សូមបញ្ចូលព័ត៌មានជាមុខ​!", FrmWarning, _WarningSound)
-                    Exit Sub
-                End If
-
-                If cboTeacher.Text = "" Then
-                    obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, _WarningSound)
-                    ValidateControl_master()
-                    If ValidateControl_master() = False Then
-                        Exit Sub
+                    If (IsCboTeacherDropped = False) Then
+                        cboTeacher_DropDown(sender, e)
+                        cboTeacher.SelectedValue = teacherID 'teacherID value assigned from SelectMasterDetail()
                     End If
-                    Exit Sub
+
+                    Call UpdateMasterDetail()
+                    Call BindDgSearch()
                 End If
-
-                If txtAmountKHR.Text = "" Then
-                    txtAmountKHR.Text = 0
-                End If
-
-                If txtAmountUSD.Text = "" Then
-                    txtAmountUSD.Text = 0
-                End If
-
-                If (cboTeacherDropped = False) Then
-                    cboTeacher_DropDown(sender, e)
-                    cboTeacher.SelectedValue = teacherID
-                End If
-
-                obj.Update_1("UPDATE dbo.TBS_STUDENT_ALUMNI_MASTER SET TEACHER_ID = " & cboTeacher.SelectedValue & " ,DATE_CELEBRATION = '" & dtDateCelebration.Text & "',AMOUNT_US = " & txtAmountUSD.Text & " ,AMOUNT_KH = " & txtAmountKHR.Text & ",REMARK = N'" & txtRemark.Text & "' WHERE ALUMNI_ID = " & txtAlumniID.Text & "")
-
-                If (dgDetail.Rows.Count > 0) Then
-                    For i As Integer = 0 To dgDetail.RowCount - 1
-                        If (obj.CheckExisted("SELECT RECORD_ID FROM dbo.TBS_STUDENT_ALUMNI_DETAILS WHERE RECORD_ID = " & (If(dgDetail.Rows(i).Cells(8).Value Is Nothing, "0", dgDetail.Rows(i).Cells(8).Value)) & " ", "TBS_STUDENT_ALUMNI_DETAILS") = False) Then
-                            obj.Insert_1("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES(" & txtAlumniID.Text & "," & dgDetail.Rows(i).Cells(1).Value & "," & dgDetail.Rows(i).Cells(3).Value & "," & dgDetail.Rows(i).Cells(5).Value & "," & dgDetail.Rows(i).Cells(6).Value & ",N'" & dgDetail.Rows(i).Cells(7).Value & "')")
-                        Else
-                            Call obj.Update_1("UPDATE dbo.TBS_STUDENT_ALUMNI_DETAILS SET STUDENT_ID =" & dgDetail.Rows(i).Cells(1).Value.ToString() & " ,POSITION_ID = " & dgDetail.Rows(i).Cells(3).Value.ToString() & ", SPONSOR_US = " & dgDetail.Rows(i).Cells(5).Value.ToString() & ",SPONSOR_KH = " & dgDetail.Rows(i).Cells(6).Value.ToString() & ",REMARK =N'" & dgDetail.Rows(i).Cells(7).Value.ToString() & "' WHERE RECORD_ID = " & dgDetail.Rows(i).Cells(8).Value.ToString & " AND ALUMNI_ID = " & dgDetail.Rows(i).Cells(9).Value.ToString & "")
-                        End If
-                    Next
-                End If
-
-                Call obj.ShowMsg("ទិន្នន័យត្រូវបានកែប្រែ", FrmMessageSuccess, _SuccessSound)
-                Call SelectSearch()
             End If
         Catch ex As Exception
             _ExceptionMessage = ex.Message
@@ -702,7 +544,7 @@ Public Class FrmStudentAlumini
                     obj.Delete_1("DELETE FROM dbo.TBS_STUDENT_ALUMNI_DETAILS WHERE ALUMNI_ID = " & txtAlumniID.Text & "")
                     obj.Delete_1("DELETE FROM dbo.TBS_STUDENT_ALUMNI_MASTER WHERE ALUMNI_ID = " & txtAlumniID.Text & "")
                     obj.ShowMsg("ទិន្នន័យត្រូវបានលុប", FrmMessageSuccess, _SuccessSound)
-                    Call SelectSearch()
+                    Call BindDgSearch()
                 End If
             End If
         Catch ex As Exception
@@ -753,7 +595,7 @@ Public Class FrmStudentAlumini
 
     Private Sub txtAdvancedSearch_TextChanged(sender As Object, e As EventArgs) Handles txtAdvancedSearch.TextChanged
         Try
-            Dim sql = "SELECT A.ALUMNI_ID, A.DATE_CELEBRATION FROM dbo.TBS_STUDENT_ALUMNI_MASTER AS A LEFT JOIN dbo.TBL_TEACHER AS T ON A.TEACHER_ID = T.TEACHER_ID  LEFT JOIN dbo.TBS_STUDENT_ALUMNI_DETAILS AS D ON A.ALUMNI_ID = D.ALUMNI_ID LEFT JOIN dbo.TBS_STUDENT_INFO_FORMER AS F ON D.STUDENT_ID = F.STUDENT_ID WHERE  ISNULL(CAST(A.DATE_CELEBRATION  AS NVARCHAR(50)),'') + ISNULL(T.T_NAME_KH,'') + ISNULL(F.SNAME_KH,'') LIKE N'%" & txtAdvancedSearch.Text & "%'"
+            Dim sql = "SELECT DISTINCT A.ALUMNI_ID, A.DATE_CELEBRATION FROM dbo.TBS_STUDENT_ALUMNI_MASTER AS A LEFT JOIN dbo.TBL_TEACHER AS T ON A.TEACHER_ID = T.TEACHER_ID  LEFT JOIN dbo.TBS_STUDENT_ALUMNI_DETAILS AS D ON A.ALUMNI_ID = D.ALUMNI_ID LEFT JOIN dbo.TBS_STUDENT_INFO_FORMER AS F ON D.STUDENT_ID = F.STUDENT_ID WHERE  ISNULL(CAST(A.DATE_CELEBRATION  AS NVARCHAR(50)),'') + ISNULL(T.T_NAME_KH,'') + ISNULL(F.SNAME_KH,'') LIKE N'%" & txtAdvancedSearch.Text & "%'"
             obj.BindDataGridView(sql, dgSearch)
             Call SetDgSearcHeader()
 
@@ -785,10 +627,38 @@ Public Class FrmStudentAlumini
 
     Private Sub lblPrint_Click(sender As Object, e As EventArgs) Handles lblPrint.Click
         Try
+            If (lblSave.Enabled = True) Then
+                obj.ShowMsg("តើអ្នកចង់រក្សាទុកទិន្នន័យនេះដែលឬទេ ?", FrmMessageQuestion, _ShowMessageSound)
+                If USER_CLICK_OK = True Then
+                    lblSave_Click(sender, e)
+
+                    If (dgSearch.Rows.Count > 0) Then
+                        Me.dgSearch.FirstDisplayedScrollingRowIndex = Me.dgSearch.RowCount - 1
+                        Me.dgSearch.Rows(Me.dgSearch.RowCount - 1).Selected = True
+                    End If
+                    Cursor = Cursors.WaitCursor
+                    Application.DoEvents()
+                    PrintReport()
+                    Cursor = Cursors.Default
+                End If
+            Else
+                Cursor = Cursors.WaitCursor
+                Application.DoEvents()
+                PrintReport()
+                Cursor = Cursors.Default
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub PrintReport()
+        Try
             DataSet1.dtStudentAlumni.Clear()
+
             Dim rowNumber As Integer = 1
             For i As Integer = 0 To dgDetail.RowCount - 1
-                DataSet1.dtStudentAlumni.Rows.Add(rowNumber, dgDetail.Rows(i).Cells(2).Value.ToString, dgDetail.Rows(i).Cells(4).Value.ToString, dgDetail.Rows(i).Cells(5).Value.ToString, dgDetail.Rows(i).Cells(6).Value.ToString, dgDetail.Rows(i).Cells(7).Value.ToString)
+                DataSet1.dtStudentAlumni.Rows.Add(rowNumber, dgDetail.Rows(i).Cells(2).Value, dgDetail.Rows(i).Cells(4).Value, dgDetail.Rows(i).Cells(5).Value, dgDetail.Rows(i).Cells(6).Value, dgDetail.Rows(i).Cells(7).Value)
                 rowNumber += 1
             Next
 
@@ -807,6 +677,18 @@ Public Class FrmStudentAlumini
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub cbAll_CheckedChanged(sender As Object, e As EventArgs) Handles cbAll.CheckedChanged
+        If (cbAll.Checked = True) Then
+            Call BindDgSearch()
+        End If
+    End Sub
+
+    Private Sub cbAllSearch_CheckedChanged(sender As Object, e As EventArgs) Handles cbAllSearch.CheckedChanged
+        If (cbAllSearch.Checked = True) Then
+            Call BindDgSearch()
+        End If
     End Sub
 End Class
 

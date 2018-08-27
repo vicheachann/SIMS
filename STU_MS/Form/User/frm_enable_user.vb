@@ -34,7 +34,7 @@
             Else
                 a = "Disalbe"
             End If
-            Call obj.Update_1("UPDATE TBL_USERS SET [STATUS] = '" & enable.Value.ToString & "' WHERE USER_NAME = N'" & cbo_user.Text & "' ")
+            Call obj.UpdateNoMsg("UPDATE TBL_USERS SET [STATUS] = '" & enable.Value.ToString & "' WHERE USER_NAME = N'" & cbo_user.Text & "' ")
             obj.ShowMsg("ព័ត៌មានអ្នកប្រើប្រាស់ត្រូវបានកែប្រែជោគជ័យ", FrmMessageSuccess, "")
             frm_add_user.Selection()
         Catch ex As Exception

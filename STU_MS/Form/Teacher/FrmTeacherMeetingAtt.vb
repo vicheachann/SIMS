@@ -245,10 +245,10 @@ Public Class FrmTeacherMeetingAtt
 
 
         'Insert master 
-        obj.Insert_1("INSERT INTO dbo.TBL_TEACHER_ABSENT_MEETING_MASTER(DATE_NOTE,DATE_MEETING,MEETING_TOPIC,YEAR_STUDY,MONTHLY_ID,TOTAL_STAFF,TOTAL_ABSENT_LAW,TOTAL_ABSENT_NO_LAW,TOTAL_ALL_ABSENT)VALUES(GETDATE(),'" & dtDate.Text & "',N'" & txtMeetingTopic.Text & "',N'" & cboYearStudy.Text & "'," & cboMonth.SelectedValue & "," & txtTotal.Text & "," & txtLow.Text & "," & txtNoLow.Text & "," & txtJoin.Text & ")")
+        obj.InsertNoMsg("INSERT INTO dbo.TBL_TEACHER_ABSENT_MEETING_MASTER(DATE_NOTE,DATE_MEETING,MEETING_TOPIC,YEAR_STUDY,MONTHLY_ID,TOTAL_STAFF,TOTAL_ABSENT_LAW,TOTAL_ABSENT_NO_LAW,TOTAL_ALL_ABSENT)VALUES(GETDATE(),'" & dtDate.Text & "',N'" & txtMeetingTopic.Text & "',N'" & cboYearStudy.Text & "'," & cboMonth.SelectedValue & "," & txtTotal.Text & "," & txtLow.Text & "," & txtNoLow.Text & "," & txtJoin.Text & ")")
         'Insert detail
         For i As Integer = 0 To dgAttendance.RowCount - 1
-            obj.Insert_1("INSERT INTO  dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS(MEETING_ID,TEACHER_ID,ABSENT_STATUS_ID,[DESCRIPTION])VALUES((SELECT MAX(MEETING_ID) FROM dbo.TBL_TEACHER_ABSENT_MEETING_MASTER)," & dgAttendance.Rows(i).Cells(1).Value & "," & CheckAttandanceStatus(i) & ",N'" & dgAttendance.Rows(i).Cells(1).Value & "')")
+            obj.InsertNoMsg("INSERT INTO  dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS(MEETING_ID,TEACHER_ID,ABSENT_STATUS_ID,[DESCRIPTION])VALUES((SELECT MAX(MEETING_ID) FROM dbo.TBL_TEACHER_ABSENT_MEETING_MASTER)," & dgAttendance.Rows(i).Cells(1).Value & "," & CheckAttandanceStatus(i) & ",N'" & dgAttendance.Rows(i).Cells(1).Value & "')")
         Next
 
         Call obj.ShowMsg("ទិន្នន័យរក្សាទុកបានសម្រេច!", FrmMessageSuccess, "")
@@ -490,7 +490,7 @@ Public Class FrmTeacherMeetingAtt
                         Call CountAll()
 
                         'UPDATE MASTER
-                        Call obj.Update_1("UPDATE dbo.TBL_TEACHER_ABSENT_MEETING_MASTER SET TOTAL_STAFF = " & txtTotal.Text & ", TOTAL_ABSENT_LAW = " & txtLow.Text & " ,TOTAL_ABSENT_NO_LAW = " & txtNoLow.Text & " ,TOTAL_ALL_ABSENT = " & txtJoin.Text & " WHERE MEETING_ID = " & txtMeetingID.Text & "")
+                        Call obj.UpdateNoMsg("UPDATE dbo.TBL_TEACHER_ABSENT_MEETING_MASTER SET TOTAL_STAFF = " & txtTotal.Text & ", TOTAL_ABSENT_LAW = " & txtLow.Text & " ,TOTAL_ABSENT_NO_LAW = " & txtNoLow.Text & " ,TOTAL_ALL_ABSENT = " & txtJoin.Text & " WHERE MEETING_ID = " & txtMeetingID.Text & "")
 
                         USER_CLICK_OK = False
                     End If
@@ -546,10 +546,10 @@ Public Class FrmTeacherMeetingAtt
 
                 'Update detail
                 For i As Integer = 0 To dgAttendance.RowCount - 1
-                    obj.Update_1("UPDATE dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS SET ABSENT_STATUS_ID = " & CheckAttandanceStatus(i) & " ,[DESCRIPTION] = N'" & dgAttendance.Rows(i).Cells(9).Value & "' WHERE  RECORD_ID = " & dgAttendance.Rows(i).Cells(10).Value & " AND MEETING_ID = " & txtMeetingID.Text & " AND TEACHER_ID = " & dgAttendance.Rows(i).Cells(1).Value & "")
+                    obj.UpdateNoMsg("UPDATE dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS SET ABSENT_STATUS_ID = " & CheckAttandanceStatus(i) & " ,[DESCRIPTION] = N'" & dgAttendance.Rows(i).Cells(9).Value & "' WHERE  RECORD_ID = " & dgAttendance.Rows(i).Cells(10).Value & " AND MEETING_ID = " & txtMeetingID.Text & " AND TEACHER_ID = " & dgAttendance.Rows(i).Cells(1).Value & "")
                 Next
                 'Update master
-                Call obj.Update_1("UPDATE dbo.TBL_TEACHER_ABSENT_MEETING_MASTER SET TOTAL_ABSENT_LAW =(SELECT COUNT(CASE WHEN ABSENT_STATUS_ID = 2 THEN 1 END) FROM dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS WHERE MEETING_ID = " & txtMeetingID.Text & "), TOTAL_ABSENT_NO_LAW =(SELECT COUNT(CASE WHEN ABSENT_STATUS_ID = 3 THEN 1 END) FROM dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS WHERE MEETING_ID = " & txtMeetingID.Text & "),TOTAL_ALL_ABSENT = (SELECT COUNT(CASE WHEN ABSENT_STATUS_ID = 1 THEN 1 END) FROM dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS WHERE MEETING_ID = " & txtMeetingID.Text & "),TOTAL_STAFF = (SELECT COUNT(ABSENT_STATUS_ID) FROM dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS WHERE MEETING_ID = " & txtMeetingID.Text & ") WHERE MEETING_ID = " & txtMeetingID.Text & "")
+                Call obj.UpdateNoMsg("UPDATE dbo.TBL_TEACHER_ABSENT_MEETING_MASTER SET TOTAL_ABSENT_LAW =(SELECT COUNT(CASE WHEN ABSENT_STATUS_ID = 2 THEN 1 END) FROM dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS WHERE MEETING_ID = " & txtMeetingID.Text & "), TOTAL_ABSENT_NO_LAW =(SELECT COUNT(CASE WHEN ABSENT_STATUS_ID = 3 THEN 1 END) FROM dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS WHERE MEETING_ID = " & txtMeetingID.Text & "),TOTAL_ALL_ABSENT = (SELECT COUNT(CASE WHEN ABSENT_STATUS_ID = 1 THEN 1 END) FROM dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS WHERE MEETING_ID = " & txtMeetingID.Text & "),TOTAL_STAFF = (SELECT COUNT(ABSENT_STATUS_ID) FROM dbo.TBL_TEACHER_ABSENT_MEETING_DETAILS WHERE MEETING_ID = " & txtMeetingID.Text & ") WHERE MEETING_ID = " & txtMeetingID.Text & "")
 
                 Call obj.ShowMsg("កែប្រែបានជោគជ័យ", FrmMessageSuccess, "success.wav")
                 Call SelectMasterDetail(txtMeetingID.Text)

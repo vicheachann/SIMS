@@ -96,10 +96,10 @@ Public Class frm_teacher_mission
             Exit Sub
         End If
 
-        obj.Insert_1("INSERT INTO dbo.TBL_TEACHER_MISSION_MASTER(MISSION_NUMBER,MISSION_DATE,MISSION_MEANING,MISSION_TO,LOCATION,[DESCRIPTION],DATE_NOTE)VALUES(N'" & txtMissionNumber.Text & "','" & dtMissionDate.Text & "',N'" & txtMissionMeaning.Text & "',N'" & txtMissionTo.Text & "',N'" & txtLocation.Text & "',N'" & txtRemark.Text & "','" & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") & "')")
+        obj.InsertNoMsg("INSERT INTO dbo.TBL_TEACHER_MISSION_MASTER(MISSION_NUMBER,MISSION_DATE,MISSION_MEANING,MISSION_TO,LOCATION,[DESCRIPTION],DATE_NOTE)VALUES(N'" & txtMissionNumber.Text & "','" & dtMissionDate.Text & "',N'" & txtMissionMeaning.Text & "',N'" & txtMissionTo.Text & "',N'" & txtLocation.Text & "',N'" & txtRemark.Text & "','" & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") & "')")
 
         For i As Integer = 0 To dg.RowCount - 1
-            Call obj.Insert_1("INSERT INTO  dbo.TBL_TEACHER_MISSION_DETAIL (MISSION_ID, TEACHER_ID, MISSION_POSITION_ID, [DESCRIPTION], DATE_NOTE)VALUES((Select MAX(MISSION_ID) FROM dbo.TBL_TEACHER_MISSION_MASTER)," & dg.Rows(i).Cells(2).Value & "," & dg.Rows(i).Cells(4).Value & ",N'" & dg.Rows(i).Cells(5).Value.ToString & "','" & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") & "')")
+            Call obj.InsertNoMsg("INSERT INTO  dbo.TBL_TEACHER_MISSION_DETAIL (MISSION_ID, TEACHER_ID, MISSION_POSITION_ID, [DESCRIPTION], DATE_NOTE)VALUES((Select MAX(MISSION_ID) FROM dbo.TBL_TEACHER_MISSION_MASTER)," & dg.Rows(i).Cells(2).Value & "," & dg.Rows(i).Cells(4).Value & ",N'" & dg.Rows(i).Cells(5).Value.ToString & "','" & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") & "')")
         Next
         Call obj.ShowMsg("ទិន្នន័យរក្សាទុកបានសម្រេច!", FrmMessageSuccess, "")
     End Sub
@@ -211,7 +211,7 @@ Public Class frm_teacher_mission
             End If
 
             'Update master
-            obj.Update_1("UPDATE dbo.TBL_TEACHER_MISSION_MASTER SET MISSION_NUMBER = N'" & txtMissionNumber.Text & "' , MISSION_DATE = '" & dtMissionDate.Value & "',MISSION_MEANING = N'" & txtMissionMeaning.Text & "',MISSION_TO = N'" & txtMissionTo.Text & "',LOCATION = N'" & txtLocation.Text & "', [DESCRIPTION] = '" & txtRemark.Text & "' WHERE MISSION_ID =" & txtMissionId.Text & "")
+            obj.UpdateNoMsg("UPDATE dbo.TBL_TEACHER_MISSION_MASTER SET MISSION_NUMBER = N'" & txtMissionNumber.Text & "' , MISSION_DATE = '" & dtMissionDate.Value & "',MISSION_MEANING = N'" & txtMissionMeaning.Text & "',MISSION_TO = N'" & txtMissionTo.Text & "',LOCATION = N'" & txtLocation.Text & "', [DESCRIPTION] = '" & txtRemark.Text & "' WHERE MISSION_ID =" & txtMissionId.Text & "")
 
             Call obj.OpenConnection()
             cmd = New SqlCommand("SELECT RECORD_ID FROM dbo.TBL_TEACHER_MISSION_DETAIL WHERE (MISSION_ID =" & txtMissionId.Text & ") ", conn)
@@ -222,10 +222,10 @@ Public Class frm_teacher_mission
             For i As Integer = 0 To dg.RowCount - 1
                 Try
                     If dt.Rows(i)(0).ToString() = dg.Rows(i).Cells(0).Value.ToString() Then
-                        Call obj.Update_1("UPDATE dbo.TBL_TEACHER_MISSION_DETAIL SET TEACHER_ID= " & dg.Rows(i).Cells(2).Value & ",MISSION_POSITION_ID = " & dg.Rows(i).Cells(4).Value & ",[DESCRIPTION] = N'" & dg.Rows(i).Cells(5).Value & "' WHERE RECORD_ID = " & dg.Rows(i).Cells(0).Value & " AND MISSION_ID = " & txtMissionId.Text & "")
+                        Call obj.UpdateNoMsg("UPDATE dbo.TBL_TEACHER_MISSION_DETAIL SET TEACHER_ID= " & dg.Rows(i).Cells(2).Value & ",MISSION_POSITION_ID = " & dg.Rows(i).Cells(4).Value & ",[DESCRIPTION] = N'" & dg.Rows(i).Cells(5).Value & "' WHERE RECORD_ID = " & dg.Rows(i).Cells(0).Value & " AND MISSION_ID = " & txtMissionId.Text & "")
                     End If
                 Catch ex As Exception
-                    Call obj.Insert_1("INSERT INTO dbo.TBL_TEACHER_MISSION_DETAIL(MISSION_ID,TEACHER_ID,MISSION_POSITION_ID,[DESCRIPTION],DATE_NOTE)VALUES(" & txtMissionId.Text & "," & dg.Rows(i).Cells(2).Value & "," & dg.Rows(i).Cells(4).Value & ",N'" & dg.Rows(i).Cells(5).Value & "','" & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") & "')")
+                    Call obj.InsertNoMsg("INSERT INTO dbo.TBL_TEACHER_MISSION_DETAIL(MISSION_ID,TEACHER_ID,MISSION_POSITION_ID,[DESCRIPTION],DATE_NOTE)VALUES(" & txtMissionId.Text & "," & dg.Rows(i).Cells(2).Value & "," & dg.Rows(i).Cells(4).Value & ",N'" & dg.Rows(i).Cells(5).Value & "','" & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") & "')")
                 End Try
             Next
 

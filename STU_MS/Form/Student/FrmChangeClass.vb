@@ -97,7 +97,7 @@ Public Class FrmChangeClass
                     obj.ShowMsg("តើអ្នកចង់កំណត់សិស្សរៀនត្រួតថ្នាក់ដែលឬទេ ?", FrmMessageQuestion, "")
                     If USER_CLICK_OK = True Then
                         For i As Integer = 0 To dg.RowCount - 1
-                            obj.Insert_1("INSERT INTO dbo.TBS_STUDENT_STUDY_INFO (STUDENT_ID,CLASS_ID,YEAR_STUDY,CLASS_OLD,YEAR_STUDY_OLD,REMARK,DATE_NOTE,STUDY_INFO_STATUS_ID,TEACHER_ID)VALUES(" & dg.Rows(i).Cells(3).Value & "," & GetClassID(dg.Rows(i).Cells(12).Value) & ",N'" & cboDynamic.Text & "',N'" & dg.Rows(i).Cells(12).Value & "',N'" & dg.Rows(i).Cells(11).Value & "',N'" & dg.Rows(i).Cells(16).Value & "',GETDATE(),2,10)")
+                            obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_STUDY_INFO (STUDENT_ID,CLASS_ID,YEAR_STUDY,CLASS_OLD,YEAR_STUDY_OLD,REMARK,DATE_NOTE,STUDY_INFO_STATUS_ID,TEACHER_ID)VALUES(" & dg.Rows(i).Cells(3).Value & "," & GetClassID(dg.Rows(i).Cells(12).Value) & ",N'" & cboDynamic.Text & "',N'" & dg.Rows(i).Cells(12).Value & "',N'" & dg.Rows(i).Cells(11).Value & "',N'" & dg.Rows(i).Cells(16).Value & "',GETDATE(),2,10)")
                         Next
                         Call obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, "success.wav")
                     End If
@@ -129,7 +129,7 @@ Public Class FrmChangeClass
                     obj.ShowMsg("តើអ្នកចង់ប្តូរថ្នាក់សិស្សដែលឬទេ ?", FrmMessageQuestion, "")
                     If USER_CLICK_OK = True Then
                         For I As Integer = 0 To dg.Rows.Count - 1
-                            obj.Update_1("UPDATE dbo.TBS_STUDENT_STUDY_INFO SET CLASS_ID = " & cboDynamic.SelectedValue & " WHERE STUDENT_ID = " & dg.Rows(I).Cells(3).Value & " ")
+                            obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_STUDY_INFO SET CLASS_ID = " & cboDynamic.SelectedValue & " WHERE STUDENT_ID = " & dg.Rows(I).Cells(3).Value & " ")
                         Next
                         Call obj.ShowMsg("កែប្រែបានជោគជ័យ", FrmMessageSuccess, "success.wav")
                     End If
@@ -180,7 +180,7 @@ Public Class FrmChangeClass
 
 
                         For I As Integer = 0 To dg.Rows.Count - 1
-                            obj.Update_1("UPDATE dbo.TBS_STUDENT_STUDY_INFO SET STUDY_INFO_STATUS_ID = 3 WHERE STUDENT_ID = " & dg.Rows(I).Cells(3).Value & " ")
+                            obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_STUDY_INFO SET STUDY_INFO_STATUS_ID = 3 WHERE STUDENT_ID = " & dg.Rows(I).Cells(3).Value & " ")
                         Next
                         Call obj.ShowMsg("កែប្រែបានជោគជ័យ", FrmMessageSuccess, "success.wav")
 
@@ -203,7 +203,7 @@ Public Class FrmChangeClass
                     obj.ShowMsg("តើអ្នកចង់កំណត់ជាសិស្សផ្ទេរចេញដែលឬទេ ?", FrmMessageQuestion, "")
                     If USER_CLICK_OK = True Then
                         For I As Integer = 0 To dg.Rows.Count - 1
-                            obj.Update_1("UPDATE dbo.TBS_STUDENT_STUDY_INFO SET STUDY_INFO_STATUS_ID = 4 WHERE STUDENT_ID = " & dg.Rows(I).Cells(3).Value & " ")
+                            obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_STUDY_INFO SET STUDY_INFO_STATUS_ID = 4 WHERE STUDENT_ID = " & dg.Rows(I).Cells(3).Value & " ")
                         Next
                         Call obj.ShowMsg("កែប្រែបានជោគជ័យ", FrmMessageSuccess, "success.wav")
                     End If
@@ -300,8 +300,8 @@ Public Class FrmChangeClass
                 obj.ShowMsg("តើអ្នកចង់បញ្ចូលក្នុងសិស្សបោះបង់ការសិក្សាដែលឬទេ ?", msg_question_big, "")
                 If USER_CLICK_OK = True Then
                     For i As Integer = 0 To dg.Rows.Count - 1
-                        obj.Insert_1("INSERT INTO dbo.TBS_STUDENT_STOP_STUDY(STUDENT_ID,FLAGE)VALUES(" & dg.Rows(i).Cells(3).Value & ",0)")
-                        obj.Update_1("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 4  WHERE STUDENT_ID = " & dg.Rows(i).Cells(3).Value & "")
+                        obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_STOP_STUDY(STUDENT_ID,FLAGE)VALUES(" & dg.Rows(i).Cells(3).Value & ",0)")
+                        obj.UpdateNoMsg("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 4  WHERE STUDENT_ID = " & dg.Rows(i).Cells(3).Value & "")
                     Next
                     dg.Rows.Clear()
                     frm_student_stop_study.ShowDialog()

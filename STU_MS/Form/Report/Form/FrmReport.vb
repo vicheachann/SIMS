@@ -5,6 +5,8 @@ Public Class FrmReport
     Dim obj As New Method
     Dim reportId As Integer
     Dim sql As String
+
+    Dim t As New Theme
     Dim reportDatasource As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
     Private Sub btn_close_Click(sender As Object, e As EventArgs) Handles btn_close.Click
         Close()
@@ -54,7 +56,8 @@ Public Class FrmReport
         End Try
     End Sub
 
-    Public Sub GetReportId()
+    Public Function GetReportId() As Integer
+        Dim reportID As Integer
         Try
             Dim sqlcom = New SqlCommand("SELECT ID FROM TBL_REPORT_NAME WHERE TITLE_EN=N'" & ListReport.SelectedItem.ToString() & "' OR TITLE_KH=N'" & ListReport.SelectedItem.ToString() & "' ", conn)
             da = New SqlDataAdapter(sqlcom)
@@ -65,8 +68,10 @@ Public Class FrmReport
             End If
             reportId = dt.Rows(0)(0).ToString()
         Catch ex As Exception
+            MessageBox.Show(ex.Message)
         End Try
-    End Sub
+        Return reportID
+    End Function
 
     Private Sub ListReport_DoubleClick(sender As Object, e As EventArgs) Handles ListReport.DoubleClick
         lblView_Click(sender, e)
@@ -82,10 +87,15 @@ Public Class FrmReport
             reportDatasource.Value = Binding_name
             ReportViewer.LocalReport.DataSources.Add(reportDatasource)
             ReportViewer.LocalReport.ReportEmbeddedResource = Report_Name
+
             ReportViewer.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-            'ReportViewer1.ResetPageSettings()
-            ReportViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth
+            ReportViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.Percent
             ReportViewer.ZoomPercent = 100
+
+            'ReportViewer.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            ''ReportViewer1.ResetPageSettings()
+            'ReportViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.Percent = 100
+            'ReportViewer.ZoomPercent = 100
 
             ReportViewer.RefreshReport()
         Catch ex As Exception
@@ -121,13 +131,7 @@ Public Class FrmReport
     End Sub
     Public Sub SELECT_STUDENT_LIST_ALLSTATUS_BY_CLASS()
         Try
-            Call obj.OpenConnection()
-            sql = "SELECT ROW_NUMBER() OVER(ORDER BY SNAME_KH ASC) AS 'ROW_NUMBER',SNAME_KH,CLASS_MONITOR_NUM,GENDER,DOB_2,GUARDIAN_VILLAGE,CLASS_OLD FROM dbo.V_STUDENT_LIST_ALL_STATUS WHERE YEAR_STUDY_OLD = N'" & cboStuList_year.Text & "' AND CLASS_ID = " & cboStuList_class.SelectedValue & ""
-            cmd = New SqlCommand(sql, conn)
-            da = New SqlDataAdapter(cmd)
 
-            DataSet1.dtStudent.Clear()
-            da.Fill(DataSet1.dtStudent)
 
             ReportViewer.RefreshReport()
         Catch ex As Exception
@@ -187,67 +191,68 @@ Public Class FrmReport
 
 
     Private Sub ListReport_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListReport.SelectedIndexChanged
+        Try
+            Select Case GetReportId()
+                Case 1 'Teacher absence meeting
+                    pnlYearStudyAndClass.Visible = False
+                    pnlYearStudy.Visible = True
+                    pnlViewButton.Location = New Point(493, 6)
+                Case 2 'Student list
+                    pnlYearStudyAndClass.Visible = True
+                    pnlYearStudy.Visible = False
+                    pnlViewButton.Location = New Point(647, 6)
 
-        Call GetReportId()
-
-        Select Case reportId
-            Case 1
-                'Teacher absent meeting
-
-                pnlYearStudy.Visible = True
-                pnlStuList.Visible = False
-            Case 2
-                'Student list
-
-                pnlYearStudy.Visible = False
-                pnlStuList.Visible = True
-            Case 3
-                'Teacher list
-                pnlYearStudy.Visible = False
-                pnlStuList.Visible = False
-
-            Case 4
-                'V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE
-                pnlYearStudy.Visible = False
-                pnlStuList.Visible = False
-
-        End Select
+            End Select
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
+    Private Sub CreateStudentListReport()
+        Try
+            Call obj.OpenConnection()
+            sql = "SELECT ROW_NUMBER() OVER(ORDER BY SNAME_KH ASC) AS 'ROW_NUMBER',SNAME_KH,CLASS_MONITOR_NUM,GENDER,DOB_2,GUARDIAN_VILLAGE,CLASS_OLD FROM dbo.V_STUDENT_LIST_ALL_STATUS WHERE YEAR_STUDY_OLD = N'" & cboStuList_year.Text & "' AND CLASS_ID = " & cboStuList_class.SelectedValue & ""
+            cmd = New SqlCommand(sql, conn)
+            da = New SqlDataAdapter(cmd)
 
+            DataSet1.dtStudent.Clear()
+            da.Fill(DataSet1.dtStudent)
+
+            Call SetReport("DataSet1", "STU_MS.rpStudentList.rdlc", bsStudentList)
+            Call SendParam("paramYearStudy", cboStuList_year.Text)
+            Call SendParam("paramClassName", cboStuList_class.Text)
+            Call SendParam("paramSchoolName", obj.GetSchoolName())
+            Call SendParam("paramProvince", obj.GetProvinceName())
+            ReportViewer.RefreshReport()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
     Private Sub lblView_Click(sender As Object, e As EventArgs) Handles lblView.Click
         ReportViewer.Reset()
 
-        Call GetReportId()
-        Select Case reportId
-            Case 1
-                'Teacher absence meeting
+        Select Case GetReportId()
+            Case 1 'Teacher absence meeting
                 If (cboYearStudy.Text = "") Then
                     obj.ShowMsg("សូមបញ្ចូលឆ្នាំសិក្សា", FrmWarning, "")
                     cboYearStudy.Focus()
                     Exit Sub
                 End If
-
                 Call SelectTeacherMeetingAbsenceView()
                 Call SetReport("DataSet1", "STU_MS.rpTeacherMeetingAbsence.rdlc", TeacherMeetingAbsence_BindingSource)
                 Call SendParam("paramYearStudy", cboYearStudy.Text)
                 ReportViewer.RefreshReport()
 
+                '-------- Student List --------
             Case 2
-                'Student list 
+
                 If (cboStuList_class.Text = "" Or cboStuList_year.Text = "") Then
                     obj.ShowMsg("សូមជ្រើសយកឆ្នាំសិក្សា និង ថ្នាក់ជាមុន", FrmWarning, "")
                     cboStuList_year.Focus()
                     Exit Sub
                 End If
-
-
-                Call SELECT_STUDENT_LIST_ALLSTATUS_BY_CLASS()
-                Call SetReport("DataSet1", "STU_MS.rpStudentListAllStatus_2.rdlc", V_STUDENT_LIST_ALL_STATUS_BindingSource)
-                Call SendParam("paramYearStudy", cboStuList_year.Text)
-                Call SendParam("paramClass", cboStuList_class.Text)
-                ReportViewer.RefreshReport()
+                Call CreateStudentListReport()
             Case 3
                 'Teacher list
                 Call SELECT_V_TEACHER_LIST_ALL_STATUS()
@@ -273,5 +278,25 @@ Public Class FrmReport
 
     Private Sub cboStuList_class_DropDown(sender As Object, e As EventArgs) Handles cboStuList_class.DropDown
         obj.BindComboBox("SELECT CLASS_ID,CLASS_LETTER FROM dbo.TBS_CLASS", cboStuList_class, "CLASS_LETTER", "CLASS_ID")
+    End Sub
+
+    Private Sub d(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub lblView_MouseHover(sender As Object, e As EventArgs) Handles lblView.MouseHover
+        t.Hover(lblView)
+    End Sub
+
+    Private Sub lblView_MouseLeave(sender As Object, e As EventArgs) Handles lblView.MouseLeave
+        t.Leave(lblView)
+    End Sub
+
+    Private Sub cboStuList_year_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboStuList_year.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub cboStuList_class_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboStuList_class.KeyPress
+        e.Handled = True
     End Sub
 End Class
