@@ -73,6 +73,32 @@ Public Class Method
             Call ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
+    Public Sub BindComboBoxWithAll(ByVal sql As String, ByVal cbo As ComboBox, ByVal displayMember As String, ByVal valueMember As String)
+        Try
+            Call OpenConnection()
+            cmd = New SqlCommand(sql, conn)
+            da = New SqlDataAdapter(cmd)
+            dt = New DataTable()
+            da.Fill(dt)
+            Dim r As DataRow = dt.NewRow()
+            Try
+                r(valueMember) = 0
+                r(displayMember) = "ទាំងអស់"
+            Catch ex As Exception
+                Throw ex
+            End Try
+            dt.Rows.InsertAt(r, 0)
+
+
+            cbo.DisplayMember = displayMember
+            cbo.ValueMember = valueMember
+            cbo.DataSource = dt
+            conn.Close()
+        Catch ex As Exception
+            _ExceptionMessage = ex.Message
+            Call ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, "Error.wav")
+        End Try
+    End Sub
     Public Sub Delete(ByVal sql As String)
         Try
             OpenConnection()
@@ -406,6 +432,7 @@ Public Class Method
 
 
     Public Function GetID(ByVal sql As String) As String
+        'use GetID when
         Dim ID As String = "null"
         Try
             OpenConnection()

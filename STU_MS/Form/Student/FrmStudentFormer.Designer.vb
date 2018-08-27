@@ -52,7 +52,7 @@ Partial Class FrmStudentFormer
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.pdate = New DevComponents.DotNetBar.PanelEx()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboStopYearStudy = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cboBatch = New System.Windows.Forms.ComboBox()
         Me.lblPrintStudent = New System.Windows.Forms.Label()
@@ -546,7 +546,7 @@ Partial Class FrmStudentFormer
         Me.pdate.CanvasColor = System.Drawing.SystemColors.Control
         Me.pdate.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.pdate.Controls.Add(Me.Label10)
-        Me.pdate.Controls.Add(Me.ComboBox1)
+        Me.pdate.Controls.Add(Me.cboStopYearStudy)
         Me.pdate.Controls.Add(Me.Label4)
         Me.pdate.Controls.Add(Me.cboBatch)
         Me.pdate.Controls.Add(Me.lblPrintStudent)
@@ -603,23 +603,23 @@ Partial Class FrmStudentFormer
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(402, 212)
+        Me.Label10.Location = New System.Drawing.Point(746, 56)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(69, 30)
         Me.Label10.TabIndex = 212
         Me.Label10.Text = "ឆ្នាំបញ្ចប់"
         '
-        'ComboBox1
+        'cboStopYearStudy
         '
-        Me.ComboBox1.DropDownHeight = 130
-        Me.ComboBox1.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.IntegralHeight = False
-        Me.ComboBox1.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
-        Me.ComboBox1.Location = New System.Drawing.Point(537, 208)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(201, 38)
-        Me.ComboBox1.TabIndex = 211
+        Me.cboStopYearStudy.DropDownHeight = 130
+        Me.cboStopYearStudy.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.cboStopYearStudy.FormattingEnabled = True
+        Me.cboStopYearStudy.IntegralHeight = False
+        Me.cboStopYearStudy.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
+        Me.cboStopYearStudy.Location = New System.Drawing.Point(890, 48)
+        Me.cboStopYearStudy.Name = "cboStopYearStudy"
+        Me.cboStopYearStudy.Size = New System.Drawing.Size(201, 38)
+        Me.cboStopYearStudy.TabIndex = 211
         '
         'Label4
         '
@@ -662,7 +662,7 @@ Partial Class FrmStudentFormer
         Me.cboStuFirstYearStudy.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboStuFirstYearStudy.FormattingEnabled = True
         Me.cboStuFirstYearStudy.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
-        Me.cboStuFirstYearStudy.Location = New System.Drawing.Point(888, 49)
+        Me.cboStuFirstYearStudy.Location = New System.Drawing.Point(890, 9)
         Me.cboStuFirstYearStudy.Name = "cboStuFirstYearStudy"
         Me.cboStuFirstYearStudy.Size = New System.Drawing.Size(202, 38)
         Me.cboStuFirstYearStudy.TabIndex = 207
@@ -758,7 +758,7 @@ Partial Class FrmStudentFormer
         Me.Label31.AutoSize = True
         Me.Label31.BackColor = System.Drawing.Color.Transparent
         Me.Label31.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(746, 92)
+        Me.Label31.Location = New System.Drawing.Point(746, 93)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(58, 30)
         Me.Label31.TabIndex = 181
@@ -767,10 +767,10 @@ Partial Class FrmStudentFormer
         'txtStuRemark
         '
         Me.txtStuRemark.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.txtStuRemark.Location = New System.Drawing.Point(888, 89)
+        Me.txtStuRemark.Location = New System.Drawing.Point(890, 87)
         Me.txtStuRemark.Multiline = True
         Me.txtStuRemark.Name = "txtStuRemark"
-        Me.txtStuRemark.Size = New System.Drawing.Size(202, 117)
+        Me.txtStuRemark.Size = New System.Drawing.Size(202, 116)
         Me.txtStuRemark.TabIndex = 180
         '
         'dtStuJoinSchoolDate
@@ -778,7 +778,7 @@ Partial Class FrmStudentFormer
         Me.dtStuJoinSchoolDate.CustomFormat = "yyyy-MM-dd"
         Me.dtStuJoinSchoolDate.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.dtStuJoinSchoolDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtStuJoinSchoolDate.Location = New System.Drawing.Point(888, 9)
+        Me.dtStuJoinSchoolDate.Location = New System.Drawing.Point(537, 207)
         Me.dtStuJoinSchoolDate.Name = "dtStuJoinSchoolDate"
         Me.dtStuJoinSchoolDate.Size = New System.Drawing.Size(201, 38)
         Me.dtStuJoinSchoolDate.TabIndex = 175
@@ -791,7 +791,7 @@ Partial Class FrmStudentFormer
         Me.lbl_year_study.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lbl_year_study.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_year_study.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lbl_year_study.Location = New System.Drawing.Point(746, 54)
+        Me.lbl_year_study.Location = New System.Drawing.Point(746, 17)
         Me.lbl_year_study.Name = "lbl_year_study"
         Me.lbl_year_study.Size = New System.Drawing.Size(102, 30)
         Me.lbl_year_study.TabIndex = 166
@@ -821,7 +821,7 @@ Partial Class FrmStudentFormer
         Me.Label29.AutoSize = True
         Me.Label29.BackColor = System.Drawing.Color.Transparent
         Me.Label29.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(746, 14)
+        Me.Label29.Location = New System.Drawing.Point(402, 212)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(87, 30)
         Me.Label29.TabIndex = 160
@@ -2197,7 +2197,7 @@ Partial Class FrmStudentFormer
     Friend WithEvents Label4 As Label
     Friend WithEvents cboBatch As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboStopYearStudy As ComboBox
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents BindingSource1 As BindingSource
 End Class

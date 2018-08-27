@@ -3,8 +3,13 @@ Imports System.IO
 
 Public Class FrmStudentFormer
     Dim obj As New Method
-    Dim selectStudent_sql As String = "SELECT TOP(100) S.STUDENT_ID,S.STUDENT_ID_SCHOOL,S.STUDENT_CODE,S.SNAME_KH,S.SNAME_LATIN ,S.GENDER,S.DOB,S.S_PHONE_LINE_1,S.S_PHONE_LINE_2,S.EMAIL_1,S.JOIN_SCHOOL_DATE,S.FIRST_YEAR_STUDY,S.STUDENT_PHOTO,S.[DESCRIPTION],S.BATCH_ID,B.BATCH    FROM dbo.TBS_STUDENT_INFO_FORMER AS S LEFT JOIN dbo.TBL_BATCH AS B ON S.BATCH_ID = B.BATCH_ID "
+    Dim selectStudent_sql As String = "SELECT TOP(100) S.STUDENT_ID,S.STUDENT_ID_SCHOOL,S.STUDENT_CODE,S.SNAME_KH,S.SNAME_LATIN ,S.GENDER,S.DOB,S.S_PHONE_LINE_1,S.S_PHONE_LINE_2,S.EMAIL_1,S.JOIN_SCHOOL_DATE,S.FIRST_YEAR_STUDY,S.STUDENT_PHOTO,S.[DESCRIPTION],S.BATCH_ID,B.BATCH,S.STOP_YEAR_STUDY FROM dbo.TBS_STUDENT_INFO_FORMER AS S LEFT JOIN dbo.TBL_BATCH AS B ON S.BATCH_ID = B.BATCH_ID "
     Dim t As New Theme
+
+    Dim batch As String = ""
+    Dim firstYearStudy As String = ""
+    Dim sql As String = ""
+
     Private Sub FrmStudentFormer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Cursor = Cursors.AppStarting
@@ -22,11 +27,9 @@ Public Class FrmStudentFormer
     Private Sub lblStuSave_Click(sender As Object, e As EventArgs) Handles lblStuSave.Click
         Try
             If (Validation.IsEmpty(txtStuNameKh, "ឈ្មោះសិស្ស")) Then Exit Sub
-
-            'Using this when allow null insert to database
-            'Using replaceNullWithZero function because BATCH field is int 
             Dim batchID As String = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = " & obj.ReplaceNullWithZero(cboBatch.Text) & "")
-            obj.Insert("INSERT INTO dbo.TBS_STUDENT_INFO_FORMER(STUDENT_ID_SCHOOL,STUDENT_CODE,SNAME_KH,SNAME_LATIN,GENDER,DOB,S_PHONE_LINE_1,S_PHONE_LINE_2,EMAIL_1,JOIN_SCHOOL_DATE,FIRST_YEAR_STUDY,[DESCRIPTION],BATCH_ID)VALUES(N'" & txtStuIDSchool.Text & "',N'" & txtStuCode.Text & "',N'" & txtStuNameKh.Text & "','" & txtStuNameEn.Text & "',N'" & cboStuGender.Text & "','" & dtStuDOB.Value & "',N'" & txtStuPhone1.Text & "',N'" & txtStuPhone2.Text & "',N'" & txtStuEmail.Text & "','" & dtStuJoinSchoolDate.Value & "',N'" & cboStuFirstYearStudy.Text & "',N'" & txtStuRemark.Text & "'," & batchID & ")")
+
+            obj.Insert("INSERT INTO dbo.TBS_STUDENT_INFO_FORMER(STUDENT_ID,STUDENT_ID_SCHOOL,STUDENT_CODE,SNAME_KH,SNAME_LATIN,GENDER,DOB,S_PHONE_LINE_1,S_PHONE_LINE_2,EMAIL_1,JOIN_SCHOOL_DATE,FIRST_YEAR_STUDY,[DESCRIPTION],BATCH_ID,STOP_YEAR_STUDY)VALUES(NULL,N'" & txtStuIDSchool.Text & "',N'" & txtStuCode.Text & "',N'" & txtStuNameKh.Text & "','" & txtStuNameEn.Text & "',N'" & cboStuGender.Text & "','" & dtStuDOB.Value & "',N'" & txtStuPhone1.Text & "',N'" & txtStuPhone2.Text & "',N'" & txtStuEmail.Text & "','" & dtStuJoinSchoolDate.Value & "',N'" & cboStuFirstYearStudy.Text & "',N'" & txtStuRemark.Text & "'," & batchID & ",N'" & cboStopYearStudy.Text & "')")
             Call SelectStudent()
         Catch ex As Exception
             obj.ShowMsg("មិនអាចបញ្ចូលព័ត៌មានបាន", FrmMessageError, "Error.wav")
@@ -71,6 +74,8 @@ Public Class FrmStudentFormer
         dgMain.Columns(14).Visible = False ' Bacth ID
         dgMain.Columns(15).HeaderText = "ជំនាន់"
         dgMain.Columns(15).Width = 90
+        dgMain.Columns(16).HeaderText = "ឆ្នាំបញ្ចប"
+        dgMain.Columns(16).Width = 90
     End Sub
     Private Sub cboStuFirstYearStudy_DropDown(sender As Object, e As EventArgs) Handles cboStuFirstYearStudy.DropDown
         Bind.YearStudy(cboStuFirstYearStudy)
@@ -107,6 +112,7 @@ Public Class FrmStudentFormer
         txtStuRemark.Clear()
         pic_student.BackgroundImage = Nothing
         cboBatch.Text = ""
+        cboStopYearStudy.Text = ""
     End Sub
     Public Sub ClearAddress()
         'Place Of Birth
@@ -208,6 +214,7 @@ Public Class FrmStudentFormer
                 txtStuRemark.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(13).Value)
                 dtStuDOB.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(6).Value)
                 cboBatch.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(15).Value)
+                cboStopYearStudy.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(16).Value)
 
                 If dgMain.SelectedCells(12).Value.ToString() = "" Then
                     pic_student.BackgroundImage = Nothing
@@ -707,35 +714,56 @@ Public Class FrmStudentFormer
         Bind.Batch(cboBatch)
     End Sub
 
-    Private Sub lblPrintStudent_Click(sender As Object, e As EventArgs) Handles lblPrintStudent.Click
+    Private Sub DetermineWhatToQuery()
         Try
-            '---- This code we bind from dataGrid to dataset ---- 
-            'DataSet1.dtStudentFormer.Clear()
-            'Dim index As Integer = 1
-            'For i As Integer = 0 To dgMain.RowCount - 1
-            '    DataSet1.dtStudentFormer.Rows.Add(index, dgMain.Rows(i).Cells(3).Value.ToString, dgMain.Rows(i).Cells(5).Value.ToString, dgMain.Rows(i).Cells(15).Value.ToString, dgMain.Rows(i).Cells(11).Value.ToString, "", dgMain.Rows(i).Cells(7).Value.ToString)
-            '    index += 1
-            'Next
-
-            '------ This code we change bind from View server to dataset -------'
-            Call obj.OpenConnection()
-            Dim sql As String = "SELECT  * FROM dbo.V_STUDENT_FORMER_LIST"
-            cmd = New SqlCommand(sql, conn)
-            da = New SqlDataAdapter(cmd)
-
-            DataSet1.dtStudentFormer.Clear()
-            da.Fill(DataSet1.dtStudentFormer)
-
-            Dim formReport As New FrmDynamicReportViewer
-
-            formReport.SetupReport("DataSet1", "STU_MS.rpStudentFormer.rdlc", BindingSource1)
-            obj.SendParam("paramSchoolName", obj.GetSchoolName(), formReport.ReportViewer)
-            obj.SendParam("paramProvince", obj.GetProvinceName(), formReport.ReportViewer)
-            formReport.ReportViewer.RefreshReport()
-            formReport.ShowDialog()
+            Dim batchID As String
+            If (cboStuFirstYearStudy.Text = "" And cboBatch.Text = "") Then
+                sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST"
+                batch = "ទាំងអស់"
+                firstYearStudy = "ទាំងអស់"
+            ElseIf (cboStuFirstYearStudy.Text = "" And cboBatch.Text <> "") Then
+                batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboBatch.Text & "'")
+                sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE BATCH_ID = " & batchID & ""
+                batch = cboBatch.Text
+                firstYearStudy = "ទាំងអស់"
+            ElseIf (cboStuFirstYearStudy.Text <> "" And cboBatch.Text = "") Then
+                sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "'"
+                batch = "ទាំងអស់"
+                firstYearStudy = cboStuFirstYearStudy.Text
+            Else
+                batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboBatch.Text & "'")
+                sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "' AND BATCH_ID = " & batchID & ""
+                batch = cboBatch.Text
+                firstYearStudy = cboStuFirstYearStudy.Text
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
+    Private Sub lblPrintStudent_Click(sender As Object, e As EventArgs) Handles lblPrintStudent.Click
+        Try
+            Call obj.OpenConnection()
+            DetermineWhatToQuery()
+            cmd = New SqlCommand(sql, conn)
+            da = New SqlDataAdapter(cmd)
+            DataSet1.dtStudentFormer.Clear()
+            da.Fill(DataSet1.dtStudentFormer)
+            Dim FrmViewReport As New FrmDynamicReportViewer
+            FrmViewReport.SetupReport("DataSet1", "STU_MS.rpStudentFormer.rdlc", BindingSource1)
+            obj.SendParam("paramSchoolName", obj.GetSchoolName(), FrmViewReport.ReportViewer)
+            obj.SendParam("paramProvince", obj.GetProvinceName(), FrmViewReport.ReportViewer)
+            obj.SendParam("paramFirstYearStudy", cboStuFirstYearStudy.Text, FrmViewReport.ReportViewer)
+            obj.SendParam("paramBatch", batch, FrmViewReport.ReportViewer)
+            obj.SendParam("paramFirstYearStudy", firstYearStudy, FrmViewReport.ReportViewer)
+            FrmViewReport.ReportViewer.RefreshReport()
+            FrmViewReport.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub cboStopYearStudy_DropDown(sender As Object, e As EventArgs) Handles cboStopYearStudy.DropDown
+        Bind.YearStudy(cboStopYearStudy)
+    End Sub
 End Class

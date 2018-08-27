@@ -5,6 +5,7 @@ Public Class FrmReport
     Dim obj As New Method
     Dim reportId As Integer
     Dim sql As String
+    Dim validate As New Validation
 
     Dim t As New Theme
     Dim reportDatasource As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
@@ -196,12 +197,18 @@ Public Class FrmReport
                 Case 1 'Teacher absence meeting
                     pnlYearStudyAndClass.Visible = False
                     pnlYearStudy.Visible = True
+                    pnlStudentFormer.Visible = False
                     pnlViewButton.Location = New Point(493, 6)
                 Case 2 'Student list
                     pnlYearStudyAndClass.Visible = True
                     pnlYearStudy.Visible = False
+                    pnlStudentFormer.Visible = False
                     pnlViewButton.Location = New Point(647, 6)
-
+                Case 5 ' Student former list
+                    pnlYearStudyAndClass.Visible = False
+                    pnlYearStudy.Visible = False
+                    pnlStudentFormer.Visible = True
+                    Me.pnlViewButton.Location = New System.Drawing.Point(689, 6)
             End Select
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -228,44 +235,94 @@ Public Class FrmReport
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+    Private Sub CreateStudentFormerReport()
+        Dim batch As String
+        Dim firstYearStudy As String
+        Try
+            If (cboFirstYearStudy.Text = "ទាំងអស់" And cboBacth.Text = "ទាំងអស់") Then
+                sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST"
+                batch = "ទាំងអស់"
+                firstYearStudy = "ទាំងអស់"
+            ElseIf (cboFirstYearStudy.Text = "ទាំងអស់" And cboBacth.Text <> "ទាំងអស់") Then
+                sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE BATCH_ID = " & cboBacth.SelectedValue & ""
+                batch = cboBacth.Text
+                firstYearStudy = "ទាំងអស់"
+            ElseIf (cboFirstYearStudy.Text <> "ទាំងអស់" And cboBacth.Text = "ទាំងអស់") Then
+                sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboFirstYearStudy.Text & "'"
+                batch = "ទាំងអស់"
+                firstYearStudy = cboFirstYearStudy.Text
+            Else
+                sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboFirstYearStudy.Text & "' AND BATCH_ID = " & cboBacth.SelectedValue & ""
+                batch = cboBacth.Text
+                firstYearStudy = cboFirstYearStudy.Text
+            End If
+
+            Call obj.OpenConnection()
+            cmd = New SqlCommand(sql, conn)
+            da = New SqlDataAdapter(cmd)
+
+            DataSet1.dtStudentFormer.Clear()
+            da.Fill(DataSet1.dtStudentFormer)
+
+            Call SetReport("DataSet1", "STU_MS.rpStudentFormer.rdlc", bsStudentFormer)
+            Call SendParam("paramSchoolName", obj.GetSchoolName())
+            Call SendParam("paramProvince", obj.GetProvinceName())
+            Call SendParam("paramBatch", batch)
+            Call SendParam("paramFirstYearStudy", firstYearStudy)
+            ReportViewer.RefreshReport()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+
 
     Private Sub lblView_Click(sender As Object, e As EventArgs) Handles lblView.Click
-        ReportViewer.Reset()
+        Try
+            Dim sql As String = ""
+            ReportViewer.Reset()
 
-        Select Case GetReportId()
-            Case 1 'Teacher absence meeting
-                If (cboYearStudy.Text = "") Then
-                    obj.ShowMsg("សូមបញ្ចូលឆ្នាំសិក្សា", FrmWarning, "")
-                    cboYearStudy.Focus()
-                    Exit Sub
-                End If
-                Call SelectTeacherMeetingAbsenceView()
-                Call SetReport("DataSet1", "STU_MS.rpTeacherMeetingAbsence.rdlc", TeacherMeetingAbsence_BindingSource)
-                Call SendParam("paramYearStudy", cboYearStudy.Text)
-                ReportViewer.RefreshReport()
+            Select Case GetReportId()
+                Case 1 'Teacher absence meeting
+                    If (cboYearStudy.Text = "") Then
+                        obj.ShowMsg("សូមបញ្ចូលឆ្នាំសិក្សា", FrmWarning, "")
+                        cboYearStudy.Focus()
+                        Exit Sub
+                    End If
+                    Call SelectTeacherMeetingAbsenceView()
+                    Call SetReport("DataSet1", "STU_MS.rpTeacherMeetingAbsence.rdlc", TeacherMeetingAbsence_BindingSource)
+                    Call SendParam("paramYearStudy", cboYearStudy.Text)
+                    ReportViewer.RefreshReport()
 
-                '-------- Student List --------
-            Case 2
 
-                If (cboStuList_class.Text = "" Or cboStuList_year.Text = "") Then
-                    obj.ShowMsg("សូមជ្រើសយកឆ្នាំសិក្សា និង ថ្នាក់ជាមុន", FrmWarning, "")
-                    cboStuList_year.Focus()
-                    Exit Sub
-                End If
-                Call CreateStudentListReport()
-            Case 3
-                'Teacher list
-                Call SELECT_V_TEACHER_LIST_ALL_STATUS()
-                Call SetReport("DataSet1", "STU_MS.rpTeacherList.rdlc", V_TEACHER_LIST_ALL_STATUS_BindingSource)
+                Case 2  '-------- Student List --------
 
-            Case 4
-                'V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE
-                Call SELECT_V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE()
-                Call SetReport("DataSet1", "STU_MS.rpStudentTotalYearStudyClass.rdlc", V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs)
-                Call SendParam("paramSchoolName", GetSchoolName())
-                ReportViewer.RefreshReport()
+                    If (cboStuList_class.Text = "" Or cboStuList_year.Text = "") Then
+                        obj.ShowMsg("សូមជ្រើសយកឆ្នាំសិក្សា និង ថ្នាក់ជាមុន", FrmWarning, "")
+                        cboStuList_year.Focus()
+                        Exit Sub
+                    End If
+                    Call CreateStudentListReport()
+                Case 5 '--------------Student form list ------------------'
+                    If (Validation.IsEmpty(cboFirstYearStudy, "ឆ្នាំសិក្សាដំបូង")) Then Exit Sub
+                    If (Validation.IsEmpty(cboFirstYearStudy, "ជំនាន់")) Then Exit Sub
+                    Call CreateStudentFormerReport()
+                Case 3
+                    'Teacher list
+                    Call SELECT_V_TEACHER_LIST_ALL_STATUS()
+                    Call SetReport("DataSet1", "STU_MS.rpTeacherList.rdlc", V_TEACHER_LIST_ALL_STATUS_BindingSource)
 
-        End Select
+                Case 4
+                    'V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE
+                    Call SELECT_V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE()
+                    Call SetReport("DataSet1", "STU_MS.rpStudentTotalYearStudyClass.rdlc", V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs)
+                    Call SendParam("paramSchoolName", GetSchoolName())
+                    ReportViewer.RefreshReport()
+
+            End Select
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub cboYearStudy_DropDown(sender As Object, e As EventArgs) Handles cboYearStudy.DropDown
@@ -298,5 +355,30 @@ Public Class FrmReport
 
     Private Sub cboStuList_class_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboStuList_class.KeyPress
         e.Handled = True
+    End Sub
+
+    Private Sub cboFirstYearStudy_DropDown(sender As Object, e As EventArgs) Handles cboFirstYearStudy.DropDown
+        obj.BindComboBoxWithAll("SELECT YEAR_ID,YEAR_STUDY_KH FROM dbo.TBL_YEAR_STUDY ORDER BY YEAR_STUDY_KH DESC", cboFirstYearStudy, "YEAR_STUDY_KH", "YEAR_ID")
+
+    End Sub
+
+    Private Sub cboBacth_DropDown(sender As Object, e As EventArgs) Handles cboBacth.DropDown
+        obj.BindComboBoxWithAll("SELECT BATCH_ID,BATCH FROM dbo.TBL_BATCH ORDER BY CAST(BATCH AS INT) ", cboBacth, "BATCH", "BATCH_ID")
+    End Sub
+
+    Private Sub cboFirstYearStudy_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboFirstYearStudy.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub cboBacth_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboBacth.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub cboBacth_TextChanged(sender As Object, e As EventArgs) Handles cboBacth.TextChanged
+        cboBacth.BackColor = Color.White
+    End Sub
+
+    Private Sub cboFirstYearStudy_TextChanged(sender As Object, e As EventArgs) Handles cboFirstYearStudy.TextChanged
+        cboFirstYearStudy.BackColor = Color.White
     End Sub
 End Class

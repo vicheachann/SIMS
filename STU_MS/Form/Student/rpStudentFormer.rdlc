@@ -81,7 +81,7 @@
         <rd:DefaultName>Textbox44</rd:DefaultName>
         <Top>0.89705in</Top>
         <Left>3.22663in</Left>
-        <Height>0.26551in</Height>
+        <Height>0.33495in</Height>
         <Width>1.82452in</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -101,7 +101,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ថ្ងៃ..........ខែ.............ឆ្នាំ........... ព.ស.........</Value>
+                <Value>ថ្ងៃ...........................ខែ.....................ឆ្នាំ.............. ព.ស...........</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Khmer</FontFamily>
@@ -116,7 +116,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ធ្វើនៅ............ថ្ងៃទី.........ខែ.........ឆ្នាំ ២០......</Value>
+                <Value>ធ្វើនៅ.......................ថ្ងៃទី..............ខែ...............ឆ្នាំ ២០.........</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Khmer</FontFamily>
@@ -130,10 +130,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>1.77389in</Top>
-        <Left>4.98351in</Left>
+        <Top>1.86961in</Top>
+        <Left>4.70209in</Left>
         <Height>0.51042in</Height>
-        <Width>3.07953in</Width>
+        <Width>3.22536in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1018,10 +1018,10 @@
         </TablixRowHierarchy>
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
-        <Top>3.16457cm</Top>
-        <Left>0.38062cm</Left>
+        <Top>3.52258cm</Top>
+        <Left>0.35093cm</Left>
         <Height>1.2cm</Height>
-        <Width>20.09951cm</Width>
+        <Width>20.0995cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1084,7 +1084,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.44921cm</Top>
+        <Top>1.19344cm</Top>
         <Left>0.34078cm</Left>
         <Height>0.65291cm</Height>
         <Width>4.00343cm</Width>
@@ -1119,7 +1119,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.68165cm</Top>
+        <Top>0.42588cm</Top>
         <Left>1.13658cm</Left>
         <Height>0.76756cm</Height>
         <Width>4.47763cm</Width>
@@ -1152,7 +1152,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.68165cm</Top>
+        <Top>0.42588cm</Top>
         <Left>0.34078cm</Left>
         <Height>0.76756cm</Height>
         <Width>0.72524cm</Width>
@@ -1190,8 +1190,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.96648in</Top>
-        <Left>7.1336in</Left>
+        <Top>1.07966in</Top>
+        <Left>7.40333in</Left>
         <Height>0.26552in</Height>
         <Width>0.2509in</Width>
         <ZIndex>8</ZIndex>
@@ -1228,8 +1228,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.96648in</Top>
-        <Left>5.63192in</Left>
+        <Top>1.07966in</Top>
+        <Left>5.90165in</Left>
         <Height>0.26552in</Height>
         <Width>0.61085in</Width>
         <ZIndex>9</ZIndex>
@@ -1266,8 +1266,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.96648in</Top>
-        <Left>6.52775in</Left>
+        <Top>1.07966in</Top>
+        <Left>6.79748in</Left>
         <Height>0.26552in</Height>
         <Width>0.57807in</Width>
         <ZIndex>10</ZIndex>
@@ -1304,8 +1304,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.96648in</Top>
-        <Left>6.27055in</Left>
+        <Top>1.07966in</Top>
+        <Left>6.54028in</Left>
         <Height>0.26552in</Height>
         <Width>0.22942in</Width>
         <ZIndex>11</ZIndex>
@@ -1340,8 +1340,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
-        <Top>0.96648in</Top>
-        <Left>7.41228in</Left>
+        <Top>1.07966in</Top>
+        <Left>7.68201in</Left>
         <Height>0.26552in</Height>
         <Width>0.36934in</Width>
         <ZIndex>12</ZIndex>
@@ -1355,8 +1355,144 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ជំនាន់ទី  ៖</Value>
+                <Style>
+                  <FontFamily>khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.88163cm</Top>
+        <Left>0.34078cm</Left>
+        <Height>0.62645cm</Height>
+        <Width>1.47946cm</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!paramBatch.Value</Value>
+                <Style>
+                  <FontFamily>khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.88163cm</Top>
+        <Left>1.89079cm</Left>
+        <Height>0.62645cm</Height>
+        <Width>1.92655cm</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ឆ្នាំសិក្សាដំបូង  ៖</Value>
+                <Style>
+                  <FontFamily>khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>2.57863cm</Top>
+        <Left>0.35093cm</Left>
+        <Height>0.66173cm</Height>
+        <Width>2.12136cm</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!paramFirstYearStudy.Value</Value>
+                <Style>
+                  <FontFamily>khmer</FontFamily>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>2.57863cm</Top>
+        <Left>2.53269cm</Left>
+        <Height>0.66173cm</Height>
+        <Width>1.92655cm</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.90799cm</Height>
+    <Height>6.13806cm</Height>
     <Style />
   </Body>
   <Width>20.78833cm</Width>
@@ -1517,6 +1653,18 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="paramProvince">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="paramBatch">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="paramFirstYearStudy">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>
