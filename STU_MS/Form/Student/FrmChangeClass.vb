@@ -3,11 +3,24 @@
 Public Class FrmChangeClass
     Dim obj As New Method
     Dim t As New Theme
+
+    Public Shared test As String = "hello"
+    Public Shared studentID As Integer()
+
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         frm_student_education.Search()
         Close()
     End Sub
-
+#Region "Shadow effect"
+    Protected Overrides ReadOnly Property CreateParams() As System.Windows.Forms.CreateParams
+        Get
+            Const DROPSHADOW = &H20000
+            Dim cParam As CreateParams = MyBase.CreateParams
+            cParam.ClassStyle = cParam.ClassStyle Or DROPSHADOW
+            Return cParam
+        End Get
+    End Property
+#End Region
     Private Sub cboNewClass_DropDown(sender As Object, e As EventArgs) Handles cboDynamic.DropDown
         'obj.Bind_combobox("SELECT CLASS_ID,CLASS_LETTER FROM dbo.TBS_CLASS", cboDynamic, "CLASS_LETTER", "CLASS_ID")
     End Sub
@@ -312,15 +325,30 @@ Public Class FrmChangeClass
         End Try
     End Sub
 
+    Private Sub lblChangeToStudentFormer_MouseHover(sender As Object, e As EventArgs) Handles lblChangeToStudentFormer.MouseHover
+        t.Hover(lblChangeToStudentFormer)
+    End Sub
 
+    Private Sub lblChangeToStudentFormer_MouseLeave(sender As Object, e As EventArgs) Handles lblChangeToStudentFormer.MouseLeave
+        t.Leave(lblChangeToStudentFormer)
+    End Sub
 
+    Private Sub lblChangeToStudentFormer_Click(sender As Object, e As EventArgs) Handles lblChangeToStudentFormer.Click
+        obj.ShowMsg("តើអ្នកចង់បញ្ចូលព័ត៌មានទាំងអស់នេះទៅជាអតីតសិស្សដែលឬទេ ?", msg_question_big, "")
+        If USER_CLICK_OK = True Then
+            Try
+                studentID = New Integer(dg.RowCount - 1) {}
 
+                With frmChangeStudentStatus
+                    For i As Integer = 0 To dg.Rows.Count - 1
+                        studentID(i) = dg.Rows(i).Cells(0).Value
+                    Next
+                    .ShowDialog()
+                End With
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, CompanyInfo.CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
 
-
-
-
-
-
-
-
+        End If
+    End Sub
 End Class

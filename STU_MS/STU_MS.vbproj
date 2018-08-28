@@ -327,6 +327,12 @@
     <Compile Include="Form\Student\FrmChangeClass.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\Student\frmChangeStudentStatus.Designer.vb">
+      <DependentUpon>frmChangeStudentStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\frmChangeStudentStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\Student\FrmStudentFormer.Designer.vb">
       <DependentUpon>FrmStudentFormer.vb</DependentUpon>
     </Compile>
@@ -726,6 +732,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Student\FrmChangeClass.resx">
       <DependentUpon>FrmChangeClass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\frmChangeStudentStatus.resx">
+      <DependentUpon>frmChangeStudentStatus.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Student\FrmStudentFormer.resx">
       <DependentUpon>FrmStudentFormer.vb</DependentUpon>

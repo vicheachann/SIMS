@@ -404,14 +404,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="FINISH_YEAR">
+                    <Textbox Name="STOP_YEAR_STUDY">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!FINISH_YEAR.Value</Value>
+                              <Value>=Fields!STOP_YEAR_STUDY.Value</Value>
                               <Style>
                                 <FontFamily>Khmer OS</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -423,7 +423,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>FINISH_YEAR</rd:DefaultName>
+                      <rd:DefaultName>STOP_YEAR_STUDY</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1554,8 +1554,8 @@
           <DataField>FIRST_YEAR_STUDY</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="FINISH_YEAR">
-          <DataField>FINISH_YEAR</DataField>
+        <Field Name="STOP_YEAR_STUDY">
+          <DataField>STOP_YEAR_STUDY</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="S_PHONE_LINE_1">
@@ -1569,7 +1569,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>E:\GitHub\SIMS\STU_MS\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\X40\Source\Repos\SIMS\STU_MS\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>dtStudentFormer</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

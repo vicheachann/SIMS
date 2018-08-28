@@ -29,21 +29,19 @@ Partial Class FrmReport
         Me.pic_student_info = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
-        Me.PanelEx4 = New DevComponents.DotNetBar.PanelEx()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.pnlYearStudyAndClass = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.ListReport = New System.Windows.Forms.ListBox()
+        Me.ReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
         Me.pnlStudentFormer = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cboBacth = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cboFirstYearStudy = New System.Windows.Forms.ComboBox()
+        Me.pnlYearStudyAndClass = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cboStuList_class = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboStuList_year = New System.Windows.Forms.ComboBox()
-        Me.ListReport = New System.Windows.Forms.ListBox()
-        Me.ReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
         Me.pnlViewButton = New System.Windows.Forms.Panel()
         Me.lblView = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -56,15 +54,25 @@ Partial Class FrmReport
         Me.V_TEACHER_LIST_ALL_STATUS_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs = New System.Windows.Forms.BindingSource(Me.components)
         Me.bsStudentFormer = New System.Windows.Forms.BindingSource(Me.components)
+        Me.pnlReportList = New System.Windows.Forms.Panel()
+        Me.pnlReportViewer = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblCompanyInfro = New System.Windows.Forms.Label()
+        Me.lblOwnerName = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.lblPhoneNumber = New System.Windows.Forms.Label()
+        Me.a = New System.Windows.Forms.Label()
+        Me.PanelEx7 = New DevComponents.DotNetBar.PanelEx()
         Me.PanelEx2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_close, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx1.SuspendLayout()
-        Me.PanelEx4.SuspendLayout()
-        Me.pnlYearStudyAndClass.SuspendLayout()
-        Me.pnlStudentFormer.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
+        Me.pnlStudentFormer.SuspendLayout()
+        Me.pnlYearStudyAndClass.SuspendLayout()
         Me.pnlViewButton.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlYearStudy.SuspendLayout()
@@ -74,6 +82,10 @@ Partial Class FrmReport
         CType(Me.V_TEACHER_LIST_ALL_STATUS_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsStudentFormer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlReportList.SuspendLayout()
+        Me.pnlReportViewer.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.PanelEx7.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelEx2
@@ -145,14 +157,13 @@ Partial Class FrmReport
         '
         Me.PanelEx1.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx1.Controls.Add(Me.PanelEx4)
-        Me.PanelEx1.Controls.Add(Me.ListReport)
-        Me.PanelEx1.Controls.Add(Me.ReportViewer)
+        Me.PanelEx1.Controls.Add(Me.Panel1)
         Me.PanelEx1.Controls.Add(Me.PanelEx3)
+        Me.PanelEx1.Controls.Add(Me.PanelEx7)
         Me.PanelEx1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelEx1.Location = New System.Drawing.Point(0, 43)
         Me.PanelEx1.Name = "PanelEx1"
-        Me.PanelEx1.Size = New System.Drawing.Size(1370, 530)
+        Me.PanelEx1.Size = New System.Drawing.Size(1370, 745)
         Me.PanelEx1.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -162,78 +173,48 @@ Partial Class FrmReport
         Me.PanelEx1.Style.GradientAngle = 90
         Me.PanelEx1.TabIndex = 11
         '
-        'PanelEx4
+        'ListReport
         '
-        Me.PanelEx4.CanvasColor = System.Drawing.SystemColors.Control
-        Me.PanelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx4.Controls.Add(Me.Label3)
-        Me.PanelEx4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelEx4.Location = New System.Drawing.Point(0, 505)
-        Me.PanelEx4.Name = "PanelEx4"
-        Me.PanelEx4.Size = New System.Drawing.Size(1370, 25)
-        Me.PanelEx4.Style.Alignment = System.Drawing.StringAlignment.Center
-        Me.PanelEx4.Style.BackColor1.Color = System.Drawing.Color.PowderBlue
-        Me.PanelEx4.Style.BackColor2.Color = System.Drawing.Color.CornflowerBlue
-        Me.PanelEx4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.PanelEx4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.PanelEx4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.PanelEx4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.PanelEx4.Style.GradientAngle = 90
-        Me.PanelEx4.TabIndex = 170
+        Me.ListReport.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListReport.Font = New System.Drawing.Font("Khmer", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListReport.FormattingEnabled = True
+        Me.ListReport.ItemHeight = 26
+        Me.ListReport.Items.AddRange(New Object() {"Report1", "Report2", "Report3"})
+        Me.ListReport.Location = New System.Drawing.Point(5, 5)
+        Me.ListReport.Name = "ListReport"
+        Me.ListReport.Size = New System.Drawing.Size(245, 640)
+        Me.ListReport.TabIndex = 169
         '
-        'Label3
+        'ReportViewer
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 6)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(271, 16)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Design by Smart Business Software Solution"
+        Me.ReportViewer.BackColor = System.Drawing.Color.Silver
+        Me.ReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer.Location = New System.Drawing.Point(5, 5)
+        Me.ReportViewer.Name = "ReportViewer"
+        Me.ReportViewer.Size = New System.Drawing.Size(1105, 640)
+        Me.ReportViewer.TabIndex = 2
         '
-        'pnlYearStudyAndClass
+        'PanelEx3
         '
-        Me.pnlYearStudyAndClass.CanvasColor = System.Drawing.SystemColors.Control
-        Me.pnlYearStudyAndClass.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.pnlYearStudyAndClass.Controls.Add(Me.Label4)
-        Me.pnlYearStudyAndClass.Controls.Add(Me.cboStuList_class)
-        Me.pnlYearStudyAndClass.Controls.Add(Me.Label5)
-        Me.pnlYearStudyAndClass.Controls.Add(Me.cboStuList_year)
-        Me.pnlYearStudyAndClass.Location = New System.Drawing.Point(271, 6)
-        Me.pnlYearStudyAndClass.Name = "pnlYearStudyAndClass"
-        Me.pnlYearStudyAndClass.Size = New System.Drawing.Size(362, 49)
-        '
-        '
-        '
-        Me.pnlYearStudyAndClass.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.pnlYearStudyAndClass.Style.BackColorGradientAngle = 90
-        Me.pnlYearStudyAndClass.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.pnlYearStudyAndClass.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.pnlYearStudyAndClass.Style.BorderBottomWidth = 1
-        Me.pnlYearStudyAndClass.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.pnlYearStudyAndClass.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.pnlYearStudyAndClass.Style.BorderLeftWidth = 1
-        Me.pnlYearStudyAndClass.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.pnlYearStudyAndClass.Style.BorderRightWidth = 1
-        Me.pnlYearStudyAndClass.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.pnlYearStudyAndClass.Style.BorderTopWidth = 1
-        Me.pnlYearStudyAndClass.Style.Class = ""
-        Me.pnlYearStudyAndClass.Style.CornerDiameter = 4
-        Me.pnlYearStudyAndClass.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.pnlYearStudyAndClass.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.pnlYearStudyAndClass.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.pnlYearStudyAndClass.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.pnlYearStudyAndClass.StyleMouseDown.Class = ""
-        Me.pnlYearStudyAndClass.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.pnlYearStudyAndClass.StyleMouseOver.Class = ""
-        Me.pnlYearStudyAndClass.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.pnlYearStudyAndClass.TabIndex = 345
+        Me.PanelEx3.CanvasColor = System.Drawing.SystemColors.Control
+        Me.PanelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx3.Controls.Add(Me.pnlStudentFormer)
+        Me.PanelEx3.Controls.Add(Me.pnlYearStudyAndClass)
+        Me.PanelEx3.Controls.Add(Me.pnlViewButton)
+        Me.PanelEx3.Controls.Add(Me.pnlYearStudy)
+        Me.PanelEx3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelEx3.Location = New System.Drawing.Point(0, 0)
+        Me.PanelEx3.Name = "PanelEx3"
+        Me.PanelEx3.Size = New System.Drawing.Size(1370, 61)
+        Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
+        Me.PanelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.PanelEx3.Style.BackColor2.Color = System.Drawing.Color.LightSteelBlue
+        Me.PanelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.PanelEx3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.PanelEx3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.PanelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.PanelEx3.Style.GradientAngle = 90
+        Me.PanelEx3.TabIndex = 0
         '
         'pnlStudentFormer
         '
@@ -325,6 +306,50 @@ Partial Class FrmReport
         Me.cboFirstYearStudy.Size = New System.Drawing.Size(103, 38)
         Me.cboFirstYearStudy.TabIndex = 301
         '
+        'pnlYearStudyAndClass
+        '
+        Me.pnlYearStudyAndClass.CanvasColor = System.Drawing.SystemColors.Control
+        Me.pnlYearStudyAndClass.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.pnlYearStudyAndClass.Controls.Add(Me.Label4)
+        Me.pnlYearStudyAndClass.Controls.Add(Me.cboStuList_class)
+        Me.pnlYearStudyAndClass.Controls.Add(Me.Label5)
+        Me.pnlYearStudyAndClass.Controls.Add(Me.cboStuList_year)
+        Me.pnlYearStudyAndClass.Location = New System.Drawing.Point(271, 6)
+        Me.pnlYearStudyAndClass.Name = "pnlYearStudyAndClass"
+        Me.pnlYearStudyAndClass.Size = New System.Drawing.Size(362, 49)
+        '
+        '
+        '
+        Me.pnlYearStudyAndClass.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlYearStudyAndClass.Style.BackColorGradientAngle = 90
+        Me.pnlYearStudyAndClass.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.pnlYearStudyAndClass.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudyAndClass.Style.BorderBottomWidth = 1
+        Me.pnlYearStudyAndClass.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.pnlYearStudyAndClass.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudyAndClass.Style.BorderLeftWidth = 1
+        Me.pnlYearStudyAndClass.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudyAndClass.Style.BorderRightWidth = 1
+        Me.pnlYearStudyAndClass.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.pnlYearStudyAndClass.Style.BorderTopWidth = 1
+        Me.pnlYearStudyAndClass.Style.Class = ""
+        Me.pnlYearStudyAndClass.Style.CornerDiameter = 4
+        Me.pnlYearStudyAndClass.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.pnlYearStudyAndClass.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.pnlYearStudyAndClass.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.pnlYearStudyAndClass.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.pnlYearStudyAndClass.StyleMouseDown.Class = ""
+        Me.pnlYearStudyAndClass.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.pnlYearStudyAndClass.StyleMouseOver.Class = ""
+        Me.pnlYearStudyAndClass.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.pnlYearStudyAndClass.TabIndex = 345
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -370,45 +395,6 @@ Partial Class FrmReport
         Me.cboStuList_year.Name = "cboStuList_year"
         Me.cboStuList_year.Size = New System.Drawing.Size(103, 38)
         Me.cboStuList_year.TabIndex = 301
-        '
-        'ListReport
-        '
-        Me.ListReport.Font = New System.Drawing.Font("Khmer", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListReport.FormattingEnabled = True
-        Me.ListReport.ItemHeight = 26
-        Me.ListReport.Items.AddRange(New Object() {"Report1", "Report2", "Report3"})
-        Me.ListReport.Location = New System.Drawing.Point(5, 88)
-        Me.ListReport.Name = "ListReport"
-        Me.ListReport.Size = New System.Drawing.Size(265, 602)
-        Me.ListReport.TabIndex = 169
-        '
-        'ReportViewer
-        '
-        Me.ReportViewer.Location = New System.Drawing.Point(276, 88)
-        Me.ReportViewer.Name = "ReportViewer"
-        Me.ReportViewer.Size = New System.Drawing.Size(1082, 608)
-        Me.ReportViewer.TabIndex = 2
-        '
-        'PanelEx3
-        '
-        Me.PanelEx3.CanvasColor = System.Drawing.SystemColors.Control
-        Me.PanelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx3.Controls.Add(Me.pnlStudentFormer)
-        Me.PanelEx3.Controls.Add(Me.pnlYearStudyAndClass)
-        Me.PanelEx3.Controls.Add(Me.pnlViewButton)
-        Me.PanelEx3.Controls.Add(Me.pnlYearStudy)
-        Me.PanelEx3.Location = New System.Drawing.Point(3, 2)
-        Me.PanelEx3.Name = "PanelEx3"
-        Me.PanelEx3.Size = New System.Drawing.Size(1355, 61)
-        Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
-        Me.PanelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.PanelEx3.Style.BackColor2.Color = System.Drawing.Color.LightSteelBlue
-        Me.PanelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.PanelEx3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.PanelEx3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.PanelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.PanelEx3.Style.GradientAngle = 90
-        Me.PanelEx3.TabIndex = 0
         '
         'pnlViewButton
         '
@@ -536,13 +522,139 @@ Partial Class FrmReport
         Me.bsStudentFormer.DataMember = "dtStudentFormer"
         Me.bsStudentFormer.DataSource = Me.DataSet1
         '
+        'pnlReportList
+        '
+        Me.pnlReportList.Controls.Add(Me.ListReport)
+        Me.pnlReportList.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnlReportList.Location = New System.Drawing.Point(0, 0)
+        Me.pnlReportList.Name = "pnlReportList"
+        Me.pnlReportList.Padding = New System.Windows.Forms.Padding(5)
+        Me.pnlReportList.Size = New System.Drawing.Size(255, 650)
+        Me.pnlReportList.TabIndex = 297
+        '
+        'pnlReportViewer
+        '
+        Me.pnlReportViewer.Controls.Add(Me.ReportViewer)
+        Me.pnlReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlReportViewer.Location = New System.Drawing.Point(255, 0)
+        Me.pnlReportViewer.Name = "pnlReportViewer"
+        Me.pnlReportViewer.Padding = New System.Windows.Forms.Padding(5)
+        Me.pnlReportViewer.Size = New System.Drawing.Size(1115, 650)
+        Me.pnlReportViewer.TabIndex = 298
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.pnlReportViewer)
+        Me.Panel1.Controls.Add(Me.pnlReportList)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 61)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1370, 650)
+        Me.Panel1.TabIndex = 299
+        '
+        'lblCompanyInfro
+        '
+        Me.lblCompanyInfro.AutoSize = True
+        Me.lblCompanyInfro.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompanyInfro.Location = New System.Drawing.Point(6, 2)
+        Me.lblCompanyInfro.Name = "lblCompanyInfro"
+        Me.lblCompanyInfro.Size = New System.Drawing.Size(210, 27)
+        Me.lblCompanyInfro.TabIndex = 232
+        Me.lblCompanyInfro.Text = "Smart Business Software Solution"
+        '
+        'lblOwnerName
+        '
+        Me.lblOwnerName.AutoSize = True
+        Me.lblOwnerName.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOwnerName.Location = New System.Drawing.Point(306, 3)
+        Me.lblOwnerName.Name = "lblOwnerName"
+        Me.lblOwnerName.Size = New System.Drawing.Size(43, 27)
+        Me.lblOwnerName.TabIndex = 233
+        Me.lblOwnerName.Text = "name"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblEmail.Location = New System.Drawing.Point(637, 2)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(42, 27)
+        Me.lblEmail.TabIndex = 230
+        Me.lblEmail.Text = "emai "
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(387, 3)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(89, 27)
+        Me.Label16.TabIndex = 234
+        Me.Label16.Text = "លេខទូរស័ព្ទ៖"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(583, 3)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(53, 27)
+        Me.Label15.TabIndex = 231
+        Me.Label15.Text = "Email ៖"
+        '
+        'lblPhoneNumber
+        '
+        Me.lblPhoneNumber.AutoSize = True
+        Me.lblPhoneNumber.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPhoneNumber.Location = New System.Drawing.Point(471, 3)
+        Me.lblPhoneNumber.Name = "lblPhoneNumber"
+        Me.lblPhoneNumber.Size = New System.Drawing.Size(89, 27)
+        Me.lblPhoneNumber.TabIndex = 235
+        Me.lblPhoneNumber.Text = "00000000000"
+        '
+        'a
+        '
+        Me.a.AutoSize = True
+        Me.a.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.a.Location = New System.Drawing.Point(218, 3)
+        Me.a.Name = "a"
+        Me.a.Size = New System.Drawing.Size(89, 27)
+        Me.a.TabIndex = 229
+        Me.a.Text = "- ទំនាក់ទំនង "
+        '
+        'PanelEx7
+        '
+        Me.PanelEx7.CanvasColor = System.Drawing.SystemColors.Control
+        Me.PanelEx7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx7.Controls.Add(Me.a)
+        Me.PanelEx7.Controls.Add(Me.lblPhoneNumber)
+        Me.PanelEx7.Controls.Add(Me.Label15)
+        Me.PanelEx7.Controls.Add(Me.Label16)
+        Me.PanelEx7.Controls.Add(Me.lblEmail)
+        Me.PanelEx7.Controls.Add(Me.lblOwnerName)
+        Me.PanelEx7.Controls.Add(Me.lblCompanyInfro)
+        Me.PanelEx7.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelEx7.Location = New System.Drawing.Point(0, 711)
+        Me.PanelEx7.Name = "PanelEx7"
+        Me.PanelEx7.Size = New System.Drawing.Size(1370, 34)
+        Me.PanelEx7.Style.Alignment = System.Drawing.StringAlignment.Center
+        Me.PanelEx7.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PanelEx7.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PanelEx7.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.PanelEx7.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.PanelEx7.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.PanelEx7.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.PanelEx7.Style.GradientAngle = 90
+        Me.PanelEx7.TabIndex = 296
+        '
         'FrmReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1370, 573)
+        Me.ClientSize = New System.Drawing.Size(1370, 788)
         Me.Controls.Add(Me.PanelEx1)
         Me.Controls.Add(Me.PanelEx2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -556,13 +668,11 @@ Partial Class FrmReport
         CType(Me.btn_close, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx1.ResumeLayout(False)
-        Me.PanelEx4.ResumeLayout(False)
-        Me.PanelEx4.PerformLayout()
-        Me.pnlYearStudyAndClass.ResumeLayout(False)
-        Me.pnlYearStudyAndClass.PerformLayout()
+        Me.PanelEx3.ResumeLayout(False)
         Me.pnlStudentFormer.ResumeLayout(False)
         Me.pnlStudentFormer.PerformLayout()
-        Me.PanelEx3.ResumeLayout(False)
+        Me.pnlYearStudyAndClass.ResumeLayout(False)
+        Me.pnlYearStudyAndClass.PerformLayout()
         Me.pnlViewButton.ResumeLayout(False)
         Me.pnlViewButton.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -574,6 +684,11 @@ Partial Class FrmReport
         CType(Me.V_TEACHER_LIST_ALL_STATUS_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.V_STUDENT_TOTAL_YEAR_STUDY_CLASS_COMPLETE_bs, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsStudentFormer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlReportList.ResumeLayout(False)
+        Me.pnlReportViewer.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.PanelEx7.ResumeLayout(False)
+        Me.PanelEx7.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -590,8 +705,6 @@ Partial Class FrmReport
     Friend WithEvents TeacherMeetingAbsence_BindingSource As BindingSource
     Friend WithEvents Label2 As Label
     Friend WithEvents cboYearStudy As ComboBox
-    Friend WithEvents PanelEx4 As DevComponents.DotNetBar.PanelEx
-    Friend WithEvents Label3 As Label
     Friend WithEvents lblView As Label
     Friend WithEvents cboStuList_class As ComboBox
     Friend WithEvents Label5 As Label
@@ -610,4 +723,15 @@ Partial Class FrmReport
     Friend WithEvents Label7 As Label
     Friend WithEvents cboFirstYearStudy As ComboBox
     Friend WithEvents bsStudentFormer As BindingSource
+    Friend WithEvents pnlReportList As Panel
+    Friend WithEvents pnlReportViewer As Panel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents PanelEx7 As DevComponents.DotNetBar.PanelEx
+    Friend WithEvents a As Label
+    Friend WithEvents lblPhoneNumber As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblOwnerName As Label
+    Friend WithEvents lblCompanyInfro As Label
 End Class

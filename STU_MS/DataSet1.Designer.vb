@@ -4251,7 +4251,7 @@ Partial Public Class DataSet1
         
         Private columnFIRST_YEAR_STUDY As Global.System.Data.DataColumn
         
-        Private columnFINISH_YEAR As Global.System.Data.DataColumn
+        Private columnSTOP_YEAR_STUDY As Global.System.Data.DataColumn
         
         Private columnS_PHONE_LINE_1 As Global.System.Data.DataColumn
         
@@ -4334,9 +4334,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FINISH_YEARColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property STOP_YEAR_STUDYColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnFINISH_YEAR
+                Return Me.columnSTOP_YEAR_STUDY
             End Get
         End Property
         
@@ -4393,9 +4393,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AdddtStudentFormerRow(ByVal ROW_NUMBER As Integer, ByVal SNAME_KH As String, ByVal GENDER As String, ByVal BATCH As String, ByVal FIRST_YEAR_STUDY As String, ByVal FINISH_YEAR As String, ByVal S_PHONE_LINE_1 As String, ByVal NUM_JOIN_ALUMNI As String) As dtStudentFormerRow
+        Public Overloads Function AdddtStudentFormerRow(ByVal ROW_NUMBER As Integer, ByVal SNAME_KH As String, ByVal GENDER As String, ByVal BATCH As String, ByVal FIRST_YEAR_STUDY As String, ByVal STOP_YEAR_STUDY As String, ByVal S_PHONE_LINE_1 As String, ByVal NUM_JOIN_ALUMNI As String) As dtStudentFormerRow
             Dim rowdtStudentFormerRow As dtStudentFormerRow = CType(Me.NewRow,dtStudentFormerRow)
-            Dim columnValuesArray() As Object = New Object() {ROW_NUMBER, SNAME_KH, GENDER, BATCH, FIRST_YEAR_STUDY, FINISH_YEAR, S_PHONE_LINE_1, NUM_JOIN_ALUMNI}
+            Dim columnValuesArray() As Object = New Object() {ROW_NUMBER, SNAME_KH, GENDER, BATCH, FIRST_YEAR_STUDY, STOP_YEAR_STUDY, S_PHONE_LINE_1, NUM_JOIN_ALUMNI}
             rowdtStudentFormerRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtStudentFormerRow)
             Return rowdtStudentFormerRow
@@ -4423,7 +4423,7 @@ Partial Public Class DataSet1
             Me.columnGENDER = MyBase.Columns("GENDER")
             Me.columnBATCH = MyBase.Columns("BATCH")
             Me.columnFIRST_YEAR_STUDY = MyBase.Columns("FIRST_YEAR_STUDY")
-            Me.columnFINISH_YEAR = MyBase.Columns("FINISH_YEAR")
+            Me.columnSTOP_YEAR_STUDY = MyBase.Columns("STOP_YEAR_STUDY")
             Me.columnS_PHONE_LINE_1 = MyBase.Columns("S_PHONE_LINE_1")
             Me.columnNUM_JOIN_ALUMNI = MyBase.Columns("NUM_JOIN_ALUMNI")
         End Sub
@@ -4441,8 +4441,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnBATCH)
             Me.columnFIRST_YEAR_STUDY = New Global.System.Data.DataColumn("FIRST_YEAR_STUDY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFIRST_YEAR_STUDY)
-            Me.columnFINISH_YEAR = New Global.System.Data.DataColumn("FINISH_YEAR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFINISH_YEAR)
+            Me.columnSTOP_YEAR_STUDY = New Global.System.Data.DataColumn("STOP_YEAR_STUDY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSTOP_YEAR_STUDY)
             Me.columnS_PHONE_LINE_1 = New Global.System.Data.DataColumn("S_PHONE_LINE_1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnS_PHONE_LINE_1)
             Me.columnNUM_JOIN_ALUMNI = New Global.System.Data.DataColumn("NUM_JOIN_ALUMNI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -8094,16 +8094,16 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property FINISH_YEAR() As String
+        Public Property STOP_YEAR_STUDY() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentFormer.FINISH_YEARColumn),String)
+                    Return CType(Me(Me.tabledtStudentFormer.STOP_YEAR_STUDYColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FINISH_YEAR' in table 'dtStudentFormer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'STOP_YEAR_STUDY' in table 'dtStudentFormer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentFormer.FINISH_YEARColumn) = value
+                Me(Me.tabledtStudentFormer.STOP_YEAR_STUDYColumn) = value
             End Set
         End Property
         
@@ -8199,14 +8199,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsFINISH_YEARNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentFormer.FINISH_YEARColumn)
+        Public Function IsSTOP_YEAR_STUDYNull() As Boolean
+            Return Me.IsNull(Me.tabledtStudentFormer.STOP_YEAR_STUDYColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetFINISH_YEARNull()
-            Me(Me.tabledtStudentFormer.FINISH_YEARColumn) = Global.System.Convert.DBNull
+        Public Sub SetSTOP_YEAR_STUDYNull()
+            Me(Me.tabledtStudentFormer.STOP_YEAR_STUDYColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

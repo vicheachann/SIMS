@@ -22,8 +22,8 @@ Partial Class FrmChangeClass
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
         Me.dg = New System.Windows.Forms.DataGridView()
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,6 +45,7 @@ Partial Class FrmChangeClass
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.lblChangeToStudentFormer = New System.Windows.Forms.Label()
         Me.PAll = New System.Windows.Forms.Panel()
         Me.rbDropStudy = New System.Windows.Forms.RadioButton()
         Me.pnl1 = New System.Windows.Forms.Panel()
@@ -105,20 +106,20 @@ Partial Class FrmChangeClass
         Me.dg.AllowUserToDeleteRows = False
         Me.dg.AllowUserToResizeColumns = False
         Me.dg.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 10.0!)
-        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Khmer OS", 10.0!)
+        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dg.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dg.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.Column10, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.Column15, Me.Column14, Me.Column6, Me.Column7, Me.Column8, Me.Column16, Me.Column9, Me.Column13, Me.Column18})
         Me.dg.Location = New System.Drawing.Point(6, 92)
@@ -253,6 +254,7 @@ Partial Class FrmChangeClass
         '
         Me.GroupPanel1.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel1.Controls.Add(Me.lblChangeToStudentFormer)
         Me.GroupPanel1.Controls.Add(Me.PAll)
         Me.GroupPanel1.Controls.Add(Me.rbDropStudy)
         Me.GroupPanel1.Controls.Add(Me.pnl1)
@@ -297,11 +299,24 @@ Partial Class FrmChangeClass
         Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel1.TabIndex = 308
         '
+        'lblChangeToStudentFormer
+        '
+        Me.lblChangeToStudentFormer.AutoSize = True
+        Me.lblChangeToStudentFormer.BackColor = System.Drawing.Color.Transparent
+        Me.lblChangeToStudentFormer.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblChangeToStudentFormer.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblChangeToStudentFormer.ForeColor = System.Drawing.Color.Blue
+        Me.lblChangeToStudentFormer.Location = New System.Drawing.Point(596, 4)
+        Me.lblChangeToStudentFormer.Name = "lblChangeToStudentFormer"
+        Me.lblChangeToStudentFormer.Size = New System.Drawing.Size(153, 38)
+        Me.lblChangeToStudentFormer.TabIndex = 228
+        Me.lblChangeToStudentFormer.Text = "ប្តូរជាអតីតសិស្ស"
+        '
         'PAll
         '
         Me.PAll.BackColor = System.Drawing.Color.Transparent
         Me.PAll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PAll.Location = New System.Drawing.Point(598, 1)
+        Me.PAll.Location = New System.Drawing.Point(774, 1)
         Me.PAll.Name = "PAll"
         Me.PAll.Size = New System.Drawing.Size(1, 45)
         Me.PAll.TabIndex = 229
@@ -323,7 +338,7 @@ Partial Class FrmChangeClass
         Me.pnl1.Controls.Add(Me.lblSave)
         Me.pnl1.Controls.Add(Me.lblDynamic)
         Me.pnl1.Controls.Add(Me.cboDynamic)
-        Me.pnl1.Location = New System.Drawing.Point(633, -1)
+        Me.pnl1.Location = New System.Drawing.Point(800, -1)
         Me.pnl1.Name = "pnl1"
         Me.pnl1.Size = New System.Drawing.Size(387, 47)
         Me.pnl1.TabIndex = 227
@@ -431,7 +446,7 @@ Partial Class FrmChangeClass
         Me.PanelEx3.Size = New System.Drawing.Size(1196, 42)
         Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx3.Style.BackColor1.Color = System.Drawing.Color.PowderBlue
-        Me.PanelEx3.Style.BackColor2.Color = System.Drawing.Color.LightBlue
+        Me.PanelEx3.Style.BackColor2.Color = System.Drawing.Color.SkyBlue
         Me.PanelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
         Me.PanelEx3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
         Me.PanelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
@@ -562,7 +577,7 @@ Partial Class FrmChangeClass
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Khmer OS Muol Light", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(41, 6)
+        Me.Label1.Location = New System.Drawing.Point(41, 5)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(181, 27)
         Me.Label1.TabIndex = 8
@@ -609,7 +624,6 @@ Partial Class FrmChangeClass
     Friend WithEvents lblTotalSearch As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents dg As DataGridView
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewCheckBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
@@ -634,6 +648,8 @@ Partial Class FrmChangeClass
     Friend WithEvents rbFailedStudent As RadioButton
     Friend WithEvents lblSave As Label
     Friend WithEvents pnl1 As Panel
-    Friend WithEvents rbDropStudy As RadioButton
     Friend WithEvents PAll As Panel
+    Friend WithEvents lblChangeToStudentFormer As Label
+    Public WithEvents dg As DataGridView
+    Public WithEvents rbDropStudy As RadioButton
 End Class

@@ -23,8 +23,8 @@ Partial Class FrmStudentFormer
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.picClose = New System.Windows.Forms.PictureBox()
@@ -47,7 +47,6 @@ Partial Class FrmStudentFormer
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.txt_ad_search = New System.Windows.Forms.TextBox()
         Me.PanelEx7 = New DevComponents.DotNetBar.PanelEx()
-        Me.lblCompanyInfo = New System.Windows.Forms.Label()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.pdate = New DevComponents.DotNetBar.PanelEx()
@@ -90,7 +89,7 @@ Partial Class FrmStudentFormer
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtStuIDSchool = New System.Windows.Forms.TextBox()
-        Me.txtStuID = New System.Windows.Forms.TextBox()
+        Me.txtRecordID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.TabControlPanel7 = New DevComponents.DotNetBar.TabControlPanel()
@@ -165,6 +164,13 @@ Partial Class FrmStudentFormer
         Me.dgMain = New System.Windows.Forms.DataGridView()
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.a = New System.Windows.Forms.Label()
+        Me.lblPhoneNumber = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblOwnerName = New System.Windows.Forms.Label()
+        Me.lblCompanyInfro = New System.Windows.Forms.Label()
         Me.PanelEx2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picClose, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -476,7 +482,13 @@ Partial Class FrmStudentFormer
         '
         Me.PanelEx7.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx7.Controls.Add(Me.lblCompanyInfo)
+        Me.PanelEx7.Controls.Add(Me.a)
+        Me.PanelEx7.Controls.Add(Me.lblPhoneNumber)
+        Me.PanelEx7.Controls.Add(Me.Label15)
+        Me.PanelEx7.Controls.Add(Me.Label16)
+        Me.PanelEx7.Controls.Add(Me.lblEmail)
+        Me.PanelEx7.Controls.Add(Me.lblOwnerName)
+        Me.PanelEx7.Controls.Add(Me.lblCompanyInfro)
         Me.PanelEx7.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelEx7.Location = New System.Drawing.Point(0, 737)
         Me.PanelEx7.Name = "PanelEx7"
@@ -490,16 +502,6 @@ Partial Class FrmStudentFormer
         Me.PanelEx7.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelEx7.Style.GradientAngle = 90
         Me.PanelEx7.TabIndex = 295
-        '
-        'lblCompanyInfo
-        '
-        Me.lblCompanyInfo.AutoSize = True
-        Me.lblCompanyInfo.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCompanyInfo.Location = New System.Drawing.Point(9, 4)
-        Me.lblCompanyInfo.Name = "lblCompanyInfo"
-        Me.lblCompanyInfo.Size = New System.Drawing.Size(99, 27)
-        Me.lblCompanyInfo.TabIndex = 220
-        Me.lblCompanyInfo.Text = "lblCompanyInfo"
         '
         'TabControl1
         '
@@ -584,7 +586,7 @@ Partial Class FrmStudentFormer
         Me.pdate.Controls.Add(Me.Label11)
         Me.pdate.Controls.Add(Me.Label6)
         Me.pdate.Controls.Add(Me.txtStuIDSchool)
-        Me.pdate.Controls.Add(Me.txtStuID)
+        Me.pdate.Controls.Add(Me.txtRecordID)
         Me.pdate.Controls.Add(Me.Label7)
         Me.pdate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pdate.Location = New System.Drawing.Point(1, 1)
@@ -1025,12 +1027,12 @@ Partial Class FrmStudentFormer
         '
         'txtStuID
         '
-        Me.txtStuID.Enabled = False
-        Me.txtStuID.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.txtStuID.Location = New System.Drawing.Point(186, 12)
-        Me.txtStuID.Name = "txtStuID"
-        Me.txtStuID.Size = New System.Drawing.Size(201, 38)
-        Me.txtStuID.TabIndex = 123
+        Me.txtRecordID.Enabled = False
+        Me.txtRecordID.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.txtRecordID.Location = New System.Drawing.Point(186, 12)
+        Me.txtRecordID.Name = "txtStuID"
+        Me.txtRecordID.Size = New System.Drawing.Size(201, 38)
+        Me.txtRecordID.TabIndex = 123
         '
         'Label7
         '
@@ -1974,21 +1976,21 @@ Partial Class FrmStudentFormer
         Me.dgMain.AllowUserToResizeRows = False
         Me.dgMain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgMain.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgMain.Location = New System.Drawing.Point(4, 3)
         Me.dgMain.MultiSelect = False
         Me.dgMain.Name = "dgMain"
         Me.dgMain.ReadOnly = True
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgMain.Size = New System.Drawing.Size(1356, 191)
         Me.dgMain.TabIndex = 2
@@ -2002,6 +2004,77 @@ Partial Class FrmStudentFormer
         '
         Me.BindingSource1.DataMember = "dtStudentFormer"
         Me.BindingSource1.DataSource = Me.DataSet1
+        '
+        'a
+        '
+        Me.a.AutoSize = True
+        Me.a.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.a.Location = New System.Drawing.Point(218, 5)
+        Me.a.Name = "a"
+        Me.a.Size = New System.Drawing.Size(89, 27)
+        Me.a.TabIndex = 229
+        Me.a.Text = "- ទំនាក់ទំនង "
+        '
+        'lblPhoneNumber
+        '
+        Me.lblPhoneNumber.AutoSize = True
+        Me.lblPhoneNumber.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPhoneNumber.Location = New System.Drawing.Point(471, 5)
+        Me.lblPhoneNumber.Name = "lblPhoneNumber"
+        Me.lblPhoneNumber.Size = New System.Drawing.Size(89, 27)
+        Me.lblPhoneNumber.TabIndex = 235
+        Me.lblPhoneNumber.Text = "00000000000"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(583, 5)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(53, 27)
+        Me.Label15.TabIndex = 231
+        Me.Label15.Text = "Email ៖"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(387, 5)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(89, 27)
+        Me.Label16.TabIndex = 234
+        Me.Label16.Text = "លេខទូរស័ព្ទ៖"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblEmail.Location = New System.Drawing.Point(637, 4)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(42, 27)
+        Me.lblEmail.TabIndex = 230
+        Me.lblEmail.Text = "emai "
+        '
+        'lblOwnerName
+        '
+        Me.lblOwnerName.AutoSize = True
+        Me.lblOwnerName.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOwnerName.Location = New System.Drawing.Point(306, 5)
+        Me.lblOwnerName.Name = "lblOwnerName"
+        Me.lblOwnerName.Size = New System.Drawing.Size(43, 27)
+        Me.lblOwnerName.TabIndex = 233
+        Me.lblOwnerName.Text = "name"
+        '
+        'lblCompanyInfro
+        '
+        Me.lblCompanyInfro.AutoSize = True
+        Me.lblCompanyInfro.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompanyInfro.Location = New System.Drawing.Point(6, 4)
+        Me.lblCompanyInfro.Name = "lblCompanyInfro"
+        Me.lblCompanyInfro.Size = New System.Drawing.Size(210, 27)
+        Me.lblCompanyInfro.TabIndex = 232
+        Me.lblCompanyInfro.Text = "Smart Business Software Solution"
         '
         'FrmStudentFormer
         '
@@ -2077,7 +2150,6 @@ Partial Class FrmStudentFormer
     Friend WithEvents cboStudentName As ComboBox
     Friend WithEvents lblSearchResult As Label
     Friend WithEvents PanelEx7 As DevComponents.DotNetBar.PanelEx
-    Friend WithEvents lblCompanyInfo As Label
     Friend WithEvents TabControl1 As DevComponents.DotNetBar.TabControl
     Friend WithEvents TabControlPanel1 As DevComponents.DotNetBar.TabControlPanel
     Friend WithEvents pdate As DevComponents.DotNetBar.PanelEx
@@ -2115,7 +2187,7 @@ Partial Class FrmStudentFormer
     Friend WithEvents Label11 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents txtStuIDSchool As TextBox
-    Friend WithEvents txtStuID As TextBox
+    Friend WithEvents txtRecordID As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents TabItem1 As DevComponents.DotNetBar.TabItem
     Friend WithEvents TabItem3 As DevComponents.DotNetBar.TabItem
@@ -2200,4 +2272,11 @@ Partial Class FrmStudentFormer
     Friend WithEvents cboStopYearStudy As ComboBox
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents a As Label
+    Friend WithEvents lblPhoneNumber As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblOwnerName As Label
+    Friend WithEvents lblCompanyInfro As Label
 End Class
