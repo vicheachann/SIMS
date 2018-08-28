@@ -237,24 +237,19 @@ Public Class FrmReport
     End Sub
     Private Sub CreateStudentFormerReport()
         Dim batch As String
-        Dim firstYearStudy As String
         Try
             If (cboFirstYearStudy.Text = "ទាំងអស់" And cboBacth.Text = "ទាំងអស់") Then
                 sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST"
                 batch = "ទាំងអស់"
-                firstYearStudy = "ទាំងអស់"
             ElseIf (cboFirstYearStudy.Text = "ទាំងអស់" And cboBacth.Text <> "ទាំងអស់") Then
                 sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE BATCH_ID = " & cboBacth.SelectedValue & ""
                 batch = cboBacth.Text
-                firstYearStudy = "ទាំងអស់"
             ElseIf (cboFirstYearStudy.Text <> "ទាំងអស់" And cboBacth.Text = "ទាំងអស់") Then
                 sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboFirstYearStudy.Text & "'"
                 batch = "ទាំងអស់"
-                firstYearStudy = cboFirstYearStudy.Text
             Else
                 sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboFirstYearStudy.Text & "' AND BATCH_ID = " & cboBacth.SelectedValue & ""
                 batch = cboBacth.Text
-                firstYearStudy = cboFirstYearStudy.Text
             End If
 
             Call obj.OpenConnection()
@@ -268,7 +263,6 @@ Public Class FrmReport
             Call SendParam("paramSchoolName", obj.GetSchoolName())
             Call SendParam("paramProvince", obj.GetProvinceName())
             Call SendParam("paramBatch", batch)
-            Call SendParam("paramFirstYearStudy", firstYearStudy)
             ReportViewer.RefreshReport()
         Catch ex As Exception
             MessageBox.Show(ex.Message)

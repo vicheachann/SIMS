@@ -7,7 +7,6 @@ Public Class FrmStudentFormer
     Dim t As New Theme
 
     Dim batch As String = ""
-    Dim firstYearStudy As String = ""
     Dim sql As String = ""
 
     Private Sub FrmStudentFormer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -28,7 +27,6 @@ Public Class FrmStudentFormer
         Try
             If (Validation.IsEmpty(txtStuNameKh, "ឈ្មោះសិស្ស")) Then Exit Sub
             Dim batchID As String = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = " & obj.ReplaceNullWithZero(cboBatch.Text) & "")
-
             obj.Insert("INSERT INTO dbo.TBS_STUDENT_INFO_FORMER(STUDENT_ID,STUDENT_ID_SCHOOL,STUDENT_CODE,SNAME_KH,SNAME_LATIN,GENDER,DOB,S_PHONE_LINE_1,S_PHONE_LINE_2,EMAIL_1,JOIN_SCHOOL_DATE,FIRST_YEAR_STUDY,[DESCRIPTION],BATCH_ID,STOP_YEAR_STUDY)VALUES(NULL,N'" & txtStuIDSchool.Text & "',N'" & txtStuCode.Text & "',N'" & txtStuNameKh.Text & "','" & txtStuNameEn.Text & "',N'" & cboStuGender.Text & "','" & dtStuDOB.Value & "',N'" & txtStuPhone1.Text & "',N'" & txtStuPhone2.Text & "',N'" & txtStuEmail.Text & "','" & dtStuJoinSchoolDate.Value & "',N'" & cboStuFirstYearStudy.Text & "',N'" & txtStuRemark.Text & "'," & batchID & ",N'" & cboStopYearStudy.Text & "')")
             Call SelectStudent()
         Catch ex As Exception
@@ -720,21 +718,17 @@ Public Class FrmStudentFormer
             If (cboStuFirstYearStudy.Text = "" And cboBatch.Text = "") Then
                 sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST"
                 batch = "ទាំងអស់"
-                firstYearStudy = "ទាំងអស់"
             ElseIf (cboStuFirstYearStudy.Text = "" And cboBatch.Text <> "") Then
                 batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboBatch.Text & "'")
                 sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE BATCH_ID = " & batchID & ""
                 batch = cboBatch.Text
-                firstYearStudy = "ទាំងអស់"
             ElseIf (cboStuFirstYearStudy.Text <> "" And cboBatch.Text = "") Then
                 sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "'"
                 batch = "ទាំងអស់"
-                firstYearStudy = cboStuFirstYearStudy.Text
             Else
                 batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboBatch.Text & "'")
                 sql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "' AND BATCH_ID = " & batchID & ""
                 batch = cboBatch.Text
-                firstYearStudy = cboStuFirstYearStudy.Text
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -755,7 +749,6 @@ Public Class FrmStudentFormer
             obj.SendParam("paramProvince", obj.GetProvinceName(), FrmViewReport.ReportViewer)
             obj.SendParam("paramFirstYearStudy", cboStuFirstYearStudy.Text, FrmViewReport.ReportViewer)
             obj.SendParam("paramBatch", batch, FrmViewReport.ReportViewer)
-            obj.SendParam("paramFirstYearStudy", firstYearStudy, FrmViewReport.ReportViewer)
             FrmViewReport.ReportViewer.RefreshReport()
             FrmViewReport.ShowDialog()
         Catch ex As Exception

@@ -1960,7 +1960,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Page " + Globals!PageNumber.ToString() + " of " + Globals!TotalPages.ToString()</Value>
+                  <Value>="ទំព័រទី " + Globals!PageNumber.ToString() + " នៃ " + Globals!TotalPages.ToString()</Value>
                   <Style>
                     <FontFamily>khmer</FontFamily>
                     <FontSize>7pt</FontSize>

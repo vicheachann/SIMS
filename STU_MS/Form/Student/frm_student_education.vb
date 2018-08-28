@@ -5,10 +5,7 @@ Public Class frm_student_education
     Dim class_id As Integer
     Dim searchMode As Boolean = False 'search as default
     Dim t As New Theme
-    Private Sub PanelEx2_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PanelEx2.MouseDown
-        'ReleaseCapture()
-        'SendMessage(Me.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0)
-    End Sub
+
 
     Private Sub btn_close_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_close.Click
         Me.Close()
@@ -25,7 +22,10 @@ Public Class frm_student_education
 
     Private Sub frm_subject_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
-            CompanyInfo.SetCompanyInfo(lblCompanyInfo)
+            lblCompanyInfro.Text = CompanyInfo.CompanyName
+            lblOwnerName.Text = CompanyInfo.Name
+            lblPhoneNumber.Text = CompanyInfo.Tel
+            lblEmail.Text = CompanyInfo.Email
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -544,11 +544,6 @@ Public Class frm_student_education
                 obj.ShowMsg("សូមជ្រើសរើសសិស្សជាមុន", FrmWarning, "")
                 Exit Sub
             End If
-
-
-
-
-
             With frm
                 For i As Integer = 0 To dg.Rows.Count - 1
                     If (dg.Rows(i).Cells(1).Value = True) Then
@@ -658,8 +653,31 @@ Public Class frm_student_education
                 cboOldClass.Focus()
                 Exit Sub
             End If
+            PrintReport()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+    Private Sub PrintReport()
+        Try
+            DataSet1.dtStudent.Clear()
+            Call obj.OpenConnection()
+            Dim sql As String = "SELECT ROW_NUMBER() OVER(ORDER BY SNAME_KH ASC) AS 'ROW_NUMBER',SNAME_KH,CLASS_MONITOR_NUM,GENDER,DOB_2,GUARDIAN_VILLAGE,CLASS_OLD FROM dbo.V_STUDENT_LIST_ALL_STATUS WHERE YEAR_STUDY_OLD = N'" & cboOldYear.Text & "' AND CLASS_ID = " & cboOldClass.SelectedValue & ""
+            cmd = New SqlCommand(sql, conn)
+            da = New SqlDataAdapter(cmd)
+            DataSet1.dtStudent.Clear()
+            da.Fill(DataSet1.dtStudent)
 
+            Dim formReport As New FrmDynamicReportViewer
 
+            formReport.SetupReport("DataSet1", "STU_MS.rpStudentList.rdlc", bsStudentList)
+
+            obj.SendParam("paramSchoolName", obj.GetSchoolName(), formReport.ReportViewer)
+            obj.SendParam("paramProvince", obj.GetProvinceName(), formReport.ReportViewer)
+            obj.SendParam("paramClassName", cboOldClass.Text, formReport.ReportViewer)
+            obj.SendParam("paramYearStudy", cboOldYear.Text, formReport.ReportViewer)
+            formReport.ReportViewer.RefreshReport()
+            formReport.ShowDialog()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

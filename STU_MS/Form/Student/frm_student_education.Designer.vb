@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frm_student_education
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,11 @@ Partial Class frm_student_education
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -68,9 +69,6 @@ Partial Class frm_student_education
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.lblNew = New System.Windows.Forms.Label()
-        Me.PanelEx4 = New DevComponents.DotNetBar.PanelEx()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.dg = New System.Windows.Forms.DataGridView()
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -91,7 +89,16 @@ Partial Class frm_student_education
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblCompanyInfo = New System.Windows.Forms.Label()
+        Me.DataSet1 = New STU_MS.DataSet1()
+        Me.bsStudentList = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PanelEx5 = New DevComponents.DotNetBar.PanelEx()
+        Me.lblCompanyInfro = New System.Windows.Forms.Label()
+        Me.lblOwnerName = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblPhoneNumber = New System.Windows.Forms.Label()
+        Me.a = New System.Windows.Forms.Label()
         Me.PanelEx2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,9 +109,10 @@ Partial Class frm_student_education
         CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.PanelEx3.SuspendLayout()
-        Me.PanelEx4.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dg, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelEx5.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelEx2
@@ -201,7 +209,7 @@ Partial Class frm_student_education
         '
         Me.cboOldYear.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboOldYear.FormattingEnabled = True
-        Me.cboOldYear.Location = New System.Drawing.Point(317, 4)
+        Me.cboOldYear.Location = New System.Drawing.Point(331, 4)
         Me.cboOldYear.Name = "cboOldYear"
         Me.cboOldYear.Size = New System.Drawing.Size(107, 38)
         Me.cboOldYear.TabIndex = 192
@@ -213,7 +221,7 @@ Partial Class frm_student_education
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label3.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Navy
-        Me.Label3.Location = New System.Drawing.Point(197, 5)
+        Me.Label3.Location = New System.Drawing.Point(216, 5)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(117, 34)
         Me.Label3.TabIndex = 193
@@ -225,7 +233,7 @@ Partial Class frm_student_education
         Me.cboOldClass.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboOldClass.FormattingEnabled = True
         Me.cboOldClass.IntegralHeight = False
-        Me.cboOldClass.Location = New System.Drawing.Point(521, 3)
+        Me.cboOldClass.Location = New System.Drawing.Point(534, 3)
         Me.cboOldClass.Name = "cboOldClass"
         Me.cboOldClass.Size = New System.Drawing.Size(107, 38)
         Me.cboOldClass.TabIndex = 194
@@ -237,7 +245,7 @@ Partial Class frm_student_education
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label4.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Navy
-        Me.Label4.Location = New System.Drawing.Point(430, 5)
+        Me.Label4.Location = New System.Drawing.Point(446, 5)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(85, 34)
         Me.Label4.TabIndex = 195
@@ -306,10 +314,10 @@ Partial Class frm_student_education
         Me.GroupPanel1.Controls.Add(Me.cboOldClass)
         Me.GroupPanel1.Controls.Add(Me.Label6)
         Me.GroupPanel1.Controls.Add(Me.cboNewYearStudy)
-        Me.GroupPanel1.Controls.Add(Me.Label3)
         Me.GroupPanel1.Controls.Add(Me.Label5)
         Me.GroupPanel1.Controls.Add(Me.cboOldYear)
         Me.GroupPanel1.Controls.Add(Me.Label4)
+        Me.GroupPanel1.Controls.Add(Me.Label3)
         Me.GroupPanel1.Location = New System.Drawing.Point(5, 45)
         Me.GroupPanel1.Name = "GroupPanel1"
         Me.GroupPanel1.Size = New System.Drawing.Size(1361, 52)
@@ -355,9 +363,9 @@ Partial Class frm_student_education
         Me.Label13.ForeColor = System.Drawing.Color.Black
         Me.Label13.Location = New System.Drawing.Point(-4, 5)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(92, 34)
+        Me.Label13.Size = New System.Drawing.Size(105, 34)
         Me.Label13.TabIndex = 217
-        Me.Label13.Text = "អ្នកបញ្ចូល"
+        Me.Label13.Text = "គ្រូបន្ទុកថ្នាក់"
         '
         'cboTeacher
         '
@@ -366,7 +374,7 @@ Partial Class frm_student_education
         Me.cboTeacher.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboTeacher.FormattingEnabled = True
         Me.cboTeacher.IntegralHeight = False
-        Me.cboTeacher.Location = New System.Drawing.Point(88, 4)
+        Me.cboTeacher.Location = New System.Drawing.Point(104, 4)
         Me.cboTeacher.Name = "cboTeacher"
         Me.cboTeacher.Size = New System.Drawing.Size(107, 38)
         Me.cboTeacher.TabIndex = 216
@@ -395,7 +403,7 @@ Partial Class frm_student_education
         '
         Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.SEARCH_324
-        Me.picSearch.Location = New System.Drawing.Point(634, 8)
+        Me.picSearch.Location = New System.Drawing.Point(648, 8)
         Me.picSearch.Name = "picSearch"
         Me.picSearch.Size = New System.Drawing.Size(33, 30)
         Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -420,7 +428,7 @@ Partial Class frm_student_education
         Me.lblSearch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblSearch.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSearch.ForeColor = System.Drawing.Color.Red
-        Me.lblSearch.Location = New System.Drawing.Point(672, 7)
+        Me.lblSearch.Location = New System.Drawing.Point(682, 5)
         Me.lblSearch.Name = "lblSearch"
         Me.lblSearch.Size = New System.Drawing.Size(72, 34)
         Me.lblSearch.TabIndex = 214
@@ -463,13 +471,13 @@ Partial Class frm_student_education
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PanelEx3)
+        Me.GroupBox1.Controls.Add(Me.PanelEx5)
         Me.GroupBox1.Controls.Add(Me.lblDelete)
         Me.GroupBox1.Controls.Add(Me.lblPrint)
         Me.GroupBox1.Controls.Add(Me.lblRevertSelection)
         Me.GroupBox1.Controls.Add(Me.lblChangStudyInfoStatus)
-        Me.GroupBox1.Controls.Add(Me.PanelEx3)
         Me.GroupBox1.Controls.Add(Me.lblNew)
-        Me.GroupBox1.Controls.Add(Me.PanelEx4)
         Me.GroupBox1.Controls.Add(Me.dg)
         Me.GroupBox1.Controls.Add(Me.cbCheckAll)
         Me.GroupBox1.Controls.Add(Me.lblSave)
@@ -548,8 +556,9 @@ Partial Class frm_student_education
         Me.PanelEx3.Controls.Add(Me.Label14)
         Me.PanelEx3.Controls.Add(Me.Label12)
         Me.PanelEx3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelEx3.Location = New System.Drawing.Point(3, 606)
+        Me.PanelEx3.Location = New System.Drawing.Point(3, 586)
         Me.PanelEx3.Name = "PanelEx3"
+        Me.PanelEx3.Padding = New System.Windows.Forms.Padding(0, 0, 0, 10)
         Me.PanelEx3.Size = New System.Drawing.Size(1358, 45)
         Me.PanelEx3.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx3.Style.BackColor1.Color = System.Drawing.Color.PowderBlue
@@ -705,71 +714,26 @@ Partial Class frm_student_education
         Me.lblNew.TabIndex = 279
         Me.lblNew.Text = "ថ្មី"
         '
-        'PanelEx4
-        '
-        Me.PanelEx4.CanvasColor = System.Drawing.SystemColors.Control
-        Me.PanelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx4.Controls.Add(Me.lblCompanyInfo)
-        Me.PanelEx4.Controls.Add(Me.Label8)
-        Me.PanelEx4.Controls.Add(Me.PictureBox3)
-        Me.PanelEx4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelEx4.Location = New System.Drawing.Point(3, 651)
-        Me.PanelEx4.Name = "PanelEx4"
-        Me.PanelEx4.Size = New System.Drawing.Size(1358, 35)
-        Me.PanelEx4.Style.Alignment = System.Drawing.StringAlignment.Center
-        Me.PanelEx4.Style.BackColor1.Color = System.Drawing.Color.PowderBlue
-        Me.PanelEx4.Style.BackColor2.Color = System.Drawing.Color.CornflowerBlue
-        Me.PanelEx4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.PanelEx4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.PanelEx4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.PanelEx4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.PanelEx4.Style.GradientAngle = 90
-        Me.PanelEx4.TabIndex = 278
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label8.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label8.Location = New System.Drawing.Point(747, 1)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(602, 27)
-        Me.Label8.TabIndex = 217
-        Me.Label8.Text = "ស្វែងរកថ្នាក់និងឆ្នាំសិក្សាចាស់ ហើយបញ្ចូលថ្នាក់និងឆ្នាំសិក្សាថ្មី រួចចុច ""តំឡើងថ្" &
-    "នាក់"" ហើយចុច ""រក្សាទុក"""
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.STU_MS.My.Resources.Resources.information
-        Me.PictureBox3.Location = New System.Drawing.Point(719, 4)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(22, 20)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 216
-        Me.PictureBox3.TabStop = False
-        '
         'dg
         '
         Me.dg.AllowUserToAddRows = False
         Me.dg.AllowUserToDeleteRows = False
         Me.dg.AllowUserToResizeColumns = False
         Me.dg.AllowUserToResizeRows = False
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Khmer OS", 10.0!)
-        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Khmer OS", 10.0!)
+        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
         Me.dg.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dg.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.Column10, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.Column15, Me.Column14, Me.Column6, Me.Column7, Me.Column8, Me.Column16, Me.Column9, Me.Column13, Me.Column18, Me.Column19})
         Me.dg.Location = New System.Drawing.Point(8, 69)
@@ -905,15 +869,110 @@ Partial Class frm_student_education
         Me.Column19.Name = "Column19"
         Me.Column19.Visible = False
         '
-        'lblCompanyInfo
+        'DataSet1
         '
-        Me.lblCompanyInfo.AutoSize = True
-        Me.lblCompanyInfo.Font = New System.Drawing.Font("Khmer OS", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCompanyInfo.Location = New System.Drawing.Point(9, 6)
-        Me.lblCompanyInfo.Name = "lblCompanyInfo"
-        Me.lblCompanyInfo.Size = New System.Drawing.Size(88, 24)
-        Me.lblCompanyInfo.TabIndex = 221
-        Me.lblCompanyInfo.Text = "lblCompanyInfo"
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'bsStudentList
+        '
+        Me.bsStudentList.DataMember = "dtStudent"
+        Me.bsStudentList.DataSource = Me.DataSet1
+        '
+        'PanelEx5
+        '
+        Me.PanelEx5.CanvasColor = System.Drawing.SystemColors.Control
+        Me.PanelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx5.Controls.Add(Me.a)
+        Me.PanelEx5.Controls.Add(Me.lblPhoneNumber)
+        Me.PanelEx5.Controls.Add(Me.Label8)
+        Me.PanelEx5.Controls.Add(Me.Label9)
+        Me.PanelEx5.Controls.Add(Me.lblEmail)
+        Me.PanelEx5.Controls.Add(Me.lblOwnerName)
+        Me.PanelEx5.Controls.Add(Me.lblCompanyInfro)
+        Me.PanelEx5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelEx5.Location = New System.Drawing.Point(3, 631)
+        Me.PanelEx5.Name = "PanelEx5"
+        Me.PanelEx5.Size = New System.Drawing.Size(1358, 55)
+        Me.PanelEx5.Style.Alignment = System.Drawing.StringAlignment.Center
+        Me.PanelEx5.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PanelEx5.Style.BackColor2.Color = System.Drawing.Color.LightSteelBlue
+        Me.PanelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.PanelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.PanelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.PanelEx5.Style.GradientAngle = 90
+        Me.PanelEx5.TabIndex = 229
+        '
+        'lblCompanyInfro
+        '
+        Me.lblCompanyInfro.AutoSize = True
+        Me.lblCompanyInfro.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompanyInfro.Location = New System.Drawing.Point(6, 3)
+        Me.lblCompanyInfro.Name = "lblCompanyInfro"
+        Me.lblCompanyInfro.Size = New System.Drawing.Size(210, 27)
+        Me.lblCompanyInfro.TabIndex = 225
+        Me.lblCompanyInfro.Text = "Smart Business Software Solution"
+        '
+        'lblOwnerName
+        '
+        Me.lblOwnerName.AutoSize = True
+        Me.lblOwnerName.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOwnerName.Location = New System.Drawing.Point(306, 4)
+        Me.lblOwnerName.Name = "lblOwnerName"
+        Me.lblOwnerName.Size = New System.Drawing.Size(43, 27)
+        Me.lblOwnerName.TabIndex = 226
+        Me.lblOwnerName.Text = "name"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblEmail.Location = New System.Drawing.Point(637, 3)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(42, 27)
+        Me.lblEmail.TabIndex = 223
+        Me.lblEmail.Text = "emai "
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(387, 4)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(89, 27)
+        Me.Label9.TabIndex = 227
+        Me.Label9.Text = "លេខទូរស័ព្ទ៖"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(583, 4)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(53, 27)
+        Me.Label8.TabIndex = 224
+        Me.Label8.Text = "Email ៖"
+        '
+        'lblPhoneNumber
+        '
+        Me.lblPhoneNumber.AutoSize = True
+        Me.lblPhoneNumber.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPhoneNumber.Location = New System.Drawing.Point(471, 4)
+        Me.lblPhoneNumber.Name = "lblPhoneNumber"
+        Me.lblPhoneNumber.Size = New System.Drawing.Size(89, 27)
+        Me.lblPhoneNumber.TabIndex = 228
+        Me.lblPhoneNumber.Text = "00000000000"
+        '
+        'a
+        '
+        Me.a.AutoSize = True
+        Me.a.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.a.Location = New System.Drawing.Point(218, 4)
+        Me.a.Name = "a"
+        Me.a.Size = New System.Drawing.Size(89, 27)
+        Me.a.TabIndex = 222
+        Me.a.Text = "- ទំនាក់ទំនង "
         '
         'frm_student_education
         '
@@ -940,10 +999,11 @@ Partial Class frm_student_education
         Me.GroupBox1.PerformLayout()
         Me.PanelEx3.ResumeLayout(False)
         Me.PanelEx3.PerformLayout()
-        Me.PanelEx4.ResumeLayout(False)
-        Me.PanelEx4.PerformLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dg, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelEx5.ResumeLayout(False)
+        Me.PanelEx5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -972,9 +1032,6 @@ Partial Class frm_student_education
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents picUpgradeClass As System.Windows.Forms.PictureBox
-    Friend WithEvents PanelEx4 As DevComponents.DotNetBar.PanelEx
-    Friend WithEvents Label8 As Label
-    Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents lblNew As Label
     Friend WithEvents PanelEx3 As DevComponents.DotNetBar.PanelEx
     Friend WithEvents Label15 As Label
@@ -1014,5 +1071,14 @@ Partial Class frm_student_education
     Friend WithEvents Column19 As DataGridViewTextBoxColumn
     Friend WithEvents Label13 As Label
     Friend WithEvents cboTeacher As ComboBox
-    Friend WithEvents lblCompanyInfo As Label
+    Friend WithEvents DataSet1 As DataSet1
+    Friend WithEvents bsStudentList As BindingSource
+    Friend WithEvents PanelEx5 As DevComponents.DotNetBar.PanelEx
+    Friend WithEvents a As Label
+    Friend WithEvents lblPhoneNumber As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblOwnerName As Label
+    Friend WithEvents lblCompanyInfro As Label
 End Class
