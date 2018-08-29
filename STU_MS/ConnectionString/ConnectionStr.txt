@@ -1,1 +1,1 @@
-Server=SMART_BSS-PC;Database=SIMS; Trusted_Connection=false;User=sa;Password=123
+Server=DESKTOP-MLQILJU\LOCALSERVER;Database=SIMS; Trusted_Connection=false;User=LOCALSERVER;Password=t0them00n

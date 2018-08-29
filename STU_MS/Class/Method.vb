@@ -496,5 +496,38 @@ Public Class Method
         Return empty
     End Function
 
+    Public Sub InsertToStudentFormer(ByVal TheStudentID As Integer)
+        '   Try
 
+
+
+
+
+
+
+
+
+
+
+        '    OpenConnection()
+        '    cmd = New SqlCommand("SELECT S.ALUMNI_ID, T.T_NAME_KH, S.DATE_CELEBRATION, S.DATE_NOTE, S.AMOUNT_US, S.AMOUNT_KH, S.REMARK,S.TEACHER_ID FROM dbo.TBS_STUDENT_ALUMNI_MASTER AS S INNER JOIN dbo.TBL_TEACHER AS T ON S.TEACHER_ID = T.TEACHER_ID WHERE S.ALUMNI_ID = " & dgSearch.SelectedCells(0).Value & "", conn)
+        '    da = New SqlDataAdapter(cmd)
+        '    dt = New DataTable
+        '    da.Fill(dt)
+        '    If dt.Rows.Count > 0 Then
+        '        txtAlumniID.Text = If(IsDBNull(dt.Rows(0)(0).ToString), "", dt.Rows(0)(0).ToString)
+        '        cboTeacher.Text = If(IsDBNull(dt.Rows(0)(1).ToString), "", dt.Rows(0)(1).ToString)
+        '        dtDateCelebration.Text = If(IsDBNull(dt.Rows(0)(2).ToString), "", dt.Rows(0)(2).ToString)
+        '        dtDateNote.Text = If(IsDBNull(dt.Rows(0)(3).ToString), "", dt.Rows(0)(3).ToString)
+        '        txtAmountKHR.Text = If(IsDBNull(dt.Rows(0)(4).ToString), "", dt.Rows(0)(4).ToString)
+        '        txtAmountUSD.Text = If(IsDBNull(dt.Rows(0)(5).ToString), "", dt.Rows(0)(5).ToString)
+        '        txtRemark.Text = If(IsDBNull(dt.Rows(0)(6).ToString), "", dt.Rows(0)(6).ToString)
+        '        teacherID = If(IsDBNull(dt.Rows(0)(7).ToString), "", dt.Rows(0)(7).ToString)
+        '    End If
+
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message)
+        'End Try
+
+    End Sub
 End Class

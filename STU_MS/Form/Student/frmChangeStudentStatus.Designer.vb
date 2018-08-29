@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmChangeStudentStatus
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmChangeStudentStatus
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.pnlHeader = New DevComponents.DotNetBar.PanelEx()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
@@ -28,7 +28,6 @@ Partial Class frmChangeStudentStatus
         Me.cboStudentstatus = New System.Windows.Forms.ComboBox()
         Me.lblOk = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.PanelEx1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,7 +53,6 @@ Partial Class frmChangeStudentStatus
         '
         Me.PanelEx1.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7
-        Me.PanelEx1.Controls.Add(Me.Label1)
         Me.PanelEx1.Controls.Add(Me.lblClose)
         Me.PanelEx1.Controls.Add(Me.cboStudentstatus)
         Me.PanelEx1.Controls.Add(Me.lblOk)
@@ -81,9 +79,9 @@ Partial Class frmChangeStudentStatus
         Me.lblClose.ForeColor = System.Drawing.Color.MediumBlue
         Me.lblClose.Location = New System.Drawing.Point(250, 96)
         Me.lblClose.Name = "lblClose"
-        Me.lblClose.Size = New System.Drawing.Size(96, 38)
+        Me.lblClose.Size = New System.Drawing.Size(84, 38)
         Me.lblClose.TabIndex = 182
-        Me.lblClose.Text = "ចាកចេញ"
+        Me.lblClose.Text = "បោះបង់"
         '
         'cboStudentstatus
         '
@@ -117,19 +115,6 @@ Partial Class frmChangeStudentStatus
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "ស្ថានភាពសិក្សា"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
-        Me.Label1.ForeColor = System.Drawing.Color.MediumBlue
-        Me.Label1.Location = New System.Drawing.Point(31, 96)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(96, 38)
-        Me.Label1.TabIndex = 183
-        Me.Label1.Text = "យល់ព្រម"
-        '
         'frmChangeStudentStatus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -153,5 +138,4 @@ Partial Class frmChangeStudentStatus
     Friend WithEvents cboStudentstatus As ComboBox
     Friend WithEvents lblOk As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
 End Class

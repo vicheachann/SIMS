@@ -51,6 +51,7 @@
     Private Sub lblOk_Click(sender As Object, e As EventArgs) Handles lblOk.Click
         Try
             If (Validation.IsEmpty(cboStudentstatus, "ស្ថានភាពសិក្សា")) Then Exit Sub
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, CompanyInfo.CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -60,11 +61,11 @@
         cboStudentstatus.BackColor = Color.White
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    'Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
-        For Each a In FrmChangeClass.studentID
-            MessageBox.Show(a)
-        Next
+    '    For Each a In FrmChangeClass.studentID
+    '        MessageBox.Show(a)
+    '    Next
 
-    End Sub
+    'End Sub
 End Class

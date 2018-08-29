@@ -337,18 +337,24 @@ Public Class FrmChangeClass
         obj.ShowMsg("តើអ្នកចង់បញ្ចូលព័ត៌មានទាំងអស់នេះទៅជាអតីតសិស្សដែលឬទេ ?", msg_question_big, "")
         If USER_CLICK_OK = True Then
             Try
-                studentID = New Integer(dg.RowCount - 1) {}
-
-                With frmChangeStudentStatus
-                    For i As Integer = 0 To dg.Rows.Count - 1
-                        studentID(i) = dg.Rows(i).Cells(0).Value
-                    Next
-                    .ShowDialog()
-                End With
+                Call GetStudentID()
+                frmChangeStudentStatus.ShowDialog()
             Catch ex As Exception
                 MessageBox.Show(ex.Message, CompanyInfo.CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
         End If
+    End Sub
+    Private Sub GetStudentID()
+        Try
+            If (dg.Rows.Count > 0) Then
+                studentID = New Integer(dg.RowCount - 1) {}
+                For i As Integer = 0 To dg.Rows.Count - 1
+                    studentID(i) = dg.Rows(i).Cells(0).Value
+                Next
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, CompanyInfo.CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class
