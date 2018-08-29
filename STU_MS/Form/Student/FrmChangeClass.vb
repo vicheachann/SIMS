@@ -350,7 +350,7 @@ Public Class FrmChangeClass
             If (dg.Rows.Count > 0) Then
                 studentID = New Integer(dg.RowCount - 1) {}
                 For i As Integer = 0 To dg.Rows.Count - 1
-                    studentID(i) = dg.Rows(i).Cells(0).Value
+                    studentID(i) = dg.Rows(i).Cells(3).Value
                 Next
             End If
         Catch ex As Exception

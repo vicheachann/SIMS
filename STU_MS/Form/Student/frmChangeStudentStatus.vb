@@ -52,6 +52,12 @@
         Try
             If (Validation.IsEmpty(cboStudentstatus, "ស្ថានភាពសិក្សា")) Then Exit Sub
 
+
+            For Each id In FrmChangeClass.studentID
+                obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & cboStudentstatus.SelectedValue & " WHERE STUDENT_ID = " & id & " ")
+                obj.InsertToStudentFormer(id)
+            Next
+            MessageBox.Show("All has been saved")
         Catch ex As Exception
             MessageBox.Show(ex.Message, CompanyInfo.CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

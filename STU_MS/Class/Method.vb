@@ -52,6 +52,13 @@ Public Class Method
         Return If(value Is Nothing, "", value.ToString())
     End Function
 
+    Public Function IfIDNull(ByVal value As Object) As String
+        Return If(value Is DBNull.Value, "NULL", value.ToString())
+    End Function
+    Public Function IfDateNull(ByVal value As Object) As String
+        Return If(value Is DBNull.Value, "01-01-1900", value.ToString())
+    End Function
+
 
 
 
@@ -497,37 +504,21 @@ Public Class Method
     End Function
 
     Public Sub InsertToStudentFormer(ByVal TheStudentID As Integer)
-        '   Try
+        Try
+            Dim sql As String = "SELECT STUDENT_ID_SCHOOL,STUDENT_CODE,SNAME_KH,SNAME_LATIN,GENDER,DOB,S_PHONE_LINE_1,S_PHONE_LINE_2,EMAIL_1,JOIN_SCHOOL_DATE,FIRST_YEAR_STUDY,[DESCRIPTION],BATCH_ID,FATHER_NAME,FATHER_OCCUPATION_ID,FATHER_PHONE_LINE_1,FATHER_PHONE_LINE_2,MOTHER_NAME,MOTHER_OCCUPATION_ID,MOTHER_PHONE_LINE_1,MOTHER_PHONE_LINE_2,GUARDIAN_NAME,GUARDIAN_OCCUPATION_ID,GUARDIAN_PHONE_LINE_1,GUARDIAN_PHONE_LINE_2,POB_PROVINCE,POB_DISTRICT,POB_COMMUNE,POB_VILLAGE,POB_HOUSE_NO,POB_STREET,POB_GROUP,GUARDIAN_PROVINCE,GUARDIAN_DISTRICT,GUARDIAN_COMMUNE,GUARDIAN_VILLAGE,GUARDIAN_HOUSE_NO,GUARDIAN_STREET FROM dbo.TBS_STUDENT_INFO WHERE STUDENT_ID = " & TheStudentID & ""
+            OpenConnection()
+            cmd = New SqlCommand(sql, conn)
+            da = New SqlDataAdapter(cmd)
+            dt = New DataTable
+            da.Fill(dt)
 
+            If dt.Rows.Count > 0 Then
+                InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_INFO_FORMER(STUDENT_ID,STUDENT_ID_SCHOOL,STUDENT_CODE,SNAME_KH,SNAME_LATIN,GENDER,DOB,S_PHONE_LINE_1,S_PHONE_LINE_2,EMAIL_1,JOIN_SCHOOL_DATE,FIRST_YEAR_STUDY,[DESCRIPTION],BATCH_ID,STOP_YEAR_STUDY,FATHER_NAME,FATHER_OCCUPATION_ID,FATHER_PHONE_LINE_1,FATHER_PHONE_LINE_2,MOTHER_NAME,MOTHER_OCCUPATION_ID ,MOTHER_PHONE_LINE_1,MOTHER_PHONE_LINE_2,GUARDIAN_NAME,GUARDIAN_OCCUPATION_ID,GUARDIAN_PHONE_LINE_1,GUARDIAN_PHONE_LINE_2,POB_PROVINCE,POB_DISTRICT,POB_COMMUNE,POB_VILLAGE,POB_HOUSE_NO,POB_STREET,POB_GROUP,GUARDIAN_PROVINCE,GUARDIAN_DISTRICT,GUARDIAN_COMMUNE,GUARDIAN_VILLAGE,GUARDIAN_HOUSE_NO,GUARDIAN_STREET)VALUES(" & TheStudentID & ",N'" & IfDbNull(dt(0)("STUDENT_ID_SCHOOL")) & "',N'" & IfDbNull(dt(0)("STUDENT_CODE")) & "',N'" & IfDbNull(dt(0)("SNAME_KH")) & "',N'" & IfDbNull(dt(0)("SNAME_LATIN")) & "',N'ប្រុស','" & IfDateNull(dt(0)("DOB")) & "',N'" & IfDbNull(dt(0)("S_PHONE_LINE_1")) & "',N'" & IfDbNull(dt(0)("S_PHONE_LINE_2")) & "',N'" & IfDbNull(dt(0)("EMAIL_1")) & "','" & IfDateNull(dt(0)("JOIN_SCHOOL_DATE")) & "',N'" & IfDbNull(dt(0)("FIRST_YEAR_STUDY")) & "',N'" & IfDbNull(dt(0)("DESCRIPTION")) & "'," & IfIDNull(dt(0)("BATCH_ID")) & ",NULL,N'" & IfDbNull(dt(0)("FATHER_NAME")) & "'," & IfIDNull(dt(0)("FATHER_OCCUPATION_ID")) & ",N'" & IfDbNull(dt(0)("FATHER_PHONE_LINE_1")) & "',N'" & IfDbNull(dt(0)("FATHER_PHONE_LINE_2")) & "',N'" & IfDbNull(dt(0)("MOTHER_NAME")) & "'," & IfIDNull(dt(0)("MOTHER_OCCUPATION_ID")) & ",N'" & IfDbNull(dt(0)("MOTHER_PHONE_LINE_1")) & "',N'" & IfDbNull(dt(0)("MOTHER_PHONE_LINE_2")) & "',N'" & IfDbNull(dt(0)("GUARDIAN_NAME")) & "'," & IfIDNull(dt(0)("GUARDIAN_OCCUPATION_ID")) & ",N'" & IfDbNull(dt(0)("GUARDIAN_PHONE_LINE_1")) & "',N'" & IfDbNull(dt(0)("GUARDIAN_PHONE_LINE_2")) & "',N'" & IfDbNull(dt(0)("POB_PROVINCE")) & "',N'" & IfDbNull(dt(0)("POB_DISTRICT")) & "',N'" & IfDbNull(dt(0)("POB_COMMUNE")) & "',N'" & IfDbNull(dt(0)("POB_VILLAGE")) & "',N'" & IfDbNull(dt(0)("POB_HOUSE_NO")) & "',N'" & IfDbNull(dt(0)("POB_STREET")) & "',N'" & IfDbNull(dt(0)("POB_GROUP")) & "',N'" & IfDbNull(dt(0)("GUARDIAN_PROVINCE")) & "',N'" & IfDbNull(dt(0)("GUARDIAN_DISTRICT")) & "',N'" & IfDbNull(dt(0)("GUARDIAN_COMMUNE")) & "',N'" & IfDbNull(dt(0)("GUARDIAN_VILLAGE")) & "',N'" & IfDbNull(dt(0)("GUARDIAN_HOUSE_NO")) & "',N'" & IfDbNull(dt(0)("GUARDIAN_STREET")) & "')")
+            End If
 
-
-
-
-
-
-
-
-
-
-        '    OpenConnection()
-        '    cmd = New SqlCommand("SELECT S.ALUMNI_ID, T.T_NAME_KH, S.DATE_CELEBRATION, S.DATE_NOTE, S.AMOUNT_US, S.AMOUNT_KH, S.REMARK,S.TEACHER_ID FROM dbo.TBS_STUDENT_ALUMNI_MASTER AS S INNER JOIN dbo.TBL_TEACHER AS T ON S.TEACHER_ID = T.TEACHER_ID WHERE S.ALUMNI_ID = " & dgSearch.SelectedCells(0).Value & "", conn)
-        '    da = New SqlDataAdapter(cmd)
-        '    dt = New DataTable
-        '    da.Fill(dt)
-        '    If dt.Rows.Count > 0 Then
-        '        txtAlumniID.Text = If(IsDBNull(dt.Rows(0)(0).ToString), "", dt.Rows(0)(0).ToString)
-        '        cboTeacher.Text = If(IsDBNull(dt.Rows(0)(1).ToString), "", dt.Rows(0)(1).ToString)
-        '        dtDateCelebration.Text = If(IsDBNull(dt.Rows(0)(2).ToString), "", dt.Rows(0)(2).ToString)
-        '        dtDateNote.Text = If(IsDBNull(dt.Rows(0)(3).ToString), "", dt.Rows(0)(3).ToString)
-        '        txtAmountKHR.Text = If(IsDBNull(dt.Rows(0)(4).ToString), "", dt.Rows(0)(4).ToString)
-        '        txtAmountUSD.Text = If(IsDBNull(dt.Rows(0)(5).ToString), "", dt.Rows(0)(5).ToString)
-        '        txtRemark.Text = If(IsDBNull(dt.Rows(0)(6).ToString), "", dt.Rows(0)(6).ToString)
-        '        teacherID = If(IsDBNull(dt.Rows(0)(7).ToString), "", dt.Rows(0)(7).ToString)
-        '    End If
-
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message)
-        'End Try
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 End Class

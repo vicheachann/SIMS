@@ -1,4 +1,6 @@
-﻿Public Class FrmMain
+﻿Imports System.Data.SqlClient
+
+Public Class FrmMain
     ReadOnly t As New Theme
     Dim obj As New Method
 
@@ -1270,4 +1272,7 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+
+
 End Class

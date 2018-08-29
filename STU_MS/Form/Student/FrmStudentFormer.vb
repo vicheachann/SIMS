@@ -251,7 +251,7 @@ Public Class FrmStudentFormer
                     idx = dgMain.SelectedCells(0).RowIndex.ToString()
 
                     Dim batchID As String = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = " & obj.ReplaceNullWithZero(cboBatch.Text) & "")
-                    obj.Update("UPDATE dbo.TBS_STUDENT_INFO_FORMER SET STUDENT_ID_SCHOOL = N'" & txtStuIDSchool.Text & "',STUDENT_CODE = N'" & txtStuCode.Text & "',SNAME_KH = N'" & txtStuNameKh.Text & "',SNAME_LATIN = N'" & txtStuNameEn.Text & "',GENDER =N'" & cboStuGender.Text & "',S_PHONE_LINE_1 = N'" & txtStuPhone1.Text & "',S_PHONE_LINE_2 = N'" & txtStuPhone2.Text & "',EMAIL_1 = N'" & txtStuEmail.Text & "',JOIN_SCHOOL_DATE = '" & dtStuJoinSchoolDate.Value & "',FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "',STOP_YEAR_STUDY = N'" & cboStopYearStudy.Text & "',[DESCRIPTION] = N'" & txtStuRemark.Text & "', BATCH_ID = " & batchID & " WHERE STUDENT_ID = " & dgMain.SelectedCells(0).Value & "")
+                    obj.Update("UPDATE dbo.TBS_STUDENT_INFO_FORMER SET STUDENT_ID_SCHOOL = N'" & txtStuIDSchool.Text & "',STUDENT_CODE = N'" & txtStuCode.Text & "',SNAME_KH = N'" & txtStuNameKh.Text & "',SNAME_LATIN = N'" & txtStuNameEn.Text & "',GENDER =N'" & cboStuGender.Text & "',S_PHONE_LINE_1 = N'" & txtStuPhone1.Text & "',S_PHONE_LINE_2 = N'" & txtStuPhone2.Text & "',EMAIL_1 = N'" & txtStuEmail.Text & "',JOIN_SCHOOL_DATE = '" & dtStuJoinSchoolDate.Value & "',FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "',STOP_YEAR_STUDY = N'" & cboStopYearStudy.Text & "',[DESCRIPTION] = N'" & txtStuRemark.Text & "', BATCH_ID = " & batchID & " WHERE RECORD_ID = " & dgMain.SelectedCells(0).Value & "")
                     Call SelectStudent()
 
                     dgMain.Rows(idx).Selected = True
@@ -308,7 +308,7 @@ Public Class FrmStudentFormer
                 Dim motherOcuppationID As String = obj.GetID("SELECT OCCUPATION_ID FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_KH = N'" & cboMotherOccupation.Text & "'")
                 Dim guaOccupationID As String = obj.GetID("SELECT OCCUPATION_ID FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_KH = N'" & cboGuaOccupation.Text & "'")
 
-                Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO_FORMER SET FATHER_NAME = N'" & txtFatherName.Text & "',FATHER_OCCUPATION_ID= " & fatherOcuppcationID & ",FATHER_PHONE_LINE_1= N'" & txtFatherPhone1.Text & "',FATHER_PHONE_LINE_2= N'" & txtFatherPhone2.Text & "',MOTHER_NAME= N'" & txtMotherName.Text & "',MOTHER_OCCUPATION_ID = " & motherOcuppationID & ",MOTHER_PHONE_LINE_1= N'" & txtMotherPhone1.Text & "',MOTHER_PHONE_LINE_2= N'" & txtMotherPhone2.Text & "',GUARDIAN_NAME= N'" & txtGuaName.Text & "',GUARDIAN_OCCUPATION_ID= " & guaOccupationID & ",GUARDIAN_PHONE_LINE_1= N'" & txtGuaPhone1.Text & "',GUARDIAN_PHONE_LINE_2= N'" & txtGuaPhone2.Text & "' WHERE STUDENT_ID = " & dgMain.SelectedRows(0).Cells(0).Value & "")
+                Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO_FORMER SET FATHER_NAME = N'" & txtFatherName.Text & "',FATHER_OCCUPATION_ID= " & fatherOcuppcationID & ",FATHER_PHONE_LINE_1= N'" & txtFatherPhone1.Text & "',FATHER_PHONE_LINE_2= N'" & txtFatherPhone2.Text & "',MOTHER_NAME= N'" & txtMotherName.Text & "',MOTHER_OCCUPATION_ID = " & motherOcuppationID & ",MOTHER_PHONE_LINE_1= N'" & txtMotherPhone1.Text & "',MOTHER_PHONE_LINE_2= N'" & txtMotherPhone2.Text & "',GUARDIAN_NAME= N'" & txtGuaName.Text & "',GUARDIAN_OCCUPATION_ID= " & guaOccupationID & ",GUARDIAN_PHONE_LINE_1= N'" & txtGuaPhone1.Text & "',GUARDIAN_PHONE_LINE_2= N'" & txtGuaPhone2.Text & "' WHERE RECORD_ID = " & dgMain.SelectedRows(0).Cells(0).Value & "")
 
                 If (lblParentSave.Text = "រក្សាទុក") Then
                     obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
@@ -330,7 +330,7 @@ Public Class FrmStudentFormer
 
 
     Private Sub SelectAddressInfo()
-        Dim selectSql As String = "SELECT POB_PROVINCE,POB_DISTRICT,POB_COMMUNE,POB_VILLAGE,POB_HOUSE_NO,POB_STREET,POB_GROUP,GUARDIAN_PROVINCE,GUARDIAN_DISTRICT,GUARDIAN_COMMUNE,GUARDIAN_VILLAGE,GUARDIAN_HOUSE_NO,GUARDIAN_STREET FROM dbo.TBS_STUDENT_INFO_FORMER WHERE STUDENT_ID = " & dgMain.SelectedCells(0).Value & ""
+        Dim selectSql As String = "SELECT POB_PROVINCE,POB_DISTRICT,POB_COMMUNE,POB_VILLAGE,POB_HOUSE_NO,POB_STREET,POB_GROUP,GUARDIAN_PROVINCE,GUARDIAN_DISTRICT,GUARDIAN_COMMUNE,GUARDIAN_VILLAGE,GUARDIAN_HOUSE_NO,GUARDIAN_STREET FROM dbo.TBS_STUDENT_INFO_FORMER WHERE RECORD_ID = " & dgMain.SelectedCells(0).Value & ""
         dr = obj.SelectData(selectSql)
         Try
             If dr.HasRows Then
@@ -363,7 +363,7 @@ Public Class FrmStudentFormer
 
     Private Sub SelectParentInfo()
 
-        Dim selectSql As String = "SELECT FATHER_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE  OCCUPATION_ID = FATHER_OCCUPATION_ID) AS 'FATHER_OCCUPATION',FATHER_PHONE_LINE_1,FATHER_PHONE_LINE_2,MOTHER_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_ID =  MOTHER_OCCUPATION_ID)AS 'MOTHER_OCCUPATION', MOTHER_PHONE_LINE_1,MOTHER_PHONE_LINE_2,GUARDIAN_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_ID =  GUARDIAN_OCCUPATION_ID)AS 'GUARDIAN_OCCUPATION',GUARDIAN_PHONE_LINE_1,GUARDIAN_PHONE_LINE_2 FROM dbo.TBS_STUDENT_INFO_FORMER WHERE STUDENT_ID = " & dgMain.SelectedCells(0).Value & " "
+        Dim selectSql As String = "SELECT FATHER_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE  OCCUPATION_ID = FATHER_OCCUPATION_ID) AS 'FATHER_OCCUPATION',FATHER_PHONE_LINE_1,FATHER_PHONE_LINE_2,MOTHER_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_ID =  MOTHER_OCCUPATION_ID)AS 'MOTHER_OCCUPATION', MOTHER_PHONE_LINE_1,MOTHER_PHONE_LINE_2,GUARDIAN_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_ID =  GUARDIAN_OCCUPATION_ID)AS 'GUARDIAN_OCCUPATION',GUARDIAN_PHONE_LINE_1,GUARDIAN_PHONE_LINE_2 FROM dbo.TBS_STUDENT_INFO_FORMER WHERE RECORD_ID = " & dgMain.SelectedCells(0).Value & " "
         dr = obj.SelectData(selectSql)
         Try
             If dr.HasRows Then
@@ -466,7 +466,7 @@ Public Class FrmStudentFormer
 
     Private Sub lblAddressSave_Click(sender As Object, e As EventArgs) Handles lblAddressSave.Click
         Try
-            Dim sql = "UPDATE dbo.TBS_STUDENT_INFO_FORMER SET POB_PROVINCE = N'" & cboPobProvince.Text & "',POB_DISTRICT= N'" & cboPobDistrict.Text & "',POB_COMMUNE= N'" & cboPobCommune.Text & "',POB_VILLAGE= N'" & cboPobVillage.Text & "',POB_HOUSE_NO= N'" & txt_POB_home_num.Text & "',POB_STREET= N'" & txt_POB_street_num.Text & "',POB_GROUP= N'" & txt_POB_group.Text & "',GUARDIAN_PROVINCE= N'" & cboCurrentProvince.Text & "',GUARDIAN_DISTRICT= N'" & cboCurrentDistrict.Text & "',GUARDIAN_COMMUNE= N'" & cboCurrentCommune.Text & "',GUARDIAN_VILLAGE= N'" & cboCurrentVillage.Text & "',GUARDIAN_HOUSE_NO= N'" & txtCurrentHomeNumber.Text & "',GUARDIAN_STREET= N'" & txtCurrentStreetName.Text & "' WHERE STUDENT_ID = " & dgMain.SelectedCells(0).Value & ""
+            Dim sql = "UPDATE dbo.TBS_STUDENT_INFO_FORMER SET POB_PROVINCE = N'" & cboPobProvince.Text & "',POB_DISTRICT= N'" & cboPobDistrict.Text & "',POB_COMMUNE= N'" & cboPobCommune.Text & "',POB_VILLAGE= N'" & cboPobVillage.Text & "',POB_HOUSE_NO= N'" & txt_POB_home_num.Text & "',POB_STREET= N'" & txt_POB_street_num.Text & "',POB_GROUP= N'" & txt_POB_group.Text & "',GUARDIAN_PROVINCE= N'" & cboCurrentProvince.Text & "',GUARDIAN_DISTRICT= N'" & cboCurrentDistrict.Text & "',GUARDIAN_COMMUNE= N'" & cboCurrentCommune.Text & "',GUARDIAN_VILLAGE= N'" & cboCurrentVillage.Text & "',GUARDIAN_HOUSE_NO= N'" & txtCurrentHomeNumber.Text & "',GUARDIAN_STREET= N'" & txtCurrentStreetName.Text & "' WHERE RECORD_ID = " & dgMain.SelectedCells(0).Value & ""
 
             If lblAddressSave.Text = "កែប្រែ" Then
 

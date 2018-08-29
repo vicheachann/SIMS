@@ -44,7 +44,7 @@ Module GlobalVariable
     Public USERNAME As String
     Public PHOTO() As Byte
     Public USER_STATUS As String
-    Public ID As Integer
+    Public studentID As Integer
     Public no As Integer
     Public USER_PASSWORD As String
     Public User_Password_Log As String
