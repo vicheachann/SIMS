@@ -23,8 +23,8 @@ Partial Class frm_student_education
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -51,10 +51,8 @@ Partial Class frm_student_education
         Me.cboNewYearStudy = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.lblDelete = New System.Windows.Forms.Label()
-        Me.lblPrint = New System.Windows.Forms.Label()
-        Me.lblRevertSelection = New System.Windows.Forms.Label()
-        Me.lblChangStudyInfoStatus = New System.Windows.Forms.Label()
+        Me.picPrint = New System.Windows.Forms.PictureBox()
+        Me.picChangeStudyStatus = New System.Windows.Forms.PictureBox()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblTotalSelectedGirl = New System.Windows.Forms.Label()
@@ -68,6 +66,18 @@ Partial Class frm_student_education
         Me.lblTotalSearch = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.PanelEx5 = New DevComponents.DotNetBar.PanelEx()
+        Me.a = New System.Windows.Forms.Label()
+        Me.lblPhoneNumber = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblOwnerName = New System.Windows.Forms.Label()
+        Me.lblCompanyInfro = New System.Windows.Forms.Label()
+        Me.lblDelete = New System.Windows.Forms.Label()
+        Me.lblPrint = New System.Windows.Forms.Label()
+        Me.lblRevertSelection = New System.Windows.Forms.Label()
+        Me.lblChangStudyInfoStatus = New System.Windows.Forms.Label()
         Me.lblNew = New System.Windows.Forms.Label()
         Me.dg = New System.Windows.Forms.DataGridView()
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -91,14 +101,6 @@ Partial Class frm_student_education
         Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.bsStudentList = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PanelEx5 = New DevComponents.DotNetBar.PanelEx()
-        Me.lblCompanyInfro = New System.Windows.Forms.Label()
-        Me.lblOwnerName = New System.Windows.Forms.Label()
-        Me.lblEmail = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.lblPhoneNumber = New System.Windows.Forms.Label()
-        Me.a = New System.Windows.Forms.Label()
         Me.PanelEx2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,11 +110,13 @@ Partial Class frm_student_education
         CType(Me.picUpgradeClass, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.picPrint, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picChangeStudyStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx3.SuspendLayout()
+        Me.PanelEx5.SuspendLayout()
         CType(Me.dg, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelEx5.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelEx2
@@ -471,6 +475,8 @@ Partial Class frm_student_education
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.picPrint)
+        Me.GroupBox1.Controls.Add(Me.picChangeStudyStatus)
         Me.GroupBox1.Controls.Add(Me.PanelEx3)
         Me.GroupBox1.Controls.Add(Me.PanelEx5)
         Me.GroupBox1.Controls.Add(Me.lblDelete)
@@ -487,57 +493,27 @@ Partial Class frm_student_education
         Me.GroupBox1.TabIndex = 215
         Me.GroupBox1.TabStop = False
         '
-        'lblDelete
+        'picPrint
         '
-        Me.lblDelete.AutoSize = True
-        Me.lblDelete.BackColor = System.Drawing.Color.Transparent
-        Me.lblDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblDelete.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDelete.ForeColor = System.Drawing.Color.Blue
-        Me.lblDelete.Location = New System.Drawing.Point(725, 22)
-        Me.lblDelete.Name = "lblDelete"
-        Me.lblDelete.Size = New System.Drawing.Size(53, 38)
-        Me.lblDelete.TabIndex = 299
-        Me.lblDelete.Text = "លុប"
+        Me.picPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picPrint.Image = Global.STU_MS.My.Resources.Resources.printer_3214
+        Me.picPrint.Location = New System.Drawing.Point(1004, 27)
+        Me.picPrint.Name = "picPrint"
+        Me.picPrint.Size = New System.Drawing.Size(33, 30)
+        Me.picPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picPrint.TabIndex = 300
+        Me.picPrint.TabStop = False
         '
-        'lblPrint
+        'picChangeStudyStatus
         '
-        Me.lblPrint.AutoSize = True
-        Me.lblPrint.BackColor = System.Drawing.Color.Transparent
-        Me.lblPrint.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblPrint.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrint.ForeColor = System.Drawing.Color.Blue
-        Me.lblPrint.Location = New System.Drawing.Point(1096, 22)
-        Me.lblPrint.Name = "lblPrint"
-        Me.lblPrint.Size = New System.Drawing.Size(84, 38)
-        Me.lblPrint.TabIndex = 298
-        Me.lblPrint.Text = "បោះពុម្ព"
-        '
-        'lblRevertSelection
-        '
-        Me.lblRevertSelection.AutoSize = True
-        Me.lblRevertSelection.BackColor = System.Drawing.Color.Transparent
-        Me.lblRevertSelection.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblRevertSelection.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
-        Me.lblRevertSelection.ForeColor = System.Drawing.Color.Blue
-        Me.lblRevertSelection.Location = New System.Drawing.Point(199, 25)
-        Me.lblRevertSelection.Name = "lblRevertSelection"
-        Me.lblRevertSelection.Size = New System.Drawing.Size(139, 38)
-        Me.lblRevertSelection.TabIndex = 297
-        Me.lblRevertSelection.Text = "រើសត្រលប់វិញ"
-        '
-        'lblChangStudyInfoStatus
-        '
-        Me.lblChangStudyInfoStatus.AutoSize = True
-        Me.lblChangStudyInfoStatus.BackColor = System.Drawing.Color.Transparent
-        Me.lblChangStudyInfoStatus.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblChangStudyInfoStatus.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblChangStudyInfoStatus.ForeColor = System.Drawing.Color.Blue
-        Me.lblChangStudyInfoStatus.Location = New System.Drawing.Point(1187, 22)
-        Me.lblChangStudyInfoStatus.Name = "lblChangStudyInfoStatus"
-        Me.lblChangStudyInfoStatus.Size = New System.Drawing.Size(167, 38)
-        Me.lblChangStudyInfoStatus.TabIndex = 296
-        Me.lblChangStudyInfoStatus.Text = "ប្តូរស្ថានភាពសិក្សា"
+        Me.picChangeStudyStatus.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picChangeStudyStatus.Image = Global.STU_MS.My.Resources.Resources.change_student_cc
+        Me.picChangeStudyStatus.Location = New System.Drawing.Point(1154, 27)
+        Me.picChangeStudyStatus.Name = "picChangeStudyStatus"
+        Me.picChangeStudyStatus.Size = New System.Drawing.Size(33, 30)
+        Me.picChangeStudyStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picChangeStudyStatus.TabIndex = 218
+        Me.picChangeStudyStatus.TabStop = False
         '
         'PanelEx3
         '
@@ -701,6 +677,153 @@ Partial Class frm_student_education
         Me.Label12.TabIndex = 296
         Me.Label12.Text = "លទ្ធផលស្វែងរក :"
         '
+        'PanelEx5
+        '
+        Me.PanelEx5.CanvasColor = System.Drawing.SystemColors.Control
+        Me.PanelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx5.Controls.Add(Me.a)
+        Me.PanelEx5.Controls.Add(Me.lblPhoneNumber)
+        Me.PanelEx5.Controls.Add(Me.Label8)
+        Me.PanelEx5.Controls.Add(Me.Label9)
+        Me.PanelEx5.Controls.Add(Me.lblEmail)
+        Me.PanelEx5.Controls.Add(Me.lblOwnerName)
+        Me.PanelEx5.Controls.Add(Me.lblCompanyInfro)
+        Me.PanelEx5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelEx5.Location = New System.Drawing.Point(3, 631)
+        Me.PanelEx5.Name = "PanelEx5"
+        Me.PanelEx5.Size = New System.Drawing.Size(1358, 55)
+        Me.PanelEx5.Style.Alignment = System.Drawing.StringAlignment.Center
+        Me.PanelEx5.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PanelEx5.Style.BackColor2.Color = System.Drawing.Color.LightSteelBlue
+        Me.PanelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.PanelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.PanelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.PanelEx5.Style.GradientAngle = 90
+        Me.PanelEx5.TabIndex = 229
+        '
+        'a
+        '
+        Me.a.AutoSize = True
+        Me.a.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.a.Location = New System.Drawing.Point(218, 4)
+        Me.a.Name = "a"
+        Me.a.Size = New System.Drawing.Size(89, 27)
+        Me.a.TabIndex = 222
+        Me.a.Text = "- ទំនាក់ទំនង "
+        '
+        'lblPhoneNumber
+        '
+        Me.lblPhoneNumber.AutoSize = True
+        Me.lblPhoneNumber.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPhoneNumber.Location = New System.Drawing.Point(471, 4)
+        Me.lblPhoneNumber.Name = "lblPhoneNumber"
+        Me.lblPhoneNumber.Size = New System.Drawing.Size(89, 27)
+        Me.lblPhoneNumber.TabIndex = 228
+        Me.lblPhoneNumber.Text = "00000000000"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(583, 4)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(53, 27)
+        Me.Label8.TabIndex = 224
+        Me.Label8.Text = "Email ៖"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(387, 4)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(89, 27)
+        Me.Label9.TabIndex = 227
+        Me.Label9.Text = "លេខទូរស័ព្ទ៖"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblEmail.Location = New System.Drawing.Point(637, 3)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(42, 27)
+        Me.lblEmail.TabIndex = 223
+        Me.lblEmail.Text = "emai "
+        '
+        'lblOwnerName
+        '
+        Me.lblOwnerName.AutoSize = True
+        Me.lblOwnerName.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOwnerName.Location = New System.Drawing.Point(306, 4)
+        Me.lblOwnerName.Name = "lblOwnerName"
+        Me.lblOwnerName.Size = New System.Drawing.Size(43, 27)
+        Me.lblOwnerName.TabIndex = 226
+        Me.lblOwnerName.Text = "name"
+        '
+        'lblCompanyInfro
+        '
+        Me.lblCompanyInfro.AutoSize = True
+        Me.lblCompanyInfro.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompanyInfro.Location = New System.Drawing.Point(6, 3)
+        Me.lblCompanyInfro.Name = "lblCompanyInfro"
+        Me.lblCompanyInfro.Size = New System.Drawing.Size(210, 27)
+        Me.lblCompanyInfro.TabIndex = 225
+        Me.lblCompanyInfro.Text = "Smart Business Software Solution"
+        '
+        'lblDelete
+        '
+        Me.lblDelete.AutoSize = True
+        Me.lblDelete.BackColor = System.Drawing.Color.Transparent
+        Me.lblDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblDelete.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDelete.ForeColor = System.Drawing.Color.Blue
+        Me.lblDelete.Location = New System.Drawing.Point(725, 22)
+        Me.lblDelete.Name = "lblDelete"
+        Me.lblDelete.Size = New System.Drawing.Size(53, 38)
+        Me.lblDelete.TabIndex = 299
+        Me.lblDelete.Text = "លុប"
+        '
+        'lblPrint
+        '
+        Me.lblPrint.AutoSize = True
+        Me.lblPrint.BackColor = System.Drawing.Color.Transparent
+        Me.lblPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblPrint.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrint.ForeColor = System.Drawing.Color.Blue
+        Me.lblPrint.Location = New System.Drawing.Point(1038, 24)
+        Me.lblPrint.Name = "lblPrint"
+        Me.lblPrint.Size = New System.Drawing.Size(84, 38)
+        Me.lblPrint.TabIndex = 298
+        Me.lblPrint.Text = "បោះពុម្ព"
+        '
+        'lblRevertSelection
+        '
+        Me.lblRevertSelection.AutoSize = True
+        Me.lblRevertSelection.BackColor = System.Drawing.Color.Transparent
+        Me.lblRevertSelection.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblRevertSelection.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
+        Me.lblRevertSelection.ForeColor = System.Drawing.Color.Blue
+        Me.lblRevertSelection.Location = New System.Drawing.Point(198, 25)
+        Me.lblRevertSelection.Name = "lblRevertSelection"
+        Me.lblRevertSelection.Size = New System.Drawing.Size(139, 38)
+        Me.lblRevertSelection.TabIndex = 297
+        Me.lblRevertSelection.Text = "រើសត្រលប់វិញ"
+        '
+        'lblChangStudyInfoStatus
+        '
+        Me.lblChangStudyInfoStatus.AutoSize = True
+        Me.lblChangStudyInfoStatus.BackColor = System.Drawing.Color.Transparent
+        Me.lblChangStudyInfoStatus.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblChangStudyInfoStatus.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblChangStudyInfoStatus.ForeColor = System.Drawing.Color.Blue
+        Me.lblChangStudyInfoStatus.Location = New System.Drawing.Point(1187, 22)
+        Me.lblChangStudyInfoStatus.Name = "lblChangStudyInfoStatus"
+        Me.lblChangStudyInfoStatus.Size = New System.Drawing.Size(167, 38)
+        Me.lblChangStudyInfoStatus.TabIndex = 296
+        Me.lblChangStudyInfoStatus.Text = "ប្តូរស្ថានភាពសិក្សា"
+        '
         'lblNew
         '
         Me.lblNew.AutoSize = True
@@ -720,20 +843,20 @@ Partial Class frm_student_education
         Me.dg.AllowUserToDeleteRows = False
         Me.dg.AllowUserToResizeColumns = False
         Me.dg.AllowUserToResizeRows = False
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Khmer OS", 10.0!)
-        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 10.0!)
+        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dg.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dg.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.Column10, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.Column15, Me.Column14, Me.Column6, Me.Column7, Me.Column8, Me.Column16, Me.Column9, Me.Column13, Me.Column18, Me.Column19})
         Me.dg.Location = New System.Drawing.Point(8, 69)
@@ -879,101 +1002,6 @@ Partial Class frm_student_education
         Me.bsStudentList.DataMember = "dtStudent"
         Me.bsStudentList.DataSource = Me.DataSet1
         '
-        'PanelEx5
-        '
-        Me.PanelEx5.CanvasColor = System.Drawing.SystemColors.Control
-        Me.PanelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx5.Controls.Add(Me.a)
-        Me.PanelEx5.Controls.Add(Me.lblPhoneNumber)
-        Me.PanelEx5.Controls.Add(Me.Label8)
-        Me.PanelEx5.Controls.Add(Me.Label9)
-        Me.PanelEx5.Controls.Add(Me.lblEmail)
-        Me.PanelEx5.Controls.Add(Me.lblOwnerName)
-        Me.PanelEx5.Controls.Add(Me.lblCompanyInfro)
-        Me.PanelEx5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelEx5.Location = New System.Drawing.Point(3, 631)
-        Me.PanelEx5.Name = "PanelEx5"
-        Me.PanelEx5.Size = New System.Drawing.Size(1358, 55)
-        Me.PanelEx5.Style.Alignment = System.Drawing.StringAlignment.Center
-        Me.PanelEx5.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PanelEx5.Style.BackColor2.Color = System.Drawing.Color.LightSteelBlue
-        Me.PanelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.PanelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.PanelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.PanelEx5.Style.GradientAngle = 90
-        Me.PanelEx5.TabIndex = 229
-        '
-        'lblCompanyInfro
-        '
-        Me.lblCompanyInfro.AutoSize = True
-        Me.lblCompanyInfro.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCompanyInfro.Location = New System.Drawing.Point(6, 3)
-        Me.lblCompanyInfro.Name = "lblCompanyInfro"
-        Me.lblCompanyInfro.Size = New System.Drawing.Size(210, 27)
-        Me.lblCompanyInfro.TabIndex = 225
-        Me.lblCompanyInfro.Text = "Smart Business Software Solution"
-        '
-        'lblOwnerName
-        '
-        Me.lblOwnerName.AutoSize = True
-        Me.lblOwnerName.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOwnerName.Location = New System.Drawing.Point(306, 4)
-        Me.lblOwnerName.Name = "lblOwnerName"
-        Me.lblOwnerName.Size = New System.Drawing.Size(43, 27)
-        Me.lblOwnerName.TabIndex = 226
-        Me.lblOwnerName.Text = "name"
-        '
-        'lblEmail
-        '
-        Me.lblEmail.AutoSize = True
-        Me.lblEmail.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblEmail.Location = New System.Drawing.Point(637, 3)
-        Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(42, 27)
-        Me.lblEmail.TabIndex = 223
-        Me.lblEmail.Text = "emai "
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(387, 4)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(89, 27)
-        Me.Label9.TabIndex = 227
-        Me.Label9.Text = "លេខទូរស័ព្ទ៖"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(583, 4)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(53, 27)
-        Me.Label8.TabIndex = 224
-        Me.Label8.Text = "Email ៖"
-        '
-        'lblPhoneNumber
-        '
-        Me.lblPhoneNumber.AutoSize = True
-        Me.lblPhoneNumber.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPhoneNumber.Location = New System.Drawing.Point(471, 4)
-        Me.lblPhoneNumber.Name = "lblPhoneNumber"
-        Me.lblPhoneNumber.Size = New System.Drawing.Size(89, 27)
-        Me.lblPhoneNumber.TabIndex = 228
-        Me.lblPhoneNumber.Text = "00000000000"
-        '
-        'a
-        '
-        Me.a.AutoSize = True
-        Me.a.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.a.Location = New System.Drawing.Point(218, 4)
-        Me.a.Name = "a"
-        Me.a.Size = New System.Drawing.Size(89, 27)
-        Me.a.TabIndex = 222
-        Me.a.Text = "- ទំនាក់ទំនង "
-        '
         'frm_student_education
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -997,13 +1025,15 @@ Partial Class frm_student_education
         CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.picPrint, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picChangeStudyStatus, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx3.ResumeLayout(False)
         Me.PanelEx3.PerformLayout()
+        Me.PanelEx5.ResumeLayout(False)
+        Me.PanelEx5.PerformLayout()
         CType(Me.dg, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelEx5.ResumeLayout(False)
-        Me.PanelEx5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1081,4 +1111,6 @@ Partial Class frm_student_education
     Friend WithEvents lblEmail As Label
     Friend WithEvents lblOwnerName As Label
     Friend WithEvents lblCompanyInfro As Label
+    Friend WithEvents picChangeStudyStatus As PictureBox
+    Friend WithEvents picPrint As PictureBox
 End Class

@@ -22,10 +22,10 @@ Partial Class FrmStuCard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnMinimize = New System.Windows.Forms.PictureBox()
@@ -41,13 +41,14 @@ Partial Class FrmStuCard
         Me.lblCountSelected = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.picPrintFromList = New System.Windows.Forms.PictureBox()
         Me.lblUpdate = New System.Windows.Forms.Label()
         Me.cboCardType = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblSave = New System.Windows.Forms.Label()
         Me.dgSelected = New System.Windows.Forms.DataGridView()
         Me.lblNew = New System.Windows.Forms.Label()
-        Me.lblPrint = New System.Windows.Forms.Label()
+        Me.lblPrintFromList = New System.Windows.Forms.Label()
         Me.lblDelete = New System.Windows.Forms.Label()
         Me.lblDeleteAll = New System.Windows.Forms.Label()
         Me.cbValidityCard = New System.Windows.Forms.CheckBox()
@@ -62,6 +63,7 @@ Partial Class FrmStuCard
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.lblDisplayAll = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.lblPrintByOrdinalNum = New System.Windows.Forms.Label()
@@ -76,6 +78,8 @@ Partial Class FrmStuCard
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.DataSet1 = New STU_MS.DataSet1()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picDisplayAll = New System.Windows.Forms.PictureBox()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -117,7 +121,6 @@ Partial Class FrmStuCard
         Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblDisplayAll = New System.Windows.Forms.Label()
         Me.PanelEx2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,6 +128,7 @@ Partial Class FrmStuCard
         Me.PanelEx4.SuspendLayout()
         Me.PanelEx1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.picPrintFromList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgSelected, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx6.SuspendLayout()
@@ -132,6 +136,7 @@ Partial Class FrmStuCard
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelEx2
@@ -323,13 +328,14 @@ Partial Class FrmStuCard
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.picPrintFromList)
         Me.Panel3.Controls.Add(Me.lblUpdate)
         Me.Panel3.Controls.Add(Me.cboCardType)
         Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.lblSave)
         Me.Panel3.Controls.Add(Me.dgSelected)
         Me.Panel3.Controls.Add(Me.lblNew)
-        Me.Panel3.Controls.Add(Me.lblPrint)
+        Me.Panel3.Controls.Add(Me.lblPrintFromList)
         Me.Panel3.Controls.Add(Me.lblDelete)
         Me.Panel3.Controls.Add(Me.lblDeleteAll)
         Me.Panel3.Controls.Add(Me.cbValidityCard)
@@ -345,16 +351,28 @@ Partial Class FrmStuCard
         Me.Panel3.Size = New System.Drawing.Size(1363, 598)
         Me.Panel3.TabIndex = 295
         '
+        'picPrintFromList
+        '
+        Me.picPrintFromList.BackColor = System.Drawing.Color.Transparent
+        Me.picPrintFromList.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picPrintFromList.Image = Global.STU_MS.My.Resources.Resources.printer_3214
+        Me.picPrintFromList.Location = New System.Drawing.Point(1137, 18)
+        Me.picPrintFromList.Name = "picPrintFromList"
+        Me.picPrintFromList.Size = New System.Drawing.Size(22, 18)
+        Me.picPrintFromList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picPrintFromList.TabIndex = 314
+        Me.picPrintFromList.TabStop = False
+        '
         'lblUpdate
         '
         Me.lblUpdate.AutoSize = True
         Me.lblUpdate.BackColor = System.Drawing.Color.Transparent
         Me.lblUpdate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblUpdate.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUpdate.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUpdate.ForeColor = System.Drawing.Color.Blue
-        Me.lblUpdate.Location = New System.Drawing.Point(1037, 10)
+        Me.lblUpdate.Location = New System.Drawing.Point(864, 10)
         Me.lblUpdate.Name = "lblUpdate"
-        Me.lblUpdate.Size = New System.Drawing.Size(66, 38)
+        Me.lblUpdate.Size = New System.Drawing.Size(59, 34)
         Me.lblUpdate.TabIndex = 312
         Me.lblUpdate.Text = "កែប្រែ"
         '
@@ -388,11 +406,11 @@ Partial Class FrmStuCard
         Me.lblSave.AutoSize = True
         Me.lblSave.BackColor = System.Drawing.Color.Transparent
         Me.lblSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblSave.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSave.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSave.ForeColor = System.Drawing.Color.Blue
-        Me.lblSave.Location = New System.Drawing.Point(958, 10)
+        Me.lblSave.Location = New System.Drawing.Point(792, 10)
         Me.lblSave.Name = "lblSave"
-        Me.lblSave.Size = New System.Drawing.Size(80, 38)
+        Me.lblSave.Size = New System.Drawing.Size(73, 34)
         Me.lblSave.TabIndex = 310
         Me.lblSave.Text = "រក្សាទុក"
         '
@@ -405,14 +423,14 @@ Partial Class FrmStuCard
         Me.dgSelected.AllowUserToResizeRows = False
         Me.dgSelected.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgSelected.BackgroundColor = System.Drawing.Color.LemonChiffon
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgSelected.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgSelected.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgSelected.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgSelected.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.Column21})
         Me.dgSelected.Location = New System.Drawing.Point(771, 53)
@@ -420,8 +438,8 @@ Partial Class FrmStuCard
         Me.dgSelected.Name = "dgSelected"
         Me.dgSelected.ReadOnly = True
         Me.dgSelected.RowHeadersVisible = False
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgSelected.RowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgSelected.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgSelected.RowTemplate.Height = 25
         Me.dgSelected.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgSelected.Size = New System.Drawing.Size(587, 526)
@@ -432,37 +450,37 @@ Partial Class FrmStuCard
         Me.lblNew.AutoSize = True
         Me.lblNew.BackColor = System.Drawing.Color.Transparent
         Me.lblNew.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblNew.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNew.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNew.ForeColor = System.Drawing.Color.Blue
-        Me.lblNew.Location = New System.Drawing.Point(921, 10)
+        Me.lblNew.Location = New System.Drawing.Point(769, 10)
         Me.lblNew.Name = "lblNew"
-        Me.lblNew.Size = New System.Drawing.Size(31, 38)
+        Me.lblNew.Size = New System.Drawing.Size(28, 34)
         Me.lblNew.TabIndex = 297
         Me.lblNew.Text = "ថ្មី"
         '
-        'lblPrint
+        'lblPrintFromList
         '
-        Me.lblPrint.AutoSize = True
-        Me.lblPrint.BackColor = System.Drawing.Color.Transparent
-        Me.lblPrint.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblPrint.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrint.ForeColor = System.Drawing.Color.Blue
-        Me.lblPrint.Location = New System.Drawing.Point(767, 9)
-        Me.lblPrint.Name = "lblPrint"
-        Me.lblPrint.Size = New System.Drawing.Size(84, 38)
-        Me.lblPrint.TabIndex = 304
-        Me.lblPrint.Text = "បោះពុម្ព"
+        Me.lblPrintFromList.AutoSize = True
+        Me.lblPrintFromList.BackColor = System.Drawing.Color.Transparent
+        Me.lblPrintFromList.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblPrintFromList.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrintFromList.ForeColor = System.Drawing.Color.Blue
+        Me.lblPrintFromList.Location = New System.Drawing.Point(1159, 10)
+        Me.lblPrintFromList.Name = "lblPrintFromList"
+        Me.lblPrintFromList.Size = New System.Drawing.Size(203, 34)
+        Me.lblPrintFromList.TabIndex = 304
+        Me.lblPrintFromList.Text = "បោះពុម្ពកាត(ខូចនិងបាត់)"
         '
         'lblDelete
         '
         Me.lblDelete.AutoSize = True
         Me.lblDelete.BackColor = System.Drawing.Color.Transparent
         Me.lblDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblDelete.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDelete.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDelete.ForeColor = System.Drawing.Color.Blue
-        Me.lblDelete.Location = New System.Drawing.Point(1105, 10)
+        Me.lblDelete.Location = New System.Drawing.Point(920, 10)
         Me.lblDelete.Name = "lblDelete"
-        Me.lblDelete.Size = New System.Drawing.Size(117, 38)
+        Me.lblDelete.Size = New System.Drawing.Size(105, 34)
         Me.lblDelete.TabIndex = 298
         Me.lblDelete.Text = "លុបម្តងមួយ"
         '
@@ -471,11 +489,11 @@ Partial Class FrmStuCard
         Me.lblDeleteAll.AutoSize = True
         Me.lblDeleteAll.BackColor = System.Drawing.Color.Transparent
         Me.lblDeleteAll.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblDeleteAll.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDeleteAll.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDeleteAll.ForeColor = System.Drawing.Color.Red
-        Me.lblDeleteAll.Location = New System.Drawing.Point(1231, 10)
+        Me.lblDeleteAll.Location = New System.Drawing.Point(1022, 10)
         Me.lblDeleteAll.Name = "lblDeleteAll"
-        Me.lblDeleteAll.Size = New System.Drawing.Size(125, 38)
+        Me.lblDeleteAll.Size = New System.Drawing.Size(111, 34)
         Me.lblDeleteAll.TabIndex = 299
         Me.lblDeleteAll.Text = "លុបទាំងអស់"
         '
@@ -546,7 +564,7 @@ Partial Class FrmStuCard
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label3.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(29, 9)
+        Me.Label3.Location = New System.Drawing.Point(22, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(158, 38)
         Me.Label3.TabIndex = 303
@@ -561,14 +579,14 @@ Partial Class FrmStuCard
         Me.dgSearch.AllowUserToResizeRows = False
         Me.dgSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgSearch.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgSearch.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgSearch.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgSearch.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column16, Me.Column17, Me.Column18, Me.Column19, Me.Column20})
         Me.dgSearch.Location = New System.Drawing.Point(6, 53)
@@ -576,8 +594,8 @@ Partial Class FrmStuCard
         Me.dgSearch.Name = "dgSearch"
         Me.dgSearch.ReadOnly = True
         Me.dgSearch.RowHeadersVisible = False
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgSearch.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgSearch.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgSearch.RowTemplate.Height = 25
         Me.dgSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgSearch.Size = New System.Drawing.Size(759, 526)
@@ -638,6 +656,8 @@ Partial Class FrmStuCard
         '
         Me.GroupPanel1.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel1.Controls.Add(Me.picDisplayAll)
+        Me.GroupPanel1.Controls.Add(Me.Panel1)
         Me.GroupPanel1.Controls.Add(Me.lblDisplayAll)
         Me.GroupPanel1.Controls.Add(Me.PictureBox2)
         Me.GroupPanel1.Controls.Add(Me.txtSearch)
@@ -689,6 +709,19 @@ Partial Class FrmStuCard
         Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel1.TabIndex = 281
         '
+        'lblDisplayAll
+        '
+        Me.lblDisplayAll.AutoSize = True
+        Me.lblDisplayAll.BackColor = System.Drawing.Color.Transparent
+        Me.lblDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblDisplayAll.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
+        Me.lblDisplayAll.ForeColor = System.Drawing.Color.Blue
+        Me.lblDisplayAll.Location = New System.Drawing.Point(1264, 7)
+        Me.lblDisplayAll.Name = "lblDisplayAll"
+        Me.lblDisplayAll.Size = New System.Drawing.Size(89, 38)
+        Me.lblDisplayAll.TabIndex = 313
+        Me.lblDisplayAll.Text = "ទាំងអស់"
+        '
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.White
@@ -704,9 +737,9 @@ Partial Class FrmStuCard
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.txtSearch.Location = New System.Drawing.Point(1059, 6)
+        Me.txtSearch.Location = New System.Drawing.Point(1060, 6)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(181, 38)
+        Me.txtSearch.Size = New System.Drawing.Size(171, 38)
         Me.txtSearch.TabIndex = 303
         Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -717,7 +750,7 @@ Partial Class FrmStuCard
         Me.lblPrintByOrdinalNum.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblPrintByOrdinalNum.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrintByOrdinalNum.ForeColor = System.Drawing.Color.Blue
-        Me.lblPrintByOrdinalNum.Location = New System.Drawing.Point(776, 6)
+        Me.lblPrintByOrdinalNum.Location = New System.Drawing.Point(777, 6)
         Me.lblPrintByOrdinalNum.Name = "lblPrintByOrdinalNum"
         Me.lblPrintByOrdinalNum.Size = New System.Drawing.Size(131, 38)
         Me.lblPrintByOrdinalNum.TabIndex = 302
@@ -729,7 +762,7 @@ Partial Class FrmStuCard
         Me.cboOrdinalNum.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboOrdinalNum.FormattingEnabled = True
         Me.cboOrdinalNum.IntegralHeight = False
-        Me.cboOrdinalNum.Location = New System.Drawing.Point(421, 5)
+        Me.cboOrdinalNum.Location = New System.Drawing.Point(423, 5)
         Me.cboOrdinalNum.Name = "cboOrdinalNum"
         Me.cboOrdinalNum.Size = New System.Drawing.Size(83, 38)
         Me.cboOrdinalNum.TabIndex = 301
@@ -741,7 +774,7 @@ Partial Class FrmStuCard
         Me.lblPrintAll.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblPrintAll.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrintAll.ForeColor = System.Drawing.Color.Blue
-        Me.lblPrintAll.Location = New System.Drawing.Point(903, 6)
+        Me.lblPrintAll.Location = New System.Drawing.Point(906, 6)
         Me.lblPrintAll.Name = "lblPrintAll"
         Me.lblPrintAll.Size = New System.Drawing.Size(156, 38)
         Me.lblPrintAll.TabIndex = 296
@@ -754,7 +787,7 @@ Partial Class FrmStuCard
         Me.lblPrintByClass.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblPrintByClass.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrintByClass.ForeColor = System.Drawing.Color.Blue
-        Me.lblPrintByClass.Location = New System.Drawing.Point(620, 6)
+        Me.lblPrintByClass.Location = New System.Drawing.Point(627, 7)
         Me.lblPrintByClass.Name = "lblPrintByClass"
         Me.lblPrintByClass.Size = New System.Drawing.Size(156, 38)
         Me.lblPrintByClass.TabIndex = 295
@@ -764,7 +797,7 @@ Partial Class FrmStuCard
         '
         Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.SEARCH_324
-        Me.picSearch.Location = New System.Drawing.Point(504, 8)
+        Me.picSearch.Location = New System.Drawing.Point(509, 11)
         Me.picSearch.Name = "picSearch"
         Me.picSearch.Size = New System.Drawing.Size(33, 30)
         Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -778,7 +811,7 @@ Partial Class FrmStuCard
         Me.lblSearch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblSearch.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSearch.ForeColor = System.Drawing.Color.Blue
-        Me.lblSearch.Location = New System.Drawing.Point(536, 6)
+        Me.lblSearch.Location = New System.Drawing.Point(538, 7)
         Me.lblSearch.Name = "lblSearch"
         Me.lblSearch.Size = New System.Drawing.Size(81, 38)
         Me.lblSearch.TabIndex = 214
@@ -790,29 +823,28 @@ Partial Class FrmStuCard
         Me.cboClass.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboClass.FormattingEnabled = True
         Me.cboClass.IntegralHeight = False
-        Me.cboClass.Location = New System.Drawing.Point(255, 5)
+        Me.cboClass.Location = New System.Drawing.Point(243, 5)
         Me.cboClass.Name = "cboClass"
-        Me.cboClass.Size = New System.Drawing.Size(83, 38)
+        Me.cboClass.Size = New System.Drawing.Size(90, 38)
         Me.cboClass.TabIndex = 194
         '
         'cboYearStudy
         '
         Me.cboYearStudy.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboYearStudy.FormattingEnabled = True
-        Me.cboYearStudy.Location = New System.Drawing.Point(90, 5)
+        Me.cboYearStudy.Location = New System.Drawing.Point(95, 5)
         Me.cboYearStudy.Name = "cboYearStudy"
-        Me.cboYearStudy.Size = New System.Drawing.Size(118, 38)
+        Me.cboYearStudy.Size = New System.Drawing.Size(94, 38)
         Me.cboYearStudy.TabIndex = 192
-        Me.cboYearStudy.Text = "2017-2018"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label6.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
-        Me.Label6.ForeColor = System.Drawing.Color.Blue
-        Me.Label6.Location = New System.Drawing.Point(207, 6)
+        Me.Label6.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.Location = New System.Drawing.Point(191, 6)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(53, 38)
         Me.Label6.TabIndex = 195
@@ -823,8 +855,8 @@ Partial Class FrmStuCard
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label4.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
-        Me.Label4.ForeColor = System.Drawing.Color.Blue
+        Me.Label4.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.Location = New System.Drawing.Point(3, 6)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(89, 38)
@@ -836,8 +868,8 @@ Partial Class FrmStuCard
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.Color.Transparent
         Me.Label17.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label17.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
-        Me.Label17.ForeColor = System.Drawing.Color.Blue
+        Me.Label17.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.Black
         Me.Label17.Location = New System.Drawing.Point(332, 6)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(95, 38)
@@ -848,6 +880,25 @@ Partial Class FrmStuCard
         '
         Me.DataSet1.DataSetName = "DataSet1"
         Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Panel1
+        '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel1.Location = New System.Drawing.Point(620, 7)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(4, 37)
+        Me.Panel1.TabIndex = 314
+        '
+        'picDisplayAll
+        '
+        Me.picDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picDisplayAll.Image = Global.STU_MS.My.Resources.Resources.selectAll
+        Me.picDisplayAll.Location = New System.Drawing.Point(1237, 11)
+        Me.picDisplayAll.Name = "picDisplayAll"
+        Me.picDisplayAll.Size = New System.Drawing.Size(29, 28)
+        Me.picDisplayAll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDisplayAll.TabIndex = 315
+        Me.picDisplayAll.TabStop = False
         '
         'Column15
         '
@@ -861,7 +912,6 @@ Partial Class FrmStuCard
         Me.Column1.HeaderText = "STUDENT_ID"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
         '
         'Column2
         '
@@ -874,14 +924,12 @@ Partial Class FrmStuCard
         Me.Column3.HeaderText = "STUDENT_ID_SCHOOL"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
-        Me.Column3.Visible = False
         '
         'Column4
         '
         Me.Column4.HeaderText = "STUDENT_CODE"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
-        Me.Column4.Visible = False
         '
         'Column5
         '
@@ -895,7 +943,6 @@ Partial Class FrmStuCard
         Me.Column6.HeaderText = "SNAME_LATIN"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
-        Me.Column6.Visible = False
         '
         'Column7
         '
@@ -909,14 +956,12 @@ Partial Class FrmStuCard
         Me.Column8.HeaderText = "DOB"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
-        Me.Column8.Visible = False
         '
         'Column9
         '
         Me.Column9.HeaderText = "POB"
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
-        Me.Column9.Visible = False
         '
         'Column10
         '
@@ -930,7 +975,6 @@ Partial Class FrmStuCard
         Me.Column11.HeaderText = "CLASS_ID"
         Me.Column11.Name = "Column11"
         Me.Column11.ReadOnly = True
-        Me.Column11.Visible = False
         '
         'Column12
         '
@@ -943,49 +987,42 @@ Partial Class FrmStuCard
         Me.Column13.HeaderText = "FATHER_NAME"
         Me.Column13.Name = "Column13"
         Me.Column13.ReadOnly = True
-        Me.Column13.Visible = False
         '
         'Column14
         '
         Me.Column14.HeaderText = "MOTHER_NAME"
         Me.Column14.Name = "Column14"
         Me.Column14.ReadOnly = True
-        Me.Column14.Visible = False
         '
         'Column16
         '
         Me.Column16.HeaderText = "CLASS_NUMBER"
         Me.Column16.Name = "Column16"
         Me.Column16.ReadOnly = True
-        Me.Column16.Visible = False
         '
         'Column17
         '
         Me.Column17.HeaderText = "PHOTO"
         Me.Column17.Name = "Column17"
         Me.Column17.ReadOnly = True
-        Me.Column17.Visible = False
         '
         'Column18
         '
         Me.Column18.HeaderText = "SCHOOL_NAME"
         Me.Column18.Name = "Column18"
         Me.Column18.ReadOnly = True
-        Me.Column18.Visible = False
         '
         'Column19
         '
         Me.Column19.HeaderText = "PROVINCE"
         Me.Column19.Name = "Column19"
         Me.Column19.ReadOnly = True
-        Me.Column19.Visible = False
         '
         'Column20
         '
         Me.Column20.HeaderText = "DOB_DB_FORMAT"
         Me.Column20.Name = "Column20"
         Me.Column20.ReadOnly = True
-        Me.Column20.Visible = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -999,7 +1036,6 @@ Partial Class FrmStuCard
         Me.DataGridViewTextBoxColumn2.HeaderText = "STUDENT_ID"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Visible = False
         '
         'DataGridViewTextBoxColumn3
         '
@@ -1013,14 +1049,12 @@ Partial Class FrmStuCard
         Me.DataGridViewTextBoxColumn4.HeaderText = "STUDENT_ID_SCHOOL"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Visible = False
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.HeaderText = "STUDENT_CODE"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Visible = False
         '
         'DataGridViewTextBoxColumn6
         '
@@ -1034,7 +1068,6 @@ Partial Class FrmStuCard
         Me.DataGridViewTextBoxColumn7.HeaderText = "SNAME_LATIN"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Visible = False
         '
         'DataGridViewTextBoxColumn8
         '
@@ -1068,7 +1101,6 @@ Partial Class FrmStuCard
         Me.DataGridViewTextBoxColumn12.HeaderText = "CLASS_ID"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Visible = False
         '
         'DataGridViewTextBoxColumn13
         '
@@ -1081,68 +1113,48 @@ Partial Class FrmStuCard
         Me.DataGridViewTextBoxColumn14.HeaderText = "FATHER_NAME"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
         Me.DataGridViewTextBoxColumn14.ReadOnly = True
-        Me.DataGridViewTextBoxColumn14.Visible = False
         '
         'DataGridViewTextBoxColumn15
         '
         Me.DataGridViewTextBoxColumn15.HeaderText = "MOTHER_NAME"
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
         Me.DataGridViewTextBoxColumn15.ReadOnly = True
-        Me.DataGridViewTextBoxColumn15.Visible = False
         '
         'DataGridViewTextBoxColumn16
         '
         Me.DataGridViewTextBoxColumn16.HeaderText = "CLASS_NUMBER"
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
         Me.DataGridViewTextBoxColumn16.ReadOnly = True
-        Me.DataGridViewTextBoxColumn16.Visible = False
         '
         'DataGridViewTextBoxColumn17
         '
         Me.DataGridViewTextBoxColumn17.HeaderText = "PHOTO"
         Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
         Me.DataGridViewTextBoxColumn17.ReadOnly = True
-        Me.DataGridViewTextBoxColumn17.Visible = False
         '
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.HeaderText = "SCHOOL_NAME"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True
-        Me.DataGridViewTextBoxColumn18.Visible = False
         '
         'DataGridViewTextBoxColumn19
         '
         Me.DataGridViewTextBoxColumn19.HeaderText = "PROVINCE"
         Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
         Me.DataGridViewTextBoxColumn19.ReadOnly = True
-        Me.DataGridViewTextBoxColumn19.Visible = False
         '
         'DataGridViewTextBoxColumn20
         '
         Me.DataGridViewTextBoxColumn20.HeaderText = "DOB_DB_FORMAT"
         Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
         Me.DataGridViewTextBoxColumn20.ReadOnly = True
-        Me.DataGridViewTextBoxColumn20.Visible = False
         '
         'Column21
         '
         Me.Column21.HeaderText = "RECORD_ID"
         Me.Column21.Name = "Column21"
         Me.Column21.ReadOnly = True
-        '
-        'lblDisplayAll
-        '
-        Me.lblDisplayAll.AutoSize = True
-        Me.lblDisplayAll.BackColor = System.Drawing.Color.Transparent
-        Me.lblDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblDisplayAll.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDisplayAll.ForeColor = System.Drawing.Color.Blue
-        Me.lblDisplayAll.Location = New System.Drawing.Point(1245, 9)
-        Me.lblDisplayAll.Name = "lblDisplayAll"
-        Me.lblDisplayAll.Size = New System.Drawing.Size(114, 30)
-        Me.lblDisplayAll.TabIndex = 313
-        Me.lblDisplayAll.Text = "បង្ហាញទាំងអស់"
         '
         'FrmStuCard
         '
@@ -1165,6 +1177,7 @@ Partial Class FrmStuCard
         Me.PanelEx1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.picPrintFromList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgSelected, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx6.ResumeLayout(False)
@@ -1174,6 +1187,7 @@ Partial Class FrmStuCard
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1220,7 +1234,7 @@ Partial Class FrmStuCard
     Friend WithEvents dtStartDate As DateTimePicker
     Friend WithEvents cbValidityCard As CheckBox
     Friend WithEvents dgSelected As DataGridView
-    Friend WithEvents lblPrint As Label
+    Friend WithEvents lblPrintFromList As Label
     Friend WithEvents lblSave As Label
     Friend WithEvents Label8 As Label
     Public WithEvents cboCardType As ComboBox
@@ -1228,6 +1242,10 @@ Partial Class FrmStuCard
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents lblUpdate As Label
+    Friend WithEvents lblDisplayAll As Label
+    Friend WithEvents picPrintFromList As PictureBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents picDisplayAll As PictureBox
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -1269,5 +1287,4 @@ Partial Class FrmStuCard
     Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
     Friend WithEvents Column21 As DataGridViewTextBoxColumn
-    Friend WithEvents lblDisplayAll As Label
 End Class

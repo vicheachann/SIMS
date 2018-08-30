@@ -1664,7 +1664,7 @@ Public Class FrmStudent
         'End Try
     End Sub
 
-    Private Sub lbl_display_all_Click(sender As Object, e As EventArgs) Handles lblDisplayAll.Click
+    Private Sub lblDisplayAll_Click(sender As Object, e As EventArgs) Handles lblDisplayAll.Click
         cboSearchCode.Text = ""
         cboSearchName.Text = ""
         cboSearchYearStudy.Text = ""
@@ -1941,7 +1941,7 @@ Public Class FrmStudent
     End Sub
     Private Sub CountSearchResult()
         Try
-            lblSearchResult.Text = dgMain.Rows.Count.ToString + " អ្នក"
+            lblSearchResult.Text = dgMain.Rows.Count.ToString + " នាក់"
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             lblSearchResult.Text = "0 នាក់"
@@ -2086,5 +2086,15 @@ Public Class FrmStudent
         End Try
     End Sub
 
+    Private Sub picDisplayAll_MouseHover(sender As Object, e As EventArgs) Handles picDisplayAll.MouseHover
+        t.Hover(lblDisplayAll)
+    End Sub
 
+    Private Sub picDisplayAll_MouseLeave(sender As Object, e As EventArgs) Handles picDisplayAll.MouseLeave
+        t.Leave(lblDisplayAll)
+    End Sub
+
+    Private Sub picDisplayAll_Click(sender As Object, e As EventArgs) Handles picDisplayAll.Click
+        lblDisplayAll_Click(sender, e)
+    End Sub
 End Class

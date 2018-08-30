@@ -335,7 +335,7 @@ Public Class FrmChangeClass
 
     Private Sub lblChangeToStudentFormer_Click(sender As Object, e As EventArgs) Handles lblChangeToStudentFormer.Click
         pnl1.Visible = False
-        obj.ShowMsg("តើអ្នកចង់បញ្ចូលព័ត៌មានទាំងអស់នេះទៅជាអតីតសិស្សដែលឬទេ ?", FrmMessageQuestion, "")
+        obj.ShowMsg("តើអ្នកចង់បញ្ចូលព័ត៌មានទាំងអស់នេះ" & vbCrLf & "ទៅជាអតីតសិស្សដែលឬទេ ?", FrmMessageQuestion, "")
         If USER_CLICK_OK = True Then
             Try
                 Call GetStudentID()

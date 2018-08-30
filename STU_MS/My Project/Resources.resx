@@ -256,6 +256,9 @@
   <data name="Graduate-female-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Graduate-female-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="user-student-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-student-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="position" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\position.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -273,6 +276,9 @@
   </data>
   <data name="question_89" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question_89.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="printer_3214" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printer_32141.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="certificate-flat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\certificate-flat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -322,8 +328,8 @@
   <data name="infor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\infor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-student-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-student-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="skiddll" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\skiddll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -373,8 +379,8 @@
   <data name="YEAR_STUDY" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\YEAR_STUDY.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="selectAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\selectAll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -448,7 +454,7 @@
   <data name="save_432432" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_432432.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="selectAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\selectAll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="change_student_cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\change_student_cc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

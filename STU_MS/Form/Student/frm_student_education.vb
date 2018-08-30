@@ -160,7 +160,6 @@ Public Class frm_student_education
         For i As Integer = 0 To dt.Rows.Count - 1
             If dt.Rows(i)(0).ToString IsNot "" And dt.Rows(i)(1).ToString IsNot "" Then
                 NULL = False
-
             End If
         Next
         Return NULL
@@ -539,7 +538,7 @@ Public Class frm_student_education
         dg.EndEdit()
     End Sub
 
-    Private Sub lblChangeClass_Click(sender As Object, e As EventArgs) Handles lblChangStudyInfoStatus.Click
+    Private Sub lblChangeStudyInfoStatus_Click(sender As Object, e As EventArgs) Handles lblChangStudyInfoStatus.Click
         Try
             Dim frm As New FrmChangeClass
             If isRowSelected() = False Then
@@ -695,5 +694,29 @@ Public Class frm_student_education
 
     Private Sub cboTeacher_TextChanged(sender As Object, e As EventArgs) Handles cboTeacher.TextChanged
         cboTeacher.BackColor = Color.White
+    End Sub
+
+    Private Sub picChangeStudyStatus_MouseHover(sender As Object, e As EventArgs) Handles picChangeStudyStatus.MouseHover
+        t.Hover(lblChangStudyInfoStatus)
+    End Sub
+
+    Private Sub picChangeStudyStatus_MouseLeave(sender As Object, e As EventArgs) Handles picChangeStudyStatus.MouseLeave
+        t.Leave(lblChangStudyInfoStatus)
+    End Sub
+
+    Private Sub picPrint_MouseHover(sender As Object, e As EventArgs) Handles picPrint.MouseHover
+        t.Hover(lblPrint)
+    End Sub
+
+    Private Sub picPrint_MouseLeave(sender As Object, e As EventArgs) Handles picPrint.MouseLeave
+        t.Leave(lblPrint)
+    End Sub
+
+    Private Sub picPrint_Click(sender As Object, e As EventArgs) Handles picPrint.Click
+        lblPrint_Click(sender, e)
+    End Sub
+
+    Private Sub picChangeStudyStatus_Click(sender As Object, e As EventArgs) Handles picChangeStudyStatus.Click
+        lblChangeStudyInfoStatus_Click(sender, e)
     End Sub
 End Class

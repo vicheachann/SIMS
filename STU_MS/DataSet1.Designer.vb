@@ -3846,7 +3846,7 @@ Partial Public Class DataSet1
     Partial Public Class STU_CARDDataTable
         Inherits Global.System.Data.TypedTableBase(Of STU_CARDRow)
         
-        Private columnSTUDENT_ID_SCHOOL As Global.System.Data.DataColumn
+        Private columnSTUDENT_ID_IN_LIST As Global.System.Data.DataColumn
         
         Private columnYEAR_STUDY As Global.System.Data.DataColumn
         
@@ -3907,9 +3907,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property STUDENT_ID_SCHOOLColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property STUDENT_ID_IN_LISTColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnSTUDENT_ID_SCHOOL
+                Return Me.columnSTUDENT_ID_IN_LIST
             End Get
         End Property
         
@@ -4038,9 +4038,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddSTU_CARDRow(ByVal STUDENT_ID_SCHOOL As String, ByVal YEAR_STUDY As String, ByVal SNAME_KH As String, ByVal GENDER As String, ByVal DOB As String, ByVal POB As String, ByVal FATHER_NAME As String, ByVal MOTHER_NAME As String, ByVal CLASS_LETTER As String, ByVal STUDENT_PHOTO() As Byte, ByVal SCHOOL_NAME As String, ByVal PROVINCE As String) As STU_CARDRow
+        Public Overloads Function AddSTU_CARDRow(ByVal STUDENT_ID_IN_LIST As Integer, ByVal YEAR_STUDY As String, ByVal SNAME_KH As String, ByVal GENDER As String, ByVal DOB As String, ByVal POB As String, ByVal FATHER_NAME As String, ByVal MOTHER_NAME As String, ByVal CLASS_LETTER As String, ByVal STUDENT_PHOTO() As Byte, ByVal SCHOOL_NAME As String, ByVal PROVINCE As String) As STU_CARDRow
             Dim rowSTU_CARDRow As STU_CARDRow = CType(Me.NewRow,STU_CARDRow)
-            Dim columnValuesArray() As Object = New Object() {STUDENT_ID_SCHOOL, YEAR_STUDY, SNAME_KH, GENDER, DOB, POB, FATHER_NAME, MOTHER_NAME, CLASS_LETTER, STUDENT_PHOTO, SCHOOL_NAME, PROVINCE}
+            Dim columnValuesArray() As Object = New Object() {STUDENT_ID_IN_LIST, YEAR_STUDY, SNAME_KH, GENDER, DOB, POB, FATHER_NAME, MOTHER_NAME, CLASS_LETTER, STUDENT_PHOTO, SCHOOL_NAME, PROVINCE}
             rowSTU_CARDRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSTU_CARDRow)
             Return rowSTU_CARDRow
@@ -4063,7 +4063,7 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnSTUDENT_ID_SCHOOL = MyBase.Columns("STUDENT_ID_SCHOOL")
+            Me.columnSTUDENT_ID_IN_LIST = MyBase.Columns("STUDENT_ID_IN_LIST")
             Me.columnYEAR_STUDY = MyBase.Columns("YEAR_STUDY")
             Me.columnSNAME_KH = MyBase.Columns("SNAME_KH")
             Me.columnGENDER = MyBase.Columns("GENDER")
@@ -4080,8 +4080,8 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnSTUDENT_ID_SCHOOL = New Global.System.Data.DataColumn("STUDENT_ID_SCHOOL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSTUDENT_ID_SCHOOL)
+            Me.columnSTUDENT_ID_IN_LIST = New Global.System.Data.DataColumn("STUDENT_ID_IN_LIST", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSTUDENT_ID_IN_LIST)
             Me.columnYEAR_STUDY = New Global.System.Data.DataColumn("YEAR_STUDY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnYEAR_STUDY)
             Me.columnSNAME_KH = New Global.System.Data.DataColumn("SNAME_KH", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -7679,16 +7679,16 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property STUDENT_ID_SCHOOL() As String
+        Public Property STUDENT_ID_IN_LIST() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableSTU_CARD.STUDENT_ID_SCHOOLColumn),String)
+                    Return CType(Me(Me.tableSTU_CARD.STUDENT_ID_IN_LISTColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'STUDENT_ID_SCHOOL' in table 'STU_CARD' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'STUDENT_ID_IN_LIST' in table 'STU_CARD' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableSTU_CARD.STUDENT_ID_SCHOOLColumn) = value
+                Me(Me.tableSTU_CARD.STUDENT_ID_IN_LISTColumn) = value
             End Set
         End Property
         
@@ -7859,14 +7859,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsSTUDENT_ID_SCHOOLNull() As Boolean
-            Return Me.IsNull(Me.tableSTU_CARD.STUDENT_ID_SCHOOLColumn)
+        Public Function IsSTUDENT_ID_IN_LISTNull() As Boolean
+            Return Me.IsNull(Me.tableSTU_CARD.STUDENT_ID_IN_LISTColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetSTUDENT_ID_SCHOOLNull()
-            Me(Me.tableSTU_CARD.STUDENT_ID_SCHOOLColumn) = Global.System.Convert.DBNull
+        Public Sub SetSTUDENT_ID_IN_LISTNull()
+            Me(Me.tableSTU_CARD.STUDENT_ID_IN_LISTColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

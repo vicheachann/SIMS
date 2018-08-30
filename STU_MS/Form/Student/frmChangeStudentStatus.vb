@@ -51,12 +51,15 @@
     Private Sub lblOk_Click(sender As Object, e As EventArgs) Handles lblOk.Click
         Try
             If (Validation.IsEmpty(cboStudentstatus, "ស្ថានភាពសិក្សា")) Then Exit Sub
-            For Each id In FrmChangeClass.studentID
-                obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & cboStudentstatus.SelectedValue & " WHERE STUDENT_ID = " & id & " ")
-                obj.InsertToStudentFormer(id)
-            Next
-            obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
-            Close()
+            obj.ShowMsg("តើអ្នកចង់បញ្ចូលព័ត៌មានទាំងអស់នេះ" & vbCrLf & "ទៅជាអតីតសិស្សដែលឬទេ ?", FrmMessageQuestion, "")
+            If USER_CLICK_OK = True Then
+                For Each id In FrmChangeClass.studentID
+                    obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & cboStudentstatus.SelectedValue & " WHERE STUDENT_ID = " & id & " ")
+                    obj.InsertToStudentFormer(id)
+                Next
+                obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
+                Close()
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, CompanyInfo.CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -68,6 +71,10 @@
 
     Private Sub picClose_Click(sender As Object, e As EventArgs) Handles picClose.Click
         Close()
+    End Sub
+
+    Private Sub cboStudentstatus_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboStudentstatus.KeyPress
+        e.Handled = True
     End Sub
 
     'Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click

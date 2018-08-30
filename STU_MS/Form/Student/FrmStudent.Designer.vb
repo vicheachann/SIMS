@@ -285,6 +285,7 @@ Partial Class FrmStudent
         Me.TabItem12 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.picDisplayAll = New System.Windows.Forms.PictureBox()
         Me.pnl_main.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -327,6 +328,7 @@ Partial Class FrmStudent
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelEx1
@@ -536,7 +538,7 @@ Partial Class FrmStudent
         Me.lblPrintStudentList.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblPrintStudentList.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrintStudentList.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lblPrintStudentList.Location = New System.Drawing.Point(166, 368)
+        Me.lblPrintStudentList.Location = New System.Drawing.Point(161, 368)
         Me.lblPrintStudentList.Name = "lblPrintStudentList"
         Me.lblPrintStudentList.Size = New System.Drawing.Size(104, 38)
         Me.lblPrintStudentList.TabIndex = 215
@@ -3273,6 +3275,7 @@ Partial Class FrmStudent
         '
         Me.pnl_search.CanvasColor = System.Drawing.SystemColors.Control
         Me.pnl_search.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.pnl_search.Controls.Add(Me.picDisplayAll)
         Me.pnl_search.Controls.Add(Me.Label13)
         Me.pnl_search.Controls.Add(Me.PanelAdvSearch)
         Me.pnl_search.Controls.Add(Me.lblDisplayAll)
@@ -3372,11 +3375,11 @@ Partial Class FrmStudent
         Me.lblDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblDisplayAll.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDisplayAll.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lblDisplayAll.Location = New System.Drawing.Point(985, 6)
+        Me.lblDisplayAll.Location = New System.Drawing.Point(1009, 7)
         Me.lblDisplayAll.Name = "lblDisplayAll"
-        Me.lblDisplayAll.Size = New System.Drawing.Size(123, 32)
+        Me.lblDisplayAll.Size = New System.Drawing.Size(75, 32)
         Me.lblDisplayAll.TabIndex = 188
-        Me.lblDisplayAll.Text = "បង្ហាញទាំងអស់"
+        Me.lblDisplayAll.Text = "ទាំងអស់"
         '
         'Label3
         '
@@ -3484,9 +3487,9 @@ Partial Class FrmStudent
         Me.lblSearchResult.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblSearchResult.Location = New System.Drawing.Point(1251, 6)
         Me.lblSearchResult.Name = "lblSearchResult"
-        Me.lblSearchResult.Size = New System.Drawing.Size(24, 32)
+        Me.lblSearchResult.Size = New System.Drawing.Size(59, 32)
         Me.lblSearchResult.TabIndex = 191
-        Me.lblSearchResult.Text = "0"
+        Me.lblSearchResult.Text = "0 នាក់"
         '
         'PanelEx2
         '
@@ -3600,6 +3603,17 @@ Partial Class FrmStudent
         Me.BindingSource1.DataMember = "dtStudent"
         Me.BindingSource1.DataSource = Me.DataSet1
         '
+        'picDisplayAll
+        '
+        Me.picDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picDisplayAll.Image = Global.STU_MS.My.Resources.Resources.selectAll
+        Me.picDisplayAll.Location = New System.Drawing.Point(980, 8)
+        Me.picDisplayAll.Name = "picDisplayAll"
+        Me.picDisplayAll.Size = New System.Drawing.Size(29, 28)
+        Me.picDisplayAll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDisplayAll.TabIndex = 192
+        Me.picDisplayAll.TabStop = False
+        '
         'FrmStudent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3672,6 +3686,7 @@ Partial Class FrmStudent
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3930,4 +3945,5 @@ Partial Class FrmStudent
     Friend WithEvents cboSearchYearStudy As ComboBox
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents picDisplayAll As PictureBox
 End Class

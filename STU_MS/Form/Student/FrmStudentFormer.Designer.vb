@@ -23,8 +23,8 @@ Partial Class FrmStudentFormer
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.picClose = New System.Windows.Forms.PictureBox()
@@ -307,16 +307,16 @@ Partial Class FrmStudentFormer
         Me.cboSearchBatch.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboSearchBatch.FormattingEnabled = True
         Me.cboSearchBatch.IntegralHeight = False
-        Me.cboSearchBatch.Location = New System.Drawing.Point(758, 2)
+        Me.cboSearchBatch.Location = New System.Drawing.Point(703, 2)
         Me.cboSearchBatch.Name = "cboSearchBatch"
-        Me.cboSearchBatch.Size = New System.Drawing.Size(152, 38)
+        Me.cboSearchBatch.Size = New System.Drawing.Size(129, 38)
         Me.cboSearchBatch.TabIndex = 196
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(697, 6)
+        Me.Label17.Location = New System.Drawing.Point(644, 6)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(52, 30)
         Me.Label17.TabIndex = 195
@@ -326,7 +326,7 @@ Partial Class FrmStudentFormer
         '
         Me.picDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
         Me.picDisplayAll.Image = Global.STU_MS.My.Resources.Resources.selectAll
-        Me.picDisplayAll.Location = New System.Drawing.Point(926, 6)
+        Me.picDisplayAll.Location = New System.Drawing.Point(846, 6)
         Me.picDisplayAll.Name = "picDisplayAll"
         Me.picDisplayAll.Size = New System.Drawing.Size(29, 28)
         Me.picDisplayAll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -352,7 +352,7 @@ Partial Class FrmStudentFormer
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label13.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label13.ForeColor = System.Drawing.Color.Black
         Me.Label13.Location = New System.Drawing.Point(1118, 6)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(138, 32)
@@ -405,7 +405,7 @@ Partial Class FrmStudentFormer
         Me.lblDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblDisplayAll.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDisplayAll.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lblDisplayAll.Location = New System.Drawing.Point(952, 5)
+        Me.lblDisplayAll.Location = New System.Drawing.Point(872, 5)
         Me.lblDisplayAll.Name = "lblDisplayAll"
         Me.lblDisplayAll.Size = New System.Drawing.Size(75, 32)
         Me.lblDisplayAll.TabIndex = 188
@@ -427,16 +427,16 @@ Partial Class FrmStudentFormer
         Me.cboSearchYear.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboSearchYear.FormattingEnabled = True
         Me.cboSearchYear.IntegralHeight = False
-        Me.cboSearchYear.Location = New System.Drawing.Point(539, 2)
+        Me.cboSearchYear.Location = New System.Drawing.Point(512, 2)
         Me.cboSearchYear.Name = "cboSearchYear"
-        Me.cboSearchYear.Size = New System.Drawing.Size(152, 38)
+        Me.cboSearchYear.Size = New System.Drawing.Size(129, 38)
         Me.cboSearchYear.TabIndex = 186
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(435, 6)
+        Me.Label5.Location = New System.Drawing.Point(410, 6)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(102, 30)
         Me.Label5.TabIndex = 20
@@ -450,7 +450,7 @@ Partial Class FrmStudentFormer
         Me.cboStudentName.IntegralHeight = False
         Me.cboStudentName.Location = New System.Drawing.Point(277, 3)
         Me.cboStudentName.Name = "cboStudentName"
-        Me.cboStudentName.Size = New System.Drawing.Size(152, 38)
+        Me.cboStudentName.Size = New System.Drawing.Size(129, 38)
         Me.cboStudentName.TabIndex = 19
         '
         'lblSearchResult
@@ -2100,21 +2100,21 @@ Partial Class FrmStudentFormer
         Me.dgMain.AllowUserToResizeRows = False
         Me.dgMain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgMain.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgMain.Location = New System.Drawing.Point(4, 3)
         Me.dgMain.MultiSelect = False
         Me.dgMain.Name = "dgMain"
         Me.dgMain.ReadOnly = True
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgMain.Size = New System.Drawing.Size(1356, 191)
         Me.dgMain.TabIndex = 2

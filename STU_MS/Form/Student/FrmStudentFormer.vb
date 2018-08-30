@@ -5,7 +5,7 @@ Public Class FrmStudentFormer
     Dim obj As New Method
     Dim selectStudentSql As String = "SELECT TOP(100) S.RECORD_ID,S.STUDENT_ID_SCHOOL,S.STUDENT_CODE,S.SNAME_KH,S.SNAME_LATIN ,S.GENDER,S.DOB,S.S_PHONE_LINE_1,S.S_PHONE_LINE_2,S.EMAIL_1,S.JOIN_SCHOOL_DATE,S.FIRST_YEAR_STUDY,S.STUDENT_PHOTO,S.[DESCRIPTION],S.BATCH_ID,B.BATCH,S.STOP_YEAR_STUDY FROM dbo.TBS_STUDENT_INFO_FORMER AS S LEFT JOIN dbo.TBL_BATCH AS B ON S.BATCH_ID = B.BATCH_ID "
     Dim t As New Theme
-    Dim batch As String                     'SEND BATCH TO REPORT PARAM
+    Dim paramBatch As String                     'SEND BATCH TO REPORT PARAM
     Dim selectReportSql As String
 
 
@@ -721,27 +721,37 @@ Public Class FrmStudentFormer
 
     Private Sub DetermineWhatToQuery()
         Try
-            Dim batchID As String
-            If (cboSearchYear.Text = "" Or cboSearchYear.Text = "ទាំងអស់" And cboSearchBatch.Text = "" Or cboSearchBatch.Text = "ទាំងអស់") Then
-                selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST"
-                batch = "ទាំងអស់"
-            ElseIf (cboSearchYear.Text = "" Or cboSearchYear.Text = "ទាំងអស់" And cboSearchBatch.Text <> "" Or cboSearchBatch.Text <> "ទាំងអស់") Then
-                batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboSearchBatch.Text & "'")
-                selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE BATCH_ID = " & batchID & ""
-                batch = cboSearchBatch.Text
-            ElseIf (cboSearchYear.Text <> "" Or cboSearchYear.Text <> "ទាំងអស់" And cboSearchBatch.Text = "" Or cboSearchBatch.Text = "ទាំងអស់") Then
-                selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboSearchYear.Text & "'"
-                batch = "ទាំងអស់"
-            Else
-                batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboSearchBatch.Text & "'")
-                selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboSearchYear.Text & "' AND BATCH_ID = " & batchID & ""
-                batch = cboSearchBatch.Text
+            If ((cboSearchYear.Text = "" Or cboSearchYear.Text = "ទាំងអស់") And (cboSearchBatch.Text = "" Or cboSearchBatch.Text = "ទាំងអស់")) Then
+                SelectReportAllYearAndBatch()
+            ElseIf ((cboSearchYear.Text = "" Or cboSearchYear.Text = "ទាំងអស់") And (cboSearchBatch.Text <> "" Or cboSearchBatch.Text <> "ទាំងអស់")) Then
+                SelectReportBaseOnBatch()
+            ElseIf ((cboSearchYear.Text <> "" Or cboSearchYear.Text <> "ទាំងអស់") And (cboSearchBatch.Text = "" Or cboSearchBatch.Text = "ទាំងអស់")) Then
+                SelectReportBaseOnYear()
+            ElseIf ((cboSearchYear.Text <> "" Or cboSearchYear.Text <> "ទាំងអស់") And (cboSearchBatch.Text <> "" Or cboSearchBatch.Text <> "ទាំងអស់")) Then
+                SelectReportBaseOnYearAndBatch()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-
+    Private Sub SelectReportBaseOnYearAndBatch()
+        Dim batchID As String = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboSearchBatch.Text & "'")
+        selectReportSql = "SELECT ROW_NUMBER() OVER (ORDER BY STUDENT_ID ASC) AS 'ROW_NUMBER', STUDENT_ID,SNAME_KH,GENDER,BATCH_ID,BATCH,FIRST_YEAR_STUDY,STOP_YEAR_STUDY,S_PHONE_LINE_1,NUM_JOIN_ALUMNI FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboSearchYear.Text & "' AND BATCH_ID = " & batchID & ""
+        paramBatch = cboSearchBatch.Text
+    End Sub
+    Private Sub SelectReportBaseOnBatch()
+        Dim batchID As String = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboSearchBatch.Text & "'")
+        selectReportSql = "SELECT ROW_NUMBER() OVER (ORDER BY STUDENT_ID ASC) AS 'ROW_NUMBER', STUDENT_ID,SNAME_KH,GENDER,BATCH_ID,BATCH,FIRST_YEAR_STUDY,STOP_YEAR_STUDY,S_PHONE_LINE_1,NUM_JOIN_ALUMNI FROM dbo.V_STUDENT_FORMER_LIST WHERE BATCH_ID = " & batchID & ""
+        paramBatch = cboSearchBatch.Text
+    End Sub
+    Private Sub SelectReportBaseOnYear()
+        selectReportSql = "SELECT ROW_NUMBER() OVER (ORDER BY STUDENT_ID ASC) AS 'ROW_NUMBER', STUDENT_ID,SNAME_KH,GENDER,BATCH_ID,BATCH,FIRST_YEAR_STUDY,STOP_YEAR_STUDY,S_PHONE_LINE_1,NUM_JOIN_ALUMNI FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboSearchYear.Text & "'"
+        paramBatch = "ទាំងអស់"
+    End Sub
+    Private Sub SelectReportAllYearAndBatch()
+        selectReportSql = "SELECT ROW_NUMBER() OVER (ORDER BY STUDENT_ID ASC) AS 'ROW_NUMBER', STUDENT_ID,SNAME_KH,GENDER,BATCH_ID,BATCH,FIRST_YEAR_STUDY,STOP_YEAR_STUDY,S_PHONE_LINE_1,NUM_JOIN_ALUMNI FROM dbo.V_STUDENT_FORMER_LIST"
+        paramBatch = "ទាំងអស់"
+    End Sub
     Private Sub lblPrintStudent_Click(sender As Object, e As EventArgs) Handles lblPrintReport.Click
         Try
             Cursor = Cursors.WaitCursor
@@ -756,7 +766,7 @@ Public Class FrmStudentFormer
             FrmViewReport.SetupReport("DataSet1", "STU_MS.rpStudentFormer.rdlc", BindingSource1)
             obj.SendParam("paramSchoolName", obj.GetSchoolName(), FrmViewReport.ReportViewer)
             obj.SendParam("paramProvince", obj.GetProvinceName(), FrmViewReport.ReportViewer)
-            obj.SendParam("paramBatch", batch, FrmViewReport.ReportViewer)
+            obj.SendParam("paramBatch", paramBatch, FrmViewReport.ReportViewer)
             FrmViewReport.ReportViewer.RefreshReport()
             FrmViewReport.ShowDialog()
             Cursor = Cursors.Default

@@ -277,6 +277,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend Shared ReadOnly Property change_student_cc() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("change_student_cc", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend Shared ReadOnly Property checkmark_done_exam_list_pencil_todo_35275ec20d4b5ecc_512x512() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("checkmark-done-exam-list-pencil-todo-35275ec20d4b5ecc-512x512", resourceCulture)
@@ -700,6 +710,16 @@ Namespace My.Resources
         Friend Shared ReadOnly Property position() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("position", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend Shared ReadOnly Property printer_3214() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("printer_3214", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

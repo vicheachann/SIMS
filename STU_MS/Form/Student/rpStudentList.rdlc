@@ -1761,7 +1761,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ថ្ងៃ..........ខែ.............ឆ្នាំ........... ព.ស.........</Value>
+                <Value>ថ្ងៃ.......................ខែ.................ឆ្នាំ........... ព.ស...............</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>khmer</FontFamily>
@@ -1775,7 +1775,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ធ្វើនៅ............ថ្ងៃទី.........ខែ.........ឆ្នាំ ២០......</Value>
+                <Value>ធ្វើនៅ.....................ថ្ងៃទី.............ខែ.........ឆ្នាំ ២០........</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>khmer</FontFamily>
@@ -1789,9 +1789,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox44</rd:DefaultName>
         <Top>1.74714in</Top>
-        <Left>5.36814in</Left>
+        <Left>5.01768in</Left>
         <Height>0.51042in</Height>
-        <Width>2.6738in</Width>
+        <Width>3.02426in</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>

@@ -4,7 +4,7 @@ Public Class FrmStuCard
     Dim t As New Theme
     Dim print As New FrmPrintStudentCard
     Dim databaseData As Boolean = False
-
+    Dim selectStudentSQL As String = "SELECT ROW_NUMBER() OVER(ORDER BY C.CLASS_NUMBER,C.CLASS_LETTER ASC) AS 'ROW_NUMBER',S.STUDENT_ID,'111'AS'STUDENT_ID_IN_LIST',S.STUDENT_ID_SCHOOL,S.STUDENT_CODE, S.SNAME_KH,S.SNAME_LATIN, S.GENDER,dbo.F_DATE_KHMER(S.DOB) AS 'DOB_KHMER',(S.POB_PROVINCE+' ('+S.POB_VILLAGE+')')AS 'POB',I.YEAR_STUDY,I.CLASS_ID,C.CLASS_LETTER,S.FATHER_NAME ,S.MOTHER_NAME,C.CLASS_NUMBER,S.STUDENT_PHOTO,(SELECT SCHOOL_NAME_KH  FROM dbo.TBL_SCHOOL_INFO)AS 'SCHOOL_NAME',(SELECT PROVINCE FROM dbo.TBL_SCHOOL_INFO)AS 'PROVINCE_NAME' ,S.DOB FROM dbo.TBS_STUDENT_INFO AS S INNER JOIN dbo.TBS_STUDENT_STUDY_INFO AS I ON S.STUDENT_ID = I.STUDENT_ID INNER JOIN dbo.TBS_CLASS AS C ON I.CLASS_ID = C.CLASS_ID "
 
     'Declare instance of Crystal Report rpt
     Dim StudentCard_1 As New StudentCard_1
@@ -34,9 +34,9 @@ Public Class FrmStuCard
         cboClass.BackColor = Color.White
     End Sub
 
-    Private Sub AddStudentToSearchGridByYearStudy(ByVal yearStudy As String)
+    Private Sub SelectStudentByYear(ByVal yearStudy As String)
         Try
-            cmd = New SqlCommand("SELECT ROW_NUMBER() OVER(ORDER BY C.CLASS_NUMBER,C.CLASS_LETTER ASC) AS 'ROW_NUMBER',S.STUDENT_ID,'111'AS'ORDER_ID',S.STUDENT_ID_SCHOOL,S.STUDENT_CODE, S.SNAME_KH,S.SNAME_LATIN, S.GENDER,dbo.F_DATE_KHMER(S.DOB),(S.POB_PROVINCE+' ('+S.POB_VILLAGE+')')AS 'POB',I.YEAR_STUDY,I.CLASS_ID,C.CLASS_LETTER,S.FATHER_NAME ,S.MOTHER_NAME,C.CLASS_NUMBER,S.STUDENT_PHOTO,(SELECT SCHOOL_NAME_KH  FROM dbo.TBL_SCHOOL_INFO),(SELECT PROVINCE FROM dbo.TBL_SCHOOL_INFO) ,S.DOB FROM dbo.TBS_STUDENT_INFO AS S INNER JOIN dbo.TBS_STUDENT_STUDY_INFO AS I ON S.STUDENT_ID = I.STUDENT_ID INNER JOIN dbo.TBS_CLASS AS C ON I.CLASS_ID = C.CLASS_ID WHERE YEAR_STUDY = N'" & yearStudy & "' ", conn)
+            cmd = New SqlCommand(selectStudentSQL + " WHERE YEAR_STUDY = N'" & yearStudy & "' ", conn)
             da = New SqlDataAdapter(cmd)
             dt = New DataTable
             da.Fill(dt)
@@ -60,7 +60,7 @@ Public Class FrmStuCard
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Sub AddStudentToSearchGridByClass(ByVal yearStudy As String, ByVal classID As Integer)
+    Private Sub SelectStudentByYearAndClass(ByVal yearStudy As String, ByVal classID As Integer)
         Try
             cmd = New SqlCommand("SELECT ROW_NUMBER() OVER(ORDER BY C.CLASS_NUMBER,C.CLASS_LETTER ASC) AS 'ROW_NUMBER',S.STUDENT_ID,'111'AS'ORDER_ID',S.STUDENT_ID_SCHOOL,S.STUDENT_CODE, S.SNAME_KH,S.SNAME_LATIN, S.GENDER,dbo.F_DATE_KHMER(S.DOB),(S.POB_PROVINCE+' ('+S.POB_VILLAGE+')')AS 'POB',I.YEAR_STUDY,I.CLASS_ID,C.CLASS_LETTER,S.FATHER_NAME ,S.MOTHER_NAME,C.CLASS_NUMBER,S.STUDENT_PHOTO,(SELECT SCHOOL_NAME_KH FROM dbo.TBL_SCHOOL_INFO),(SELECT PROVINCE FROM dbo.TBL_SCHOOL_INFO),S.DOB  FROM dbo.TBS_STUDENT_INFO AS S INNER JOIN dbo.TBS_STUDENT_STUDY_INFO AS I ON S.STUDENT_ID = I.STUDENT_ID INNER JOIN dbo.TBS_CLASS AS C ON I.CLASS_ID = C.CLASS_ID WHERE YEAR_STUDY = N'" & yearStudy & "' AND I.CLASS_ID = " & classID & " ", conn)
             da = New SqlDataAdapter(cmd)
@@ -88,24 +88,27 @@ Public Class FrmStuCard
     End Sub
 
     Private Sub lblSearch_Click(sender As Object, e As EventArgs) Handles lblSearch.Click
-        If cboYearStudy.Text = "" Then
-            obj.ShowMsg("សូមជ្រើសរើសឆ្នាំសិក្សាជាមុន", FrmWarning, "Windows Ding.wav")
-            cboYearStudy.BackColor = Color.LavenderBlush
-            cboYearStudy.Focus()
-            Exit Sub
-        End If
+        Try
+            If cboYearStudy.Text = "" Then
+                obj.ShowMsg("សូមជ្រើសរើសឆ្នាំសិក្សាជាមុន", FrmWarning, "Windows Ding.wav")
+                cboYearStudy.BackColor = Color.LavenderBlush
+                cboYearStudy.Focus()
+                Exit Sub
+            End If
 
-        If (cboYearStudy.Text IsNot "" And cboOrdinalNum.Text = "" And cboClass.Text = "") Then
+            If (cboYearStudy.Text IsNot "" And cboOrdinalNum.Text = "" And cboClass.Text = "") Then
+                Call SelectStudentByYear(cboYearStudy.Text)
 
-            Call AddStudentToSearchGridByYearStudy(cboYearStudy.Text)
+            ElseIf ((cboYearStudy.Text IsNot "" And cboOrdinalNum.Text = "" And cboClass.Text IsNot "")) Then
 
-        ElseIf ((cboYearStudy.Text IsNot "" And cboOrdinalNum.Text = "" And cboClass.Text IsNot "")) Then
+                Call SelectStudentByYearAndClass(cboYearStudy.Text, cboClass.SelectedValue)
+            Else
+                MessageBox.Show("Search by Ordinal number...")
+            End If
 
-            Call AddStudentToSearchGridByClass(cboYearStudy.Text, cboClass.SelectedValue)
-        Else
-            MessageBox.Show("Search by Ordinal number...")
-        End If
-
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 
@@ -266,13 +269,13 @@ Public Class FrmStuCard
         Try
             DataSet1.STU_CARD.Clear()
             For i As Integer = 0 To dgSelected.RowCount - 1
-                DataSet1.STU_CARD.Rows.Add(dgSelected.Rows(i).Cells(3).Value.ToString, dgSelected.Rows(i).Cells(10).Value.ToString, dgSelected.Rows(i).Cells(5).Value.ToString, dgSelected.Rows(i).Cells(7).Value.ToString, dgSelected.Rows(i).Cells(8).Value.ToString, dgSelected.Rows(i).Cells(9).Value.ToString, dgSelected.Rows(i).Cells(13).Value.ToString, dgSelected.Rows(i).Cells(14).Value.ToString, dgSelected.Rows(i).Cells(12).Value.ToString, dgSelected.Rows(i).Cells(16).Value, dgSelected.Rows(i).Cells(17).Value, dgSelected.Rows(i).Cells(18).Value)
+                DataSet1.STU_CARD.Rows.Add(dgSelected.Rows(i).Cells(3).Value, dgSelected.Rows(i).Cells(10).Value.ToString, dgSelected.Rows(i).Cells(5).Value.ToString, dgSelected.Rows(i).Cells(7).Value.ToString, dgSelected.Rows(i).Cells(8).Value.ToString, dgSelected.Rows(i).Cells(9).Value.ToString, dgSelected.Rows(i).Cells(13).Value.ToString, dgSelected.Rows(i).Cells(14).Value.ToString, dgSelected.Rows(i).Cells(12).Value.ToString, dgSelected.Rows(i).Cells(16).Value, dgSelected.Rows(i).Cells(17).Value, dgSelected.Rows(i).Cells(18).Value)
             Next
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-    Private Sub lblPrint_Click(sender As Object, e As EventArgs) Handles lblPrint.Click
+    Private Sub lblPrintFromList_Click(sender As Object, e As EventArgs) Handles lblPrintFromList.Click
         Try
             Dim frmPrint As New FrmPrintStudentCard
 
@@ -281,9 +284,6 @@ Public Class FrmStuCard
                 Exit Sub
             End If
             Call AddDataToDataSet()
-
-
-
             Cursor = Cursors.WaitCursor
             Application.DoEvents()
             Call PrintCardBySelectedCardSize()
@@ -310,11 +310,11 @@ Public Class FrmStuCard
         End Try
     End Sub
 
-    Private Sub lblPrint_MouseHover(sender As Object, e As EventArgs) Handles lblPrint.MouseHover
-        t.Hover(lblPrint)
+    Private Sub lblPrint_MouseHover(sender As Object, e As EventArgs) Handles lblPrintFromList.MouseHover
+        t.Hover(lblPrintFromList)
     End Sub
-    Private Sub lblPrint_MouseLeave(sender As Object, e As EventArgs) Handles lblPrint.MouseLeave
-        t.Leave(lblPrint)
+    Private Sub lblPrint_MouseLeave(sender As Object, e As EventArgs) Handles lblPrintFromList.MouseLeave
+        t.Leave(lblPrintFromList)
     End Sub
 
     Private Sub lblDelete_MouseHover(sender As Object, e As EventArgs) Handles lblDelete.MouseHover
@@ -584,5 +584,53 @@ Public Class FrmStuCard
 
     Private Sub lblDisplayAll_Click(sender As Object, e As EventArgs) Handles lblDisplayAll.Click
         SelectStuCard()
+    End Sub
+
+    Private Sub picPrintFromList_MouseHover(sender As Object, e As EventArgs) Handles picPrintFromList.MouseHover
+        t.Hover(lblPrintFromList)
+    End Sub
+
+    Private Sub picPrintFromList_MouseLeave(sender As Object, e As EventArgs) Handles picPrintFromList.MouseLeave
+        t.Leave(lblPrintFromList)
+    End Sub
+
+    Private Sub picPrintFromList_Click(sender As Object, e As EventArgs) Handles picPrintFromList.Click
+        lblPrintFromList_Click(sender, e)
+    End Sub
+
+    Private Sub cboYearStudy_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboYearStudy.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub cboYearStudy_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles cboYearStudy.MouseDoubleClick
+        frm_year_study.ShowDialog()
+    End Sub
+
+    Private Sub cboClass_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles cboClass.MouseDoubleClick
+        frm_class.ShowDialog()
+    End Sub
+
+    Private Sub picSearch_Click(sender As Object, e As EventArgs) Handles picSearch.Click
+        lblSearch_Click(sender, e)
+    End Sub
+
+    Private Sub picSearch_MouseHover(sender As Object, e As EventArgs) Handles picSearch.MouseHover
+        t.Hover(lblSearch)
+    End Sub
+
+    Private Sub picSearch_MouseLeave(sender As Object, e As EventArgs) Handles picSearch.MouseLeave
+        t.Leave(lblSearch)
+    End Sub
+
+    Private Sub picDisplayAll_MouseHover(sender As Object, e As EventArgs) Handles picDisplayAll.MouseHover
+        t.Hover(lblDisplayAll)
+    End Sub
+
+    Private Sub picDisplayAll_MouseLeave(sender As Object, e As EventArgs) Handles picDisplayAll.MouseLeave
+        t.Leave(lblDisplayAll)
+    End Sub
+
+    Private Sub picDisplayAll_Click(sender As Object, e As EventArgs) Handles picDisplayAll.Click
+        lblDisplayAll_Click(sender, e)
     End Sub
 End Class
