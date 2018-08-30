@@ -23,14 +23,17 @@ Partial Class FrmStudentFormer
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.picClose = New System.Windows.Forms.PictureBox()
         Me.pic_student_info = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnl_search = New DevComponents.DotNetBar.PanelEx()
+        Me.cboSearchBatch = New System.Windows.Forms.ComboBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.picDisplayAll = New System.Windows.Forms.PictureBox()
         Me.lbl_adv_search = New System.Windows.Forms.LinkLabel()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.PanelAdvSearch = New DevComponents.DotNetBar.PanelEx()
@@ -47,14 +50,22 @@ Partial Class FrmStudentFormer
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.txt_ad_search = New System.Windows.Forms.TextBox()
         Me.PanelEx7 = New DevComponents.DotNetBar.PanelEx()
+        Me.a = New System.Windows.Forms.Label()
+        Me.lblPhoneNumber = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblOwnerName = New System.Windows.Forms.Label()
+        Me.lblCompanyInfro = New System.Windows.Forms.Label()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.pdate = New DevComponents.DotNetBar.PanelEx()
+        Me.picPrintReport = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cboStopYearStudy = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cboBatch = New System.Windows.Forms.ComboBox()
-        Me.lblPrintStudent = New System.Windows.Forms.Label()
+        Me.lblPrintReport = New System.Windows.Forms.Label()
         Me.cboStuFirstYearStudy = New System.Windows.Forms.ComboBox()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label81 = New System.Windows.Forms.Label()
@@ -164,18 +175,12 @@ Partial Class FrmStudentFormer
         Me.dgMain = New System.Windows.Forms.DataGridView()
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.a = New System.Windows.Forms.Label()
-        Me.lblPhoneNumber = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.lblEmail = New System.Windows.Forms.Label()
-        Me.lblOwnerName = New System.Windows.Forms.Label()
-        Me.lblCompanyInfro = New System.Windows.Forms.Label()
         Me.PanelEx2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picClose, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl_search.SuspendLayout()
+        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelAdvSearch.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx1.SuspendLayout()
@@ -185,6 +190,7 @@ Partial Class FrmStudentFormer
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
         Me.pdate.SuspendLayout()
+        CType(Me.picPrintReport, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pic_student, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControlPanel7.SuspendLayout()
         Me.PanelEx4.SuspendLayout()
@@ -269,6 +275,9 @@ Partial Class FrmStudentFormer
         '
         Me.pnl_search.CanvasColor = System.Drawing.SystemColors.Control
         Me.pnl_search.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.pnl_search.Controls.Add(Me.cboSearchBatch)
+        Me.pnl_search.Controls.Add(Me.Label17)
+        Me.pnl_search.Controls.Add(Me.picDisplayAll)
         Me.pnl_search.Controls.Add(Me.lbl_adv_search)
         Me.pnl_search.Controls.Add(Me.Label13)
         Me.pnl_search.Controls.Add(Me.PanelAdvSearch)
@@ -291,6 +300,38 @@ Partial Class FrmStudentFormer
         Me.pnl_search.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.pnl_search.Style.GradientAngle = 90
         Me.pnl_search.TabIndex = 11
+        '
+        'cboSearchBatch
+        '
+        Me.cboSearchBatch.DropDownHeight = 140
+        Me.cboSearchBatch.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.cboSearchBatch.FormattingEnabled = True
+        Me.cboSearchBatch.IntegralHeight = False
+        Me.cboSearchBatch.Location = New System.Drawing.Point(758, 2)
+        Me.cboSearchBatch.Name = "cboSearchBatch"
+        Me.cboSearchBatch.Size = New System.Drawing.Size(152, 38)
+        Me.cboSearchBatch.TabIndex = 196
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(697, 6)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(52, 30)
+        Me.Label17.TabIndex = 195
+        Me.Label17.Text = "ជំនាន់"
+        '
+        'picDisplayAll
+        '
+        Me.picDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picDisplayAll.Image = Global.STU_MS.My.Resources.Resources.selectAll
+        Me.picDisplayAll.Location = New System.Drawing.Point(926, 6)
+        Me.picDisplayAll.Name = "picDisplayAll"
+        Me.picDisplayAll.Size = New System.Drawing.Size(29, 28)
+        Me.picDisplayAll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDisplayAll.TabIndex = 14
+        Me.picDisplayAll.TabStop = False
         '
         'lbl_adv_search
         '
@@ -362,19 +403,19 @@ Partial Class FrmStudentFormer
         Me.lblDisplayAll.AutoSize = True
         Me.lblDisplayAll.BackColor = System.Drawing.Color.Transparent
         Me.lblDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblDisplayAll.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
+        Me.lblDisplayAll.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDisplayAll.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lblDisplayAll.Location = New System.Drawing.Point(682, 2)
+        Me.lblDisplayAll.Location = New System.Drawing.Point(952, 5)
         Me.lblDisplayAll.Name = "lblDisplayAll"
-        Me.lblDisplayAll.Size = New System.Drawing.Size(147, 38)
+        Me.lblDisplayAll.Size = New System.Drawing.Size(75, 32)
         Me.lblDisplayAll.TabIndex = 188
-        Me.lblDisplayAll.Text = "បង្ហាញទាំងអស់"
+        Me.lblDisplayAll.Text = "ទាំងអស់"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(193, 6)
+        Me.Label3.Location = New System.Drawing.Point(190, 6)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(78, 30)
         Me.Label3.TabIndex = 187
@@ -386,7 +427,7 @@ Partial Class FrmStudentFormer
         Me.cboSearchYear.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.cboSearchYear.FormattingEnabled = True
         Me.cboSearchYear.IntegralHeight = False
-        Me.cboSearchYear.Location = New System.Drawing.Point(510, 2)
+        Me.cboSearchYear.Location = New System.Drawing.Point(539, 2)
         Me.cboSearchYear.Name = "cboSearchYear"
         Me.cboSearchYear.Size = New System.Drawing.Size(152, 38)
         Me.cboSearchYear.TabIndex = 186
@@ -397,9 +438,9 @@ Partial Class FrmStudentFormer
         Me.Label5.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(435, 6)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(69, 30)
+        Me.Label5.Size = New System.Drawing.Size(102, 30)
         Me.Label5.TabIndex = 20
-        Me.Label5.Text = "ឆ្នាំសិក្សា"
+        Me.Label5.Text = "ឆ្នាំសិក្សាដំបូង"
         '
         'cboStudentName
         '
@@ -421,9 +462,9 @@ Partial Class FrmStudentFormer
         Me.lblSearchResult.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblSearchResult.Location = New System.Drawing.Point(1251, 6)
         Me.lblSearchResult.Name = "lblSearchResult"
-        Me.lblSearchResult.Size = New System.Drawing.Size(51, 32)
+        Me.lblSearchResult.Size = New System.Drawing.Size(59, 32)
         Me.lblSearchResult.TabIndex = 191
-        Me.lblSearchResult.Text = "9999"
+        Me.lblSearchResult.Text = "0 នាក់"
         '
         'PanelEx1
         '
@@ -503,6 +544,77 @@ Partial Class FrmStudentFormer
         Me.PanelEx7.Style.GradientAngle = 90
         Me.PanelEx7.TabIndex = 295
         '
+        'a
+        '
+        Me.a.AutoSize = True
+        Me.a.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.a.Location = New System.Drawing.Point(218, 5)
+        Me.a.Name = "a"
+        Me.a.Size = New System.Drawing.Size(89, 27)
+        Me.a.TabIndex = 229
+        Me.a.Text = "- ទំនាក់ទំនង "
+        '
+        'lblPhoneNumber
+        '
+        Me.lblPhoneNumber.AutoSize = True
+        Me.lblPhoneNumber.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPhoneNumber.Location = New System.Drawing.Point(471, 5)
+        Me.lblPhoneNumber.Name = "lblPhoneNumber"
+        Me.lblPhoneNumber.Size = New System.Drawing.Size(89, 27)
+        Me.lblPhoneNumber.TabIndex = 235
+        Me.lblPhoneNumber.Text = "00000000000"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(583, 5)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(53, 27)
+        Me.Label15.TabIndex = 231
+        Me.Label15.Text = "Email ៖"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(387, 5)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(89, 27)
+        Me.Label16.TabIndex = 234
+        Me.Label16.Text = "លេខទូរស័ព្ទ៖"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblEmail.Location = New System.Drawing.Point(637, 4)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(42, 27)
+        Me.lblEmail.TabIndex = 230
+        Me.lblEmail.Text = "emai "
+        '
+        'lblOwnerName
+        '
+        Me.lblOwnerName.AutoSize = True
+        Me.lblOwnerName.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOwnerName.Location = New System.Drawing.Point(306, 5)
+        Me.lblOwnerName.Name = "lblOwnerName"
+        Me.lblOwnerName.Size = New System.Drawing.Size(43, 27)
+        Me.lblOwnerName.TabIndex = 233
+        Me.lblOwnerName.Text = "name"
+        '
+        'lblCompanyInfro
+        '
+        Me.lblCompanyInfro.AutoSize = True
+        Me.lblCompanyInfro.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompanyInfro.Location = New System.Drawing.Point(6, 4)
+        Me.lblCompanyInfro.Name = "lblCompanyInfro"
+        Me.lblCompanyInfro.Size = New System.Drawing.Size(210, 27)
+        Me.lblCompanyInfro.TabIndex = 232
+        Me.lblCompanyInfro.Text = "Smart Business Software Solution"
+        '
         'TabControl1
         '
         Me.TabControl1.BackColor = System.Drawing.Color.Transparent
@@ -547,11 +659,12 @@ Partial Class FrmStudentFormer
         '
         Me.pdate.CanvasColor = System.Drawing.SystemColors.Control
         Me.pdate.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.pdate.Controls.Add(Me.picPrintReport)
         Me.pdate.Controls.Add(Me.Label10)
         Me.pdate.Controls.Add(Me.cboStopYearStudy)
         Me.pdate.Controls.Add(Me.Label4)
         Me.pdate.Controls.Add(Me.cboBatch)
-        Me.pdate.Controls.Add(Me.lblPrintStudent)
+        Me.pdate.Controls.Add(Me.lblPrintReport)
         Me.pdate.Controls.Add(Me.cboStuFirstYearStudy)
         Me.pdate.Controls.Add(Me.Label85)
         Me.pdate.Controls.Add(Me.Label81)
@@ -600,6 +713,17 @@ Partial Class FrmStudentFormer
         Me.pdate.Style.GradientAngle = 90
         Me.pdate.TabIndex = 110
         '
+        'picPrintReport
+        '
+        Me.picPrintReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picPrintReport.Image = Global.STU_MS.My.Resources.Resources.Printer_icon_43242
+        Me.picPrintReport.Location = New System.Drawing.Point(13, 291)
+        Me.picPrintReport.Name = "picPrintReport"
+        Me.picPrintReport.Size = New System.Drawing.Size(31, 35)
+        Me.picPrintReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picPrintReport.TabIndex = 14
+        Me.picPrintReport.TabStop = False
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -646,18 +770,18 @@ Partial Class FrmStudentFormer
         Me.cboBatch.Size = New System.Drawing.Size(201, 38)
         Me.cboBatch.TabIndex = 209
         '
-        'lblPrintStudent
+        'lblPrintReport
         '
-        Me.lblPrintStudent.AutoSize = True
-        Me.lblPrintStudent.BackColor = System.Drawing.Color.Transparent
-        Me.lblPrintStudent.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblPrintStudent.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrintStudent.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lblPrintStudent.Location = New System.Drawing.Point(17, 288)
-        Me.lblPrintStudent.Name = "lblPrintStudent"
-        Me.lblPrintStudent.Size = New System.Drawing.Size(173, 38)
-        Me.lblPrintStudent.TabIndex = 208
-        Me.lblPrintStudent.Text = "បោះពុម្ពបញ្ជីឈ្មោះ"
+        Me.lblPrintReport.AutoSize = True
+        Me.lblPrintReport.BackColor = System.Drawing.Color.Transparent
+        Me.lblPrintReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblPrintReport.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrintReport.ForeColor = System.Drawing.Color.MediumBlue
+        Me.lblPrintReport.Location = New System.Drawing.Point(48, 291)
+        Me.lblPrintReport.Name = "lblPrintReport"
+        Me.lblPrintReport.Size = New System.Drawing.Size(173, 38)
+        Me.lblPrintReport.TabIndex = 208
+        Me.lblPrintReport.Text = "បោះពុម្ពបញ្ជីឈ្មោះ"
         '
         'cboStuFirstYearStudy
         '
@@ -1025,12 +1149,12 @@ Partial Class FrmStudentFormer
         Me.txtStuIDSchool.Size = New System.Drawing.Size(201, 38)
         Me.txtStuIDSchool.TabIndex = 125
         '
-        'txtStuID
+        'txtRecordID
         '
         Me.txtRecordID.Enabled = False
         Me.txtRecordID.Font = New System.Drawing.Font("Khmer OS", 11.25!)
         Me.txtRecordID.Location = New System.Drawing.Point(186, 12)
-        Me.txtRecordID.Name = "txtStuID"
+        Me.txtRecordID.Name = "txtRecordID"
         Me.txtRecordID.Size = New System.Drawing.Size(201, 38)
         Me.txtRecordID.TabIndex = 123
         '
@@ -1976,21 +2100,21 @@ Partial Class FrmStudentFormer
         Me.dgMain.AllowUserToResizeRows = False
         Me.dgMain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgMain.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgMain.Location = New System.Drawing.Point(4, 3)
         Me.dgMain.MultiSelect = False
         Me.dgMain.Name = "dgMain"
         Me.dgMain.ReadOnly = True
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgMain.Size = New System.Drawing.Size(1356, 191)
         Me.dgMain.TabIndex = 2
@@ -2004,77 +2128,6 @@ Partial Class FrmStudentFormer
         '
         Me.BindingSource1.DataMember = "dtStudentFormer"
         Me.BindingSource1.DataSource = Me.DataSet1
-        '
-        'a
-        '
-        Me.a.AutoSize = True
-        Me.a.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.a.Location = New System.Drawing.Point(218, 5)
-        Me.a.Name = "a"
-        Me.a.Size = New System.Drawing.Size(89, 27)
-        Me.a.TabIndex = 229
-        Me.a.Text = "- ទំនាក់ទំនង "
-        '
-        'lblPhoneNumber
-        '
-        Me.lblPhoneNumber.AutoSize = True
-        Me.lblPhoneNumber.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPhoneNumber.Location = New System.Drawing.Point(471, 5)
-        Me.lblPhoneNumber.Name = "lblPhoneNumber"
-        Me.lblPhoneNumber.Size = New System.Drawing.Size(89, 27)
-        Me.lblPhoneNumber.TabIndex = 235
-        Me.lblPhoneNumber.Text = "00000000000"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(583, 5)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(53, 27)
-        Me.Label15.TabIndex = 231
-        Me.Label15.Text = "Email ៖"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(387, 5)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(89, 27)
-        Me.Label16.TabIndex = 234
-        Me.Label16.Text = "លេខទូរស័ព្ទ៖"
-        '
-        'lblEmail
-        '
-        Me.lblEmail.AutoSize = True
-        Me.lblEmail.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblEmail.Location = New System.Drawing.Point(637, 4)
-        Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(42, 27)
-        Me.lblEmail.TabIndex = 230
-        Me.lblEmail.Text = "emai "
-        '
-        'lblOwnerName
-        '
-        Me.lblOwnerName.AutoSize = True
-        Me.lblOwnerName.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOwnerName.Location = New System.Drawing.Point(306, 5)
-        Me.lblOwnerName.Name = "lblOwnerName"
-        Me.lblOwnerName.Size = New System.Drawing.Size(43, 27)
-        Me.lblOwnerName.TabIndex = 233
-        Me.lblOwnerName.Text = "name"
-        '
-        'lblCompanyInfro
-        '
-        Me.lblCompanyInfro.AutoSize = True
-        Me.lblCompanyInfro.Font = New System.Drawing.Font("Khmer OS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCompanyInfro.Location = New System.Drawing.Point(6, 4)
-        Me.lblCompanyInfro.Name = "lblCompanyInfro"
-        Me.lblCompanyInfro.Size = New System.Drawing.Size(210, 27)
-        Me.lblCompanyInfro.TabIndex = 232
-        Me.lblCompanyInfro.Text = "Smart Business Software Solution"
         '
         'FrmStudentFormer
         '
@@ -2097,6 +2150,7 @@ Partial Class FrmStudentFormer
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl_search.ResumeLayout(False)
         Me.pnl_search.PerformLayout()
+        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelAdvSearch.ResumeLayout(False)
         Me.PanelAdvSearch.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2110,6 +2164,7 @@ Partial Class FrmStudentFormer
         Me.TabControlPanel1.ResumeLayout(False)
         Me.pdate.ResumeLayout(False)
         Me.pdate.PerformLayout()
+        CType(Me.picPrintReport, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pic_student, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControlPanel7.ResumeLayout(False)
         Me.PanelEx4.ResumeLayout(False)
@@ -2265,7 +2320,7 @@ Partial Class FrmStudentFormer
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents txt_ad_search As TextBox
-    Friend WithEvents lblPrintStudent As Label
+    Friend WithEvents lblPrintReport As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents cboBatch As ComboBox
     Friend WithEvents Label10 As Label
@@ -2279,4 +2334,8 @@ Partial Class FrmStudentFormer
     Friend WithEvents lblEmail As Label
     Friend WithEvents lblOwnerName As Label
     Friend WithEvents lblCompanyInfro As Label
+    Friend WithEvents picPrintReport As PictureBox
+    Friend WithEvents picDisplayAll As PictureBox
+    Friend WithEvents cboSearchBatch As ComboBox
+    Friend WithEvents Label17 As Label
 End Class

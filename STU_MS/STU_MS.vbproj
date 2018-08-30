@@ -904,6 +904,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo_WO8_icon.ico" />
+    <None Include="Resources\selectAll.png" />
     <None Include="Resources\cash1.png" />
     <None Include="Resources\cash.png" />
     <None Include="Resources\pro.png" />

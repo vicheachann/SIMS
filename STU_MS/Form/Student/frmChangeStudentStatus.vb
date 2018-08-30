@@ -51,13 +51,12 @@
     Private Sub lblOk_Click(sender As Object, e As EventArgs) Handles lblOk.Click
         Try
             If (Validation.IsEmpty(cboStudentstatus, "ស្ថានភាពសិក្សា")) Then Exit Sub
-
-
             For Each id In FrmChangeClass.studentID
                 obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & cboStudentstatus.SelectedValue & " WHERE STUDENT_ID = " & id & " ")
                 obj.InsertToStudentFormer(id)
             Next
-            MessageBox.Show("All has been saved")
+            obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
+            Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message, CompanyInfo.CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -65,6 +64,10 @@
 
     Private Sub cboStudentstatus_TextChanged(sender As Object, e As EventArgs) Handles cboStudentstatus.TextChanged
         cboStudentstatus.BackColor = Color.White
+    End Sub
+
+    Private Sub picClose_Click(sender As Object, e As EventArgs) Handles picClose.Click
+        Close()
     End Sub
 
     'Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click

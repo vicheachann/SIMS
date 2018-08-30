@@ -330,11 +330,12 @@ Public Class FrmChangeClass
     End Sub
 
     Private Sub lblChangeToStudentFormer_MouseLeave(sender As Object, e As EventArgs) Handles lblChangeToStudentFormer.MouseLeave
-        t.Leave(lblChangeToStudentFormer)
+        lblChangeToStudentFormer.ForeColor = Color.Navy
     End Sub
 
     Private Sub lblChangeToStudentFormer_Click(sender As Object, e As EventArgs) Handles lblChangeToStudentFormer.Click
-        obj.ShowMsg("តើអ្នកចង់បញ្ចូលព័ត៌មានទាំងអស់នេះទៅជាអតីតសិស្សដែលឬទេ ?", msg_question_big, "")
+        pnl1.Visible = False
+        obj.ShowMsg("តើអ្នកចង់បញ្ចូលព័ត៌មានទាំងអស់នេះទៅជាអតីតសិស្សដែលឬទេ ?", FrmMessageQuestion, "")
         If USER_CLICK_OK = True Then
             Try
                 Call GetStudentID()

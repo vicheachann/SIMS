@@ -573,13 +573,17 @@ Public Class FrmStudentFormer
     End Sub
 
     Private Sub cboStudentName_DropDown(sender As Object, e As EventArgs) Handles cboStudentName.DropDown
-        obj.BindComboBox("SELECT STUDENT_ID,SNAME_KH FROM dbo.TBS_STUDENT_INFO_FORMER", cboStudentName, "SNAME_KH", "STUDENT_ID")
+        obj.BindComboBoxWithAll("SELECT STUDENT_ID,SNAME_KH FROM dbo.TBS_STUDENT_INFO_FORMER", cboStudentName, "SNAME_KH", "STUDENT_ID")
     End Sub
 
     Private Sub cboStudentName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboStudentName.SelectedIndexChanged
         Try
-            obj.BindDataGridView(selectStudentSql + "  WHERE S.STUDENT_ID = " & cboStudentName.SelectedValue & "", dgMain)
-            SetDgMainHeader()
+            If (cboStudentName.Text = "ទាំងអស់") Then
+                Call SelectStudent()
+            Else
+                obj.BindDataGridView(selectStudentSql + "  WHERE S.STUDENT_ID = " & cboStudentName.SelectedValue & "", dgMain)
+                SetDgMainHeader()
+            End If
         Catch ex As Exception
             _ExceptionMessage = ex.Message
             Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
@@ -587,17 +591,27 @@ Public Class FrmStudentFormer
     End Sub
 
     Private Sub lblDisplayAll_Click(sender As Object, e As EventArgs) Handles lblDisplayAll.Click
+        cboStudentName.Text = ""
+        cboSearchYear.Text = ""
+        cboSearchBatch.Text = ""
+        Cursor = Cursors.WaitCursor
+        Application.DoEvents()
         SelectStudent()
+        Cursor = Cursors.Default
     End Sub
 
     Private Sub cboSearchYear_DropDown(sender As Object, e As EventArgs) Handles cboSearchYear.DropDown
-        obj.BindComboBox("SELECT YEAR_ID,YEAR_STUDY_KH FROM dbo.TBL_YEAR_STUDY ORDER BY YEAR_STUDY_KH DESC", cboSearchYear, "YEAR_STUDY_KH", "YEAR_ID")
+        obj.BindComboBoxWithAll("SELECT YEAR_ID,YEAR_STUDY_KH FROM dbo.TBL_YEAR_STUDY ORDER BY YEAR_STUDY_KH DESC", cboSearchYear, "YEAR_STUDY_KH", "YEAR_ID")
     End Sub
 
     Private Sub cboSearchYear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSearchYear.SelectedIndexChanged
         Try
-            obj.BindDataGridView(selectStudentSql + "  WHERE S.FIRST_YEAR_STUDY = N'" & cboSearchYear.Text & "'", dgMain)
-            SetDgMainHeader()
+            If (cboSearchYear.Text = "ទាំងអស់") Then
+                Call SelectStudent()
+            Else
+                obj.BindDataGridView(selectStudentSql + "  WHERE S.FIRST_YEAR_STUDY = N'" & cboSearchYear.Text & "'", dgMain)
+                SetDgMainHeader()
+            End If
         Catch ex As Exception
             _ExceptionMessage = ex.Message
             Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
@@ -693,12 +707,12 @@ Public Class FrmStudentFormer
         t.Leave(lblDisplayAll)
     End Sub
 
-    Private Sub lblPrintStudent_MouseHover(sender As Object, e As EventArgs) Handles lblPrintStudent.MouseHover
-        t.Hover(lblPrintStudent)
+    Private Sub lblPrintStudent_MouseHover(sender As Object, e As EventArgs) Handles lblPrintReport.MouseHover
+        t.Hover(lblPrintReport)
     End Sub
 
-    Private Sub lblPrintStudent_MouseLeave(sender As Object, e As EventArgs) Handles lblPrintStudent.MouseLeave
-        t.Leave(lblPrintStudent)
+    Private Sub lblPrintStudent_MouseLeave(sender As Object, e As EventArgs) Handles lblPrintReport.MouseLeave
+        t.Leave(lblPrintReport)
     End Sub
 
     Private Sub cboBatch_DropDown(sender As Object, e As EventArgs) Handles cboBatch.DropDown
@@ -708,28 +722,30 @@ Public Class FrmStudentFormer
     Private Sub DetermineWhatToQuery()
         Try
             Dim batchID As String
-            If (cboStuFirstYearStudy.Text = "" And cboBatch.Text = "") Then
+            If (cboSearchYear.Text = "" Or cboSearchYear.Text = "ទាំងអស់" And cboSearchBatch.Text = "" Or cboSearchBatch.Text = "ទាំងអស់") Then
                 selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST"
                 batch = "ទាំងអស់"
-            ElseIf (cboStuFirstYearStudy.Text = "" And cboBatch.Text <> "") Then
-                batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboBatch.Text & "'")
+            ElseIf (cboSearchYear.Text = "" Or cboSearchYear.Text = "ទាំងអស់" And cboSearchBatch.Text <> "" Or cboSearchBatch.Text <> "ទាំងអស់") Then
+                batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboSearchBatch.Text & "'")
                 selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE BATCH_ID = " & batchID & ""
-                batch = cboBatch.Text
-            ElseIf (cboStuFirstYearStudy.Text <> "" And cboBatch.Text = "") Then
-                selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "'"
+                batch = cboSearchBatch.Text
+            ElseIf (cboSearchYear.Text <> "" Or cboSearchYear.Text <> "ទាំងអស់" And cboSearchBatch.Text = "" Or cboSearchBatch.Text = "ទាំងអស់") Then
+                selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboSearchYear.Text & "'"
                 batch = "ទាំងអស់"
             Else
-                batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboBatch.Text & "'")
-                selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "' AND BATCH_ID = " & batchID & ""
-                batch = cboBatch.Text
+                batchID = obj.GetID("SELECT BATCH_ID FROM dbo.TBL_BATCH WHERE BATCH = N'" & cboSearchBatch.Text & "'")
+                selectReportSql = "SELECT * FROM dbo.V_STUDENT_FORMER_LIST WHERE FIRST_YEAR_STUDY = N'" & cboSearchYear.Text & "' AND BATCH_ID = " & batchID & ""
+                batch = cboSearchBatch.Text
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
-    Private Sub lblPrintStudent_Click(sender As Object, e As EventArgs) Handles lblPrintStudent.Click
+    Private Sub lblPrintStudent_Click(sender As Object, e As EventArgs) Handles lblPrintReport.Click
         Try
+            Cursor = Cursors.WaitCursor
+            Application.DoEvents()
             Call obj.OpenConnection()
             DetermineWhatToQuery()
             cmd = New SqlCommand(selectReportSql, conn)
@@ -743,6 +759,7 @@ Public Class FrmStudentFormer
             obj.SendParam("paramBatch", batch, FrmViewReport.ReportViewer)
             FrmViewReport.ReportViewer.RefreshReport()
             FrmViewReport.ShowDialog()
+            Cursor = Cursors.Default
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -757,5 +774,59 @@ Public Class FrmStudentFormer
         lblOwnerName.Text = CompanyInfo.Name
         lblPhoneNumber.Text = CompanyInfo.Tel
         lblEmail.Text = CompanyInfo.Email
+    End Sub
+
+    Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles picPrintReport.Click
+        lblPrintStudent_Click(sender, e)
+    End Sub
+
+    Private Sub picDisplayAll_Click(sender As Object, e As EventArgs) Handles picDisplayAll.Click
+        lblDisplayAll_Click(sender, e)
+    End Sub
+
+    Private Sub cboSearchBatch_DropDown(sender As Object, e As EventArgs) Handles cboSearchBatch.DropDown
+        obj.BindComboBoxWithAll("SELECT BATCH_ID,BATCH FROM dbo.TBL_BATCH ORDER BY CAST(BATCH AS INT) ", cboSearchBatch, "BATCH", "BATCH_ID")
+    End Sub
+
+    Private Sub picDisplayAll_MouseHover(sender As Object, e As EventArgs) Handles picDisplayAll.MouseHover
+        t.Hover(lblDisplayAll)
+    End Sub
+
+    Private Sub picDisplayAll_MouseLeave(sender As Object, e As EventArgs) Handles picDisplayAll.MouseLeave
+        t.Leave(lblDisplayAll)
+    End Sub
+
+    Private Sub cboSearchBatch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboSearchBatch.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub cboSearchYear_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboSearchYear.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub cboStudentName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboStudentName.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub picPrintReport_MouseHover(sender As Object, e As EventArgs) Handles picPrintReport.MouseHover
+        t.Hover(lblPrintReport)
+    End Sub
+
+    Private Sub picPrintReport_MouseLeave(sender As Object, e As EventArgs) Handles picPrintReport.MouseLeave
+        t.Leave(lblPrintReport)
+    End Sub
+
+    Private Sub cboSearchBatch_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSearchBatch.SelectedIndexChanged
+        Try
+            If (cboSearchBatch.Text = "ទាំងអស់") Then
+                Call SelectStudent()
+            Else
+                obj.BindDataGridView(selectStudentSql + "  WHERE S.BATCH_ID = " & cboSearchBatch.SelectedValue & "", dgMain)
+                SetDgMainHeader()
+            End If
+        Catch ex As Exception
+            _ExceptionMessage = ex.Message
+            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+        End Try
     End Sub
 End Class

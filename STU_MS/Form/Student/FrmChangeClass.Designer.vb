@@ -22,8 +22,8 @@ Partial Class FrmChangeClass
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
         Me.dg = New System.Windows.Forms.DataGridView()
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -106,20 +106,20 @@ Partial Class FrmChangeClass
         Me.dg.AllowUserToDeleteRows = False
         Me.dg.AllowUserToResizeColumns = False
         Me.dg.AllowUserToResizeRows = False
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS", 10.0!)
-        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 10.0!)
+        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dg.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dg.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.Column10, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.Column15, Me.Column14, Me.Column6, Me.Column7, Me.Column8, Me.Column16, Me.Column9, Me.Column13, Me.Column18})
         Me.dg.Location = New System.Drawing.Point(6, 92)
@@ -305,7 +305,7 @@ Partial Class FrmChangeClass
         Me.lblChangeToStudentFormer.BackColor = System.Drawing.Color.Transparent
         Me.lblChangeToStudentFormer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblChangeToStudentFormer.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblChangeToStudentFormer.ForeColor = System.Drawing.Color.Blue
+        Me.lblChangeToStudentFormer.ForeColor = System.Drawing.Color.Navy
         Me.lblChangeToStudentFormer.Location = New System.Drawing.Point(596, 4)
         Me.lblChangeToStudentFormer.Name = "lblChangeToStudentFormer"
         Me.lblChangeToStudentFormer.Size = New System.Drawing.Size(153, 38)
