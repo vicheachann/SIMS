@@ -80,6 +80,8 @@ Partial Class frm_student_education
         Me.lblChangStudyInfoStatus = New System.Windows.Forms.Label()
         Me.lblNew = New System.Windows.Forms.Label()
         Me.dg = New System.Windows.Forms.DataGridView()
+        Me.DataSet1 = New STU_MS.DataSet1()
+        Me.bsStudentList = New System.Windows.Forms.BindingSource(Me.components)
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -99,8 +101,6 @@ Partial Class frm_student_education
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataSet1 = New STU_MS.DataSet1()
-        Me.bsStudentList = New System.Windows.Forms.BindingSource(Me.components)
         Me.PanelEx2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -869,6 +869,16 @@ Partial Class frm_student_education
         Me.dg.Size = New System.Drawing.Size(1344, 495)
         Me.dg.TabIndex = 277
         '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'bsStudentList
+        '
+        Me.bsStudentList.DataMember = "dtStudent"
+        Me.bsStudentList.DataSource = Me.DataSet1
+        '
         'Column17
         '
         Me.Column17.HeaderText = "RECORD_ID"
@@ -992,16 +1002,6 @@ Partial Class frm_student_education
         Me.Column19.Name = "Column19"
         Me.Column19.Visible = False
         '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'bsStudentList
-        '
-        Me.bsStudentList.DataMember = "dtStudent"
-        Me.bsStudentList.DataSource = Me.DataSet1
-        '
         'frm_student_education
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1080,6 +1080,20 @@ Partial Class frm_student_education
     Friend WithEvents lblRevertSelection As Label
     Friend WithEvents lblPrint As Label
     Friend WithEvents lblDelete As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents cboTeacher As ComboBox
+    Friend WithEvents DataSet1 As DataSet1
+    Friend WithEvents bsStudentList As BindingSource
+    Friend WithEvents PanelEx5 As DevComponents.DotNetBar.PanelEx
+    Friend WithEvents a As Label
+    Friend WithEvents lblPhoneNumber As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblOwnerName As Label
+    Friend WithEvents lblCompanyInfro As Label
+    Friend WithEvents picChangeStudyStatus As PictureBox
+    Friend WithEvents picPrint As PictureBox
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewCheckBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
@@ -1099,18 +1113,4 @@ Partial Class frm_student_education
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column18 As DataGridViewTextBoxColumn
     Friend WithEvents Column19 As DataGridViewTextBoxColumn
-    Friend WithEvents Label13 As Label
-    Friend WithEvents cboTeacher As ComboBox
-    Friend WithEvents DataSet1 As DataSet1
-    Friend WithEvents bsStudentList As BindingSource
-    Friend WithEvents PanelEx5 As DevComponents.DotNetBar.PanelEx
-    Friend WithEvents a As Label
-    Friend WithEvents lblPhoneNumber As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents lblEmail As Label
-    Friend WithEvents lblOwnerName As Label
-    Friend WithEvents lblCompanyInfro As Label
-    Friend WithEvents picChangeStudyStatus As PictureBox
-    Friend WithEvents picPrint As PictureBox
 End Class

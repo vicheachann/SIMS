@@ -8,7 +8,7 @@ Public Class FrmChangeClass
     Public Shared studentID As Integer()
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        frm_student_education.Search()
+        frm_student_education.SelectSearchResult()
         Close()
     End Sub
 #Region "Shadow effect"

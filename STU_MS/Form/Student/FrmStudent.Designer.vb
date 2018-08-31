@@ -35,6 +35,8 @@ Partial Class FrmStudent
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.pdate = New DevComponents.DotNetBar.PanelEx()
+        Me.picReStudy = New System.Windows.Forms.PictureBox()
+        Me.lblReStudy = New System.Windows.Forms.Label()
         Me.cbStuJoinDate = New System.Windows.Forms.CheckBox()
         Me.cbStuDOB = New System.Windows.Forms.CheckBox()
         Me.lblPrintStudentList = New System.Windows.Forms.Label()
@@ -256,6 +258,7 @@ Partial Class FrmStudent
         Me.pnl_grid = New System.Windows.Forms.Panel()
         Me.dgMain = New System.Windows.Forms.DataGridView()
         Me.pnl_search = New DevComponents.DotNetBar.PanelEx()
+        Me.picDisplayAll = New System.Windows.Forms.PictureBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.PanelAdvSearch = New DevComponents.DotNetBar.PanelEx()
         Me.lblClearTxtAdSearch = New System.Windows.Forms.Label()
@@ -285,12 +288,12 @@ Partial Class FrmStudent
         Me.TabItem12 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.picDisplayAll = New System.Windows.Forms.PictureBox()
         Me.pnl_main.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
         Me.pdate.SuspendLayout()
+        CType(Me.picReStudy, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.pic_student, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -320,6 +323,7 @@ Partial Class FrmStudent
         Me.pnl_grid.SuspendLayout()
         CType(Me.dgMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl_search.SuspendLayout()
+        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelAdvSearch.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx2.SuspendLayout()
@@ -328,7 +332,6 @@ Partial Class FrmStudent
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelEx1
@@ -422,6 +425,8 @@ Partial Class FrmStudent
         '
         Me.pdate.CanvasColor = System.Drawing.SystemColors.Control
         Me.pdate.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.pdate.Controls.Add(Me.picReStudy)
+        Me.pdate.Controls.Add(Me.lblReStudy)
         Me.pdate.Controls.Add(Me.cbStuJoinDate)
         Me.pdate.Controls.Add(Me.cbStuDOB)
         Me.pdate.Controls.Add(Me.lblPrintStudentList)
@@ -512,6 +517,31 @@ Partial Class FrmStudent
         Me.pdate.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.pdate.Style.GradientAngle = 90
         Me.pdate.TabIndex = 110
+        '
+        'picReStudy
+        '
+        Me.picReStudy.BackColor = System.Drawing.Color.Transparent
+        Me.picReStudy.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picReStudy.Image = Global.STU_MS.My.Resources.Resources.skill_9432423
+        Me.picReStudy.Location = New System.Drawing.Point(1154, 369)
+        Me.picReStudy.Name = "picReStudy"
+        Me.picReStudy.Size = New System.Drawing.Size(33, 30)
+        Me.picReStudy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picReStudy.TabIndex = 219
+        Me.picReStudy.TabStop = False
+        '
+        'lblReStudy
+        '
+        Me.lblReStudy.AutoSize = True
+        Me.lblReStudy.BackColor = System.Drawing.Color.Transparent
+        Me.lblReStudy.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblReStudy.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReStudy.ForeColor = System.Drawing.Color.MediumBlue
+        Me.lblReStudy.Location = New System.Drawing.Point(1183, 367)
+        Me.lblReStudy.Name = "lblReStudy"
+        Me.lblReStudy.Size = New System.Drawing.Size(139, 38)
+        Me.lblReStudy.TabIndex = 218
+        Me.lblReStudy.Text = "សុំចូលរៀនវិញ"
         '
         'cbStuJoinDate
         '
@@ -619,7 +649,7 @@ Partial Class FrmStudent
         Me.Label100.BackColor = System.Drawing.Color.Transparent
         Me.Label100.Font = New System.Drawing.Font("Khmer OS", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label100.ForeColor = System.Drawing.Color.Brown
-        Me.Label100.Location = New System.Drawing.Point(795, 216)
+        Me.Label100.Location = New System.Drawing.Point(795, 214)
         Me.Label100.Name = "Label100"
         Me.Label100.Size = New System.Drawing.Size(68, 24)
         Me.Label100.TabIndex = 209
@@ -631,7 +661,7 @@ Partial Class FrmStudent
         Me.Label99.BackColor = System.Drawing.Color.Transparent
         Me.Label99.Font = New System.Drawing.Font("Khmer OS", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label99.ForeColor = System.Drawing.Color.Brown
-        Me.Label99.Location = New System.Drawing.Point(773, 178)
+        Me.Label99.Location = New System.Drawing.Point(773, 174)
         Me.Label99.Name = "Label99"
         Me.Label99.Size = New System.Drawing.Size(68, 24)
         Me.Label99.TabIndex = 208
@@ -877,7 +907,7 @@ Partial Class FrmStudent
         Me.Label30.AutoSize = True
         Me.Label30.BackColor = System.Drawing.Color.Transparent
         Me.Label30.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(721, 213)
+        Me.Label30.Location = New System.Drawing.Point(721, 211)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(84, 30)
         Me.Label30.TabIndex = 179
@@ -918,7 +948,7 @@ Partial Class FrmStudent
         Me.Label22.AutoSize = True
         Me.Label22.BackColor = System.Drawing.Color.Transparent
         Me.Label22.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(721, 175)
+        Me.Label22.Location = New System.Drawing.Point(721, 171)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(58, 30)
         Me.Label22.TabIndex = 174
@@ -929,7 +959,7 @@ Partial Class FrmStudent
         Me.Label23.AutoSize = True
         Me.Label23.BackColor = System.Drawing.Color.Transparent
         Me.Label23.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(721, 134)
+        Me.Label23.Location = New System.Drawing.Point(721, 132)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(142, 30)
         Me.Label23.TabIndex = 173
@@ -3302,6 +3332,17 @@ Partial Class FrmStudent
         Me.pnl_search.Style.GradientAngle = 90
         Me.pnl_search.TabIndex = 10
         '
+        'picDisplayAll
+        '
+        Me.picDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picDisplayAll.Image = Global.STU_MS.My.Resources.Resources.selectAll
+        Me.picDisplayAll.Location = New System.Drawing.Point(980, 8)
+        Me.picDisplayAll.Name = "picDisplayAll"
+        Me.picDisplayAll.Size = New System.Drawing.Size(29, 28)
+        Me.picDisplayAll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDisplayAll.TabIndex = 192
+        Me.picDisplayAll.TabStop = False
+        '
         'Label13
         '
         Me.Label13.AutoSize = True
@@ -3603,17 +3644,6 @@ Partial Class FrmStudent
         Me.BindingSource1.DataMember = "dtStudent"
         Me.BindingSource1.DataSource = Me.DataSet1
         '
-        'picDisplayAll
-        '
-        Me.picDisplayAll.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.picDisplayAll.Image = Global.STU_MS.My.Resources.Resources.selectAll
-        Me.picDisplayAll.Location = New System.Drawing.Point(980, 8)
-        Me.picDisplayAll.Name = "picDisplayAll"
-        Me.picDisplayAll.Size = New System.Drawing.Size(29, 28)
-        Me.picDisplayAll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picDisplayAll.TabIndex = 192
-        Me.picDisplayAll.TabStop = False
-        '
         'FrmStudent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3633,6 +3663,7 @@ Partial Class FrmStudent
         Me.TabControlPanel1.ResumeLayout(False)
         Me.pdate.ResumeLayout(False)
         Me.pdate.PerformLayout()
+        CType(Me.picReStudy, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -3676,6 +3707,7 @@ Partial Class FrmStudent
         CType(Me.dgMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl_search.ResumeLayout(False)
         Me.pnl_search.PerformLayout()
+        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelAdvSearch.ResumeLayout(False)
         Me.PanelAdvSearch.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3686,7 +3718,6 @@ Partial Class FrmStudent
         CType(Me.pic_student_info, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picDisplayAll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3946,4 +3977,6 @@ Partial Class FrmStudent
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents BindingSource1 As BindingSource
     Friend WithEvents picDisplayAll As PictureBox
+    Friend WithEvents lblReStudy As Label
+    Friend WithEvents picReStudy As PictureBox
 End Class

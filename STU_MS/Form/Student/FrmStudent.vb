@@ -23,12 +23,10 @@ Public Class FrmStudent
 
     Private Sub lblStuSave_Click(sender As Object, e As EventArgs) Handles lblStuSave.Click
         Try
-
-
             If (Validation.IsEmpty(txtStuSchoolCode, "អត្តលេខសាលា")) Then Exit Sub
             If (Validation.IsEmpty(txtStuCode, "អត្តលេខសិស្ស")) Then Exit Sub
             If (Validation.IsEmpty(txtStuNameKh, "ឈ្មោះសិស្ស")) Then Exit Sub
-            If (Validation.IsEmpty(cboStuGender, "ភេទ")) Then Exit Sub
+            If (Validation.IsEmpty(cboStuGender, "ភេទរបស់សិស្ស")) Then Exit Sub
             If (Validation.IsEmpty(txtStuChildOrdinal, "លំដាប់កូន")) Then Exit Sub
             If (Validation.IsEmpty(cboStuCurrentClass, "ថ្នាក់បច្ចុប្បន្ន")) Then Exit Sub
             If (Validation.IsEmpty(cboStuStatus, "ស្ថានភាពសិស្ស")) Then Exit Sub
@@ -59,6 +57,7 @@ Public Class FrmStudent
             Dim livelihoodID As String = obj.GetID("SELECT LIVELIHOOD_ID FROM dbo.TBL_LIVELIHOOD WHERE LIVELIHOOD_KH = N'" & cboStuLivehood.Text & "'")
 
             obj.Insert("INSERT INTO dbo.TBS_STUDENT_INFO(STUDENT_ID_SCHOOL,STUDENT_CODE,SNAME_KH,SNAME_LATIN,GENDER,DOB,BATCH_ID,HEALTHY_ID,ORDINAL_CHILD,BOY_NUMBER,GIRL_NUMBER,TOTAL_SIBLING,LIVELIHOOD_ID,S_PHONE_LINE_1,S_PHONE_LINE_2,EMAIL_1,JOIN_SCHOOL_DATE,FIRST_YEAR_STUDY,CLASS_ID,CLASS_SCORE_12,CLASS_RANK,FINAL_12_GRADE_LETTER,FINAL_12_GRADE_SCORE,[DESCRIPTION],STUDENT_STATUS_ID)VALUES(" & txtStuSchoolCode.Text & ",N'" & txtStuCode.Text & "',N'" & txtStuNameKh.Text & "',N'" & txtStuNameEn.Text & "',N'" & cboStuGender.Text & "','" & dtStuDOB.Text & "'," & cboStuBatch.SelectedValue & "," & healthID & "," & txtStuChildOrdinal.Text & ",N'" & txtStuNumBoy.Text & "',N'" & txtStuNumGirl.Text & "',N'" & txtStuTotalSibling.Text & "'," & livelihoodID & ",N'" & txtStuPhone1.Text & "',N'" & txtStuPhone2.Text & "',N'" & txtStuEmail.Text & "','" & dtStuJoinSchoolDate.Text & "',N'" & cboStuFirstYearStudy.Text & "'," & cboStuCurrentClass.SelectedValue & "," & ConvertToDecimal(txtStuClassScore12.Text) & ",N'" & txtStuClassRank.Text & "',N'" & txtStuFinal12GradeLetter.Text & "'," & ConvertToDecimal(txtStuFinal12GradeScore.Text) & ",N'" & txtStuRemark.Text & "'," & cboStuStatus.SelectedValue & ")")
+            Call UpdateIDControlClass()
             Call SelectStudent()
 
         Catch ex As Exception
@@ -67,6 +66,21 @@ Public Class FrmStudent
         End Try
     End Sub
 
+    Private Sub UpdateIDControlClass()
+        Try
+            obj.OpenConnection()
+            Dim storeProCmd As New SqlCommand("P_DYNAMIC_STUDENT_ORDER_ID", conn)
+            storeProCmd.CommandType = CommandType.StoredProcedure
+            Dim classID As String = obj.GetID("SELECT CLASS_ID FROM dbo.TBS_CLASS WHERE CLASS_LETTER = N'" & cboStuCurrentClass.Text & "'")
+            storeProCmd.Parameters.Add("@CLASS_ID", SqlDbType.Int)
+            storeProCmd.Parameters.Add("@YEAR_STUDY", SqlDbType.NVarChar)
+            storeProCmd.Parameters("@CLASS_ID").Value = 1
+            storeProCmd.Parameters("@YEAR_STUDY").Value = "2017-2018"
+            storeProCmd.ExecuteReader()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
 
 
@@ -344,7 +358,7 @@ Public Class FrmStudent
                     Dim livelihoodID As String = obj.GetID("SELECT LIVELIHOOD_ID FROM dbo.TBL_LIVELIHOOD WHERE LIVELIHOOD_KH = N'" & cboStuLivehood.Text & "'")
 
                     Call obj.Update("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_ID_SCHOOL = N'" & txtStuSchoolCode.Text & "' , STUDENT_CODE = N'" & txtStuCode.Text & "', SNAME_KH = N'" & txtStuNameKh.Text & "', SNAME_LATIN = N'" & txtStuNameEn.Text & "' ,GENDER =N'" & cboStuGender.Text & "' ,DOB = '" & dtStuDOB.Value & "',BATCH_ID = " & batchID & ",HEALTHY_ID = " & healthID & ",ORDINAL_CHILD = " & txtStuChildOrdinal.Text & " ,BOY_NUMBER = " & txtStuNumBoy.Text & " , GIRL_NUMBER = " & txtStuNumGirl.Text & " , TOTAL_SIBLING = " & txtStuTotalSibling.Text & " , LIVELIHOOD_ID = " & livelihoodID & ", S_PHONE_LINE_1 = N'" & txtStuPhone1.Text & "' , S_PHONE_LINE_2 = N'" & txtStuPhone2.Text & "',EMAIL_1 = N'" & txtStuEmail.Text & "',FIRST_YEAR_STUDY = N'" & cboStuFirstYearStudy.Text & "' ,CLASS_SCORE_12 = " & txtStuClassScore12.Text & ",CLASS_RANK = N'" & txtStuClassRank.Text & "',FINAL_12_GRADE_LETTER =N'" & txtStuFinal12GradeLetter.Text & "',FINAL_12_GRADE_SCORE =" & txtStuFinal12GradeScore.Text & " , [DESCRIPTION] = N'" & txtStuRemark.Text & "' ,JOIN_SCHOOL_DATE = '" & dtStuJoinSchoolDate.Value & "' WHERE STUDENT_ID = " & txtStuID.Text & " ")
-
+                    Call UpdateIDControlClass()
                     Call SelectStudent()
 
                     dgMain.Rows(idx).Selected = True
@@ -2096,5 +2110,27 @@ Public Class FrmStudent
 
     Private Sub picDisplayAll_Click(sender As Object, e As EventArgs) Handles picDisplayAll.Click
         lblDisplayAll_Click(sender, e)
+    End Sub
+
+    Private Sub lblPrintStuBackground_Click(sender As Object, e As EventArgs) Handles lblPrintStuBackground.Click
+        UpdateIDControlClass()
+    End Sub
+
+    Private Sub lblReStudy_MouseHover(sender As Object, e As EventArgs) Handles lblReStudy.MouseHover
+        t.Hover(lblReStudy)
+    End Sub
+    Private Sub lblReStudy_MouseLeave(sender As Object, e As EventArgs) Handles lblReStudy.MouseLeave
+        t.Leave(lblReStudy)
+    End Sub
+
+    Private Sub picReStudy_MouseHover(sender As Object, e As EventArgs) Handles picReStudy.MouseHover
+        t.Hover(lblReStudy)
+    End Sub
+    Private Sub picReStudy_MouseLeave(sender As Object, e As EventArgs) Handles picReStudy.MouseLeave
+        t.Leave(lblReStudy)
+    End Sub
+
+    Private Sub lblReStudy_Click(sender As Object, e As EventArgs) Handles lblReStudy.Click
+        FrmReStudy.ShowDialog()
     End Sub
 End Class

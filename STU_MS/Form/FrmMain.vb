@@ -1273,6 +1273,24 @@ Public Class FrmMain
         End Try
     End Sub
 
+    Private Sub picStuEducation_MouseHover(sender As Object, e As EventArgs) Handles picStuEducation.MouseHover
+        t.Hover(lblStuEducation)
+    End Sub
+    Private Sub picStuEducation_MouseLeave(sender As Object, e As EventArgs) Handles picStuEducation.MouseLeave
+        t.Leave(lblStuEducation)
+    End Sub
+    Private Sub picStuEducation_Click(sender As Object, e As EventArgs) Handles picStuEducation.Click
+        Try
+            frm_student_education.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
-
+    Private Sub pic_student_info_MouseHover(sender As Object, e As EventArgs) Handles pic_student_info.MouseHover
+        t.Hover(lblStudent)
+    End Sub
+    Private Sub pic_student_info_MouseLeave(sender As Object, e As EventArgs) Handles pic_student_info.MouseLeave
+        t.Leave(lblStudent)
+    End Sub
 End Class

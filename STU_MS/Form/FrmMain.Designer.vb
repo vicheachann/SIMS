@@ -1961,8 +1961,8 @@ Partial Class FrmMain
         '
         Me.picStuEducation.BackColor = System.Drawing.Color.Transparent
         Me.picStuEducation.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.picStuEducation.Image = Global.STU_MS.My.Resources.Resources.STUDENT_EDU
-        Me.picStuEducation.Location = New System.Drawing.Point(14, 157)
+        Me.picStuEducation.Image = Global.STU_MS.My.Resources.Resources.skill_9432423
+        Me.picStuEducation.Location = New System.Drawing.Point(14, 154)
         Me.picStuEducation.Name = "picStuEducation"
         Me.picStuEducation.Size = New System.Drawing.Size(33, 30)
         Me.picStuEducation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -2000,7 +2000,7 @@ Partial Class FrmMain
         Me.lblStuEducation.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblStuEducation.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStuEducation.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lblStuEducation.Location = New System.Drawing.Point(52, 152)
+        Me.lblStuEducation.Location = New System.Drawing.Point(52, 155)
         Me.lblStuEducation.Name = "lblStuEducation"
         Me.lblStuEducation.Size = New System.Drawing.Size(159, 32)
         Me.lblStuEducation.TabIndex = 33
