@@ -112,7 +112,7 @@ Public Class frm_student_stop_study
             End If
 
             obj.Insert("INSERT INTO dbo.TBS_STUDENT_STOP_STUDY (STUDENT_ID,STUDENT_STOP_REASON_ID,[DESCRIPTION],DATE_STOP,YEAR_STUDY,CLASS_STOP,DATE_NOTE,FLAGE)VALUES(" & cboStudentName.SelectedValue & "," & cboReason.SelectedValue & ",N'" & txt_des.Text & "','" & dtDateStop.Text & "',N'" & cbo_year_study.Text & "',N'" & cbo_class_stop.Text & "',GETDATE(),1)")
-            obj.UpdateNoMsg("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 4  WHERE STUDENT_ID = " & cboStudentName.SelectedValue & "")
+            obj.UpdateNoMsg("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & DROP_STUDY_FK & "  WHERE STUDENT_ID = " & cboStudentName.SelectedValue & "")
             Call Selection()
         Catch ex As Exception
             _ExceptionMessage = ex.Message

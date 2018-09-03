@@ -1,8 +1,8 @@
 ﻿Module Status
-    Public StuStatusStudying As Integer = 1
-    Public StuStatusSuspend As Integer = 2
-    Public StuStatusDrop As Integer = 3
-    Public StuStatusFinish12 As Integer = 4
-    Public StuStatusNew As Integer = 5
-    Public StuStatusChangeSchool As Integer = 6
+    Public STUDYING_FK As Integer = 1
+    Public SUSPEND_FK As Integer = 2
+    Public DROP_STUDY_FK As Integer = 3
+    Public GRADUATED_FK As Integer = 4
+    Public NEW_STUDENT_FK As Integer = 5
+    Public CHANGE_SCHOOL_FK As Integer = 6
 End Module

@@ -522,6 +522,7 @@ Partial Class FrmStudent
         '
         Me.picReStudy.BackColor = System.Drawing.Color.Transparent
         Me.picReStudy.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picReStudy.Enabled = False
         Me.picReStudy.Image = Global.STU_MS.My.Resources.Resources.skill_9432423
         Me.picReStudy.Location = New System.Drawing.Point(1154, 369)
         Me.picReStudy.Name = "picReStudy"
@@ -535,6 +536,7 @@ Partial Class FrmStudent
         Me.lblReStudy.AutoSize = True
         Me.lblReStudy.BackColor = System.Drawing.Color.Transparent
         Me.lblReStudy.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblReStudy.Enabled = False
         Me.lblReStudy.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblReStudy.ForeColor = System.Drawing.Color.MediumBlue
         Me.lblReStudy.Location = New System.Drawing.Point(1183, 367)

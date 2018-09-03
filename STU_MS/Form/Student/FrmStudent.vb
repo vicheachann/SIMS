@@ -5,7 +5,7 @@ Public Class FrmStudent
     Dim obj As New Method
     Dim t As New Theme
     Dim sql As String
-    Dim studentSelectionSql As String = "SELECT TOP (100) S.STUDENT_ID,ROW_NUMBER ()OVER(ORDER BY S.STUDENT_ID ASC )AS 'ORDER_NUMBER',S.STUDENT_ID_SCHOOL, S.STUDENT_CODE, S.SNAME_KH,S.SNAME_LATIN,S.GENDER, S.DOB,B.BATCH,H.HEALTHY_KH,S.ORDINAL_CHILD,S.BOY_NUMBER,S.GIRL_NUMBER,S.TOTAL_SIBLING,L.LIVELIHOOD_KH,S.S_PHONE_LINE_1,S.S_PHONE_LINE_2,S.EMAIL_1,S.JOIN_SCHOOL_DATE,S.FIRST_YEAR_STUDY, CL.CLASS_LETTER, S.CLASS_SCORE_12, S.CLASS_RANK,S.FINAL_12_GRADE_LETTER,S.FINAL_12_GRADE_SCORE,S.[DESCRIPTION],SS.STUDENT_STATUS_KH,S.STUDENT_PHOTO,S.FATHER_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE  OCCUPATION_ID = FATHER_OCCUPATION_ID) AS FATHER_OCCUPATION,S.FATHER_PHONE_LINE_1,S.FATHER_PHONE_LINE_2,S.MOTHER_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_ID = MOTHER_OCCUPATION_ID) As MOTHER_OCCUPATION,S.MOTHER_PHONE_LINE_1,S.MOTHER_PHONE_LINE_2,S.GUARDIAN_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_ID = S.GUARDIAN_OCCUPATION_ID  )AS GUARDIAN_OCCUPATION,S.GUARDIAN_PHONE_LINE_1,S.GUARDIAN_PHONE_LINE_2 FROM dbo.TBS_STUDENT_INFO AS S LEFT JOIN dbo.TBL_BATCH As B On S.BATCH_ID = B.BATCH LEFT JOIN dbo.TBL_HEALTHY As H On S.HEALTHY_ID = H.HEALTHY_ID LEFT JOIN dbo.TBL_LIVELIHOOD As L On S.LIVELIHOOD_ID = L.LIVELIHOOD_ID INNER JOIN dbo.TBS_STUDENT_STATUS AS SS ON S.STUDENT_STATUS_ID = SS.STUDENT_STATUS_ID  INNER JOIN dbo.TBS_CLASS As CL On S.CLASS_ID = CL.CLASS_ID  "
+    Dim studentSelectionSql As String = "SELECT TOP (100) S.STUDENT_ID,ROW_NUMBER ()OVER(ORDER BY S.STUDENT_ID ASC )AS 'ORDER_NUMBER',S.STUDENT_ID_SCHOOL, S.STUDENT_CODE, S.SNAME_KH,S.SNAME_LATIN,S.GENDER, S.DOB,B.BATCH,H.HEALTHY_KH,S.ORDINAL_CHILD,S.BOY_NUMBER,S.GIRL_NUMBER,S.TOTAL_SIBLING,L.LIVELIHOOD_KH,S.S_PHONE_LINE_1,S.S_PHONE_LINE_2,S.EMAIL_1,S.JOIN_SCHOOL_DATE,S.FIRST_YEAR_STUDY, CL.CLASS_LETTER, S.CLASS_SCORE_12, S.CLASS_RANK,S.FINAL_12_GRADE_LETTER,S.FINAL_12_GRADE_SCORE,S.[DESCRIPTION],SS.STUDENT_STATUS_KH,S.STUDENT_PHOTO,S.FATHER_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE  OCCUPATION_ID = FATHER_OCCUPATION_ID) AS FATHER_OCCUPATION,S.FATHER_PHONE_LINE_1,S.FATHER_PHONE_LINE_2,S.MOTHER_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_ID = MOTHER_OCCUPATION_ID) As MOTHER_OCCUPATION,S.MOTHER_PHONE_LINE_1,S.MOTHER_PHONE_LINE_2,S.GUARDIAN_NAME,(SELECT OCCUPATION_KH FROM dbo.TBL_OCCUPATION WHERE OCCUPATION_ID = S.GUARDIAN_OCCUPATION_ID  )AS GUARDIAN_OCCUPATION,S.GUARDIAN_PHONE_LINE_1,S.GUARDIAN_PHONE_LINE_2,S.STUDENT_STATUS_ID FROM dbo.TBS_STUDENT_INFO AS S LEFT JOIN dbo.TBL_BATCH As B On S.BATCH_ID = B.BATCH LEFT JOIN dbo.TBL_HEALTHY As H On S.HEALTHY_ID = H.HEALTHY_ID LEFT JOIN dbo.TBL_LIVELIHOOD As L On S.LIVELIHOOD_ID = L.LIVELIHOOD_ID INNER JOIN dbo.TBS_STUDENT_STATUS AS SS ON S.STUDENT_STATUS_ID = SS.STUDENT_STATUS_ID  INNER JOIN dbo.TBS_CLASS As CL On S.CLASS_ID = CL.CLASS_ID  "
 
     Private Sub btn_close_Click(sender As Object, e As EventArgs) Handles picClose.Click
         Close()
@@ -141,7 +141,7 @@ Public Class FrmStudent
 
     Public Sub SelectStudent()
         Try
-            obj.BindDataGridView(studentSelectionSql + " WHERE S.STUDENT_STATUS_ID = " & StuStatusStudying & "", dgMain)
+            obj.BindDataGridView(studentSelectionSql + " WHERE S.STUDENT_STATUS_ID = " & STUDYING_FK & "", dgMain)
             Call SetDgMainHeader()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -245,6 +245,8 @@ Public Class FrmStudent
 
         dgMain.Columns(26).HeaderText = "ស្ថានភាពសិស្ស"
         dgMain.Columns(26).Width = 120
+
+        dgMain.Columns("STUDENT_STATUS_ID").Visible = False
 
     End Sub
     Private Sub ClearBasicInfo()
@@ -630,6 +632,15 @@ Public Class FrmStudent
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+    Public Sub DisableReStudy()
+        picReStudy.Enabled = False
+        lblReStudy.Enabled = False
+    End Sub
+    Public Sub EnableReStudy()
+        picReStudy.Enabled = True
+        lblReStudy.Enabled = True
+    End Sub
     Private Sub dg_main_SelectionChanged(sender As Object, e As EventArgs) Handles dgMain.SelectionChanged
         Try
 
@@ -644,6 +655,19 @@ Public Class FrmStudent
                 cboStuStatus.Enabled = False
                 cboStuCurrentClass.Enabled = False
                 cboStuFirstYearStudy.Enabled = False
+
+                If (dgMain.SelectedRows(0).Cells("STUDENT_STATUS_ID").Value.ToString = STUDYING_FK OrElse dgMain.SelectedRows(0).Cells("STUDENT_STATUS_ID").Value.ToString = NEW_STUDENT_FK) Then
+
+                    DisableReStudy()
+                Else
+                    EnableReStudy()
+                End If
+                'If (dgMain.SelectedRows(0).Cells("STUDENT_STATUS_ID").Value.ToString <> NEW_STUDENT_FK) Then
+                '    EnableReStudy()
+                'Else
+                '    DisableReStudy()
+                'End If
+
 
                 Call ClearGuardian()
                 Call ClearBasicInfo()
@@ -1622,7 +1646,7 @@ Public Class FrmStudent
             cboSearchCode.Text = ""
             cboSearchClass.Text = ""
 
-            obj.BindComboBox("SELECT STUDENT_ID,SNAME_KH FROM dbo.TBS_STUDENT_INFO WHERE STUDENT_STATUS_ID IN( " & StuStatusStudying & "," & StuStatusNew & ")", cboSearchName, "SNAME_KH", "STUDENT_ID")
+            obj.BindComboBox("SELECT STUDENT_ID,SNAME_KH FROM dbo.TBS_STUDENT_INFO WHERE STUDENT_STATUS_ID IN( " & STUDYING_FK & "," & NEW_STUDENT_FK & ")", cboSearchName, "SNAME_KH", "STUDENT_ID")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -2132,10 +2156,38 @@ Public Class FrmStudent
 
     Private Sub lblReStudy_Click(sender As Object, e As EventArgs) Handles lblReStudy.Click
         Try
-            FrmReStudy.fromFrmStudent = True
-            FrmReStudy.ShowDialog()
+            Dim frm As New FrmReStudy
+
+            If (dgMain.SelectedRows.Count = 0) Then
+                obj.ShowMsg("សូមជ្រើសរើសសិស្សជាមុន", FrmWarning, "")
+                Exit Sub
+            Else
+                With frm
+                    .Clear()
+                    .txtStudentID.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells("STUDENT_ID").Value)
+                    .txtStuNameKh.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells("SNAME_KH").Value)
+                    .txtStuNameEn.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells("SNAME_LATIN").Value)
+                    .cboStuGender.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells("GENDER").Value)
+                    .dtStuDOB.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells("DOB").Value)
+                    .GetLastYearStudy(obj.ReplaceNullWithZero(dgMain.SelectedRows(0).Cells("STUDENT_ID").Value))
+                    .cboLastClass.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells("CLASS_LETTER").Value)
+
+                    If dgMain.SelectedRows(0).Cells("STUDENT_PHOTO").Value.ToString() = "" Then
+                        .pic_student.BackgroundImage = Nothing
+                    Else
+                        Call obj.Show_Photo(dgMain.SelectedRows(0).Cells("STUDENT_PHOTO").Value, .pic_student)
+                    End If
+                    .ShowDialog()
+                End With
+            End If
+
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub picReStudy_Click(sender As Object, e As EventArgs) Handles picReStudy.Click
+        lblReStudy_Click(sender, e)
     End Sub
 End Class
