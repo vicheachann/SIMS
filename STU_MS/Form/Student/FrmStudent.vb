@@ -2131,6 +2131,11 @@ Public Class FrmStudent
     End Sub
 
     Private Sub lblReStudy_Click(sender As Object, e As EventArgs) Handles lblReStudy.Click
-        FrmReStudy.ShowDialog()
+        Try
+            FrmReStudy.fromFrmStudent = True
+            FrmReStudy.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class

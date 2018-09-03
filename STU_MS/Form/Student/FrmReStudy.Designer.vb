@@ -30,9 +30,27 @@ Partial Class FrmReStudy
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
+        Me.picSearch = New System.Windows.Forms.PictureBox()
+        Me.lblSearch = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.dgReStudy = New System.Windows.Forms.DataGridView()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.cboStuCurrentClass = New System.Windows.Forms.ComboBox()
+        Me.cboStuFirstYearStudy = New System.Windows.Forms.ComboBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.lbl_year_study = New System.Windows.Forms.Label()
         Me.pic_student = New System.Windows.Forms.PictureBox()
         Me.dtStuDOB = New System.Windows.Forms.DateTimePicker()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -44,36 +62,19 @@ Partial Class FrmReStudy
         Me.txtStuNameKh = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cboStuGender = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.lblSave = New System.Windows.Forms.Label()
-        Me.cboStuCurrentClass = New System.Windows.Forms.ComboBox()
-        Me.cboStuFirstYearStudy = New System.Windows.Forms.ComboBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.lbl_year_study = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.dgMain = New System.Windows.Forms.DataGridView()
-        Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.picSearch = New System.Windows.Forms.PictureBox()
-        Me.lblSearch = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.pnlHeader.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_close, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx3.SuspendLayout()
+        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupPanel1.SuspendLayout()
+        CType(Me.dgReStudy, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel2.SuspendLayout()
         CType(Me.pic_student, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupPanel1.SuspendLayout()
-        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlHeader
@@ -145,13 +146,14 @@ Partial Class FrmReStudy
         '
         Me.PanelEx3.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx3.Controls.Add(Me.Label14)
         Me.PanelEx3.Controls.Add(Me.picSearch)
         Me.PanelEx3.Controls.Add(Me.lblSearch)
         Me.PanelEx3.Controls.Add(Me.TextBox3)
         Me.PanelEx3.Controls.Add(Me.Label13)
         Me.PanelEx3.Controls.Add(Me.Label10)
         Me.PanelEx3.Controls.Add(Me.GroupPanel1)
-        Me.PanelEx3.Controls.Add(Me.dgMain)
+        Me.PanelEx3.Controls.Add(Me.dgReStudy)
         Me.PanelEx3.Controls.Add(Me.Label6)
         Me.PanelEx3.Controls.Add(Me.GroupPanel2)
         Me.PanelEx3.Controls.Add(Me.Label2)
@@ -170,6 +172,161 @@ Partial Class FrmReStudy
         Me.PanelEx3.TabIndex = 348
         Me.PanelEx3.Text = "​"
         '
+        'picSearch
+        '
+        Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.SEARCH_324
+        Me.picSearch.Location = New System.Drawing.Point(235, 303)
+        Me.picSearch.Name = "picSearch"
+        Me.picSearch.Size = New System.Drawing.Size(33, 30)
+        Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picSearch.TabIndex = 372
+        Me.picSearch.TabStop = False
+        '
+        'lblSearch
+        '
+        Me.lblSearch.AutoSize = True
+        Me.lblSearch.BackColor = System.Drawing.Color.Transparent
+        Me.lblSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblSearch.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
+        Me.lblSearch.ForeColor = System.Drawing.Color.Blue
+        Me.lblSearch.Location = New System.Drawing.Point(262, 300)
+        Me.lblSearch.Name = "lblSearch"
+        Me.lblSearch.Size = New System.Drawing.Size(81, 38)
+        Me.lblSearch.TabIndex = 373
+        Me.lblSearch.Text = "ស្វែងរក"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.TextBox3.Location = New System.Drawing.Point(7, 300)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(222, 38)
+        Me.TextBox3.TabIndex = 367
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label13.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Blue
+        Me.Label13.Location = New System.Drawing.Point(1017, 299)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(53, 38)
+        Me.Label13.TabIndex = 371
+        Me.Label13.Text = "លុប"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label10.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Blue
+        Me.Label10.Location = New System.Drawing.Point(953, 299)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(66, 38)
+        Me.Label10.TabIndex = 370
+        Me.Label10.Text = "កែប្រែ"
+        '
+        'GroupPanel1
+        '
+        Me.GroupPanel1.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel1.Controls.Add(Me.Label7)
+        Me.GroupPanel1.Controls.Add(Me.TextBox2)
+        Me.GroupPanel1.Controls.Add(Me.TextBox1)
+        Me.GroupPanel1.Controls.Add(Me.Label8)
+        Me.GroupPanel1.Controls.Add(Me.Label5)
+        Me.GroupPanel1.Controls.Add(Me.ComboBox2)
+        Me.GroupPanel1.Controls.Add(Me.ComboBox1)
+        Me.GroupPanel1.Controls.Add(Me.Label4)
+        Me.GroupPanel1.Location = New System.Drawing.Point(9, 223)
+        Me.GroupPanel1.Name = "GroupPanel1"
+        Me.GroupPanel1.Size = New System.Drawing.Size(1093, 48)
+        '
+        '
+        '
+        Me.GroupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.GroupPanel1.Style.BackColorGradientAngle = 90
+        Me.GroupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.GroupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderBottomWidth = 1
+        Me.GroupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.GroupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderLeftWidth = 1
+        Me.GroupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderRightWidth = 1
+        Me.GroupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderTopWidth = 1
+        Me.GroupPanel1.Style.Class = ""
+        Me.GroupPanel1.Style.CornerDiameter = 4
+        Me.GroupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.GroupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanel1.StyleMouseDown.Class = ""
+        Me.GroupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanel1.StyleMouseOver.Class = ""
+        Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanel1.TabIndex = 367
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(419, 5)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(115, 32)
+        Me.Label7.TabIndex = 368
+        Me.Label7.Text = "ល.រចុងក្រោយ"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.TextBox2.Location = New System.Drawing.Point(537, 1)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(62, 38)
+        Me.TextBox2.TabIndex = 367
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.TextBox1.Location = New System.Drawing.Point(673, 2)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(411, 38)
+        Me.TextBox1.TabIndex = 367
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(2, 5)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(135, 32)
+        Me.Label8.TabIndex = 340
+        Me.Label8.Text = "សុំចូលរៀនថ្នាក់ទី"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(604, 4)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(63, 32)
+        Me.Label5.TabIndex = 368
+        Me.Label5.Text = "ផ្សេងៗ"
+        '
         'ComboBox2
         '
         Me.ComboBox2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
@@ -181,6 +338,16 @@ Partial Class FrmReStudy
         Me.ComboBox2.TabIndex = 365
         Me.ComboBox2.Text = "2018-2017"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
+        Me.ComboBox1.Location = New System.Drawing.Point(142, 2)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(75, 38)
+        Me.ComboBox1.TabIndex = 363
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -191,6 +358,46 @@ Partial Class FrmReStudy
         Me.Label4.Size = New System.Drawing.Size(99, 32)
         Me.Label4.TabIndex = 364
         Me.Label4.Text = "ក្នុងឆ្នាំសិក្សា"
+        '
+        'dgReStudy
+        '
+        Me.dgReStudy.AllowUserToAddRows = False
+        Me.dgReStudy.AllowUserToDeleteRows = False
+        Me.dgReStudy.AllowUserToResizeColumns = False
+        Me.dgReStudy.AllowUserToResizeRows = False
+        Me.dgReStudy.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgReStudy.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgReStudy.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgReStudy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgReStudy.Location = New System.Drawing.Point(7, 343)
+        Me.dgReStudy.MultiSelect = False
+        Me.dgReStudy.Name = "dgReStudy"
+        Me.dgReStudy.ReadOnly = True
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgReStudy.RowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.dgReStudy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgReStudy.Size = New System.Drawing.Size(1096, 298)
+        Me.dgReStudy.TabIndex = 369
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label6.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.Blue
+        Me.Label6.Location = New System.Drawing.Point(433, 299)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(268, 38)
+        Me.Label6.TabIndex = 367
+        Me.Label6.Text = "បញ្ចូលទៅលេខរៀងចុងក្រោយ"
         '
         'GroupPanel2
         '
@@ -246,6 +453,54 @@ Partial Class FrmReStudy
         Me.GroupPanel2.StyleMouseOver.Class = ""
         Me.GroupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel2.TabIndex = 363
+        '
+        'cboStuCurrentClass
+        '
+        Me.cboStuCurrentClass.DropDownHeight = 200
+        Me.cboStuCurrentClass.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.cboStuCurrentClass.FormattingEnabled = True
+        Me.cboStuCurrentClass.IntegralHeight = False
+        Me.cboStuCurrentClass.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
+        Me.cboStuCurrentClass.Location = New System.Drawing.Point(670, 110)
+        Me.cboStuCurrentClass.Name = "cboStuCurrentClass"
+        Me.cboStuCurrentClass.Size = New System.Drawing.Size(234, 38)
+        Me.cboStuCurrentClass.TabIndex = 366
+        '
+        'cboStuFirstYearStudy
+        '
+        Me.cboStuFirstYearStudy.Font = New System.Drawing.Font("Khmer OS", 11.25!)
+        Me.cboStuFirstYearStudy.FormattingEnabled = True
+        Me.cboStuFirstYearStudy.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
+        Me.cboStuFirstYearStudy.Location = New System.Drawing.Point(670, 66)
+        Me.cboStuFirstYearStudy.Name = "cboStuFirstYearStudy"
+        Me.cboStuFirstYearStudy.Size = New System.Drawing.Size(234, 38)
+        Me.cboStuFirstYearStudy.TabIndex = 365
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.BackColor = System.Drawing.Color.Transparent
+        Me.Label25.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label25.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.Black
+        Me.Label25.Location = New System.Drawing.Point(495, 114)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(143, 30)
+        Me.Label25.TabIndex = 364
+        Me.Label25.Text = "ថ្នាក់ឈប់ចុងក្រោយ"
+        '
+        'lbl_year_study
+        '
+        Me.lbl_year_study.AutoSize = True
+        Me.lbl_year_study.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_year_study.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lbl_year_study.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_year_study.ForeColor = System.Drawing.Color.Black
+        Me.lbl_year_study.Location = New System.Drawing.Point(495, 72)
+        Me.lbl_year_study.Name = "lbl_year_study"
+        Me.lbl_year_study.Size = New System.Drawing.Size(171, 30)
+        Me.lbl_year_study.TabIndex = 363
+        Me.lbl_year_study.Text = "ឆ្នាំសិក្សាឈប់ចុងក្រោយ"
         '
         'pic_student
         '
@@ -363,16 +618,6 @@ Partial Class FrmReStudy
         Me.cboStuGender.Size = New System.Drawing.Size(234, 38)
         Me.cboStuGender.TabIndex = 353
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
-        Me.ComboBox1.Location = New System.Drawing.Point(142, 2)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(75, 38)
-        Me.ComboBox1.TabIndex = 363
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -384,17 +629,6 @@ Partial Class FrmReStudy
         Me.Label2.TabIndex = 204
         Me.Label2.Text = "ព័ត៌មានសិស្ស"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(2, 5)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(135, 32)
-        Me.Label8.TabIndex = 340
-        Me.Label8.Text = "សុំចូលរៀនថ្នាក់ទី"
-        '
         'lblSave
         '
         Me.lblSave.AutoSize = True
@@ -402,243 +636,24 @@ Partial Class FrmReStudy
         Me.lblSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblSave.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSave.ForeColor = System.Drawing.Color.Blue
-        Me.lblSave.Location = New System.Drawing.Point(646, 299)
+        Me.lblSave.Location = New System.Drawing.Point(705, 299)
         Me.lblSave.Name = "lblSave"
         Me.lblSave.Size = New System.Drawing.Size(244, 38)
         Me.lblSave.TabIndex = 106
         Me.lblSave.Text = "បញ្ចូលនិងតំរៀបលេខរៀងថ្មី"
         '
-        'cboStuCurrentClass
+        'Label14
         '
-        Me.cboStuCurrentClass.DropDownHeight = 200
-        Me.cboStuCurrentClass.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.cboStuCurrentClass.FormattingEnabled = True
-        Me.cboStuCurrentClass.IntegralHeight = False
-        Me.cboStuCurrentClass.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
-        Me.cboStuCurrentClass.Location = New System.Drawing.Point(670, 110)
-        Me.cboStuCurrentClass.Name = "cboStuCurrentClass"
-        Me.cboStuCurrentClass.Size = New System.Drawing.Size(234, 38)
-        Me.cboStuCurrentClass.TabIndex = 366
-        '
-        'cboStuFirstYearStudy
-        '
-        Me.cboStuFirstYearStudy.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.cboStuFirstYearStudy.FormattingEnabled = True
-        Me.cboStuFirstYearStudy.Items.AddRange(New Object() {"ប្រុស", "ស្រី"})
-        Me.cboStuFirstYearStudy.Location = New System.Drawing.Point(670, 66)
-        Me.cboStuFirstYearStudy.Name = "cboStuFirstYearStudy"
-        Me.cboStuFirstYearStudy.Size = New System.Drawing.Size(234, 38)
-        Me.cboStuFirstYearStudy.TabIndex = 365
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.BackColor = System.Drawing.Color.Transparent
-        Me.Label25.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label25.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.Black
-        Me.Label25.Location = New System.Drawing.Point(495, 114)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(91, 30)
-        Me.Label25.TabIndex = 364
-        Me.Label25.Text = "ថ្នាក់បច្ចុប្បន្ន"
-        '
-        'lbl_year_study
-        '
-        Me.lbl_year_study.AutoSize = True
-        Me.lbl_year_study.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_year_study.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lbl_year_study.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_year_study.ForeColor = System.Drawing.Color.Black
-        Me.lbl_year_study.Location = New System.Drawing.Point(495, 72)
-        Me.lbl_year_study.Name = "lbl_year_study"
-        Me.lbl_year_study.Size = New System.Drawing.Size(171, 30)
-        Me.lbl_year_study.TabIndex = 363
-        Me.lbl_year_study.Text = "ឆ្នាំសិក្សាឈប់ចុងក្រោយ"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.TextBox1.Location = New System.Drawing.Point(673, 2)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(411, 38)
-        Me.TextBox1.TabIndex = 367
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(604, 4)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(63, 32)
-        Me.Label5.TabIndex = 368
-        Me.Label5.Text = "ផ្សេងៗ"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label6.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.Blue
-        Me.Label6.Location = New System.Drawing.Point(372, 299)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(268, 38)
-        Me.Label6.TabIndex = 367
-        Me.Label6.Text = "បញ្ចូលទៅលេខរៀងចុងក្រោយ"
-        '
-        'dgMain
-        '
-        Me.dgMain.AllowUserToAddRows = False
-        Me.dgMain.AllowUserToDeleteRows = False
-        Me.dgMain.AllowUserToResizeColumns = False
-        Me.dgMain.AllowUserToResizeRows = False
-        Me.dgMain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dgMain.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgMain.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        Me.dgMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgMain.Location = New System.Drawing.Point(7, 343)
-        Me.dgMain.MultiSelect = False
-        Me.dgMain.Name = "dgMain"
-        Me.dgMain.ReadOnly = True
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle6
-        Me.dgMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgMain.Size = New System.Drawing.Size(1096, 298)
-        Me.dgMain.TabIndex = 369
-        '
-        'GroupPanel1
-        '
-        Me.GroupPanel1.CanvasColor = System.Drawing.SystemColors.Control
-        Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanel1.Controls.Add(Me.Label7)
-        Me.GroupPanel1.Controls.Add(Me.TextBox2)
-        Me.GroupPanel1.Controls.Add(Me.TextBox1)
-        Me.GroupPanel1.Controls.Add(Me.Label8)
-        Me.GroupPanel1.Controls.Add(Me.Label5)
-        Me.GroupPanel1.Controls.Add(Me.ComboBox2)
-        Me.GroupPanel1.Controls.Add(Me.ComboBox1)
-        Me.GroupPanel1.Controls.Add(Me.Label4)
-        Me.GroupPanel1.Location = New System.Drawing.Point(9, 223)
-        Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1093, 48)
-        '
-        '
-        '
-        Me.GroupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
-        Me.GroupPanel1.Style.BackColorGradientAngle = 90
-        Me.GroupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.GroupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderBottomWidth = 1
-        Me.GroupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.GroupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderLeftWidth = 1
-        Me.GroupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderRightWidth = 1
-        Me.GroupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderTopWidth = 1
-        Me.GroupPanel1.Style.Class = ""
-        Me.GroupPanel1.Style.CornerDiameter = 4
-        Me.GroupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.GroupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanel1.StyleMouseDown.Class = ""
-        Me.GroupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanel1.StyleMouseOver.Class = ""
-        Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanel1.TabIndex = 367
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.TextBox2.Location = New System.Drawing.Point(537, 1)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(62, 38)
-        Me.TextBox2.TabIndex = 367
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(419, 5)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(115, 32)
-        Me.Label7.TabIndex = 368
-        Me.Label7.Text = "ល.រចុងក្រោយ"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label10.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.Blue
-        Me.Label10.Location = New System.Drawing.Point(896, 299)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(66, 38)
-        Me.Label10.TabIndex = 370
-        Me.Label10.Text = "កែប្រែ"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label13.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.Blue
-        Me.Label13.Location = New System.Drawing.Point(968, 298)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(53, 38)
-        Me.Label13.TabIndex = 371
-        Me.Label13.Text = "លុប"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Font = New System.Drawing.Font("Khmer OS", 11.25!)
-        Me.TextBox3.Location = New System.Drawing.Point(7, 300)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(222, 38)
-        Me.TextBox3.TabIndex = 367
-        '
-        'picSearch
-        '
-        Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.SEARCH_324
-        Me.picSearch.Location = New System.Drawing.Point(235, 303)
-        Me.picSearch.Name = "picSearch"
-        Me.picSearch.Size = New System.Drawing.Size(33, 30)
-        Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picSearch.TabIndex = 372
-        Me.picSearch.TabStop = False
-        '
-        'lblSearch
-        '
-        Me.lblSearch.AutoSize = True
-        Me.lblSearch.BackColor = System.Drawing.Color.Transparent
-        Me.lblSearch.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblSearch.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
-        Me.lblSearch.ForeColor = System.Drawing.Color.Blue
-        Me.lblSearch.Location = New System.Drawing.Point(262, 300)
-        Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(81, 38)
-        Me.lblSearch.TabIndex = 373
-        Me.lblSearch.Text = "ស្វែងរក"
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label14.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.Blue
+        Me.Label14.Location = New System.Drawing.Point(396, 299)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(31, 38)
+        Me.Label14.TabIndex = 374
+        Me.Label14.Text = "ថ្មី"
         '
         'FrmReStudy
         '
@@ -658,13 +673,13 @@ Partial Class FrmReStudy
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx3.ResumeLayout(False)
         Me.PanelEx3.PerformLayout()
+        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupPanel1.ResumeLayout(False)
+        Me.GroupPanel1.PerformLayout()
+        CType(Me.dgReStudy, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel2.ResumeLayout(False)
         Me.GroupPanel2.PerformLayout()
         CType(Me.pic_student, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgMain, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupPanel1.ResumeLayout(False)
-        Me.GroupPanel1.PerformLayout()
-        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -700,7 +715,7 @@ Partial Class FrmReStudy
     Friend WithEvents cboStuFirstYearStudy As ComboBox
     Friend WithEvents Label25 As Label
     Friend WithEvents lbl_year_study As Label
-    Friend WithEvents dgMain As DataGridView
+    Friend WithEvents dgReStudy As DataGridView
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label10 As Label
@@ -709,4 +724,5 @@ Partial Class FrmReStudy
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents picSearch As PictureBox
     Friend WithEvents lblSearch As Label
+    Friend WithEvents Label14 As Label
 End Class
