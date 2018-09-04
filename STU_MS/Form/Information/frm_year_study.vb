@@ -80,7 +80,7 @@
             obj.Insert("INSERT INTO dbo.TBL_YEAR_STUDY (YEAR_STUDY_KH)VALUES(N'" & txt_year_study.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -99,7 +99,7 @@
             obj.Update("UPDATE dbo.TBL_YEAR_STUDY SET YEAR_STUDY_KH = N'" & txt_year_study.Text & "' WHERE YEAR_ID =" & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

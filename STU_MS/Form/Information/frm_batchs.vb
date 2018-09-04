@@ -85,7 +85,7 @@
             obj.Insert("INSERT INTO dbo.TBL_BATCH (BATCH,YEAR_STUDY)VALUES(N'" & txt_batch.Text & "',N'" & cbo_year_study.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -110,7 +110,7 @@
             obj.Update("UPDATE dbo.TBL_BATCH SET BATCH = N'" & txt_batch.Text & "',YEAR_STUDY = N'" & cbo_year_study.Text & "' WHERE BATCH_ID =" & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

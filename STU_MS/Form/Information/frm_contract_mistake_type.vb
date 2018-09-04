@@ -78,7 +78,7 @@
             obj.Insert("INSERT INTO dbo.TBL_CONTRACTION_MISTAKE_TYPE (CONTRACTION_TYPE_KH,CONTRACTION_TYPE_EN)VALUES(N'" & txt_kh.Text & "',N'" & txt_en.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -97,7 +97,7 @@
             obj.Update("UPDATE dbo.TBL_CONTRACTION_MISTAKE_TYPE SET CONTRACTION_TYPE_KH = N'" & txt_kh.Text & "',CONTRACTION_TYPE_EN = N'" & txt_en.Text & "' WHERE CONTRACTION_MISTAKE_TYPE_ID =" & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

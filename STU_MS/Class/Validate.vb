@@ -9,7 +9,7 @@
                 cbo.BackColor = Color.LavenderBlush
                 cbo.Focus()
                 result = True
-                obj.ShowMsg("សូមបញ្ចូល" + missingField + "ជាមុន", FrmWarning, _WarningSound)
+                obj.ShowMsg("សូមបញ្ចូល" + missingField + "ជាមុន", FrmWarning, WARNING_SOUND)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -25,7 +25,7 @@
                 cbo.BackColor = Color.LavenderBlush
                 cbo.Focus()
                 result = True
-                obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, _WarningSound)
+                obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, WARNING_SOUND)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -41,7 +41,7 @@
                 textBox.BackColor = Color.LavenderBlush
                 textBox.Focus()
                 result = True
-                obj.ShowMsg("សូមបញ្ចូល" + missingField + "ជាមុន", FrmWarning, _WarningSound)
+                obj.ShowMsg("សូមបញ្ចូល" + missingField + "ជាមុន", FrmWarning, WARNING_SOUND)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -57,7 +57,7 @@
                 textBox.BackColor = Color.LavenderBlush
                 textBox.Focus()
                 result = True
-                obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, _WarningSound)
+                obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, WARNING_SOUND)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -73,7 +73,7 @@
                 cbo.BackColor = Color.LavenderBlush
                 cbo.Focus()
                 result = True
-                obj.ShowMsg(message, FrmWarning, _WarningSound)
+                obj.ShowMsg(message, FrmWarning, WARNING_SOUND)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)

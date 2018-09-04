@@ -67,7 +67,7 @@
             obj.Insert("INSERT INTO dbo.TBL_OFFICE(OFFICE_CODE,OFFICE_KH)VALUES(N'" & txt_code.Text & "',N'" & txt_office_kh.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -83,7 +83,7 @@
             obj.Update("UPDATE dbo.TBL_OFFICE SET OFFICE_CODE = N'" & txt_code.Text & "',OFFICE_KH = N'" & txt_office_kh.Text & "' WHERE OFFICE_ID = " & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

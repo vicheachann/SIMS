@@ -39,8 +39,8 @@ Public Class FrmStudentFormer
             obj.BindDataGridView(selectStudentSql, dgMain)
             SetDgMainHeader()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -243,7 +243,7 @@ Public Class FrmStudentFormer
         Try
             If (dgMain.Rows.Count > 0) Then
 
-                obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+                obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, POP_SOUND)
                 If USER_CLICK_OK = True Then
 
                     If (Validation.IsEmpty(txtStuNameKh, "ឈ្មោះសិស្ស")) Then Exit Sub
@@ -258,13 +258,13 @@ Public Class FrmStudentFormer
                     dgMain.CurrentCell = dgMain.SelectedCells(1)
                 End If
             Else
-                obj.ShowMsg("មិនមានព័ត៌មានសម្រាប់កែប្រែ", FrmWarning, _WarningSound)
+                obj.ShowMsg("មិនមានព័ត៌មានសម្រាប់កែប្រែ", FrmWarning, WARNING_SOUND)
                 lblStuNew_Click(sender, e)
             End If
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
     Private Function CheckStudentCode_update() As Boolean
@@ -300,7 +300,7 @@ Public Class FrmStudentFormer
 
     Private Sub lblFamilySave_Click(sender As Object, e As EventArgs) Handles lblParentSave.Click
         Try
-            Call obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+            Call obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, POP_SOUND)
             If USER_CLICK_OK = True Then
                 idx = dgMain.SelectedCells(0).RowIndex.ToString()
 
@@ -311,9 +311,9 @@ Public Class FrmStudentFormer
                 Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO_FORMER SET FATHER_NAME = N'" & txtFatherName.Text & "',FATHER_OCCUPATION_ID= " & fatherOcuppcationID & ",FATHER_PHONE_LINE_1= N'" & txtFatherPhone1.Text & "',FATHER_PHONE_LINE_2= N'" & txtFatherPhone2.Text & "',MOTHER_NAME= N'" & txtMotherName.Text & "',MOTHER_OCCUPATION_ID = " & motherOcuppationID & ",MOTHER_PHONE_LINE_1= N'" & txtMotherPhone1.Text & "',MOTHER_PHONE_LINE_2= N'" & txtMotherPhone2.Text & "',GUARDIAN_NAME= N'" & txtGuaName.Text & "',GUARDIAN_OCCUPATION_ID= " & guaOccupationID & ",GUARDIAN_PHONE_LINE_1= N'" & txtGuaPhone1.Text & "',GUARDIAN_PHONE_LINE_2= N'" & txtGuaPhone2.Text & "' WHERE RECORD_ID = " & dgMain.SelectedRows(0).Cells(0).Value & "")
 
                 If (lblParentSave.Text = "រក្សាទុក") Then
-                    obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
+                    obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, SUCCESS_SOUND)
                 Else
-                    obj.ShowMsg("ព័ត៌មានត្រូវបានកែប្រែ", FrmMessageSuccess, _SuccessSound)
+                    obj.ShowMsg("ព័ត៌មានត្រូវបានកែប្រែ", FrmMessageSuccess, SUCCESS_SOUND)
                 End If
                 Call SelectStudent()
 
@@ -322,8 +322,8 @@ Public Class FrmStudentFormer
 
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -356,7 +356,7 @@ Public Class FrmStudentFormer
             End If
             dr.Close()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចទាយទិន្នន័យពី Server បានទេ !", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -385,7 +385,7 @@ Public Class FrmStudentFormer
             End If
             dr.Close()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចទាយទិន្នន័យពី Server បានទេ !", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -480,14 +480,14 @@ Public Class FrmStudentFormer
                 End If
             ElseIf lblAddressSave.Text = "រក្សាទុក" Then
                 Call obj.UpdateNoMsg(sql)
-                obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
+                obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, SUCCESS_SOUND)
                 Call SelectStudent()
                 dgMain.Rows(idx).Selected = True
                 dgMain.CurrentCell = dgMain.SelectedCells(1)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            obj.ShowMsg("មិនអាចរក្សាទុកទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            obj.ShowMsg("មិនអាចរក្សាទុកទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -585,8 +585,8 @@ Public Class FrmStudentFormer
                 SetDgMainHeader()
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -613,8 +613,8 @@ Public Class FrmStudentFormer
                 SetDgMainHeader()
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -627,8 +627,8 @@ Public Class FrmStudentFormer
             obj.BindDataGridView(selectStudentSql + "  WHERE S.STUDENT_CODE + S.STUDENT_ID_SCHOOL + S.SNAME_KH + S.SNAME_LATIN + S.S_PHONE_LINE_1 + S.S_PHONE_LINE_2 + S.EMAIL_1 + S.FIRST_YEAR_STUDY  LIKE N'%" & txtAdvancedSearch.Text & "%'", dgMain)
             SetDgMainHeader()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
     Private Sub CountSearchResult()
@@ -674,12 +674,12 @@ Public Class FrmStudentFormer
             cmd.Parameters.Add("@Photo", SqlDbType.Image, photo.Length).Value = photo
             cmd.ExecuteNonQuery()
             cmd.Parameters.Add("@Photo", SqlDbType.Image, photo.Length).Value = photo
-            Call obj.ShowMsg("រូបភាពកែប្រែបានសម្រេច", FrmMessageSuccess, _SuccessSound)
+            Call obj.ShowMsg("រូបភាពកែប្រែបានសម្រេច", FrmMessageSuccess, SUCCESS_SOUND)
             Call SelectStudent()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("ពុំអាចកែប្រែរូបភាពបានទេ!", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("ពុំអាចកែប្រែរូបភាពបានទេ!", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -835,8 +835,8 @@ Public Class FrmStudentFormer
                 SetDgMainHeader()
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 End Class

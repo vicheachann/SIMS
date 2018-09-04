@@ -42,7 +42,7 @@ Public Class Bind
             cboProvince.DataSource = dt
             conn.Close()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             MsgBox(ex.Message)
         End Try
     End Sub

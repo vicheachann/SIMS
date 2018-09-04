@@ -26,24 +26,6 @@ Partial Class FrmChangeClass
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
         Me.dg = New System.Windows.Forms.DataGridView()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.lblChangeToStudentFormer = New System.Windows.Forms.Label()
         Me.PAll = New System.Windows.Forms.Panel()
@@ -68,6 +50,24 @@ Partial Class FrmChangeClass
         Me.btnClose = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.STUDENT_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CURRENT_YEAR_STUDY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CURRENT_CLASS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PanelEx1.SuspendLayout()
         CType(Me.dg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel1.SuspendLayout()
@@ -121,7 +121,7 @@ Partial Class FrmChangeClass
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.Column10, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.Column15, Me.Column14, Me.Column6, Me.Column7, Me.Column8, Me.Column16, Me.Column9, Me.Column13, Me.Column18})
+        Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.Column10, Me.Column1, Me.STUDENT_ID, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.Column15, Me.Column14, Me.CURRENT_YEAR_STUDY, Me.CURRENT_CLASS, Me.Column8, Me.Column16, Me.Column9, Me.Column13, Me.Column18})
         Me.dg.Location = New System.Drawing.Point(6, 92)
         Me.dg.MultiSelect = False
         Me.dg.Name = "dg"
@@ -131,124 +131,6 @@ Partial Class FrmChangeClass
         Me.dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dg.Size = New System.Drawing.Size(1194, 361)
         Me.dg.TabIndex = 309
-        '
-        'Column17
-        '
-        Me.Column17.HeaderText = "RECORD_ID"
-        Me.Column17.Name = "Column17"
-        Me.Column17.Visible = False
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = ""
-        Me.Column10.Name = "Column10"
-        Me.Column10.Visible = False
-        Me.Column10.Width = 50
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "ល.រ"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 50
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "STUDENT_ID"
-        Me.Column2.Name = "Column2"
-        Me.Column2.Visible = False
-        Me.Column2.Width = 5
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "ឈ្មោះសិស្ស"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 150
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "ភេទ"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 50
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "លេខកូដ"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 80
-        '
-        'Column11
-        '
-        Me.Column11.HeaderText = "ថ្ងៃខែឆ្នាំកំណើត"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
-        Me.Column11.Width = 120
-        '
-        'Column12
-        '
-        Me.Column12.HeaderText = "ភូមិ"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        '
-        'Column15
-        '
-        Me.Column15.HeaderText = "STUDY_STATUS_ID"
-        Me.Column15.Name = "Column15"
-        Me.Column15.Visible = False
-        '
-        'Column14
-        '
-        Me.Column14.HeaderText = "ស្ថានភាពសិក្សា"
-        Me.Column14.Name = "Column14"
-        Me.Column14.Width = 125
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "ឆ្នាំសិក្សាចាស់"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 115
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "ថ្នាក់ចាស់"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 80
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "ឆ្នាំសិក្សាថ្មី"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Width = 115
-        '
-        'Column16
-        '
-        Me.Column16.HeaderText = "NEW_CLASS_ID"
-        Me.Column16.Name = "Column16"
-        Me.Column16.Visible = False
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "ថ្នាក់ថ្មី"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 70
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "ផ្សេងៗ"
-        Me.Column13.Name = "Column13"
-        Me.Column13.Width = 150
-        '
-        'Column18
-        '
-        Me.Column18.HeaderText = "ប្រធានទី"
-        Me.Column18.Name = "Column18"
         '
         'GroupPanel1
         '
@@ -583,6 +465,124 @@ Partial Class FrmChangeClass
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "ប្តូរស្ថានភាពសិក្សាសិស្ស"
         '
+        'Column17
+        '
+        Me.Column17.HeaderText = "RECORD_ID"
+        Me.Column17.Name = "Column17"
+        Me.Column17.Visible = False
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = ""
+        Me.Column10.Name = "Column10"
+        Me.Column10.Visible = False
+        Me.Column10.Width = 50
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "ល.រ"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 50
+        '
+        'STUDENT_ID
+        '
+        Me.STUDENT_ID.HeaderText = "STUDENT_ID"
+        Me.STUDENT_ID.Name = "STUDENT_ID"
+        Me.STUDENT_ID.Visible = False
+        Me.STUDENT_ID.Width = 5
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "ឈ្មោះសិស្ស"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 150
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "ភេទ"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 50
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "លេខកូដ"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 80
+        '
+        'Column11
+        '
+        Me.Column11.HeaderText = "ថ្ងៃខែឆ្នាំកំណើត"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 120
+        '
+        'Column12
+        '
+        Me.Column12.HeaderText = "ភូមិ"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        '
+        'Column15
+        '
+        Me.Column15.HeaderText = "STUDY_STATUS_ID"
+        Me.Column15.Name = "Column15"
+        Me.Column15.Visible = False
+        '
+        'Column14
+        '
+        Me.Column14.HeaderText = "ស្ថានភាពសិក្សា"
+        Me.Column14.Name = "Column14"
+        Me.Column14.Width = 125
+        '
+        'CURRENT_YEAR_STUDY
+        '
+        Me.CURRENT_YEAR_STUDY.HeaderText = "ឆ្នាំសិក្សាចាស់"
+        Me.CURRENT_YEAR_STUDY.Name = "CURRENT_YEAR_STUDY"
+        Me.CURRENT_YEAR_STUDY.ReadOnly = True
+        Me.CURRENT_YEAR_STUDY.Width = 115
+        '
+        'CURRENT_CLASS
+        '
+        Me.CURRENT_CLASS.HeaderText = "ថ្នាក់ចាស់"
+        Me.CURRENT_CLASS.Name = "CURRENT_CLASS"
+        Me.CURRENT_CLASS.ReadOnly = True
+        Me.CURRENT_CLASS.Width = 80
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "ឆ្នាំសិក្សាថ្មី"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 115
+        '
+        'Column16
+        '
+        Me.Column16.HeaderText = "NEW_CLASS_ID"
+        Me.Column16.Name = "Column16"
+        Me.Column16.Visible = False
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "ថ្នាក់ថ្មី"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 70
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "ផ្សេងៗ"
+        Me.Column13.Name = "Column13"
+        Me.Column13.Width = 150
+        '
+        'Column18
+        '
+        Me.Column18.HeaderText = "ប្រធានទី"
+        Me.Column18.Name = "Column18"
+        '
         'FrmChangeClass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -623,24 +623,6 @@ Partial Class FrmChangeClass
     Friend WithEvents lblTotalSearch As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents Column17 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewCheckBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column16 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column18 As DataGridViewTextBoxColumn
     Friend WithEvents rbChangeClass As RadioButton
     Friend WithEvents rbTranferIn As RadioButton
     Friend WithEvents rbtransferOut As RadioButton
@@ -652,4 +634,22 @@ Partial Class FrmChangeClass
     Public WithEvents dg As DataGridView
     Public WithEvents rbDropStudy As RadioButton
     Public WithEvents cboDynamic As ComboBox
+    Friend WithEvents Column17 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewCheckBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents STUDENT_ID As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents CURRENT_YEAR_STUDY As DataGridViewTextBoxColumn
+    Friend WithEvents CURRENT_CLASS As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column18 As DataGridViewTextBoxColumn
 End Class

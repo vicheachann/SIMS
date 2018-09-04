@@ -66,7 +66,7 @@
             obj.Insert("INSERT INTO dbo.TBL_SALARY_LEVEL(SALARY_LEVEL,REMARK)VALUES(N'" & txt_salary_level.Text & "',N'" & txt_remark.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -82,7 +82,7 @@
             obj.Update("UPDATE dbo.TBL_SALARY_LEVEL SET SALARY_LEVEL = N'" & txt_salary_level.Text & "',REMARK = N'" & txt_remark.Text & "' WHERE SALARY_LEVEL_ID = " & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

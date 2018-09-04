@@ -8,7 +8,7 @@ Public Class FrmChangeClass
     Public Shared studentID As Integer()
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        frm_student_education.SelectSearchResult()
+        FrmStudyInfo.SelectSearchResult()
         Close()
     End Sub
 #Region "Shadow effect"
@@ -84,21 +84,21 @@ Public Class FrmChangeClass
                     Exit Sub
                 End If
 
-                If frm_student_education.SplitYear(dg.Rows(0).Cells(11).Value) > frm_student_education.SplitYear(cboDynamic.Text) Then
+                If FrmStudyInfo.SplitYear(dg.Rows(0).Cells(11).Value) > FrmStudyInfo.SplitYear(cboDynamic.Text) Then
                     cboDynamic.BackColor = Color.LavenderBlush
                     cboDynamic.Focus()
                     obj.ShowMsg("ឆ្នាំសិក្សាថ្មីមិនអាចតូចជាងឆ្នាំសិក្សាចាស់", FrmWarning, "Windows Ding.wav")
                     Exit Sub
                 End If
 
-                If frm_student_education.SplitYear(dg.Rows(0).Cells(11).Value) = frm_student_education.SplitYear(cboDynamic.Text) Then
+                If FrmStudyInfo.SplitYear(dg.Rows(0).Cells(11).Value) = FrmStudyInfo.SplitYear(cboDynamic.Text) Then
                     cboDynamic.BackColor = Color.LavenderBlush
                     cboDynamic.Focus()
                     obj.ShowMsg("ឆ្នាំសិក្សាថ្មីមិនដូចឆ្នាំសិក្សាចាស់", FrmWarning, "Windows Ding.wav")
                     Exit Sub
                 End If
 
-                If (frm_student_education.SplitYear(cboDynamic.Text)) <> (Convert.ToInt32(frm_student_education.SplitYear(dg.Rows(0).Cells(11).Value)) + 1).ToString Then
+                If (FrmStudyInfo.SplitYear(cboDynamic.Text)) <> (Convert.ToInt32(FrmStudyInfo.SplitYear(dg.Rows(0).Cells(11).Value)) + 1).ToString Then
                     cboDynamic.BackColor = Color.LavenderBlush
                     cboDynamic.Focus()
                     obj.ShowMsg("មិនអាចធ្វើការតំឡើងថ្នាក់ខុសលំដាប់ឆ្នាំសិក្សាបានទេ", FrmWarning, "Windows Ding.wav")
@@ -306,6 +306,9 @@ Public Class FrmChangeClass
         rbDropStudy.ForeColor = Color.Navy
     End Sub
 
+
+    Public Sub UpdateStudyInfoStatus()
+    End Sub
     Private Sub rbDropStudy_CheckedChanged(sender As Object, e As EventArgs) Handles rbDropStudy.CheckedChanged
         Try
             If (rbDropStudy.Checked = True) Then
@@ -313,8 +316,13 @@ Public Class FrmChangeClass
                 obj.ShowMsg("តើអ្នកចង់បញ្ចូលក្នុងសិស្សបោះបង់ការសិក្សាដែលឬទេ ?", msg_question_big, "")
                 If USER_CLICK_OK = True Then
                     For i As Integer = 0 To dg.Rows.Count - 1
+                        'Insert pre-info to TBS_STUDENT_STOP_STUDY
                         obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_STOP_STUDY(STUDENT_ID,FLAGE)VALUES(" & dg.Rows(i).Cells(3).Value & ",0)")
-                        obj.UpdateNoMsg("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = 4  WHERE STUDENT_ID = " & dg.Rows(i).Cells(3).Value & "")
+                        'Update Student Status
+                        obj.UpdateNoMsg("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & DROP_STUDY_FK & "  WHERE STUDENT_ID = " & dg.Rows(i).Cells(3).Value & "")
+                        'Update study info
+                        Dim currentClassID As String = obj.GetID("SELECT CLASS_ID FROM dbo.TBS_CLASS WHERE CLASS_LETTER = N'" & dg.Rows(i).Cells("CURRENT_CLASS").Value & "'")
+                        obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_STUDY_INFO SET STUDY_INFO_STATUS_ID = 5 WHERE CLASS_ID = " & currentClassID & " AND YEAR_STUDY = N'" & dg.Rows(i).Cells("CURRENT_YEAR_STUDY").Value.ToString & "' AND STUDENT_ID =" & dg.Rows(i).Cells("STUDENT_ID").Value & "")
                     Next
                     dg.Rows.Clear()
                     frm_student_stop_study.ShowDialog()

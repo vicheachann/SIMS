@@ -387,10 +387,10 @@
     <Compile Include="Form\Student\frm_student_suspent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Student\frm_student_education.Designer.vb">
-      <DependentUpon>frm_student_education.vb</DependentUpon>
+    <Compile Include="Form\Student\FrmStudyInfo.Designer.vb">
+      <DependentUpon>FrmStudyInfo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\Student\frm_student_education.vb">
+    <Compile Include="Form\Student\FrmStudyInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Student\frm_student_stop_study.Designer.vb">
@@ -770,8 +770,8 @@
     <EmbeddedResource Include="Form\Student\frm_student_suspent.resx">
       <DependentUpon>frm_student_suspent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Student\frm_student_education.resx">
-      <DependentUpon>frm_student_education.vb</DependentUpon>
+    <EmbeddedResource Include="Form\Student\FrmStudyInfo.resx">
+      <DependentUpon>FrmStudyInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Student\frm_student_stop_study.resx">
       <DependentUpon>frm_student_stop_study.vb</DependentUpon>

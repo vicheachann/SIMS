@@ -88,7 +88,7 @@
             obj.Insert("INSERT INTO dbo.TBS_CLASS (CLASS_LETTER,CLASS_NUMBER)VALUES(N'" & txt_class_letter.Text & "',N'" & txt_class_number.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -119,7 +119,7 @@
             obj.Update("UPDATE dbo.TBS_CLASS SET CLASS_LETTER = N'" & txt_class_letter.Text & "',CLASS_NUMBER = N'" & txt_class_number.Text & "' WHERE CLASS_ID =" & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

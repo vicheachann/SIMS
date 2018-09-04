@@ -67,7 +67,7 @@
             obj.Insert("INSERT INTO dbo.dbo.TBL_EDUCATION_LEVEL(EDUCATION_LEVEL_KH,EDUCATION_LEVEL_EN)VALUES(N'" & txt_kh.Text & "',N'" & txt_en.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -83,7 +83,7 @@
             obj.Update("UPDATE dbo.TBL_EDUCATION_LEVEL SET EDUCATION_LEVEL_KH = N'" & txt_kh.Text & "',EDUCATION_LEVEL_EN = N'" & txt_en.Text & "'   WHERE EDUCATION_LEVEL_ID = " & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

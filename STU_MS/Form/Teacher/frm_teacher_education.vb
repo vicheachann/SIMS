@@ -93,7 +93,7 @@
             obj.Insert("INSERT INTO dbo.TBL_EDUCATION(EDUCATION_KH,EDUCATION_EN,EDUCATION_LEVEL_ID,REMARK)VALUES(N'" & txt_kh.Text & "',N'" & txt_en.Text & "'," & cbo_lv.SelectedValue & ",N'" & txt_remark.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -109,7 +109,7 @@
             obj.Update("UPDATE dbo.TBL_EDUCATION SET EDUCATION_KH = N'" & txt_kh.Text & "',EDUCATION_EN = N'" & txt_en.Text & "',EDUCATION_LEVEL_ID=" & cbo_lv.SelectedValue & ",REMARK = N'" & txt_remark.Text & "' WHERE EDUCATION_ID = " & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

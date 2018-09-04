@@ -273,7 +273,7 @@ Public Class frm_teacher_mission
             dg.SelectedRows(0).Cells(5).Value = txtDes.Text
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("Cannot update", FrmMessageError, "Error.wav")
         End Try
     End Sub

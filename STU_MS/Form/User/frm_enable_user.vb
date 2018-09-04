@@ -38,7 +38,7 @@
             obj.ShowMsg("ព័ត៌មានអ្នកប្រើប្រាស់ត្រូវបានកែប្រែជោគជ័យ", FrmMessageSuccess, "")
             frm_add_user.Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការកែប្រែបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub

@@ -68,7 +68,7 @@
             obj.Insert("INSERT INTO dbo.TBL_MARRY_STATUS(MARRY_STATUS_KH,MARRY_STATUS_EN)VALUES(N'" & txt_kh.Text & "',N'" & txt_en.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -83,7 +83,7 @@
             obj.Update("UPDATE dbo.TBL_MARRY_STATUS SET MARRY_STATUS_KH = N'" & txt_kh.Text & "',MARRY_STATUS_EN=N'" & txt_en.Text & "' WHERE MARRY_STATUS_ID = " & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

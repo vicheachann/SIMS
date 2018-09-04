@@ -29,7 +29,7 @@ Module GlobalVariable
 
     'Message
     Public _MessageTitile As String
-    Public _ExceptionMessage As String
+    Public EXCEPTION_MESSAGE As String
     Public USER_CLICK_OK As Boolean
 
     ' File Brower Dialog
@@ -52,8 +52,8 @@ Module GlobalVariable
 
 
     'Sound File name
-    Public _WarningSound As String = "warning.wav"
-    Public _SuccessSound As String = "success.wav"
-    Public _ShowMessageSound As String = "ShowMessage.wav"
-    Public _ErrorSound As String = "Error.wav"
+    Public WARNING_SOUND As String = "warning.wav"
+    Public SUCCESS_SOUND As String = "success.wav"
+    Public POP_SOUND As String = "ShowMessage.wav"
+    Public ERROR_SOUND As String = "Error.wav"
 End Module

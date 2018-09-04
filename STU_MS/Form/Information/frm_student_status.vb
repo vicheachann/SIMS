@@ -82,7 +82,7 @@
             obj.Insert("INSERT INTO dbo.TBS_STUDENT_STATUS (STUDENT_STATUS_KH,STUDENT_STATUS_EN)VALUES(N'" & txt_kh.Text & "',N'" & txt_en.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -101,7 +101,7 @@
             obj.Update("UPDATE dbo.TBS_STUDENT_STATUS SET STUDENT_STATUS_KH = N'" & txt_kh.Text & "',STUDENT_STATUS_EN = N'" & txt_en.Text & "' WHERE STUDENT_STATUS_ID =" & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

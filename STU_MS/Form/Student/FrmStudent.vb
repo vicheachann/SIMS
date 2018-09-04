@@ -57,7 +57,7 @@ Public Class FrmStudent
             Dim livelihoodID As String = obj.GetID("SELECT LIVELIHOOD_ID FROM dbo.TBL_LIVELIHOOD WHERE LIVELIHOOD_KH = N'" & cboStuLivehood.Text & "'")
 
             obj.Insert("INSERT INTO dbo.TBS_STUDENT_INFO(STUDENT_ID_SCHOOL,STUDENT_CODE,SNAME_KH,SNAME_LATIN,GENDER,DOB,BATCH_ID,HEALTHY_ID,ORDINAL_CHILD,BOY_NUMBER,GIRL_NUMBER,TOTAL_SIBLING,LIVELIHOOD_ID,S_PHONE_LINE_1,S_PHONE_LINE_2,EMAIL_1,JOIN_SCHOOL_DATE,FIRST_YEAR_STUDY,CLASS_ID,CLASS_SCORE_12,CLASS_RANK,FINAL_12_GRADE_LETTER,FINAL_12_GRADE_SCORE,[DESCRIPTION],STUDENT_STATUS_ID)VALUES(" & txtStuSchoolCode.Text & ",N'" & txtStuCode.Text & "',N'" & txtStuNameKh.Text & "',N'" & txtStuNameEn.Text & "',N'" & cboStuGender.Text & "','" & dtStuDOB.Text & "'," & cboStuBatch.SelectedValue & "," & healthID & "," & txtStuChildOrdinal.Text & ",N'" & txtStuNumBoy.Text & "',N'" & txtStuNumGirl.Text & "',N'" & txtStuTotalSibling.Text & "'," & livelihoodID & ",N'" & txtStuPhone1.Text & "',N'" & txtStuPhone2.Text & "',N'" & txtStuEmail.Text & "','" & dtStuJoinSchoolDate.Text & "',N'" & cboStuFirstYearStudy.Text & "'," & cboStuCurrentClass.SelectedValue & "," & ConvertToDecimal(txtStuClassScore12.Text) & ",N'" & txtStuClassRank.Text & "',N'" & txtStuFinal12GradeLetter.Text & "'," & ConvertToDecimal(txtStuFinal12GradeScore.Text) & ",N'" & txtStuRemark.Text & "'," & cboStuStatus.SelectedValue & ")")
-            Call UpdateIDControlClass()
+            obj.ReOrderList(cboStuCurrentClass.Text, cboStuFirstYearStudy.Text)
             Call SelectStudent()
 
         Catch ex As Exception
@@ -316,7 +316,7 @@ Public Class FrmStudent
 
             If (dgMain.Rows.Count > 0) Then
 
-                obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+                obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, POP_SOUND)
                 If USER_CLICK_OK = True Then
 
                     If (Validation.IsEmpty(txtStuSchoolCode, "អត្តលេខសាលា")) Then Exit Sub
@@ -341,14 +341,14 @@ Public Class FrmStudent
                         Exit Sub
                     End If
                     If (cbStuDOB.Checked = False) Then
-                        obj.ShowMsg("តើអ្នកចង់បញ្ចូលថ្ងៃខែឆ្នាំកំណើតដែលឬទេ ?", FrmMessageQuestion, _ShowMessageSound)
+                        obj.ShowMsg("តើអ្នកចង់បញ្ចូលថ្ងៃខែឆ្នាំកំណើតដែលឬទេ ?", FrmMessageQuestion, POP_SOUND)
                         If USER_CLICK_OK = True Then
                             cbStuDOB.Checked = True
                             Exit Sub
                         End If
                     End If
                     If (cbStuJoinDate.Checked = False) Then
-                        obj.ShowMsg("តើអ្នកចង់បញ្ចូលថ្ងៃចូលរៀនដែលឬទេ ?", FrmMessageQuestion, _ShowMessageSound)
+                        obj.ShowMsg("តើអ្នកចង់បញ្ចូលថ្ងៃចូលរៀនដែលឬទេ ?", FrmMessageQuestion, POP_SOUND)
                         If USER_CLICK_OK = True Then
                             cbStuJoinDate.Checked = True
                             Exit Sub
@@ -367,13 +367,13 @@ Public Class FrmStudent
                     dgMain.CurrentCell = dgMain.SelectedCells(1)
                 End If
             Else
-                obj.ShowMsg("មិនមានព័ត៌មានសម្រាប់កែប្រែ", FrmWarning, _WarningSound)
+                obj.ShowMsg("មិនមានព័ត៌មានសម្រាប់កែប្រែ", FrmWarning, WARNING_SOUND)
                 lblNewStudent_Click(sender, e)
             End If
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -401,7 +401,7 @@ Public Class FrmStudent
 
     Private Sub lblSaveFamily_Click(sender As Object, e As EventArgs) Handles lblFamilySave.Click
         Try
-            Call obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+            Call obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, POP_SOUND)
             If USER_CLICK_OK = True Then
                 idx = dgMain.SelectedCells(0).RowIndex.ToString()
 
@@ -411,15 +411,15 @@ Public Class FrmStudent
 
                 Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET FATHER_NAME = N'" & txtFatherName.Text & "',FATHER_OCCUPATION_ID= " & fatherOcuppcationID & ",FATHER_PHONE_LINE_1= N'" & txtFatherPhone1.Text & "',FATHER_PHONE_LINE_2= N'" & txtFatherPhone2.Text & "',MOTHER_NAME= N'" & txtMotherName.Text & "',MOTHER_OCCUPATION_ID = " & motherOcuppationID & ",MOTHER_PHONE_LINE_1= N'" & txtMotherPhone1.Text & "',MOTHER_PHONE_LINE_2= N'" & txtMotherPhone2.Text & "',GUARDIAN_NAME= N'" & txtGuaName.Text & "',GUARDIAN_OCCUPATION_ID= " & guaOccupationID & ",GUARDIAN_PHONE_LINE_1= N'" & txtGuaPhone1.Text & "',GUARDIAN_PHONE_LINE_2= N'" & txtGuaPhone2.Text & "' WHERE STUDENT_ID = " & dgMain.SelectedRows(0).Cells(0).Value & "")
 
-                obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
+                obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, SUCCESS_SOUND)
                 Call SelectStudent()
                 dgMain.Rows(idx).Selected = True
                 dgMain.CurrentCell = dgMain.SelectedCells(1)
 
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -453,7 +453,7 @@ Public Class FrmStudent
                 End While
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចទាយទិន្នន័យពី Server បានទេ !", FrmMessageError, "Error.wav")
         End Try
 
@@ -543,7 +543,7 @@ Public Class FrmStudent
             Call SelectStudent()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call obj.ShowMsg("ពុំអាចកែប្រែរូបភាពបានទេ!", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -851,7 +851,7 @@ Public Class FrmStudent
             dgMain.Rows(idx).Selected = True
             dgMain.CurrentCell = dgMain.SelectedCells(1)
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចបញ្ចូលព័ត៌មានបាន", FrmMessageError, "Error.wav")
             Exit Sub
         End Try
@@ -970,7 +970,7 @@ Public Class FrmStudent
                 lbl_sibling_new_Click(sender, e)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការកែប្រែព័ត៌មាននេះបាន!", FrmMessageError, "Error.wav")
         End Try
 
@@ -998,7 +998,7 @@ Public Class FrmStudent
                 lbl_sibling_new_Click(sender, e)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការលុបព័ត៌មាននេះបានទេ!", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -1022,7 +1022,7 @@ Public Class FrmStudent
 "(" & dgMain.SelectedCells(0).Value & "," & cboSkill.SelectedValue & ",N'" & txt_skill_description.Text & "',GETDATE())")
             Call SelectSkill()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចបញ្ចូលព័ត៌មានបាន", FrmMessageError, "Error.wav")
             Exit Sub
         End Try
@@ -1126,7 +1126,7 @@ Public Class FrmStudent
         Try
             If (dgSkill.Rows.Count > 0) Then
 
-                Call obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+                Call obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, POP_SOUND)
 
                 If USER_CLICK_OK = True Then
                     idx = dgSkill.SelectedCells(0).RowIndex.ToString()
@@ -1152,8 +1152,8 @@ Public Class FrmStudent
                 lbl_skill_new_Click(sender, e)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            obj.ShowMsg("មិនអាចធ្វើការកែប្រែព័ត៌មាននេះបាន!", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            obj.ShowMsg("មិនអាចធ្វើការកែប្រែព័ត៌មាននេះបាន!", FrmMessageError, ERROR_SOUND)
         End Try
 
     End Sub
@@ -1172,7 +1172,7 @@ Public Class FrmStudent
                 lbl_skill_new_Click(sender, e)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការលុបព័ត៌មាននេះបានទេ!", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -1205,7 +1205,7 @@ Public Class FrmStudent
 "(" & dgMain.SelectedCells(0).Value & "," & cboLangugue.SelectedValue & ",N'" & cbo_read.Text & "',N'" & cbo_speak.Text & "',N'" & cbo_write.Text & "')")
             Call SelectLangugue()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចបញ្ចូលព័ត៌មានបាន", FrmMessageError, "Error.wav")
             Exit Sub
         End Try
@@ -1375,7 +1375,7 @@ Public Class FrmStudent
                 lbl_lag_new_Click(sender, e)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការកែប្រែព័ត៌មាននេះបាន!", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -1394,7 +1394,7 @@ Public Class FrmStudent
                 lbl_lag_new_Click(sender, e)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការលុបព័ត៌មាននេះបានទេ!", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -2113,14 +2113,14 @@ Public Class FrmStudent
                 End If
             ElseIf lblAddressSave.Text = "រក្សាទុក" Then
                 Call obj.UpdateNoMsg(sql)
-                obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
+                obj.ShowMsg("បញ្ចូលព័ត៌មានបានជោគជ័យ", FrmMessageSuccess, SUCCESS_SOUND)
                 Call SelectStudent()
                 dgMain.Rows(idx).Selected = True
                 dgMain.CurrentCell = dgMain.SelectedCells(1)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            obj.ShowMsg("មិនអាចរក្សាទុកទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            obj.ShowMsg("មិនអាចរក្សាទុកទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -2173,9 +2173,9 @@ Public Class FrmStudent
                     .cboLastClass.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells("CLASS_LETTER").Value)
 
                     If dgMain.SelectedRows(0).Cells("STUDENT_PHOTO").Value.ToString() = "" Then
-                        .pic_student.BackgroundImage = Nothing
+                        .picStudent.BackgroundImage = Nothing
                     Else
-                        Call obj.Show_Photo(dgMain.SelectedRows(0).Cells("STUDENT_PHOTO").Value, .pic_student)
+                        Call obj.Show_Photo(dgMain.SelectedRows(0).Cells("STUDENT_PHOTO").Value, .picStudent)
                     End If
                     .ShowDialog()
                 End With

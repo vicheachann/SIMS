@@ -75,7 +75,7 @@
             obj.Insert("INSERT INTO dbo.TBL_OCCUPATION(OCCUPATION_KH,OCCUPATION_EN)VALUES(N'" & txt_kh.Text & "',N'" & txt_en.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -91,7 +91,7 @@
             obj.Update("UPDATE dbo.TBL_OCCUPATION SET OCCUPATION_KH = N'" & txt_kh.Text & "',OCCUPATION_EN = N'" & txt_en.Text & "' WHERE OCCUPATION_ID = " & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

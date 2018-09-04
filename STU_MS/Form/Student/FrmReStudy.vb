@@ -27,7 +27,7 @@ Public Class FrmReStudy
         cboNewYearStudy.Text = ""
         txtLastOrderID.Clear()
         txtRemark.Clear()
-        pic_student.BackgroundImage = Nothing
+        picStudent.BackgroundImage = Nothing
     End Sub
 
     Public Sub GetLastYearStudy(ByVal studentID As String)
@@ -41,8 +41,10 @@ Public Class FrmReStudy
             If dt.Rows.Count > 0 Then
                 cboLastYearStudy.Text = dt.Rows(0)("YEAR_STUDY").ToString()
             End If
+
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            EXCEPTION_MESSAGE = ex.Message
+            obj.ShowMsg("មិនអាចបញ្ចូលទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -80,8 +82,8 @@ Public Class FrmReStudy
 
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -148,4 +150,38 @@ Public Class FrmReStudy
     Private Sub lblDelete_MouseLeave(sender As Object, e As EventArgs) Handles lblDelete.MouseLeave
         t.Leave(lblDelete)
     End Sub
+
+    Private Sub FrmReStudy_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub lblInsertReOrder_Click(sender As Object, e As EventArgs) Handles lblInsertReOrder.Click
+        Try
+            If (Validation.IsEmpty(cboNewClass, "ថ្នាក់ថ្មី")) Then Exit Sub
+            If (Validation.IsEmpty(cboNewYearStudy, "ឆ្នាំសិក្សាថ្មី")) Then Exit Sub
+
+            InsertStudyInfo()
+            InsertStudentReturn()
+            UpdateStudentStatus()
+            obj.ReOrderList(cboNewClass.Text, cboNewYearStudy.Text)
+
+            obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, SUCCESS_SOUND)
+        Catch ex As Exception
+            EXCEPTION_MESSAGE = ex.Message
+            obj.ShowMsg("មិនអាចបញ្ចូលទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
+        End Try
+    End Sub
+
+    Private Sub InsertStudyInfo()
+        obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_STUDY_INFO (STUDENT_ID,CLASS_ID,YEAR_STUDY,CLASS_OLD,YEAR_STUDY_OLD,REMARK,DATE_NOTE,STUDY_INFO_STATUS_ID,TEACHER_ID)VALUES(" & txtStudentID.Text & "," & cboNewClass.SelectedValue & ",N'" & cboNewYearStudy.Text & "',N'" & cboLastClass.Text & "',N'" & cboLastYearStudy.Text & "',N'" & txtRemark.Text & "',GETDATE(),3," & USER_ID & ")")
+    End Sub
+    Private Sub InsertStudentReturn()
+        Dim oldClassID As String = obj.GetID("SELECT CLASS_ID FROM dbo.TBS_CLASS WHERE CLASS_LETTER = N'" & cboLastClass.Text & "'")
+        obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_RETURN(STUDENT_ID,CLASS_ID,YEAR_STUDY_NEW,OLD_CLASS_ID,YEAR_STUDY_OLD,DESCRIPTIONS,DATE_NOTE,BY_STAFF)VALUES(" & txtStudentID.Text & "," & cboNewClass.SelectedValue & ",N'" & cboNewYearStudy.Text & "'," & oldClassID & ",N'" & cboLastYearStudy.Text & "',N'" & txtRemark.Text & "',GETDATE()," & USER_ID & ")")
+    End Sub
+    Private Sub UpdateStudentStatus()
+        obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & STUDYING_FK & " WHERE STUDENT_ID = " & txtStudentID.Text & "")
+    End Sub
+
+
 End Class

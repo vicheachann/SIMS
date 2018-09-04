@@ -1,7 +1,7 @@
 ﻿Public Class FrmMessageError
 
     Private Sub lblShowException_Click(sender As Object, e As EventArgs) Handles lblShowException.Click
-        MsgBox(_ExceptionMessage)
+        MsgBox(EXCEPTION_MESSAGE)
     End Sub
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load

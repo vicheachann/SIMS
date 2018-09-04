@@ -104,7 +104,7 @@
             obj.Insert("INSERT INTO dbo.TBL_POSITION (POSITION,ORDINAL_NUMBER)VALUES(N'" & txt_position.Text & "'," & txt_ordinal_num.Text & ")")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmWarning, "")
         End Try
     End Sub
@@ -140,7 +140,7 @@
             obj.Update("UPDATE dbo.TBL_POSITION SET POSITION = N'" & txt_position.Text & "',ORDINAL_NUMBER = " & txt_ordinal_num.Text & " WHERE POSITION_ID =" & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

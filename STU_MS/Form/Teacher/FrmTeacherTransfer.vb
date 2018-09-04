@@ -303,7 +303,7 @@ Public Class FrmTeacherTransfer
             Call Selection()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call obj.ShowMsg("ពុំអាចកែប្រែរូបភាពបានទេ!", FrmMessageError, "Error.wav")
         End Try
     End Sub

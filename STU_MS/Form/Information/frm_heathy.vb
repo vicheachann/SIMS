@@ -83,7 +83,7 @@
             obj.Insert("INSERT INTO dbo.TBL_HEALTHY (HEALTHY_KH,HEALTHY_EN)VALUES(N'" & txt_kh.Text & "',N'" & txt_en.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -102,7 +102,7 @@
             obj.Update("UPDATE dbo.TBL_HEALTHY SET HEALTHY_KH = N'" & txt_kh.Text & "',HEALTHY_EN = N'" & txt_en.Text & "' WHERE HEALTHY_ID =" & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

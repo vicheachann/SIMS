@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class frm_student_education
+Public Class FrmStudyInfo
     Dim obj As New Method
     Dim class_id As Integer
     Dim searchMode As Boolean = False 'search as default
@@ -107,29 +107,36 @@ Public Class frm_student_education
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Function UserInSearchMode() As Boolean
+        Dim result As Boolean = False
+        If (cboOldClass.Text = Nothing) Then
+            result = True
+        Else
+            result = False
+        End If
+        Return result
+    End Function
+
     Public Sub SelectSearchResult()
         Try
+            Dim sql As String = "SELECT TOP (100) PERCENT  S.RECORD_ID,S.RECORD_ID_CONTROL_CLASS ,S.STUDENT_ID,I.SNAME_KH, I.GENDER, I.STUDENT_CODE,CONVERT(CHAR(10),I.DOB,120)AS 'DOB', I.GUARDIAN_VILLAGE,S.STUDY_INFO_STATUS_ID,ST .STUDY_INFO_STATUS_KH ,S.YEAR_STUDY,C.CLASS_LETTER, NULL AS 'NEW_YEAR_STUDY', NULL AS 'NEW_CLASS', S.REMARK,MT.CLASS_MONITOR_NUM,S.CLASS_ID FROM dbo.TBS_STUDENT_STUDY_INFO AS S INNER JOIN dbo.TBS_STUDENT_INFO AS I ON S.STUDENT_ID = I.STUDENT_ID INNER JOIN dbo.TBS_CLASS AS C ON S.CLASS_ID = C.CLASS_ID INNER JOIN dbo.TBS_STUDENT_STUDY_INFO_STATUS AS ST ON S.STUDY_INFO_STATUS_ID = ST .STUDY_INFO_STATUS_ID LEFT  JOIN dbo.TBS_STUDENT_CLASS_MONITOR AS MT ON S.STUDENT_ID = MT.STUDENT_ID  WHERE S.STUDY_INFO_STATUS_ID NOT IN(" & STUDY_INFO_STATUS.FAILED & "," & STUDY_INFO_STATUS.TRANSFER_OUT & "," & STUDY_INFO_STATUS.DROP & ")"
 
-            If cboOldYear.Text = "" Then
-                obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, "Windows Ding.wav")
-                cboOldYear.BackColor = Color.LavenderBlush
-                cboOldYear.Focus()
-                Exit Sub
-            End If
-            If cboOldClass.Text = "" Then
+            If (Validation.IsEmpty(cboOldYear, "ឆ្នាំសិក្សា")) Then Exit Sub
+
+            If (UserInSearchMode() = True) Then
                 searchMode = True
-                cmd = New SqlCommand("SELECT TOP (100) PERCENT  S.RECORD_ID,S.RECORD_ID_CONTROL_CLASS ,S.STUDENT_ID,I.SNAME_KH, I.GENDER, I.STUDENT_CODE,CONVERT(CHAR(10),I.DOB,120)AS 'DOB', I.GUARDIAN_VILLAGE,S.STUDY_INFO_STATUS_ID,ST .STUDY_INFO_STATUS_KH ,S.YEAR_STUDY,C.CLASS_LETTER, NULL AS 'NEW_YEAR_STUDY', NULL AS 'NEW_CLASS', S.REMARK,MT.CLASS_MONITOR_NUM,S.CLASS_ID FROM dbo.TBS_STUDENT_STUDY_INFO AS S INNER JOIN dbo.TBS_STUDENT_INFO AS I ON S.STUDENT_ID = I.STUDENT_ID INNER JOIN dbo.TBS_CLASS AS C ON S.CLASS_ID = C.CLASS_ID INNER JOIN dbo.TBS_STUDENT_STUDY_INFO_STATUS AS ST ON S.STUDY_INFO_STATUS_ID = ST .STUDY_INFO_STATUS_ID LEFT  JOIN dbo.TBS_STUDENT_CLASS_MONITOR AS MT ON S.STUDENT_ID = MT.STUDENT_ID WHERE I.STUDENT_STATUS_ID NOT IN(2,3,4,6) AND S.YEAR_STUDY = N'" & cboOldYear.Text & "'  ORDER BY S.YEAR_STUDY, S.CLASS_ID, I.SNAME_KH", conn)
+                cmd = New SqlCommand(sql + "  AND S.YEAR_STUDY = N'" & cboOldYear.Text & "'  ORDER BY S.YEAR_STUDY, S.CLASS_ID, I.SNAME_KH", conn)
             Else
                 searchMode = False
-                cmd = New SqlCommand("SELECT TOP (100) PERCENT  S.RECORD_ID,S.RECORD_ID_CONTROL_CLASS ,S.STUDENT_ID,I.SNAME_KH, I.GENDER, I.STUDENT_CODE,CONVERT(CHAR(10),I.DOB,120)AS 'DOB', I.GUARDIAN_VILLAGE,S.STUDY_INFO_STATUS_ID,ST .STUDY_INFO_STATUS_KH ,S.YEAR_STUDY,C.CLASS_LETTER, NULL AS 'NEW_YEAR_STUDY', NULL AS 'NEW_CLASS', S.REMARK,MT.CLASS_MONITOR_NUM,S.CLASS_ID FROM dbo.TBS_STUDENT_STUDY_INFO AS S INNER JOIN dbo.TBS_STUDENT_INFO AS I ON S.STUDENT_ID = I.STUDENT_ID INNER JOIN dbo.TBS_CLASS AS C ON S.CLASS_ID = C.CLASS_ID INNER JOIN dbo.TBS_STUDENT_STUDY_INFO_STATUS AS ST ON S.STUDY_INFO_STATUS_ID = ST .STUDY_INFO_STATUS_ID LEFT  JOIN dbo.TBS_STUDENT_CLASS_MONITOR AS MT ON S.STUDENT_ID = MT.STUDENT_ID WHERE I.STUDENT_STATUS_ID NOT IN(2,3,4,6) AND S.YEAR_STUDY = N'" & cboOldYear.Text & "' AND S.CLASS_ID = " & cboOldClass.SelectedValue & " ORDER BY S.YEAR_STUDY, S.CLASS_ID, I.SNAME_KH", conn)
+                cmd = New SqlCommand(sql + "   AND S.YEAR_STUDY = N'" & cboOldYear.Text & "' AND S.CLASS_ID = " & cboOldClass.SelectedValue & " ORDER BY S.YEAR_STUDY, S.CLASS_ID, I.SNAME_KH", conn)
             End If
-
             da = New SqlDataAdapter(cmd)
             dt = New DataTable
             da.Fill(dt)
 
             If (dt.Rows.Count <= 0) Then
-                obj.ShowMsg("មិនមានទិន្នន័យ", FrmWarning, "")
+                obj.ShowMsg("មិនមានទិន្នន័យ", FrmWarning, WARNING_SOUND)
                 dg.Rows.Clear()
                 Exit Sub
             Else
@@ -145,7 +152,7 @@ Public Class frm_student_education
     End Sub
 
 
-    Private Sub lbl_search_Click(sender As Object, e As EventArgs) Handles lblSearch.Click
+    Private Sub lblSearch_Click(sender As Object, e As EventArgs) Handles lblSearch.Click
         Call SelectSearchResult()
     End Sub
 
@@ -443,7 +450,7 @@ Public Class frm_student_education
 
 
     Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles picSearch.Click
-        lbl_search_Click(sender, e)
+        lblSearch_Click(sender, e)
     End Sub
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles picUpgradeClass.Click
@@ -634,7 +641,7 @@ Public Class frm_student_education
                 USER_CLICK_OK = False
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការលុបព័ត៌មាននេះបាន!", FrmMessageError, "")
         End Try
     End Sub

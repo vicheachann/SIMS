@@ -50,6 +50,7 @@ Public Class frm_student_stop_study
             txtSearch.SetWaterMark("ស្វែងរក...")
             Call Selection()
             Call PreInsertSelection()
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -81,17 +82,17 @@ Public Class frm_student_stop_study
             ValidateState = True
         End If
 
-        If cbo_year_study.Text = "" Then
-            cbo_year_study.BackColor = Color.LavenderBlush
-            cbo_year_study.Focus()
+        If cboCurrentYearStudy.Text = "" Then
+            cboCurrentYearStudy.BackColor = Color.LavenderBlush
+            cboCurrentYearStudy.Focus()
             ValidateState = False
         Else
             ValidateState = True
         End If
 
-        If cbo_class_stop.Text = "" Then
-            cbo_class_stop.BackColor = Color.LavenderBlush
-            cbo_class_stop.Focus()
+        If cboCurrentClass.Text = "" Then
+            cboCurrentClass.BackColor = Color.LavenderBlush
+            cboCurrentClass.Focus()
             ValidateState = False
         Else
             ValidateState = True
@@ -102,7 +103,7 @@ Public Class frm_student_stop_study
 
     Private Sub btn_save_Click(sender As Object, e As EventArgs) Handles lblSave.Click
         Try
-            If cboStudentName.Text = "" Or cboReason.Text = "" Or cbo_year_study.Text = "" Or cbo_class_stop.Text = "" Then
+            If cboStudentName.Text = "" Or cboReason.Text = "" Or cboCurrentYearStudy.Text = "" Or cboCurrentClass.Text = "" Then
                 obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, "Error.wav")
                 ValidateControl()
                 If ValidateControl() = False Then
@@ -111,11 +112,12 @@ Public Class frm_student_stop_study
                 Exit Sub
             End If
 
-            obj.Insert("INSERT INTO dbo.TBS_STUDENT_STOP_STUDY (STUDENT_ID,STUDENT_STOP_REASON_ID,[DESCRIPTION],DATE_STOP,YEAR_STUDY,CLASS_STOP,DATE_NOTE,FLAGE)VALUES(" & cboStudentName.SelectedValue & "," & cboReason.SelectedValue & ",N'" & txt_des.Text & "','" & dtDateStop.Text & "',N'" & cbo_year_study.Text & "',N'" & cbo_class_stop.Text & "',GETDATE(),1)")
+            obj.Insert("INSERT INTO dbo.TBS_STUDENT_STOP_STUDY (STUDENT_ID,STUDENT_STOP_REASON_ID,[DESCRIPTION],DATE_STOP,YEAR_STUDY,CLASS_STOP,DATE_NOTE,FLAGE)VALUES(" & cboStudentName.SelectedValue & "," & cboReason.SelectedValue & ",N'" & txt_des.Text & "','" & dtDateStop.Text & "',N'" & cboCurrentYearStudy.Text & "',N'" & cboCurrentClass.Text & "',GETDATE(),1)")
             obj.UpdateNoMsg("UPDATE  dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & DROP_STUDY_FK & "  WHERE STUDENT_ID = " & cboStudentName.SelectedValue & "")
+            obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_STUDY_INFO SET STUDY_INFO_STATUS_ID = 5 WHERE CLASS_ID = " & cboCurrentClass.SelectedValue & " AND YEAR_STUDY = N'" & cboCurrentYearStudy.Text & "' AND STUDENT_ID =" & cboStudentName.SelectedValue & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការបញ្ជូលព័ត៌មានបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -186,14 +188,14 @@ Public Class frm_student_stop_study
         cboReason.Text = ""
         txt_des.Clear()
         dtDateStop.Text = "10/25/1996"
-        cbo_year_study.Text = ""
-        cbo_class_stop.Text = ""
+        cboCurrentYearStudy.Text = ""
+        cboCurrentClass.Text = ""
         dt_datenote.Text = Date.Today
 
     End Sub
 
 
-    Private Sub btn_new_Click(sender As Object, e As EventArgs) Handles lblNew.Click
+    Private Sub lblNew_Click(sender As Object, e As EventArgs) Handles lblNew.Click
         Clear()
 
         cboStudentName.Enabled = True
@@ -214,7 +216,7 @@ Public Class frm_student_stop_study
             obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, "")
             If USER_CLICK_OK = True Then
 
-                If cboStudentName.Text = "" Or cboReason.Text = "" Or cbo_year_study.Text = "" Or cbo_class_stop.Text = "" Then
+                If cboStudentName.Text = "" Or cboReason.Text = "" Or cboCurrentYearStudy.Text = "" Or cboCurrentClass.Text = "" Then
                     obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, "Error.wav")
                     ValidateControl()
                     If ValidateControl() = False Then
@@ -222,7 +224,7 @@ Public Class frm_student_stop_study
                     End If
                     Exit Sub
                 End If
-                obj.Update("UPDATE dbo.TBS_STUDENT_STOP_STUDY SET STUDENT_STOP_REASON_ID = " & cboReason.SelectedValue & ",DESCRIPTION = N'" & txt_des.Text & "',DATE_STOP = '" & dtDateStop.Text & "',YEAR_STUDY = N'" & cbo_year_study.Text & "',CLASS_STOP =N'" & cbo_class_stop.Text & "',FLAGE = 1 WHERE RECORD_ID = " & txtRecordID.Text & "")
+                obj.Update("UPDATE dbo.TBS_STUDENT_STOP_STUDY SET STUDENT_STOP_REASON_ID = " & cboReason.SelectedValue & ",DESCRIPTION = N'" & txt_des.Text & "',DATE_STOP = '" & dtDateStop.Text & "',YEAR_STUDY = N'" & cboCurrentYearStudy.Text & "',CLASS_STOP =N'" & cboCurrentClass.Text & "',FLAGE = 1 WHERE RECORD_ID = " & txtRecordID.Text & "")
                 Call Selection()
                 Call PreInsertSelection()
 
@@ -231,7 +233,7 @@ Public Class frm_student_stop_study
                 USER_CLICK_OK = False
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការកែប្រែបាន", FrmMessageError, "")
         End Try
     End Sub
@@ -247,18 +249,18 @@ Public Class frm_student_stop_study
                 USER_CLICK_OK = False
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការលុបព័ត៌មាននេះបាន!", FrmMessageError, "")
         End Try
     End Sub
 
-    Private Sub cbo_year_study_DropDown(sender As Object, e As EventArgs) Handles cbo_year_study.DropDown
-        obj.BindComboBox("Select YEAR_ID,YEAR_STUDY_KH FROM dbo.TBL_YEAR_STUDY ORDER BY YEAR_STUDY_KH DESC", cbo_year_study, "YEAR_STUDY_KH", "YEAR_ID")
+    Private Sub cbo_year_study_DropDown(sender As Object, e As EventArgs) Handles cboCurrentYearStudy.DropDown
+        obj.BindComboBox("Select YEAR_ID,YEAR_STUDY_KH FROM dbo.TBL_YEAR_STUDY ORDER BY YEAR_STUDY_KH DESC", cboCurrentYearStudy, "YEAR_STUDY_KH", "YEAR_ID")
 
     End Sub
 
-    Private Sub cbo_class_stop_DropDown(sender As Object, e As EventArgs) Handles cbo_class_stop.DropDown
-        obj.BindComboBox("Select CLASS_ID,CLASS_LETTER FROM dbo.TBS_CLASS", cbo_class_stop, "CLASS_LETTER", "CLASS_ID")
+    Private Sub cbo_class_stop_DropDown(sender As Object, e As EventArgs) Handles cboCurrentClass.DropDown
+        obj.BindComboBox("Select CLASS_ID,CLASS_LETTER FROM dbo.TBS_CLASS", cboCurrentClass, "CLASS_LETTER", "CLASS_ID")
     End Sub
 
     Private Sub lbl_class_stop_Click(sender As Object, e As EventArgs) Handles lbl_class_stop.Click
@@ -281,12 +283,12 @@ Public Class frm_student_stop_study
         cboStudentName.BackColor = Color.White
     End Sub
 
-    Private Sub cbo_year_study_TextChanged(sender As Object, e As EventArgs) Handles cbo_year_study.TextChanged
-        cbo_year_study.BackColor = Color.White
+    Private Sub cbo_year_study_TextChanged(sender As Object, e As EventArgs) Handles cboCurrentYearStudy.TextChanged
+        cboCurrentYearStudy.BackColor = Color.White
     End Sub
 
-    Private Sub cbo_class_stop_TextChanged(sender As Object, e As EventArgs) Handles cbo_class_stop.TextChanged
-        cbo_class_stop.BackColor = Color.White
+    Private Sub cbo_class_stop_TextChanged(sender As Object, e As EventArgs) Handles cboCurrentClass.TextChanged
+        cboCurrentClass.BackColor = Color.White
     End Sub
 
 
@@ -295,8 +297,35 @@ Public Class frm_student_stop_study
         FrmStudentDropStudyReason.ShowDialog()
     End Sub
 
-    Private Sub datagridview_SelectionChanged_1(sender As Object, e As EventArgs) Handles dgMain.SelectionChanged
-        Call MainSelectionChange()
+    Private Sub dgMain_SelectionChange(sender As Object, e As EventArgs) Handles dgMain.SelectionChanged
+        Try
+
+            If (dgMain.SelectedRows.Count = 0) Then
+                lblNew_Click(sender, e)
+                Exit Sub
+            Else
+                lblSave.Enabled = False
+                lblUpdate.Enabled = True
+                lblDelete.Enabled = True
+                lblNew.Enabled = True
+                cboStudentName.Enabled = False
+                lblUpdate.Text = "កែប្រែ"
+                Me.lblDelete.Location = New System.Drawing.Point(742, 262)
+
+                Call Clear()
+
+                txtRecordID.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(0).Value)
+                cboStudentName.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(3).Value)
+                cboReason.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(4).Value)
+                txt_des.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(8).Value)
+                dtDateStop.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(5).Value)
+                cboCurrentYearStudy.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(6).Value)
+                cboCurrentClass.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(7).Value)
+                dt_datenote.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(9).Value)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub lblDisplayAll_MouseHover(sender As Object, e As EventArgs) Handles lblDisplayAll.MouseHover
@@ -332,34 +361,7 @@ Public Class frm_student_stop_study
     Private Sub dgPreInsert_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgPreInsert.CellClick
         Call PreInsertSelectionChange()
     End Sub
-    Private Sub MainSelectionChange()
-        Try
-            If (dgMain.SelectedRows.Count = 0) Then
-                Exit Sub
-            Else
-                lblSave.Enabled = False
-                lblUpdate.Enabled = True
-                lblDelete.Enabled = True
-                lblNew.Enabled = True
-                cboStudentName.Enabled = False
-                lblUpdate.Text = "កែប្រែ"
-                Me.lblDelete.Location = New System.Drawing.Point(742, 262)
 
-                Call Clear()
-
-                txtRecordID.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(0).Value)
-                cboStudentName.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(3).Value)
-                cboReason.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(4).Value)
-                txt_des.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(8).Value)
-                dtDateStop.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(5).Value)
-                cbo_year_study.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(6).Value)
-                cbo_class_stop.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(7).Value)
-                dt_datenote.Text = obj.IfDbNull(dgMain.SelectedRows(0).Cells(9).Value)
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
     Private Sub PreInsertSelectionChange()
         Try
             lblSave.Enabled = False
@@ -385,14 +387,14 @@ Public Class frm_student_stop_study
     End Sub
 
     Private Sub dgMain_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgMain.CellClick
-        Call MainSelectionChange()
+        dgMain_SelectionChange(sender, e)
     End Sub
 
-    Private Sub cbo_class_stop_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbo_class_stop.KeyPress
+    Private Sub cbo_class_stop_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCurrentClass.KeyPress
         e.Handled = True
     End Sub
 
-    Private Sub cbo_year_study_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbo_year_study.KeyPress
+    Private Sub cbo_year_study_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCurrentYearStudy.KeyPress
         e.Handled = True
     End Sub
 

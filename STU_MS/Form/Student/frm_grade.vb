@@ -101,7 +101,7 @@
             obj.Insert("INSERT INTO dbo.TBL_GRADE (GRADE,GRADE_LETTER)VALUES(" & txt_grade.Text & ",N'" & txt_grade_letter.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

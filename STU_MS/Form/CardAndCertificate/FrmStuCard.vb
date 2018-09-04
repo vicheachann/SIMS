@@ -148,7 +148,7 @@ Public Class FrmStuCard
     Private Sub lblDelete_Click(sender As Object, e As EventArgs) Handles lblDelete.Click
         Try
             If dgSelected.SelectedRows.Count > 0 Then
-                Call obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យនេះដែលឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+                Call obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យនេះដែលឬទេ?", FrmMessageQuestion, POP_SOUND)
                 If USER_CLICK_OK = True Then
 
                     If (dgSelected.SelectedCells(20).Value = "") Then
@@ -159,11 +159,11 @@ Public Class FrmStuCard
                     End If
                 End If
             Else
-                Call obj.ShowMsg("មិនមានទិន្នន័យសម្រាប់លុប", FrmWarning, _ErrorSound)
+                Call obj.ShowMsg("មិនមានទិន្នន័យសម្រាប់លុប", FrmWarning, ERROR_SOUND)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចលុបទិន្នន័យនេះបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចលុបទិន្នន័យនេះបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -344,18 +344,18 @@ Public Class FrmStuCard
     Private Sub lblDeleteAll_Click(sender As Object, e As EventArgs) Handles lblDeleteAll.Click
         Try
             If dgSelected.SelectedRows.Count > 0 Then
-                Call obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យទាំងអស់ដែលឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+                Call obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យទាំងអស់ដែលឬទេ?", FrmMessageQuestion, POP_SOUND)
                 If USER_CLICK_OK = True Then
                     obj.Delete("DELETE  FROM dbo.TBS_STUDENT_PRINT_CARD")
                     Call SelectStuCard()
                     dgSelected.Rows.Clear()
                 End If
             Else
-                Call obj.ShowMsg("មិនមានទិន្នន័យសម្រាប់លុប", FrmWarning, _ErrorSound)
+                Call obj.ShowMsg("មិនមានទិន្នន័យសម្រាប់លុប", FrmWarning, ERROR_SOUND)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចលុបទិន្នន័យនេះបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចលុបទិន្នន័យនេះបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -497,7 +497,7 @@ Public Class FrmStuCard
     Private Sub lblUpdate_Click(sender As Object, e As EventArgs) Handles lblUpdate.Click
         Try
 
-            Call obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+            Call obj.ShowMsg("តើអ្នកចង់កែប្រែព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, POP_SOUND)
             If USER_CLICK_OK = True Then
 
                 If (dgSelected.Rows.Count > 0) Then
@@ -512,8 +512,8 @@ Public Class FrmStuCard
 
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -545,8 +545,8 @@ Public Class FrmStuCard
                 lblUpdate.Enabled = False
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -577,8 +577,8 @@ Public Class FrmStuCard
 
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 

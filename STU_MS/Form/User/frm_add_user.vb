@@ -91,7 +91,7 @@
 
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageError, "Error.wav")
         End Try
     End Sub

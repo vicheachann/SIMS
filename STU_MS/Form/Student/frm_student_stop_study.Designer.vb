@@ -22,8 +22,8 @@ Partial Class frm_student_stop_study
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtRecordID = New System.Windows.Forms.TextBox()
@@ -34,8 +34,8 @@ Partial Class frm_student_stop_study
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.cbo_class_stop = New System.Windows.Forms.ComboBox()
-        Me.cbo_year_study = New System.Windows.Forms.ComboBox()
+        Me.cboCurrentClass = New System.Windows.Forms.ComboBox()
+        Me.cboCurrentYearStudy = New System.Windows.Forms.ComboBox()
         Me.txt_des = New System.Windows.Forms.TextBox()
         Me.cboReason = New System.Windows.Forms.ComboBox()
         Me.PanelAdvSearch = New DevComponents.DotNetBar.PanelEx()
@@ -86,8 +86,8 @@ Partial Class frm_student_stop_study
         Me.PanelEx1.Controls.Add(Me.txtSearch)
         Me.PanelEx1.Controls.Add(Me.Label8)
         Me.PanelEx1.Controls.Add(Me.Label7)
-        Me.PanelEx1.Controls.Add(Me.cbo_class_stop)
-        Me.PanelEx1.Controls.Add(Me.cbo_year_study)
+        Me.PanelEx1.Controls.Add(Me.cboCurrentClass)
+        Me.PanelEx1.Controls.Add(Me.cboCurrentYearStudy)
         Me.PanelEx1.Controls.Add(Me.txt_des)
         Me.PanelEx1.Controls.Add(Me.cboReason)
         Me.PanelEx1.Controls.Add(Me.PanelAdvSearch)
@@ -160,8 +160,8 @@ Partial Class frm_student_stop_study
         Me.dgPreInsert.Name = "dgPreInsert"
         Me.dgPreInsert.ReadOnly = True
         Me.dgPreInsert.RowHeadersVisible = False
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgPreInsert.RowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgPreInsert.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgPreInsert.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgPreInsert.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgPreInsert.Size = New System.Drawing.Size(228, 178)
@@ -205,8 +205,8 @@ Partial Class frm_student_stop_study
         Me.dgMain.MultiSelect = False
         Me.dgMain.Name = "dgMain"
         Me.dgMain.ReadOnly = True
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgMain.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgMain.Size = New System.Drawing.Size(1165, 357)
         Me.dgMain.TabIndex = 224
@@ -245,27 +245,27 @@ Partial Class frm_student_stop_study
         Me.Label7.TabIndex = 220
         Me.Label7.Text = "*"
         '
-        'cbo_class_stop
+        'cboCurrentClass
         '
-        Me.cbo_class_stop.DropDownHeight = 130
-        Me.cbo_class_stop.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbo_class_stop.FormattingEnabled = True
-        Me.cbo_class_stop.IntegralHeight = False
-        Me.cbo_class_stop.Location = New System.Drawing.Point(800, 162)
-        Me.cbo_class_stop.Name = "cbo_class_stop"
-        Me.cbo_class_stop.Size = New System.Drawing.Size(212, 40)
-        Me.cbo_class_stop.TabIndex = 219
+        Me.cboCurrentClass.DropDownHeight = 130
+        Me.cboCurrentClass.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCurrentClass.FormattingEnabled = True
+        Me.cboCurrentClass.IntegralHeight = False
+        Me.cboCurrentClass.Location = New System.Drawing.Point(800, 162)
+        Me.cboCurrentClass.Name = "cboCurrentClass"
+        Me.cboCurrentClass.Size = New System.Drawing.Size(212, 40)
+        Me.cboCurrentClass.TabIndex = 219
         '
-        'cbo_year_study
+        'cboCurrentYearStudy
         '
-        Me.cbo_year_study.DropDownHeight = 130
-        Me.cbo_year_study.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbo_year_study.FormattingEnabled = True
-        Me.cbo_year_study.IntegralHeight = False
-        Me.cbo_year_study.Location = New System.Drawing.Point(800, 119)
-        Me.cbo_year_study.Name = "cbo_year_study"
-        Me.cbo_year_study.Size = New System.Drawing.Size(212, 40)
-        Me.cbo_year_study.TabIndex = 218
+        Me.cboCurrentYearStudy.DropDownHeight = 130
+        Me.cboCurrentYearStudy.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCurrentYearStudy.FormattingEnabled = True
+        Me.cboCurrentYearStudy.IntegralHeight = False
+        Me.cboCurrentYearStudy.Location = New System.Drawing.Point(800, 119)
+        Me.cboCurrentYearStudy.Name = "cboCurrentYearStudy"
+        Me.cboCurrentYearStudy.Size = New System.Drawing.Size(212, 40)
+        Me.cboCurrentYearStudy.TabIndex = 218
         '
         'txt_des
         '
@@ -636,8 +636,8 @@ Partial Class frm_student_stop_study
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents cbo_class_stop As System.Windows.Forms.ComboBox
-    Friend WithEvents cbo_year_study As System.Windows.Forms.ComboBox
+    Friend WithEvents cboCurrentClass As System.Windows.Forms.ComboBox
+    Friend WithEvents cboCurrentYearStudy As System.Windows.Forms.ComboBox
     Friend WithEvents txt_des As System.Windows.Forms.TextBox
     Friend WithEvents cboReason As System.Windows.Forms.ComboBox
     Friend WithEvents dgMain As DataGridView

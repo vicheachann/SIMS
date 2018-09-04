@@ -70,7 +70,7 @@
             obj.Insert("INSERT INTO dbo.TBL_MISSION_POSITION(MISSION_POSITION_KH)VALUES(N'" & txt_mission.Text & "')")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -86,7 +86,7 @@
             obj.Update("UPDATE dbo.TBL_MISSION_POSITION SET MISSION_POSITION_KH = N'" & txt_mission.Text & "'  WHERE MISSION_POSITION_ID = " & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

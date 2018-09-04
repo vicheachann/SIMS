@@ -23,8 +23,8 @@ Partial Class FrmReStudy
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmReStudy))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnlHeader = New DevComponents.DotNetBar.PanelEx()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.btn_close = New System.Windows.Forms.PictureBox()
@@ -54,7 +54,7 @@ Partial Class FrmReStudy
         Me.cboLastYearStudy = New System.Windows.Forms.ComboBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.lbl_year_study = New System.Windows.Forms.Label()
-        Me.pic_student = New System.Windows.Forms.PictureBox()
+        Me.picStudent = New System.Windows.Forms.PictureBox()
         Me.dtStuDOB = New System.Windows.Forms.DateTimePicker()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label81 = New System.Windows.Forms.Label()
@@ -79,7 +79,7 @@ Partial Class FrmReStudy
         Me.GroupPanel1.SuspendLayout()
         CType(Me.dgReStudy, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel2.SuspendLayout()
-        CType(Me.pic_student, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlHeader
@@ -396,21 +396,21 @@ Partial Class FrmReStudy
         Me.dgReStudy.AllowUserToResizeRows = False
         Me.dgReStudy.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgReStudy.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgReStudy.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgReStudy.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgReStudy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgReStudy.Location = New System.Drawing.Point(7, 343)
         Me.dgReStudy.MultiSelect = False
         Me.dgReStudy.Name = "dgReStudy"
         Me.dgReStudy.ReadOnly = True
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgReStudy.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgReStudy.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgReStudy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgReStudy.Size = New System.Drawing.Size(1096, 298)
         Me.dgReStudy.TabIndex = 369
@@ -436,7 +436,7 @@ Partial Class FrmReStudy
         Me.GroupPanel2.Controls.Add(Me.cboLastYearStudy)
         Me.GroupPanel2.Controls.Add(Me.Label25)
         Me.GroupPanel2.Controls.Add(Me.lbl_year_study)
-        Me.GroupPanel2.Controls.Add(Me.pic_student)
+        Me.GroupPanel2.Controls.Add(Me.picStudent)
         Me.GroupPanel2.Controls.Add(Me.dtStuDOB)
         Me.GroupPanel2.Controls.Add(Me.Label12)
         Me.GroupPanel2.Controls.Add(Me.Label81)
@@ -536,13 +536,13 @@ Partial Class FrmReStudy
         '
         'pic_student
         '
-        Me.pic_student.BackColor = System.Drawing.Color.White
-        Me.pic_student.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pic_student.Location = New System.Drawing.Point(950, 21)
-        Me.pic_student.Name = "pic_student"
-        Me.pic_student.Size = New System.Drawing.Size(103, 136)
-        Me.pic_student.TabIndex = 362
-        Me.pic_student.TabStop = False
+        Me.picStudent.BackColor = System.Drawing.Color.White
+        Me.picStudent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picStudent.Location = New System.Drawing.Point(950, 21)
+        Me.picStudent.Name = "pic_student"
+        Me.picStudent.Size = New System.Drawing.Size(103, 136)
+        Me.picStudent.TabIndex = 362
+        Me.picStudent.TabStop = False
         '
         'dtStuDOB
         '
@@ -713,7 +713,7 @@ Partial Class FrmReStudy
         CType(Me.dgReStudy, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel2.ResumeLayout(False)
         Me.GroupPanel2.PerformLayout()
-        CType(Me.pic_student, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picStudent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -740,7 +740,7 @@ Partial Class FrmReStudy
     Friend WithEvents Label12 As Label
     Friend WithEvents cboNewYearStudy As ComboBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents pic_student As PictureBox
+    Friend WithEvents picStudent As PictureBox
     Friend WithEvents cboNewClass As ComboBox
     Friend WithEvents lblInsertLastOrder As Label
     Friend WithEvents Label5 As Label

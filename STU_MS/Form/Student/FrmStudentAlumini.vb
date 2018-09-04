@@ -67,8 +67,8 @@ Public Class FrmStudentAlumini
                 lblNew_Click(sender, e)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("Loading error !", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("Loading error !", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -119,7 +119,7 @@ Public Class FrmStudentAlumini
             If (obj.IsNewestRecord(txtAlumniID.Text)) Then
                 dgDetail.Rows.Add("", cboStudent.SelectedValue, cboStudent.Text, cboPosition.SelectedValue, cboPosition.Text, txtSponserAmountUSDD.Text, txtSponserAmountKHR.Text)
             Else
-                obj.ShowMsg("តើអ្នកចង់បន្ថែមសិស្សថ្មីដែលឬទេ ?", FrmMessageQuestion, _ShowMessageSound)
+                obj.ShowMsg("តើអ្នកចង់បន្ថែមសិស្សថ្មីដែលឬទេ ?", FrmMessageQuestion, POP_SOUND)
                 If USER_CLICK_OK = True Then
                     obj.Insert("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES(" & txtAlumniID.Text & "," & cboStudent.SelectedValue & "," & cboPosition.SelectedValue & "," & obj.ReplaceNullWithZero(txtSponserAmountUSDD.Text) & "," & obj.ReplaceNullWithZero(txtSponserAmountKHR.Text) & ",NULL)")
                     Call SelectMasterDetail()
@@ -127,8 +127,8 @@ Public Class FrmStudentAlumini
             End If
             lblDetailNew_Click(sender, e)
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចបញ្ចូលទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចបញ្ចូលទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
 
     End Sub
@@ -174,8 +174,8 @@ Public Class FrmStudentAlumini
             End If
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
     Private Sub ClearDetail()
@@ -199,7 +199,7 @@ Public Class FrmStudentAlumini
                     If cboStudent.SelectedValue = dgDetail.SelectedRows(0).Cells(1).Value Then
                         'Continue do nothing 
                     ElseIf cboStudent.SelectedValue = row.Cells(1).Value Then
-                        obj.ShowMsg("ឈ្មោះនេះត្រូវបានបញ្ចូលរួចរាល់", FrmWarning, _WarningSound)
+                        obj.ShowMsg("ឈ្មោះនេះត្រូវបានបញ្ចូលរួចរាល់", FrmWarning, WARNING_SOUND)
                         Exit Sub
                     End If
                 Next
@@ -215,7 +215,7 @@ Public Class FrmStudentAlumini
 
 
                 If (txtAlumniID.Text <> "") Then 'Database record
-                    obj.ShowMsg("តើអ្នកចង់កែប្រែទិន្នន័យនេះដែលឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+                    obj.ShowMsg("តើអ្នកចង់កែប្រែទិន្នន័យនេះដែលឬទេ?", FrmMessageQuestion, POP_SOUND)
                     If USER_CLICK_OK = True Then
 
                         If (IsCboStudentDropped = False) Then
@@ -237,11 +237,11 @@ Public Class FrmStudentAlumini
                     dgDetail.SelectedRows(0).Cells(6).Value = txtSponserAmountKHR.Text
                 End If
             Else
-                obj.ShowMsg("មិនមែនព័ត៌មានសម្រាប់កែប្រែទេ " + Environment.NewLine + "សូមបញ្ចូលព័ត៌មានជាមុខ​!", FrmWarning, _WarningSound)
+                obj.ShowMsg("មិនមែនព័ត៌មានសម្រាប់កែប្រែទេ " + Environment.NewLine + "សូមបញ្ចូលព័ត៌មានជាមុខ​!", FrmWarning, WARNING_SOUND)
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            obj.ShowMsg("មិនអាចធ្វើការកែប្រែបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            obj.ShowMsg("មិនអាចធ្វើការកែប្រែបាន", FrmMessageError, ERROR_SOUND)
         End Try
 
     End Sub
@@ -260,7 +260,7 @@ Public Class FrmStudentAlumini
             If (recordID = "") Then
                 dgDetail.Rows.RemoveAt(dgDetail.CurrentCell.RowIndex)
             Else
-                obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យនេះដែលឬទេ", FrmMessageQuestion, _SuccessSound)
+                obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យនេះដែលឬទេ", FrmMessageQuestion, SUCCESS_SOUND)
                 If USER_CLICK_OK = True Then
                     Call obj.Delete("DELETE FROM dbo.TBS_STUDENT_ALUMNI_DETAILS WHERE RECORD_ID = " & recordID & " AND ALUMNI_ID = " & alumniID & " AND STUDENT_ID = " & studentID & "")
                     obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_ALUMNI_MASTER SET AMOUNT_US = " & txtAmountUSD.Text & " ,AMOUNT_KH = " & txtAmountKHR.Text & " WHERE ALUMNI_ID = " & alumniID & "")
@@ -270,8 +270,8 @@ Public Class FrmStudentAlumini
             End If
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចលុបទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចលុបទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -313,8 +313,8 @@ Public Class FrmStudentAlumini
             lblNew_Click(sender, e)
             BindDgSearch()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចរក្សាទុកទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចរក្សាទុកទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -337,8 +337,8 @@ Public Class FrmStudentAlumini
             Call SetDgSearcHeader()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -399,8 +399,8 @@ Public Class FrmStudentAlumini
             lblDelete.Enabled = True
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
     Private Sub ClearAll()
@@ -436,7 +436,7 @@ Public Class FrmStudentAlumini
                 Next
             End If
 
-            Call obj.ShowMsg("ទិន្នន័យត្រូវបានកែប្រែ", FrmMessageSuccess, _SuccessSound)
+            Call obj.ShowMsg("ទិន្នន័យត្រូវបានកែប្រែ", FrmMessageSuccess, SUCCESS_SOUND)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -447,7 +447,7 @@ Public Class FrmStudentAlumini
             If USER_CLICK_OK = True Then
 
                 If txtAlumniID.Text = "" Then
-                    obj.ShowMsg("សូមជ្រើសរើសព័ត៌មានដែលចង់កែប្រែ", FrmWarning, _WarningSound)
+                    obj.ShowMsg("សូមជ្រើសរើសព័ត៌មានដែលចង់កែប្រែ", FrmWarning, WARNING_SOUND)
                 Else
                     If (obj.IsEmptyDataGridView(dgDetail)) Then Exit Sub
                     If (Validation.IsEmpty(cboTeacher, "គ្រូ")) Then Exit Sub
@@ -462,8 +462,8 @@ Public Class FrmStudentAlumini
                 End If
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចកែប្រែទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចកែប្រែទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
 
     End Sub
@@ -543,17 +543,17 @@ Public Class FrmStudentAlumini
     Private Sub lblDelete_Click(sender As Object, e As EventArgs) Handles lblDelete.Click
         Try
             If (txtAlumniID.Text <> "") Then
-                obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យនេះដែលឬទេ?", FrmMessageQuestion, _ShowMessageSound)
+                obj.ShowMsg("តើអ្នកចង់លុបទិន្នន័យនេះដែលឬទេ?", FrmMessageQuestion, POP_SOUND)
                 If USER_CLICK_OK = True Then
                     obj.Delete_1("DELETE FROM dbo.TBS_STUDENT_ALUMNI_DETAILS WHERE ALUMNI_ID = " & txtAlumniID.Text & "")
                     obj.Delete_1("DELETE FROM dbo.TBS_STUDENT_ALUMNI_MASTER WHERE ALUMNI_ID = " & txtAlumniID.Text & "")
-                    obj.ShowMsg("ទិន្នន័យត្រូវបានលុប", FrmMessageSuccess, _SuccessSound)
+                    obj.ShowMsg("ទិន្នន័យត្រូវបានលុប", FrmMessageSuccess, SUCCESS_SOUND)
                     Call BindDgSearch()
                 End If
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("មិនអាចលុបទិន្នន័យបាន", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("មិនអាចលុបទិន្នន័យបាន", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -604,8 +604,8 @@ Public Class FrmStudentAlumini
             Call SetDgSearcHeader()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
-            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, _ErrorSound)
+            EXCEPTION_MESSAGE = ex.Message
+            Call obj.ShowMsg("បញ្ហាក្នុងការទាញទិន្នន័យ", FrmMessageError, ERROR_SOUND)
         End Try
     End Sub
 
@@ -632,7 +632,7 @@ Public Class FrmStudentAlumini
     Private Sub lblPrint_Click(sender As Object, e As EventArgs) Handles lblPrint.Click
         Try
             If (lblSave.Enabled = True) Then
-                obj.ShowMsg("តើអ្នកចង់រក្សាទុកទិន្នន័យនេះដែលឬទេ ?", FrmMessageQuestion, _ShowMessageSound)
+                obj.ShowMsg("តើអ្នកចង់រក្សាទុកទិន្នន័យនេះដែលឬទេ ?", FrmMessageQuestion, POP_SOUND)
                 If USER_CLICK_OK = True Then
                     lblSave_Click(sender, e)
 

@@ -561,7 +561,7 @@ Public Class frm_teacher
             dg_main.Rows(idx).Selected = True
             dg_main.CurrentCell = dg_main.SelectedCells(1)
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចបញ្ចូលនិន្នន័យបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -696,7 +696,7 @@ Public Class frm_teacher
             SelectTeacherEducation()
             lbl_education_save.Enabled = False
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -817,7 +817,7 @@ Public Class frm_teacher
             '' DG_Empoyee.Rows(idx).Selected = True
             '' DG_Empoyee.CurrentCell = DG_Empoyee.SelectedCells(1)
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call obj.ShowMsg("ពុំអាចកែប្រែរូបភាពបានទេ!", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -853,7 +853,7 @@ Public Class frm_teacher
             dg_education_level.CurrentCell = dg_education_level.SelectedCells(1)
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call obj.ShowMsg("ពុំអាចកែប្រែរូបភាពបានទេ!", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -1043,7 +1043,7 @@ Public Class frm_teacher
                 dg_education_level.CurrentCell = dg_education_level.SelectedCells(1)
 
             Catch ex As Exception
-                _ExceptionMessage = ex.Message
+                EXCEPTION_MESSAGE = ex.Message
                 obj.ShowMsg("Cannot update", FrmMessageError, "Error.wav")
             End Try
         End If
@@ -1146,7 +1146,7 @@ Public Class frm_teacher
             Call SelectTeacherProfessional()
             lbl_professional_save.Enabled = False
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageError, "")
         End Try
     End Sub
@@ -1155,7 +1155,7 @@ Public Class frm_teacher
         Try
             obj.BindComboBox("select PROFESSIONAL_ID,PROFESSIONAL_KH from dbo.TBL_PROFESSIONAL_LEVEL order by PROFESSIONAL_KH", cbo_professional_ID, "PROFESSIONAL_KH", "PROFESSIONAL_ID")
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("Can't get data from server !", FrmMessageSuccess, "")
         End Try
     End Sub
@@ -1169,7 +1169,7 @@ Public Class frm_teacher
             obj.BindDataGridView(SqlQueryStr, dg_teacher_professional)
             Call SetDgTeacherProfessionalTitle()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("Can't get data from server !", FrmMessageSuccess, "")
         End Try
     End Sub
@@ -1301,7 +1301,7 @@ Public Class frm_teacher
 
 
             Catch ex As Exception
-                _ExceptionMessage = ex.Message
+                EXCEPTION_MESSAGE = ex.Message
                 obj.ShowMsg("Cannot update", FrmMessageError, "Error.wav")
             End Try
 
@@ -1362,7 +1362,7 @@ Public Class frm_teacher
             Call SelectTeacherTrainning()
             '' lbl_professional_save.Enabled = False
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -1507,7 +1507,7 @@ Public Class frm_teacher
 
 
             Catch ex As Exception
-                _ExceptionMessage = ex.Message
+                EXCEPTION_MESSAGE = ex.Message
                 obj.ShowMsg("Cannot update", FrmMessageError, "Error.wav")
             End Try
         End If
@@ -1590,7 +1590,7 @@ Public Class frm_teacher
             Call SelectLanguage()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -1723,7 +1723,7 @@ Public Class frm_teacher
 
 
             Catch ex As Exception
-                _ExceptionMessage = ex.Message
+                EXCEPTION_MESSAGE = ex.Message
                 obj.ShowMsg("Problem while updating process... !", FrmMessageError, "Error.wav")
             End Try
         End If
@@ -1808,7 +1808,7 @@ Public Class frm_teacher
             Call SelectSpouse()
             lbl_spouse_save.Enabled = False
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -1929,7 +1929,7 @@ Public Class frm_teacher
 
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("Cannot update", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -1975,7 +1975,7 @@ Public Class frm_teacher
             '' DG_Empoyee.Rows(idx).Selected = True
             '' DG_Empoyee.CurrentCell = DG_Empoyee.SelectedCells(1)
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call obj.ShowMsg("ពុំអាចកែប្រែរូបភាពបានទេ!", FrmMessageError, "")
         End Try
     End Sub
@@ -2029,7 +2029,7 @@ Public Class frm_teacher
             Call SelectTeacherChildren()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -2166,7 +2166,7 @@ Public Class frm_teacher
 
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("Cannot update", FrmMessageError, "")
         End Try
     End Sub
@@ -2195,7 +2195,7 @@ Public Class frm_teacher
             dg_child.CurrentCell = dg_child.SelectedCells(1)
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call obj.ShowMsg("ពុំអាចកែប្រែរូបភាពបានទេ!", FrmMessageError, "")
         End Try
     End Sub
@@ -2262,7 +2262,7 @@ Public Class frm_teacher
             Call SelectTeacherTeaching()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -2372,7 +2372,7 @@ Public Class frm_teacher
 
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("Cannot update", FrmMessageError, "")
         End Try
     End Sub
@@ -2869,7 +2869,7 @@ Public Class frm_teacher
             Call SelectTeacherExperience()
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -3002,7 +3002,7 @@ Public Class frm_teacher
             dg_ex.CurrentCell = dg_ex.SelectedCells(1)
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("Cannot update", FrmMessageError, "")
         End Try
     End Sub

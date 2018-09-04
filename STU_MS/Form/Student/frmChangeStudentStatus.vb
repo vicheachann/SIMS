@@ -57,7 +57,7 @@
                     obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_INFO SET STUDENT_STATUS_ID = " & cboStudentstatus.SelectedValue & " WHERE STUDENT_ID = " & id & " ")
                     obj.InsertToStudentFormer(id)
                 Next
-                obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, _SuccessSound)
+                obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, SUCCESS_SOUND)
                 Close()
             End If
         Catch ex As Exception

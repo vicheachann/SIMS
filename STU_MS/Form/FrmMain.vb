@@ -1015,7 +1015,7 @@ Public Class FrmMain
     End Sub
 
     Private Sub lbl_student_education_Click(sender As Object, e As EventArgs) Handles lblStuEducation.Click
-        frm_student_education.ShowDialog()
+        FrmStudyInfo.ShowDialog()
     End Sub
 
     Private Sub lbl_student_education_MouseHover(sender As Object, e As EventArgs) Handles lblStuEducation.MouseHover
@@ -1281,7 +1281,7 @@ Public Class FrmMain
     End Sub
     Private Sub picStuEducation_Click(sender As Object, e As EventArgs) Handles picStuEducation.Click
         Try
-            frm_student_education.ShowDialog()
+            FrmStudyInfo.ShowDialog()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

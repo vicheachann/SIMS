@@ -56,7 +56,7 @@
             obj.Insert("insert into dbo.TBL_TEACHER_STATUS(TEACHER_STATUS_KH)values(N'" & txt_kh.Text & "')")
             Call SelectOffice()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub
@@ -72,7 +72,7 @@
             obj.Update("update dbo.TBL_TEACHER_STATUS set TEACHER_STATUS_KH = N'" & txt_kh.Text & "' where TEACHER_STATUS_ID = " & datagrid.SelectedRows(0).Cells(0).Value & "")
             Call SelectOffice()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg(ex.Message, FrmMessageSuccess, "")
         End Try
     End Sub

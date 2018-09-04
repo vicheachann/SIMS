@@ -12,7 +12,7 @@ Public Class Method
             cmd.ExecuteNonQuery()
             conn.Close()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             ShowMsg("មិនអាចបញ្ចូលទិន្នន័យបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -28,7 +28,21 @@ Public Class Method
             MsgBox("Cannot connect to server")
         End Try
     End Sub
-
+    Public Sub ReOrderList(ByVal className As String, ByVal yearStudy As String)
+        Try
+            OpenConnection()
+            Dim storeProCmd As New SqlCommand("P_DYNAMIC_STUDENT_ORDER_ID", conn)
+            storeProCmd.CommandType = CommandType.StoredProcedure
+            Dim classID As String = GetID("SELECT CLASS_ID FROM dbo.TBS_CLASS WHERE CLASS_LETTER = N'" & className & "'")
+            storeProCmd.Parameters.Add("@CLASS_ID", SqlDbType.Int)
+            storeProCmd.Parameters.Add("@YEAR_STUDY", SqlDbType.NVarChar)
+            storeProCmd.Parameters("@CLASS_ID").Value = classID
+            storeProCmd.Parameters("@YEAR_STUDY").Value = yearStudy
+            storeProCmd.ExecuteReader()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
     Public Sub BindDataGridView(ByVal sql As String, ByVal datagrid As DataGridView)
         Try
             Call OpenConnection()
@@ -76,7 +90,7 @@ Public Class Method
             cbo.DataSource = dt
             conn.Close()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -102,7 +116,7 @@ Public Class Method
             cbo.DataSource = dt
             conn.Close()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call ShowMsg("មិនអាចទាញទិន្នន័យបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -114,7 +128,7 @@ Public Class Method
             Call ShowMsg("ទិន្នន័យត្រូវបានលុប", FrmMessageSuccess, "")
 
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call ShowMsg("មិនអាចលុបបាន", FrmMessageError, "Error.wav")
 
 
@@ -128,7 +142,7 @@ Public Class Method
             cmd = New SqlCommand(sql, conn)
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call ShowMsg("មិនអាចលុបបាន", FrmMessageError, "Error.wav")
 
 
@@ -159,7 +173,7 @@ Public Class Method
             conn.Close()
             Call ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, "success.wav")
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call ShowMsg("មិនអាចបញ្ចូលទិន្នន័យបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -171,7 +185,7 @@ Public Class Method
             conn.Close()
             Call ShowMsg("កែប្រែបានជោគជ័យ", FrmMessageSuccess, "success.wav")
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, "Error.wav")
 
         End Try
@@ -184,7 +198,7 @@ Public Class Method
             cmd.ExecuteNonQuery()
             conn.Close()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call ShowMsg("មិនអាចកែប្រែបាន", FrmMessageError, "Error.wav")
 
         End Try
@@ -235,7 +249,7 @@ Public Class Method
 
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             Call ShowMsg("Can't open file browser!", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -478,7 +492,7 @@ Public Class Method
         Try
             For Each row As DataGridViewRow In dg.Rows
                 If insertValue = row.Cells(cellIndex).Value Then
-                    ShowMsg("ព័ត៌មាននេះបានបញ្ចូលរួចរាល់ !", FrmWarning, _WarningSound)
+                    ShowMsg("ព័ត៌មាននេះបានបញ្ចូលរួចរាល់ !", FrmWarning, WARNING_SOUND)
                     existed = True
                 End If
             Next

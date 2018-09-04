@@ -161,7 +161,7 @@
 ")VALUES(N'" & txt_letter_number.Text & "'," & cbo_student_name.SelectedValue & ",N'" & txt_content.Text & "','" & dt_date_letter.Text & "',GETDATE()," & cbo_lettertype.SelectedValue & ")")
             Call Selection()
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការបញ្ជូលព័ត៌មានបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -264,7 +264,7 @@
                 USER_CLICK_OK = False
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការកែប្រែបាន", FrmMessageError, "Error.wav")
         End Try
     End Sub
@@ -278,7 +278,7 @@
                 USER_CLICK_OK = False
             End If
         Catch ex As Exception
-            _ExceptionMessage = ex.Message
+            EXCEPTION_MESSAGE = ex.Message
             obj.ShowMsg("មិនអាចធ្វើការលុបព័ត៌មាននេះបាន!", FrmMessageError, "Error.wav")
         End Try
     End Sub
