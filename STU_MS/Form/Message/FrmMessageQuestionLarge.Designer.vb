@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class msg_question_big
+Partial Class FrmMessageQuestionLarge
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,15 +23,15 @@ Partial Class msg_question_big
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
-        Me.ButtonX2 = New DevComponents.DotNetBar.ButtonX()
+        Me.btnNO = New DevComponents.DotNetBar.ButtonX()
+        Me.btnOk = New DevComponents.DotNetBar.ButtonX()
         Me.lbl_message = New System.Windows.Forms.Label()
-        Me.btn_ok = New DevComponents.DotNetBar.ButtonX()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
         Me.btn_close = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.label_exit = New System.Windows.Forms.LinkLabel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PanelEx1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelEx2.SuspendLayout()
@@ -43,9 +43,9 @@ Partial Class msg_question_big
         '
         Me.PanelEx1.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx1.Controls.Add(Me.ButtonX2)
+        Me.PanelEx1.Controls.Add(Me.btnNO)
+        Me.PanelEx1.Controls.Add(Me.btnOk)
         Me.PanelEx1.Controls.Add(Me.lbl_message)
-        Me.PanelEx1.Controls.Add(Me.btn_ok)
         Me.PanelEx1.Controls.Add(Me.PictureBox1)
         Me.PanelEx1.Controls.Add(Me.PanelEx2)
         Me.PanelEx1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -61,18 +61,31 @@ Partial Class msg_question_big
         Me.PanelEx1.Style.GradientAngle = 90
         Me.PanelEx1.TabIndex = 2
         '
-        'ButtonX2
+        'btnNO
         '
-        Me.ButtonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.ButtonX2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueOrb
-        Me.ButtonX2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonX2.Location = New System.Drawing.Point(490, 168)
-        Me.ButtonX2.Name = "ButtonX2"
-        Me.ButtonX2.Size = New System.Drawing.Size(75, 33)
-        Me.ButtonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.ButtonX2.TabIndex = 15
-        Me.ButtonX2.Text = "No"
+        Me.btnNO.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnNO.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNO.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNO.Font = New System.Drawing.Font("Khmer OS", 12.0!)
+        Me.btnNO.Location = New System.Drawing.Point(487, 169)
+        Me.btnNO.Name = "btnNO"
+        Me.btnNO.Size = New System.Drawing.Size(74, 33)
+        Me.btnNO.Style = DevComponents.DotNetBar.eDotNetBarStyle.Windows7
+        Me.btnNO.TabIndex = 17
+        Me.btnNO.Text = "ទេ"
+        '
+        'btnOk
+        '
+        Me.btnOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnOk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnOk.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnOk.Font = New System.Drawing.Font("Khmer OS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOk.Location = New System.Drawing.Point(355, 169)
+        Me.btnOk.Name = "btnOk"
+        Me.btnOk.Size = New System.Drawing.Size(119, 33)
+        Me.btnOk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnOk.TabIndex = 16
+        Me.btnOk.Text = "យល់ព្រម"
         '
         'lbl_message
         '
@@ -83,19 +96,6 @@ Partial Class msg_question_big
         Me.lbl_message.Size = New System.Drawing.Size(63, 32)
         Me.lbl_message.TabIndex = 14
         Me.lbl_message.Text = "Label2"
-        '
-        'btn_ok
-        '
-        Me.btn_ok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btn_ok.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_ok.ColorTable = DevComponents.DotNetBar.eButtonColor.BlueOrb
-        Me.btn_ok.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_ok.Location = New System.Drawing.Point(399, 168)
-        Me.btn_ok.Name = "btn_ok"
-        Me.btn_ok.Size = New System.Drawing.Size(75, 33)
-        Me.btn_ok.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btn_ok.TabIndex = 13
-        Me.btn_ok.Text = "OK"
         '
         'PictureBox1
         '
@@ -111,8 +111,8 @@ Partial Class msg_question_big
         '
         Me.PanelEx2.CanvasColor = System.Drawing.SystemColors.Control
         Me.PanelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx2.Controls.Add(Me.btn_close)
         Me.PanelEx2.Controls.Add(Me.PictureBox4)
+        Me.PanelEx2.Controls.Add(Me.btn_close)
         Me.PanelEx2.Controls.Add(Me.label_exit)
         Me.PanelEx2.Controls.Add(Me.Label1)
         Me.PanelEx2.Cursor = System.Windows.Forms.Cursors.Hand
@@ -140,16 +140,6 @@ Partial Class msg_question_big
         Me.btn_close.TabIndex = 10
         Me.btn_close.TabStop = False
         '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.STU_MS.My.Resources.Resources.BSS
-        Me.PictureBox4.Location = New System.Drawing.Point(6, 4)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(22, 26)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 11
-        Me.PictureBox4.TabStop = False
-        '
         'label_exit
         '
         Me.label_exit.AutoSize = True
@@ -169,20 +159,30 @@ Partial Class msg_question_big
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Khmer OS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(143, 0)
+        Me.Label1.Location = New System.Drawing.Point(39, 1)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(236, 30)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Smart Business Software Solution"
         '
-        'msg_question_big
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.STU_MS.My.Resources.Resources.information
+        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(27, 26)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 12
+        Me.PictureBox4.TabStop = False
+        '
+        'FrmMessageQuestionLarge
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(575, 214)
         Me.Controls.Add(Me.PanelEx1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "msg_question_big"
+        Me.Name = "FrmMessageQuestionLarge"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "msg_question"
         Me.PanelEx1.ResumeLayout(False)
@@ -197,12 +197,12 @@ Partial Class msg_question_big
     End Sub
     Friend WithEvents PanelEx1 As DevComponents.DotNetBar.PanelEx
     Friend WithEvents lbl_message As System.Windows.Forms.Label
-    Friend WithEvents btn_ok As DevComponents.DotNetBar.ButtonX
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PanelEx2 As DevComponents.DotNetBar.PanelEx
     Friend WithEvents btn_close As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents label_exit As System.Windows.Forms.LinkLabel
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents ButtonX2 As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents btnNO As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents btnOk As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents PictureBox4 As PictureBox
 End Class

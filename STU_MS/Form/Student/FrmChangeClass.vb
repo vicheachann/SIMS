@@ -313,7 +313,7 @@ Public Class FrmChangeClass
         Try
             If (rbDropStudy.Checked = True) Then
                 pnl1.Visible = False
-                obj.ShowMsg("តើអ្នកចង់បញ្ចូលក្នុងសិស្សបោះបង់ការសិក្សាដែលឬទេ ?", msg_question_big, "")
+                obj.ShowMsg("តើអ្នកចង់បញ្ចូលក្នុងសិស្សបោះបង់ការសិក្សាដែលឬទេ ?", FrmMessageQuestionLarge, "")
                 If USER_CLICK_OK = True Then
                     For i As Integer = 0 To dg.Rows.Count - 1
                         'Insert pre-info to TBS_STUDENT_STOP_STUDY

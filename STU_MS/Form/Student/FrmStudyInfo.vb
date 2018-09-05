@@ -198,7 +198,7 @@ Public Class FrmStudyInfo
         End If
 
         If isRowSelected() = False Then
-            obj.ShowMsg("អ្នកមិនទាន់ជ្រើសរើសសិស្សនោះទេ។ " & vbCrLf & "តើអ្នកចង់រើសយកទាំងអស់ដែលឬទេ?", FrmMessageQuestion, "")
+            obj.ShowMsg("អ្នកមិនទាន់ជ្រើសរើសសិស្សនោះទេ។ " & vbCrLf & "តើអ្នកចង់រើសយកទាំងអស់ដែលឬទេ?", FrmMessageQuestionLarge, POP_SOUND)
             If USER_CLICK_OK = True Then
                 cbCheckAll.Checked = True
             End If
@@ -259,7 +259,7 @@ Public Class FrmStudyInfo
             Exit Sub
         End If
 
-        obj.ShowMsg("តើអ្នកចង់តំឡើងថ្នាក់ពីឆ្នាំសិក្សា " & dg.Rows(0).Cells(11).Value & " ថ្នាក់ទី " & dg.Rows(0).Cells(12).Value & "" & vbCrLf & " ទៅឆ្នាំសិក្សា " & cboNewYearStudy.Text & " ថ្នាក់ទី " & cboNewClass.Text & " ដែលឬទេ ?", msg_question_big, "")
+        obj.ShowMsg("តើអ្នកចង់តំឡើងថ្នាក់ពីឆ្នាំសិក្សា " & dg.Rows(0).Cells(11).Value & " ថ្នាក់ទី " & dg.Rows(0).Cells(12).Value & "" & vbCrLf & " ទៅឆ្នាំសិក្សា " & cboNewYearStudy.Text & " ថ្នាក់ទី " & cboNewClass.Text & " ដែលឬទេ ?", FrmMessageQuestionLarge, "")
         If USER_CLICK_OK = True Then
 
             If RecordExist() = True Then
@@ -398,7 +398,8 @@ Public Class FrmStudyInfo
                         obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_STUDY_INFO (STUDENT_ID,CLASS_ID,YEAR_STUDY,CLASS_OLD,YEAR_STUDY_OLD,REMARK,DATE_NOTE,STUDY_INFO_STATUS_ID,TEACHER_ID)VALUES(" & dg.Rows(i).Cells(3).Value & "," & dg.Rows(i).Cells(14).Value & ",N'" & dg.Rows(i).Cells(13).Value & "',N'" & dg.Rows(i).Cells(12).Value & "',N'" & dg.Rows(i).Cells(11).Value & "',N'" & dg.Rows(i).Cells(16).Value & "',GETDATE()," & dg.Rows(i).Cells(9).Value & "," & cboTeacher.SelectedValue & ")")
                     End If
                 Next
-                Call obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, "success.wav")
+                obj.ReOrderList(dg.Rows(0).Cells("NEW_CLASS_ID").Value, dg.Rows(0).Cells("NEW_YEAR_STUDY").Value)
+                Call obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, SUCCESS_SOUND)
                 FrmStudent.SelectStudent()
                 lblSave.Enabled = False
 
@@ -460,20 +461,25 @@ Public Class FrmStudyInfo
 
 
     Private Function RecordExist() As Boolean
-        Dim totalRow As Integer = 0
-        Dim ds As New DataSet()
+        Try
+            Dim totalRow As Integer = 0
+            Dim ds As New DataSet()
 
-        For i As Integer = 0 To dg.RowCount - 1
-            da = New SqlDataAdapter("Select  RECORD_ID from dbo.TBS_STUDENT_STUDY_INFO where STUDENT_ID = " & dg.Rows(i).Cells(2).Value & "  And YEAR_STUDY = N'" & cboNewYearStudy.Text & "'", conn)
-            da.Fill(ds, "TBS_STUDENT_STUDY_INFO")
-            totalRow = Convert.ToInt32(ds.Tables("TBS_STUDENT_STUDY_INFO").Rows.Count)
-        Next
+            For i As Integer = 0 To dg.RowCount - 1
+                da = New SqlDataAdapter("SELECT  RECORD_ID from dbo.TBS_STUDENT_STUDY_INFO WHERE STUDENT_ID = " & dg.Rows(i).Cells("STUDENT_ID").Value & "  AND YEAR_STUDY = N'" & cboNewYearStudy.Text & "'", conn)
+                da.Fill(ds, "TBS_STUDENT_STUDY_INFO")
+                totalRow = Convert.ToInt32(ds.Tables("TBS_STUDENT_STUDY_INFO").Rows.Count)
+            Next
 
-        If (totalRow > 0) Then
-            Return True
-        Else
-            Return False
-        End If
+            If (totalRow > 0) Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Cannot check record exist")
+            MessageBox.Show(ex.Message)
+        End Try
     End Function
 
     Private Sub cbo_old_year_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboOldYear.KeyPress

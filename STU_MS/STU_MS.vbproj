@@ -261,10 +261,10 @@
     <Compile Include="Form\Message\FrmSaveConStringSuccess.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Message\msg_question_big.Designer.vb">
-      <DependentUpon>msg_question_big.vb</DependentUpon>
+    <Compile Include="Form\Message\FrmMessageQuestionLarge.Designer.vb">
+      <DependentUpon>FrmMessageQuestionLarge.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\Message\msg_question_big.vb">
+    <Compile Include="Form\Message\FrmMessageQuestionLarge.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\Message\FrmWarning.Designer.vb">
@@ -699,8 +699,8 @@
     <EmbeddedResource Include="Form\Message\FrmSaveConStringSuccess.resx">
       <DependentUpon>FrmSaveConStringSuccess.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Message\msg_question_big.resx">
-      <DependentUpon>msg_question_big.vb</DependentUpon>
+    <EmbeddedResource Include="Form\Message\FrmMessageQuestionLarge.resx">
+      <DependentUpon>FrmMessageQuestionLarge.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Message\FrmWarning.resx">
       <DependentUpon>FrmWarning.vb</DependentUpon>
