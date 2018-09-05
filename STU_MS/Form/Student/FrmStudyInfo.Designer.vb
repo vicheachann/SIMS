@@ -83,7 +83,7 @@ Partial Class FrmStudyInfo
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.bsStudentList = New System.Windows.Forms.BindingSource(Me.components)
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.CHECKBOX = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.STUDENT_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -91,7 +91,7 @@ Partial Class FrmStudyInfo
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.STUDY_STATUS_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -101,6 +101,7 @@ Partial Class FrmStudyInfo
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PanelEx2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -858,7 +859,7 @@ Partial Class FrmStudyInfo
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.Column10, Me.Column1, Me.STUDENT_ID, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.Column15, Me.Column14, Me.Column6, Me.Column7, Me.NEW_YEAR_STUDY, Me.NEW_CLASS_ID, Me.Column9, Me.Column13, Me.Column18, Me.Column19})
+        Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.CHECKBOX, Me.Column1, Me.STUDENT_ID, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.STUDY_STATUS_ID, Me.Column14, Me.Column6, Me.Column7, Me.NEW_YEAR_STUDY, Me.NEW_CLASS_ID, Me.Column9, Me.Column13, Me.Column18, Me.Column19, Me.Column2})
         Me.dg.Location = New System.Drawing.Point(8, 69)
         Me.dg.MultiSelect = False
         Me.dg.Name = "dg"
@@ -885,11 +886,11 @@ Partial Class FrmStudyInfo
         Me.Column17.Name = "Column17"
         Me.Column17.Visible = False
         '
-        'Column10
+        'CHECKBOX
         '
-        Me.Column10.HeaderText = ""
-        Me.Column10.Name = "Column10"
-        Me.Column10.Width = 50
+        Me.CHECKBOX.HeaderText = ""
+        Me.CHECKBOX.Name = "CHECKBOX"
+        Me.CHECKBOX.Width = 50
         '
         'Column1
         '
@@ -939,11 +940,10 @@ Partial Class FrmStudyInfo
         Me.Column12.Name = "Column12"
         Me.Column12.ReadOnly = True
         '
-        'Column15
+        'STUDY_STATUS_ID
         '
-        Me.Column15.HeaderText = "STUDY_STATUS_ID"
-        Me.Column15.Name = "Column15"
-        Me.Column15.Visible = False
+        Me.STUDY_STATUS_ID.HeaderText = "STUDY_STATUS_ID"
+        Me.STUDY_STATUS_ID.Name = "STUDY_STATUS_ID"
         '
         'Column14
         '
@@ -1001,6 +1001,11 @@ Partial Class FrmStudyInfo
         Me.Column19.HeaderText = "CLASS_ID"
         Me.Column19.Name = "Column19"
         Me.Column19.Visible = False
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "ឆ្នាំសិក្សាបន្ទាប់"
+        Me.Column2.Name = "Column2"
         '
         'FrmStudyInfo
         '
@@ -1095,7 +1100,7 @@ Partial Class FrmStudyInfo
     Friend WithEvents picChangeStudyStatus As PictureBox
     Friend WithEvents picPrint As PictureBox
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewCheckBoxColumn
+    Friend WithEvents CHECKBOX As DataGridViewCheckBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents STUDENT_ID As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -1103,7 +1108,7 @@ Partial Class FrmStudyInfo
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents STUDY_STATUS_ID As DataGridViewTextBoxColumn
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
@@ -1113,4 +1118,5 @@ Partial Class FrmStudyInfo
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column18 As DataGridViewTextBoxColumn
     Friend WithEvents Column19 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
 End Class

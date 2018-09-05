@@ -120,16 +120,16 @@ Public Class FrmStudyInfo
 
     Public Sub SelectSearchResult()
         Try
-            Dim sql As String = "SELECT TOP (100) PERCENT  S.RECORD_ID,S.RECORD_ID_CONTROL_CLASS ,S.STUDENT_ID,I.SNAME_KH, I.GENDER, I.STUDENT_CODE,CONVERT(CHAR(10),I.DOB,120)AS 'DOB', I.GUARDIAN_VILLAGE,S.STUDY_INFO_STATUS_ID,ST .STUDY_INFO_STATUS_KH ,S.YEAR_STUDY,C.CLASS_LETTER, NULL AS 'NEW_YEAR_STUDY', NULL AS 'NEW_CLASS', S.REMARK,MT.CLASS_MONITOR_NUM,S.CLASS_ID FROM dbo.TBS_STUDENT_STUDY_INFO AS S INNER JOIN dbo.TBS_STUDENT_INFO AS I ON S.STUDENT_ID = I.STUDENT_ID INNER JOIN dbo.TBS_CLASS AS C ON S.CLASS_ID = C.CLASS_ID INNER JOIN dbo.TBS_STUDENT_STUDY_INFO_STATUS AS ST ON S.STUDY_INFO_STATUS_ID = ST .STUDY_INFO_STATUS_ID LEFT  JOIN dbo.TBS_STUDENT_CLASS_MONITOR AS MT ON S.STUDENT_ID = MT.STUDENT_ID  WHERE S.STUDY_INFO_STATUS_ID NOT IN(" & STUDY_INFO_STATUS.FAILED & "," & STUDY_INFO_STATUS.TRANSFER_OUT & "," & STUDY_INFO_STATUS.DROP & ")"
+            Dim sql As String = "SELECT TOP (100) PERCENT  S.RECORD_ID,S.RECORD_ID_CONTROL_CLASS ,S.STUDENT_ID,I.SNAME_KH, I.GENDER, I.STUDENT_CODE,CONVERT(CHAR(10),I.DOB,120)AS 'DOB', I.GUARDIAN_VILLAGE,S.STUDY_INFO_STATUS_ID,ST .STUDY_INFO_STATUS_KH ,S.YEAR_STUDY,C.CLASS_LETTER, NULL AS 'NEW_YEAR_STUDY', NULL AS 'NEW_CLASS', S.REMARK,MT.CLASS_MONITOR_NUM,S.CLASS_ID,(SELECT RESULT FROM [dbo].[F_SEARCH_STUDENT](S.STUDENT_ID,'" & cboOldYear.Text & "')WHERE [STUDENT_ID]=S.STUDENT_ID) AS 'EXIST_NEXT_YEAR' FROM dbo.TBS_STUDENT_STUDY_INFO AS S INNER JOIN dbo.TBS_STUDENT_INFO AS I ON S.STUDENT_ID = I.STUDENT_ID INNER JOIN dbo.TBS_CLASS AS C ON S.CLASS_ID = C.CLASS_ID INNER JOIN dbo.TBS_STUDENT_STUDY_INFO_STATUS AS ST ON S.STUDY_INFO_STATUS_ID = ST .STUDY_INFO_STATUS_ID LEFT  JOIN dbo.TBS_STUDENT_CLASS_MONITOR AS MT ON S.STUDENT_ID = MT.STUDENT_ID "
 
             If (Validation.IsEmpty(cboOldYear, "ឆ្នាំសិក្សា")) Then Exit Sub
 
             If (UserInSearchMode() = True) Then
                 searchMode = True
-                cmd = New SqlCommand(sql + "  AND S.YEAR_STUDY = N'" & cboOldYear.Text & "'  ORDER BY S.YEAR_STUDY, S.CLASS_ID, I.SNAME_KH", conn)
+                cmd = New SqlCommand(sql + "  WHERE S.YEAR_STUDY = N'" & cboOldYear.Text & "'  ORDER BY S.YEAR_STUDY, S.CLASS_ID, I.SNAME_KH", conn)
             Else
                 searchMode = False
-                cmd = New SqlCommand(sql + "   AND S.YEAR_STUDY = N'" & cboOldYear.Text & "' AND S.CLASS_ID = " & cboOldClass.SelectedValue & " ORDER BY S.YEAR_STUDY, S.CLASS_ID, I.SNAME_KH", conn)
+                cmd = New SqlCommand(sql + "   WHERE S.YEAR_STUDY = N'" & cboOldYear.Text & "' AND S.CLASS_ID = " & cboOldClass.SelectedValue & " ORDER BY S.YEAR_STUDY, S.CLASS_ID, I.SNAME_KH", conn)
             End If
             da = New SqlDataAdapter(cmd)
             dt = New DataTable
@@ -143,7 +143,7 @@ Public Class FrmStudyInfo
                 cbCheckAll.Checked = False
                 dg.Rows.Clear()
                 For i As Integer = 0 To dt.Rows.Count - 1
-                    dg.Rows.Add(dt.Rows(i)("RECORD_ID").ToString(), False, dt.Rows(i)("RECORD_ID_CONTROL_CLASS").ToString(), dt.Rows(i)("STUDENT_ID").ToString(), dt.Rows(i)("SNAME_KH").ToString(), dt.Rows(i)("GENDER").ToString(), dt.Rows(i)("STUDENT_CODE").ToString(), dt.Rows(i)("DOB").ToString(), dt.Rows(i)("GUARDIAN_VILLAGE").ToString(), dt.Rows(i)("STUDY_INFO_STATUS_ID").ToString(), dt.Rows(i)("STUDY_INFO_STATUS_KH").ToString(), dt.Rows(i)("YEAR_STUDY").ToString(), dt.Rows(i)("CLASS_LETTER").ToString(), dt.Rows(i)("NEW_YEAR_STUDY").ToString(), "", dt.Rows(i)("NEW_CLASS").ToString(), dt.Rows(i)("REMARK").ToString(), dt.Rows(i)("CLASS_MONITOR_NUM").ToString(), dt.Rows(i)("CLASS_ID").ToString())
+                    dg.Rows.Add(dt.Rows(i)("RECORD_ID").ToString(), False, dt.Rows(i)("RECORD_ID_CONTROL_CLASS").ToString(), dt.Rows(i)("STUDENT_ID").ToString(), dt.Rows(i)("SNAME_KH").ToString(), dt.Rows(i)("GENDER").ToString(), dt.Rows(i)("STUDENT_CODE").ToString(), dt.Rows(i)("DOB").ToString(), dt.Rows(i)("GUARDIAN_VILLAGE").ToString(), dt.Rows(i)("STUDY_INFO_STATUS_ID").ToString(), dt.Rows(i)("STUDY_INFO_STATUS_KH").ToString(), dt.Rows(i)("YEAR_STUDY").ToString(), dt.Rows(i)("CLASS_LETTER").ToString(), dt.Rows(i)("NEW_YEAR_STUDY").ToString(), "", dt.Rows(i)("NEW_CLASS").ToString(), dt.Rows(i)("REMARK").ToString(), dt.Rows(i)("CLASS_MONITOR_NUM").ToString(), dt.Rows(i)("CLASS_ID").ToString(), dt.Rows(i)("EXIST_NEXT_YEAR"))
                 Next
             End If
         Catch ex As Exception
@@ -262,7 +262,22 @@ Public Class FrmStudyInfo
         obj.ShowMsg("តើអ្នកចង់តំឡើងថ្នាក់ពីឆ្នាំសិក្សា " & dg.Rows(0).Cells(11).Value & " ថ្នាក់ទី " & dg.Rows(0).Cells(12).Value & "" & vbCrLf & " ទៅឆ្នាំសិក្សា " & cboNewYearStudy.Text & " ថ្នាក់ទី " & cboNewClass.Text & " ដែលឬទេ ?", FrmMessageQuestionLarge, "")
         If USER_CLICK_OK = True Then
 
-            If RecordExist() = True Then
+
+            'If (dg.Rows.Count > 0) Then
+            '    For i As Integer = 0 To dg.RowCount - 1
+            '        If (obj.CheckExisted("SELECT RECORD_ID FROM dbo.TBS_STUDENT_ALUMNI_DETAILS WHERE RECORD_ID = " & (If(dgDetail.Rows(i).Cells(8).Value Is Nothing, "0", dgDetail.Rows(i).Cells(8).Value)) & " ", "TBS_STUDENT_ALUMNI_DETAILS") = False) Then
+            '            obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES(" & txtAlumniID.Text & "," & dgDetail.Rows(i).Cells(1).Value & "," & dgDetail.Rows(i).Cells(3).Value & "," & dgDetail.Rows(i).Cells(5).Value & "," & dgDetail.Rows(i).Cells(6).Value & ",N'" & dgDetail.Rows(i).Cells(7).Value & "')")
+            '        Else
+            '            Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_ALUMNI_DETAILS SET STUDENT_ID =" & dgDetail.Rows(i).Cells(1).Value.ToString() & " ,POSITION_ID = " & dgDetail.Rows(i).Cells(3).Value.ToString() & ", SPONSOR_US = " & dgDetail.Rows(i).Cells(5).Value.ToString() & ",SPONSOR_KH = " & dgDetail.Rows(i).Cells(6).Value.ToString() & ",REMARK =N'" & dgDetail.Rows(i).Cells(7).Value.ToString() & "' WHERE RECORD_ID = " & dgDetail.Rows(i).Cells(8).Value.ToString & " AND ALUMNI_ID = " & dgDetail.Rows(i).Cells(9).Value.ToString & "")
+            '        End If
+            '    Next
+            'End If
+
+
+
+
+
+            If CheckIfStudentExistInYearStudy() = True Then
                 obj.ShowMsg("ព័ត៌មាននេះបានបញ្ចូលរួចរាល់ហើយ !", FrmWarning, "Windows Ding.wav")
                 Exit Sub
             End If
@@ -354,13 +369,12 @@ Public Class FrmStudyInfo
         cboNewYearStudy.BackColor = Color.White
     End Sub
 
-    Private Sub cb_check_all_CheckedChanged(sender As Object, e As EventArgs) Handles cbCheckAll.CheckedChanged
-
-
-
+    Private Sub cbCheckAll_CheckedChanged(sender As Object, e As EventArgs) Handles cbCheckAll.CheckedChanged
         If cbCheckAll.Checked = True Then
             For Each rows As DataGridViewRow In dg.Rows
-                rows.Cells(1).Value = True
+                If (rows.Cells("STUDY_STATUS_ID").Value.ToString <> STUDY_INFO_STATUS.DROP) Then
+                    rows.Cells("CHECKBOX").Value = True
+                End If(rows.Cells("STUDY_STATUS_ID").Value.ToString = STUDY_INFO_STATUS)
             Next
         Else
             For Each rows As DataGridViewRow In dg.Rows
@@ -460,7 +474,7 @@ Public Class FrmStudyInfo
 
 
 
-    Private Function RecordExist() As Boolean
+    Private Function CheckIfStudentExistInYearStudy() As Boolean
         Try
             Dim totalRow As Integer = 0
             Dim ds As New DataSet()
