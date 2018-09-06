@@ -913,6 +913,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo_WO8_icon.ico" />
+    <None Include="Resources\UPGRDAE_CLASS_23123.png" />
     <None Include="Resources\save_432421.png" />
     <None Include="Resources\save_43242.png" />
     <None Include="Resources\change_student_cc.png" />

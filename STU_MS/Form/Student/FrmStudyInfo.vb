@@ -137,13 +137,13 @@ Public Class FrmStudyInfo
 
             If (dt.Rows.Count <= 0) Then
                 obj.ShowMsg("មិនមានទិន្នន័យ", FrmWarning, WARNING_SOUND)
-                dg.Rows.Clear()
+                DataGridView1.Rows.Clear()
                 Exit Sub
             Else
                 cbCheckAll.Checked = False
-                dg.Rows.Clear()
+                DataGridView1.Rows.Clear()
                 For i As Integer = 0 To dt.Rows.Count - 1
-                    dg.Rows.Add(dt.Rows(i)("RECORD_ID").ToString(), False, dt.Rows(i)("RECORD_ID_CONTROL_CLASS").ToString(), dt.Rows(i)("STUDENT_ID").ToString(), dt.Rows(i)("SNAME_KH").ToString(), dt.Rows(i)("GENDER").ToString(), dt.Rows(i)("STUDENT_CODE").ToString(), dt.Rows(i)("DOB").ToString(), dt.Rows(i)("GUARDIAN_VILLAGE").ToString(), dt.Rows(i)("STUDY_INFO_STATUS_ID").ToString(), dt.Rows(i)("STUDY_INFO_STATUS_KH").ToString(), dt.Rows(i)("YEAR_STUDY").ToString(), dt.Rows(i)("CLASS_LETTER").ToString(), dt.Rows(i)("NEW_YEAR_STUDY").ToString(), "", dt.Rows(i)("NEW_CLASS").ToString(), dt.Rows(i)("REMARK").ToString(), dt.Rows(i)("CLASS_MONITOR_NUM").ToString(), dt.Rows(i)("CLASS_ID").ToString(), dt.Rows(i)("EXIST_NEXT_YEAR"))
+                    DataGridView1.Rows.Add(dt.Rows(i)("RECORD_ID").ToString(), False, dt.Rows(i)("RECORD_ID_CONTROL_CLASS").ToString(), dt.Rows(i)("STUDENT_ID").ToString(), dt.Rows(i)("SNAME_KH").ToString(), dt.Rows(i)("GENDER").ToString(), dt.Rows(i)("STUDENT_CODE").ToString(), dt.Rows(i)("DOB").ToString(), dt.Rows(i)("GUARDIAN_VILLAGE").ToString(), dt.Rows(i)("STUDY_INFO_STATUS_ID").ToString(), dt.Rows(i)("STUDY_INFO_STATUS_KH").ToString(), dt.Rows(i)("YEAR_STUDY").ToString(), dt.Rows(i)("CLASS_LETTER").ToString(), dt.Rows(i)("NEW_YEAR_STUDY").ToString(), "", dt.Rows(i)("NEW_CLASS").ToString(), dt.Rows(i)("REMARK").ToString(), dt.Rows(i)("CLASS_MONITOR_NUM").ToString(), dt.Rows(i)("CLASS_ID").ToString(), dt.Rows(i)("EXIST_NEXT_YEAR"))
                 Next
             End If
         Catch ex As Exception
@@ -179,150 +179,226 @@ Public Class FrmStudyInfo
         cboOldYear.BackColor = Color.White
     End Sub
     Public Function isRowSelected() As Boolean
-        For i As Integer = 0 To dg.Rows.Count - 1
-            If dg.Rows(i).Cells(1).Value = True Then Return True
+        For i As Integer = 0 To DataGridView1.Rows.Count - 1
+            If DataGridView1.Rows(i).Cells(1).Value = True Then Return True
         Next
         Return False
     End Function
-    Private Sub lbl_upgrade_class_Click(sender As Object, e As EventArgs) Handles lbl_upgrade_class.Click
 
-        dg.EndEdit()
-        If searchMode = True Then
-            obj.ShowMsg("សូមជ្រើសរើសថ្នាក់ជាមុន", FrmWarning, "Windows Ding.wav")
-            Exit Sub
-        End If
-
-        If dg.Rows.Count <= 0 Then
-            obj.ShowMsg("សូមបញ្ចូលព័ត៌មានជាមុន", FrmWarning, "Windows Ding.wav")
-            Exit Sub
-        End If
-
-        If isRowSelected() = False Then
-            obj.ShowMsg("អ្នកមិនទាន់ជ្រើសរើសសិស្សនោះទេ។ " & vbCrLf & "តើអ្នកចង់រើសយកទាំងអស់ដែលឬទេ?", FrmMessageQuestionLarge, POP_SOUND)
-            If USER_CLICK_OK = True Then
-                cbCheckAll.Checked = True
-            End If
-            Exit Sub
-        End If
-
-        If cboNewYearStudy.Text = "" Then
-            obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, "Windows Ding.wav")
-            cboNewYearStudy.BackColor = Color.LavenderBlush
-            cboNewYearStudy.Focus()
-            Exit Sub
-        End If
-
-        If cboNewClass.Text = "" Then
-            obj.ShowMsg("សូមបញ្ចូលព័ត៌មានចាំបាច់", FrmWarning, "Windows Ding.wav")
-            cboNewClass.BackColor = Color.LavenderBlush
-            cboNewClass.Focus()
-            Exit Sub
-        End If
-        'Rows index 11 is Old Year Study
-        If SplitYear(dg.Rows(0).Cells(11).Value) > SplitYear(cboNewYearStudy.Text) Then
-            cboNewYearStudy.BackColor = Color.LavenderBlush
-            cboNewYearStudy.Focus()
-            obj.ShowMsg("ឆ្នាំសិក្សាថ្មីមិនអាចតូចជាងឆ្នាំសិក្សាចាស់", FrmWarning, "Windows Ding.wav")
-            Exit Sub
-        End If
-
-        If SplitYear(dg.Rows(0).Cells(11).Value) = SplitYear(cboNewYearStudy.Text) Then
-            cboNewYearStudy.BackColor = Color.LavenderBlush
-            cboNewYearStudy.Focus()
-            obj.ShowMsg("ឆ្នាំសិក្សាថ្មីមិនដូចឆ្នាំសិក្សាចាស់", FrmWarning, "Windows Ding.wav")
-            Exit Sub
-        End If
-        If dg.Rows(0).Cells(12).Value = cboNewClass.Text Then
-            obj.ShowMsg("ថ្នាក់ថ្មីមិនអាចដូចថ្នាក់ចាស់ទេ !", FrmWarning, "Windows Ding.wav")
-            cboNewClass.BackColor = Color.LavenderBlush
-            cboNewClass.Focus()
-            Exit Sub
-        End If
-        If ValidateClass(dg.Rows(0).Cells(12).Value, cboNewClass.Text) = False Then
-            cboNewClass.BackColor = Color.LavenderBlush
-            cboNewClass.Focus()
-            obj.ShowMsg("ថ្នាក់ថ្មីមិនអាចតូចជាងថ្នាក់ចាស់ទេ !", FrmWarning, "Windows Ding.wav")
-            Exit Sub
-        End If
-
-        If (SplitYear(cboNewYearStudy.Text)) <> (Convert.ToInt32(SplitYear(cboOldYear.Text)) + 1).ToString Then
-            cboNewYearStudy.BackColor = Color.LavenderBlush
-            cboNewYearStudy.Focus()
-            obj.ShowMsg("មិនអាចធ្វើការតំឡើងថ្នាក់ខុសលំដាប់ឆ្នាំសិក្សាបានទេ", FrmWarning, "Windows Ding.wav")
-            Exit Sub
-        End If
-
-        If (Convert.ToInt32(cboNewClass.Text.Substring(0, cboNewClass.Text.Length - 1))) <> (Convert.ToInt32(cboOldClass.Text.Substring(0, cboOldClass.Text.Length - 1))) + 1 Then
-            cboNewClass.BackColor = Color.LavenderBlush
-            cboNewClass.Focus()
-            obj.ShowMsg("មិនអាចធ្វើការតំឡើងថ្នាក់ខុសលំដាប់ថ្នាក់បានទេ", FrmWarning, "Windows Ding.wav")
-            Exit Sub
-        End If
-
-        obj.ShowMsg("តើអ្នកចង់តំឡើងថ្នាក់ពីឆ្នាំសិក្សា " & dg.Rows(0).Cells(11).Value & " ថ្នាក់ទី " & dg.Rows(0).Cells(12).Value & "" & vbCrLf & " ទៅឆ្នាំសិក្សា " & cboNewYearStudy.Text & " ថ្នាក់ទី " & cboNewClass.Text & " ដែលឬទេ ?", FrmMessageQuestionLarge, "")
-        If USER_CLICK_OK = True Then
-
-
-            'If (dg.Rows.Count > 0) Then
-            '    For i As Integer = 0 To dg.RowCount - 1
-            '        If (obj.CheckExisted("SELECT RECORD_ID FROM dbo.TBS_STUDENT_ALUMNI_DETAILS WHERE RECORD_ID = " & (If(dgDetail.Rows(i).Cells(8).Value Is Nothing, "0", dgDetail.Rows(i).Cells(8).Value)) & " ", "TBS_STUDENT_ALUMNI_DETAILS") = False) Then
-            '            obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_ALUMNI_DETAILS (ALUMNI_ID,STUDENT_ID,POSITION_ID,SPONSOR_US,SPONSOR_KH,REMARK)VALUES(" & txtAlumniID.Text & "," & dgDetail.Rows(i).Cells(1).Value & "," & dgDetail.Rows(i).Cells(3).Value & "," & dgDetail.Rows(i).Cells(5).Value & "," & dgDetail.Rows(i).Cells(6).Value & ",N'" & dgDetail.Rows(i).Cells(7).Value & "')")
-            '        Else
-            '            Call obj.UpdateNoMsg("UPDATE dbo.TBS_STUDENT_ALUMNI_DETAILS SET STUDENT_ID =" & dgDetail.Rows(i).Cells(1).Value.ToString() & " ,POSITION_ID = " & dgDetail.Rows(i).Cells(3).Value.ToString() & ", SPONSOR_US = " & dgDetail.Rows(i).Cells(5).Value.ToString() & ",SPONSOR_KH = " & dgDetail.Rows(i).Cells(6).Value.ToString() & ",REMARK =N'" & dgDetail.Rows(i).Cells(7).Value.ToString() & "' WHERE RECORD_ID = " & dgDetail.Rows(i).Cells(8).Value.ToString & " AND ALUMNI_ID = " & dgDetail.Rows(i).Cells(9).Value.ToString & "")
-            '        End If
-            '    Next
-            'End If
-
-
-
-
-
-            If CheckIfStudentExistInYearStudy() = True Then
-                obj.ShowMsg("ព័ត៌មាននេះបានបញ្ចូលរួចរាល់ហើយ !", FrmWarning, "Windows Ding.wav")
-                Exit Sub
-            End If
-
-            class_id = cboNewClass.SelectedValue
-            lblSave.Enabled = True
-
-            ' Call RemoveUncheckedRows()
-            For Each rows As DataGridViewRow In dg.Rows
-                If (rows.Cells(1).Value = True) Then
-
-                    rows.Cells(9).Value = 1
-                    rows.Cells(10).Value = "ឡើងថ្នាក់"
-                    rows.Cells(13).Value = cboNewYearStudy.Text
-                    rows.Cells(14).Value = cboNewClass.SelectedValue
-                    rows.Cells(15).Value = cboNewClass.Text
-                    'Else
-                    '    rows.Cells(9).Value = 2
-                    '    rows.Cells(10).Value = "ត្រួតថ្នាក់"
-                End If
-            Next
-        End If
-    End Sub
-    Private Sub RemoveUncheckedRows()
+    Private Function StudentAlreadyUpgrade() As Boolean
         Try
-            For j = dg.RowCount - 1 To 0 Step -1
-                If dg(0, j).Value = False Then dg.Rows.RemoveAt(j)
+            For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                If (DataGridView1.Rows(i).Cells("CHECKBOX").Value = True) Then
+                    If DataGridView1.Rows(i).Cells("NEXT_YEAR_CLASS").Value.ToString = "YES" Then
+                        obj.ShowMsg("សិស្សបានជ្រើសរើសបានតំឡើងថ្នាក់រួចរាល់ហើយ", FrmWarning, WARNING_SOUND)
+                        Return True
+                    End If
+                End If
             Next
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        Return False
+    End Function
+    Private Function IfUserCheckOnDroppedStudentForUpgrade() As Boolean
+        Try
+            For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                If DataGridView1.Rows(i).Cells("CHECKBOX").Value = True And DataGridView1.Rows(i).Cells("STUDY_STATUS_ID").Value = STUDY_INFO_STATUS.DROP Then
+                    obj.ShowMsg("មិនអនុញ្ញាតអោយដំឡើងសិស្សដែលបោះបង់", FrmWarning, WARNING_SOUND)
+                    Return True
+                End If
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+
+    Private Function IfUserCheckOnTransferredOutStudentForUpgrade() As Boolean
+        Try
+            For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                If DataGridView1.Rows(i).Cells("CHECKBOX").Value = True And DataGridView1.Rows(i).Cells("STUDY_STATUS_ID").Value = STUDY_INFO_STATUS.TRANSFER_OUT Then
+                    obj.ShowMsg("មិនអនុញ្ញាតអោយដំឡើងសិស្សដែលផ្ទេរចេញ", FrmWarning, WARNING_SOUND)
+                    Return True
+                End If
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+
+    Private Function IfUserNotCheckAnyCheckbox() As Boolean
+        Try
+            If isRowSelected() = False Then
+                obj.ShowMsg("អ្នកមិនទាន់ជ្រើសរើសសិស្សនោះទេ។ " & vbCrLf & "តើអ្នកចង់រើសយកទាំងអស់ដែលឬទេ?", FrmMessageQuestionLarge, POP_SOUND)
+                If USER_CLICK_OK = True Then
+                    cbCheckAll.Checked = True
+                End If
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+
+    Private Function IfHasNoAnyStudentForUpgrade() As Boolean
+        Try
+            If DataGridView1.Rows.Count <= 0 Then
+                obj.ShowMsg("សូមបញ្ចូលព័ត៌មានជាមុន", FrmWarning, WARNING_SOUND)
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+
+    Private Function IfUserSearchTheWholeYearStudy() As Boolean
+        Try
+            If searchMode = True Then
+                obj.ShowMsg("សូមជ្រើសរើសថ្នាក់ជាមុន", FrmWarning, WARNING_SOUND)
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+    Private Function IfNewYearStudySmallerThenOldYearStudy() As Boolean
+        Try
+            If SplitYear(DataGridView1.Rows(0).Cells("OLD_YEAR_STUDY").Value) > SplitYear(cboNewYearStudy.Text) Then
+                cboNewYearStudy.BackColor = Color.LavenderBlush
+                cboNewYearStudy.Focus()
+                obj.ShowMsg("ឆ្នាំសិក្សាថ្មីមិនអាចតូចជាងឆ្នាំសិក្សាចាស់", FrmWarning, WARNING_SOUND)
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+    Private Function IfNewYearStudyEqualOldYearStudy() As Boolean
+        Try
+            If SplitYear(DataGridView1.Rows(0).Cells("OLD_YEAR_STUDY").Value) = SplitYear(cboNewYearStudy.Text) Then
+                cboNewYearStudy.BackColor = Color.LavenderBlush
+                cboNewYearStudy.Focus()
+                obj.ShowMsg("ឆ្នាំសិក្សាថ្មីមិនដូចឆ្នាំសិក្សាចាស់", FrmWarning, "Windows Ding.wav")
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+
+    Private Function IfNewClassEqualToOldClass() As Boolean
+        Try
+            If DataGridView1.Rows(0).Cells("OLD_CLASS").Value = cboNewClass.Text Then
+                obj.ShowMsg("ថ្នាក់ថ្មីមិនអាចដូចថ្នាក់ចាស់ទេ !", FrmWarning, WARNING_SOUND)
+                cboNewClass.BackColor = Color.LavenderBlush
+                cboNewClass.Focus()
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+    Private Function IfNewClassSmallerThenOldClass() As Boolean
+        Try
+            If ValidateClass(DataGridView1.Rows(0).Cells("OLD_CLASS").Value, cboNewClass.Text) = False Then
+                cboNewClass.BackColor = Color.LavenderBlush
+                cboNewClass.Focus()
+                obj.ShowMsg("ថ្នាក់ថ្មីមិនអាចតូចជាងថ្នាក់ចាស់ទេ !", FrmWarning, "Windows Ding.wav")
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+    Private Function IfNotOrderYearStudy() As Boolean
+        Try
+            If (SplitYear(cboNewYearStudy.Text)) <> (Convert.ToInt32(SplitYear(cboOldYear.Text)) + 1).ToString Then
+                cboNewYearStudy.BackColor = Color.LavenderBlush
+                cboNewYearStudy.Focus()
+                obj.ShowMsg("មិនអាចធ្វើការតំឡើងថ្នាក់ខុសលំដាប់ឆ្នាំសិក្សាបានទេ", FrmWarning, WARNING_SOUND)
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+
+    Private Function IfNotOrderClass() As Boolean
+        Try
+            If (Convert.ToInt32(cboNewClass.Text.Substring(0, cboNewClass.Text.Length - 1))) <> (Convert.ToInt32(cboOldClass.Text.Substring(0, cboOldClass.Text.Length - 1))) + 1 Then
+                cboNewClass.BackColor = Color.LavenderBlush
+                cboNewClass.Focus()
+                obj.ShowMsg("មិនអាចធ្វើការតំឡើងថ្នាក់ខុសលំដាប់ថ្នាក់បានទេ", FrmWarning, WARNING_SOUND)
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return False
+    End Function
+
+    Private Sub lblUpgradeClass_Click(sender As Object, e As EventArgs) Handles lblUpgradeClass.Click
+
+        DataGridView1.EndEdit()
+
+        If (IfUserSearchTheWholeYearStudy()) Then Exit Sub
+        If (IfHasNoAnyStudentForUpgrade()) Then Exit Sub
+        If (IfUserNotCheckAnyCheckbox()) Then Exit Sub
+        If (StudentAlreadyUpgrade()) Then Exit Sub
+        If (IfUserCheckOnDroppedStudentForUpgrade()) Then Exit Sub
+        If (IfUserCheckOnTransferredOutStudentForUpgrade()) Then Exit Sub
+        If (Validation.IsEmpty(cboNewYearStudy)) Then Exit Sub
+        If (Validation.IsEmpty(cboNewClass)) Then Exit Sub
+        If (IfNewYearStudySmallerThenOldYearStudy()) Then Exit Sub
+        If (IfNewYearStudyEqualOldYearStudy()) Then Exit Sub
+        If (IfNewClassEqualToOldClass()) Then Exit Sub
+        If (IfNewClassSmallerThenOldClass()) Then Exit Sub
+        If (IfNotOrderYearStudy()) Then Exit Sub
+        If (IfNotOrderClass()) Then Exit Sub
+
+        obj.ShowMsg("តើអ្នកចង់តំឡើងថ្នាក់ពីឆ្នាំសិក្សា " & DataGridView1.Rows(0).Cells(11).Value & " ថ្នាក់ទី " & DataGridView1.Rows(0).Cells(12).Value & "" & vbCrLf & " ទៅឆ្នាំសិក្សា " & cboNewYearStudy.Text & " ថ្នាក់ទី " & cboNewClass.Text & " ដែលឬទេ ?", FrmMessageQuestionLarge, "")
+        If USER_CLICK_OK = True Then
+
+            class_id = cboNewClass.SelectedValue
+            lblSave.Enabled = True
+
+            For Each rows As DataGridViewRow In DataGridView1.Rows
+                If (rows.Cells("CHECKBOX").Value = True) Then
+                    rows.Cells("STUDY_STATUS_ID").Value = STUDY_INFO_STATUS.NEW_CLASS
+                    rows.Cells("STUDY_STATUS_KH").Value = "ឡើងថ្នាក់"
+                    rows.Cells("NEW_YEAR_STUDY").Value = cboNewYearStudy.Text
+                    rows.Cells("NEW_CLASS_ID").Value = cboNewClass.SelectedValue
+                    rows.Cells("NEW_CLASS_KH").Value = cboNewClass.Text
+                End If
+            Next
+
+
+        End If
     End Sub
+
 
     Private Sub CountSearchResult()
         Try
             Dim girl As Integer = 0
 
-            If dg.Rows.Count > 0 Then
-                For i As Integer = 0 To dg.RowCount - 1
-                    If (dg.Rows(i).Cells(5).Value.ToString = "ស្រី") Then
+            If DataGridView1.Rows.Count > 0 Then
+                For i As Integer = 0 To DataGridView1.RowCount - 1
+                    If (DataGridView1.Rows(i).Cells(5).Value.ToString = "ស្រី") Then
                         girl += 1
                     End If
                 Next
             End If
-            lblTotalSearch.Text = dg.Rows.Count.ToString
+            lblTotalSearch.Text = DataGridView1.Rows.Count.ToString
             lblTotalSearchGirl.Text = girl.ToString
         Catch ex As Exception
             lblTotalSearch.Text = "0"
@@ -336,11 +412,11 @@ Public Class FrmStudyInfo
             Dim toal As Integer = 0
             Dim girl As Integer = 0
 
-            If dg.Rows.Count > 0 Then
-                For i As Integer = 0 To dg.RowCount - 1
-                    If (dg.Rows(i).Cells(1).Value = True) Then
+            If DataGridView1.Rows.Count > 0 Then
+                For i As Integer = 0 To DataGridView1.RowCount - 1
+                    If (DataGridView1.Rows(i).Cells(1).Value = True) Then
                         toal += 1
-                        If (dg.Rows(i).Cells(5).Value.ToString = "ស្រី") Then
+                        If (DataGridView1.Rows(i).Cells(5).Value.ToString = "ស្រី") Then
                             girl += 1
                         End If
                     End If
@@ -371,20 +447,30 @@ Public Class FrmStudyInfo
 
     Private Sub cbCheckAll_CheckedChanged(sender As Object, e As EventArgs) Handles cbCheckAll.CheckedChanged
         If cbCheckAll.Checked = True Then
-            For Each rows As DataGridViewRow In dg.Rows
-                If (rows.Cells("STUDY_STATUS_ID").Value.ToString <> STUDY_INFO_STATUS.DROP) Then
-                    rows.Cells("CHECKBOX").Value = True
-                End If(rows.Cells("STUDY_STATUS_ID").Value.ToString = STUDY_INFO_STATUS)
+            For Each rows As DataGridViewRow In DataGridView1.Rows
+                rows.Cells("CHECKBOX").Value = True
             Next
+            UncheckStudentDropAndTransferOut()
         Else
-            For Each rows As DataGridViewRow In dg.Rows
-                rows.Cells(1).Value = False
+            For Each rows As DataGridViewRow In DataGridView1.Rows
+                rows.Cells("CHECKBOX").Value = False
             Next
         End If
     End Sub
 
+    Private Sub UncheckStudentDropAndTransferOut()
+        For Each rows As DataGridViewRow In DataGridView1.Rows
+            If (rows.Cells("STUDY_STATUS_ID").Value.ToString = STUDY_INFO_STATUS.DROP) Then
+                rows.Cells("CHECKBOX").Value = False
+            End If
+            If (rows.Cells("STUDY_STATUS_ID").Value.ToString = STUDY_INFO_STATUS.TRANSFER_OUT) Then
+                rows.Cells("CHECKBOX").Value = False
+            End If
+        Next
+    End Sub
+
     Private Sub btn_save_Click(sender As Object, e As EventArgs) Handles lblSave.Click
-        dg.EndEdit()
+        DataGridView1.EndEdit()
         Try
             If isRowSelected() = False Then
                 obj.ShowMsg("អ្នកមិនទាន់ជ្រើសរើសសិស្សនោះទេ។ " & vbCrLf & "តើអ្នកចង់រើសយកទាំងអស់ដែលឬទេ?", FrmMessageQuestion, "")
@@ -406,13 +492,13 @@ Public Class FrmStudyInfo
             End If
             obj.ShowMsg("តើអ្នកចង់រក្សាទុកការដំឡើងថ្នាក់នេះដែលឬទេ ?", FrmMessageQuestion, "")
             If USER_CLICK_OK = True Then
-                For i As Integer = 0 To dg.RowCount - 1
-                    Dim isSelected As Boolean = dg.Rows(i).Cells(1).Value
+                For i As Integer = 0 To DataGridView1.RowCount - 1
+                    Dim isSelected As Boolean = DataGridView1.Rows(i).Cells(1).Value
                     If isSelected = True Then
-                        obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_STUDY_INFO (STUDENT_ID,CLASS_ID,YEAR_STUDY,CLASS_OLD,YEAR_STUDY_OLD,REMARK,DATE_NOTE,STUDY_INFO_STATUS_ID,TEACHER_ID)VALUES(" & dg.Rows(i).Cells(3).Value & "," & dg.Rows(i).Cells(14).Value & ",N'" & dg.Rows(i).Cells(13).Value & "',N'" & dg.Rows(i).Cells(12).Value & "',N'" & dg.Rows(i).Cells(11).Value & "',N'" & dg.Rows(i).Cells(16).Value & "',GETDATE()," & dg.Rows(i).Cells(9).Value & "," & cboTeacher.SelectedValue & ")")
+                        obj.InsertNoMsg("INSERT INTO dbo.TBS_STUDENT_STUDY_INFO (STUDENT_ID,CLASS_ID,YEAR_STUDY,CLASS_OLD,YEAR_STUDY_OLD,REMARK,DATE_NOTE,STUDY_INFO_STATUS_ID,TEACHER_ID)VALUES(" & DataGridView1.Rows(i).Cells(3).Value & "," & DataGridView1.Rows(i).Cells(14).Value & ",N'" & DataGridView1.Rows(i).Cells(13).Value & "',N'" & DataGridView1.Rows(i).Cells(12).Value & "',N'" & DataGridView1.Rows(i).Cells(11).Value & "',N'" & DataGridView1.Rows(i).Cells(16).Value & "',GETDATE()," & DataGridView1.Rows(i).Cells(9).Value & "," & cboTeacher.SelectedValue & ")")
                     End If
                 Next
-                obj.ReOrderList(dg.Rows(0).Cells("NEW_CLASS_ID").Value, dg.Rows(0).Cells("NEW_YEAR_STUDY").Value)
+                obj.ReOrderList(DataGridView1.Rows(0).Cells("NEW_CLASS_ID").Value, DataGridView1.Rows(0).Cells("NEW_YEAR_STUDY").Value)
                 Call obj.ShowMsg("រក្សាទុកបានជោគជ័យ", FrmMessageSuccess, SUCCESS_SOUND)
                 FrmStudent.SelectStudent()
                 lblSave.Enabled = False
@@ -469,7 +555,7 @@ Public Class FrmStudyInfo
     End Sub
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles picUpgradeClass.Click
-        lbl_upgrade_class_Click(sender, e)
+        lblUpgradeClass_Click(sender, e)
     End Sub
 
 
@@ -479,8 +565,8 @@ Public Class FrmStudyInfo
             Dim totalRow As Integer = 0
             Dim ds As New DataSet()
 
-            For i As Integer = 0 To dg.RowCount - 1
-                da = New SqlDataAdapter("SELECT  RECORD_ID from dbo.TBS_STUDENT_STUDY_INFO WHERE STUDENT_ID = " & dg.Rows(i).Cells("STUDENT_ID").Value & "  AND YEAR_STUDY = N'" & cboNewYearStudy.Text & "'", conn)
+            For i As Integer = 0 To DataGridView1.RowCount - 1
+                da = New SqlDataAdapter("SELECT  RECORD_ID from dbo.TBS_STUDENT_STUDY_INFO WHERE STUDENT_ID = " & DataGridView1.Rows(i).Cells("STUDENT_ID").Value & "  AND YEAR_STUDY = N'" & cboNewYearStudy.Text & "'", conn)
                 da.Fill(ds, "TBS_STUDENT_STUDY_INFO")
                 totalRow = Convert.ToInt32(ds.Tables("TBS_STUDENT_STUDY_INFO").Rows.Count)
             Next
@@ -508,7 +594,7 @@ Public Class FrmStudyInfo
     End Sub
 
     Private Sub Clear()
-        dg.Rows.Clear()
+        DataGridView1.Rows.Clear()
         cboNewClass.Text = ""
         cboOldClass.Text = ""
         cboOldYear.Text = ""
@@ -523,7 +609,7 @@ Public Class FrmStudyInfo
     End Sub
 
     Private Sub cb_check_all_Click(sender As Object, e As EventArgs) Handles cbCheckAll.Click
-        If (dg.Rows.Count <= 0) Then
+        If (DataGridView1.Rows.Count <= 0) Then
             obj.ShowMsg("សូមបញ្ចូលព័ត៌មានជាមុន", FrmWarning, "Windows Ding.wav")
             cbCheckAll.Checked = False
             Exit Sub
@@ -538,30 +624,30 @@ Public Class FrmStudyInfo
         t.Leave(lblNew)
     End Sub
 
-    Private Sub dg_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dg.RowPrePaint
+    Private Sub dg_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridView1.RowPrePaint
         Try
             If e.RowIndex >= 0 Then
-                Call CountSearchResult()
-                Call CountSelectedStudent()
-                Call ChangeRowColor()
-
-                dg.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-                dg.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-                dg.Columns(10).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-                dg.Columns(11).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-                dg.Columns(12).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-                dg.Columns(14).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-
-
-
+                CountSearchResult()
+                CountSelectedStudent()
+                ChangeRowColor()
+                AlignCenterColumn()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
-    Private Sub dg_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg.CellContentClick
-        dg.EndEdit()
+    Private Sub AlignCenterColumn()
+        DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns(10).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns(11).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns(12).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns(14).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+    End Sub
+
+    Private Sub dg_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        DataGridView1.EndEdit()
     End Sub
 
     Private Sub lblChangeStudyInfoStatus_Click(sender As Object, e As EventArgs) Handles lblChangStudyInfoStatus.Click
@@ -572,9 +658,9 @@ Public Class FrmStudyInfo
                 Exit Sub
             End If
             With frm
-                For i As Integer = 0 To dg.Rows.Count - 1
-                    If (dg.Rows(i).Cells(1).Value = True) Then
-                        .dg.Rows.Add(dg.Rows(i).Cells(0).Value, dg.Rows(i).Cells(1).Value, "", dg.Rows(i).Cells(3).Value, dg.Rows(i).Cells(4).Value, dg.Rows(i).Cells(5).Value, dg.Rows(i).Cells(6).Value, dg.Rows(i).Cells(7).Value, dg.Rows(i).Cells(8).Value, dg.Rows(i).Cells(9).Value, dg.Rows(i).Cells(10).Value, dg.Rows(i).Cells(11).Value, dg.Rows(i).Cells(12).Value, dg.Rows(i).Cells(13).Value, dg.Rows(i).Cells(14).Value, dg.Rows(i).Cells(15).Value, dg.Rows(i).Cells(16).Value, dg.Rows(i).Cells(17).Value)
+                For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                    If (DataGridView1.Rows(i).Cells(1).Value = True) Then
+                        .dg.Rows.Add(DataGridView1.Rows(i).Cells(0).Value, DataGridView1.Rows(i).Cells(1).Value, "", DataGridView1.Rows(i).Cells(3).Value, DataGridView1.Rows(i).Cells(4).Value, DataGridView1.Rows(i).Cells(5).Value, DataGridView1.Rows(i).Cells(6).Value, DataGridView1.Rows(i).Cells(7).Value, DataGridView1.Rows(i).Cells(8).Value, DataGridView1.Rows(i).Cells(9).Value, DataGridView1.Rows(i).Cells(10).Value, DataGridView1.Rows(i).Cells(11).Value, DataGridView1.Rows(i).Cells(12).Value, DataGridView1.Rows(i).Cells(13).Value, DataGridView1.Rows(i).Cells(14).Value, DataGridView1.Rows(i).Cells(15).Value, DataGridView1.Rows(i).Cells(16).Value, DataGridView1.Rows(i).Cells(17).Value)
                     End If
                 Next
                 .ShowDialog()
@@ -586,11 +672,11 @@ Public Class FrmStudyInfo
 
     Private Sub ChangeRowColor()
         Try
-            For i As Integer = 0 To dg.Rows.Count - 1
-                If dg.Rows(i).Cells(1).Value = False Then
-                    dg.Rows(i).DefaultCellStyle.BackColor = Color.White
+            For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                If DataGridView1.Rows(i).Cells(1).Value = False Then
+                    DataGridView1.Rows(i).DefaultCellStyle.BackColor = Color.White
                 Else
-                    dg.Rows(i).DefaultCellStyle.BackColor = Color.LightCyan
+                    DataGridView1.Rows(i).DefaultCellStyle.BackColor = Color.LightCyan
                 End If
             Next
         Catch ex As Exception
@@ -600,12 +686,12 @@ Public Class FrmStudyInfo
 
     Private Sub lblRevertSelection_Click(sender As Object, e As EventArgs) Handles lblRevertSelection.Click
         Try
-            If (dg.Rows.Count > 0) Then
-                For i As Integer = 0 To dg.Rows.Count - 1
-                    If (dg.Rows(i).Cells(1).Value = True) Then
-                        dg.Rows(i).Cells(1).Value = False
+            If (DataGridView1.Rows.Count > 0) Then
+                For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                    If (DataGridView1.Rows(i).Cells(1).Value = True) Then
+                        DataGridView1.Rows(i).Cells(1).Value = False
                     Else
-                        dg.Rows(i).Cells(1).Value = True
+                        DataGridView1.Rows(i).Cells(1).Value = True
                     End If
                 Next
             End If
@@ -650,9 +736,9 @@ Public Class FrmStudyInfo
         Try
             obj.ShowMsg("តើអ្នកចង់លុបព័ត៌មាននេះដែរឬទេ?", FrmMessageQuestion, "")
             If USER_CLICK_OK = True Then
-                For i As Integer = 0 To dg.Rows.Count - 1
-                    If (dg.Rows(i).Cells(1).Value = True) Then
-                        obj.Delete_1("DELETE FROM dbo.TBS_STUDENT_STUDY_INFO WHERE RECORD_ID =" & dg.Rows(i).Cells(0).Value & " AND STUDENT_ID = " & dg.Rows(i).Cells(3).Value & " AND CLASS_ID = " & dg.Rows(i).Cells(18).Value & " AND YEAR_STUDY = N'" & dg.Rows(i).Cells(11).Value & "'")
+                For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                    If (DataGridView1.Rows(i).Cells(1).Value = True) Then
+                        obj.Delete_1("DELETE FROM dbo.TBS_STUDENT_STUDY_INFO WHERE RECORD_ID =" & DataGridView1.Rows(i).Cells(0).Value & " AND STUDENT_ID = " & DataGridView1.Rows(i).Cells(3).Value & " AND CLASS_ID = " & DataGridView1.Rows(i).Cells(18).Value & " AND YEAR_STUDY = N'" & DataGridView1.Rows(i).Cells(11).Value & "'")
                     End If
 
                 Next
@@ -744,5 +830,18 @@ Public Class FrmStudyInfo
 
     Private Sub picChangeStudyStatus_Click(sender As Object, e As EventArgs) Handles picChangeStudyStatus.Click
         lblChangeStudyInfoStatus_Click(sender, e)
+    End Sub
+
+    Private Sub dg_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
+        'Try
+        '    If (dg.SelectedRows(0).Cells("CHECKBOX").Value = True) Then
+        '        If (dg.SelectedRows(0).Cells("STUDY_STATUS_ID").Value = STUDY_INFO_STATUS.DROP) Then
+        '            MessageBox.Show("cANNOT")
+        '            dg.SelectedRows(0).Cells("CHECKBOX").Value = False
+        '        End If
+        '    End If
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message)
+        'End Try
     End Sub
 End Class

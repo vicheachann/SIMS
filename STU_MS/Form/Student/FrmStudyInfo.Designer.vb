@@ -26,9 +26,6 @@ Partial Class FrmStudyInfo
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.btn_close = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblSave = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -36,23 +33,20 @@ Partial Class FrmStudyInfo
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cboOldClass = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.lbl_upgrade_class = New System.Windows.Forms.Label()
+        Me.lblUpgradeClass = New System.Windows.Forms.Label()
         Me.cbCheckAll = New System.Windows.Forms.CheckBox()
         Me.PanelEx1 = New DevComponents.DotNetBar.PanelEx()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cboTeacher = New System.Windows.Forms.ComboBox()
-        Me.picUpgradeClass = New System.Windows.Forms.PictureBox()
         Me.PAll = New System.Windows.Forms.Panel()
-        Me.picSearch = New System.Windows.Forms.PictureBox()
         Me.cboNewClass = New System.Windows.Forms.ComboBox()
         Me.lblSearch = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cboNewYearStudy = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.picPrint = New System.Windows.Forms.PictureBox()
-        Me.picChangeStudyStatus = New System.Windows.Forms.PictureBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.PanelEx3 = New DevComponents.DotNetBar.PanelEx()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblTotalSelectedGirl = New System.Windows.Forms.Label()
@@ -79,7 +73,7 @@ Partial Class FrmStudyInfo
         Me.lblRevertSelection = New System.Windows.Forms.Label()
         Me.lblChangStudyInfoStatus = New System.Windows.Forms.Label()
         Me.lblNew = New System.Windows.Forms.Label()
-        Me.dg = New System.Windows.Forms.DataGridView()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataSet1 = New STU_MS.DataSet1()
         Me.bsStudentList = New System.Windows.Forms.BindingSource(Me.components)
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -92,32 +86,41 @@ Partial Class FrmStudyInfo
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.STUDY_STATUS_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.STUDY_STATUS_KH = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OLD_YEAR_STUDY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OLD_CLASS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NEW_YEAR_STUDY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NEW_CLASS_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NEW_CLASS_KH = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NEXT_YEAR_CLASS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.picUpgradeClass = New System.Windows.Forms.PictureBox()
+        Me.picSearch = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.picPrint = New System.Windows.Forms.PictureBox()
+        Me.picChangeStudyStatus = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.btn_close = New System.Windows.Forms.PictureBox()
         Me.PanelEx2.SuspendLayout()
+        Me.PanelEx1.SuspendLayout()
+        Me.GroupPanel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.PanelEx3.SuspendLayout()
+        Me.PanelEx5.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picUpgradeClass, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picPrint, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picChangeStudyStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_close, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelEx1.SuspendLayout()
-        Me.GroupPanel1.SuspendLayout()
-        CType(Me.picUpgradeClass, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.picPrint, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picChangeStudyStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelEx3.SuspendLayout()
-        Me.PanelEx5.SuspendLayout()
-        CType(Me.dg, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelEx2
@@ -141,38 +144,6 @@ Partial Class FrmStudyInfo
         Me.PanelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.PanelEx2.Style.GradientAngle = 90
         Me.PanelEx2.TabIndex = 10
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.STU_MS.My.Resources.Resources.new_student
-        Me.PictureBox1.Location = New System.Drawing.Point(10, 4)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(33, 30)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 215
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox2.Image = Global.STU_MS.My.Resources.Resources.minimize_box_blue
-        Me.PictureBox2.Location = New System.Drawing.Point(1281, 3)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(33, 35)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 13
-        Me.PictureBox2.TabStop = False
-        '
-        'btn_close
-        '
-        Me.btn_close.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_close.Image = Global.STU_MS.My.Resources.Resources.red_close_button_png_image_2878
-        Me.btn_close.Location = New System.Drawing.Point(1322, 5)
-        Me.btn_close.Name = "btn_close"
-        Me.btn_close.Size = New System.Drawing.Size(35, 32)
-        Me.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.btn_close.TabIndex = 10
-        Me.btn_close.TabStop = False
         '
         'Label1
         '
@@ -256,24 +227,24 @@ Partial Class FrmStudyInfo
         Me.Label4.TabIndex = 195
         Me.Label4.Text = "ថ្នាក់ចាស់"
         '
-        'lbl_upgrade_class
+        'lblUpgradeClass
         '
-        Me.lbl_upgrade_class.AutoSize = True
-        Me.lbl_upgrade_class.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_upgrade_class.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lbl_upgrade_class.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_upgrade_class.ForeColor = System.Drawing.Color.Red
-        Me.lbl_upgrade_class.Location = New System.Drawing.Point(1180, 5)
-        Me.lbl_upgrade_class.Name = "lbl_upgrade_class"
-        Me.lbl_upgrade_class.Size = New System.Drawing.Size(156, 34)
-        Me.lbl_upgrade_class.TabIndex = 207
-        Me.lbl_upgrade_class.Text = "តំឡើងកម្រិតថ្នាក់ថ្មី"
+        Me.lblUpgradeClass.AutoSize = True
+        Me.lblUpgradeClass.BackColor = System.Drawing.Color.Transparent
+        Me.lblUpgradeClass.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblUpgradeClass.Font = New System.Drawing.Font("Khmer OS", 12.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUpgradeClass.ForeColor = System.Drawing.Color.Red
+        Me.lblUpgradeClass.Location = New System.Drawing.Point(1177, 8)
+        Me.lblUpgradeClass.Name = "lblUpgradeClass"
+        Me.lblUpgradeClass.Size = New System.Drawing.Size(156, 34)
+        Me.lblUpgradeClass.TabIndex = 207
+        Me.lblUpgradeClass.Text = "តំឡើងកម្រិតថ្នាក់ថ្មី"
         '
         'cbCheckAll
         '
         Me.cbCheckAll.AutoSize = True
         Me.cbCheckAll.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
-        Me.cbCheckAll.Location = New System.Drawing.Point(8, 24)
+        Me.cbCheckAll.Location = New System.Drawing.Point(152, 24)
         Me.cbCheckAll.Name = "cbCheckAll"
         Me.cbCheckAll.Size = New System.Drawing.Size(194, 42)
         Me.cbCheckAll.TabIndex = 208
@@ -311,7 +282,7 @@ Partial Class FrmStudyInfo
         Me.GroupPanel1.Controls.Add(Me.Label13)
         Me.GroupPanel1.Controls.Add(Me.cboTeacher)
         Me.GroupPanel1.Controls.Add(Me.picUpgradeClass)
-        Me.GroupPanel1.Controls.Add(Me.lbl_upgrade_class)
+        Me.GroupPanel1.Controls.Add(Me.lblUpgradeClass)
         Me.GroupPanel1.Controls.Add(Me.PAll)
         Me.GroupPanel1.Controls.Add(Me.picSearch)
         Me.GroupPanel1.Controls.Add(Me.cboNewClass)
@@ -384,17 +355,6 @@ Partial Class FrmStudyInfo
         Me.cboTeacher.Size = New System.Drawing.Size(107, 38)
         Me.cboTeacher.TabIndex = 216
         '
-        'picUpgradeClass
-        '
-        Me.picUpgradeClass.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.picUpgradeClass.Image = Global.STU_MS.My.Resources.Resources.up
-        Me.picUpgradeClass.Location = New System.Drawing.Point(1145, 8)
-        Me.picUpgradeClass.Name = "picUpgradeClass"
-        Me.picUpgradeClass.Size = New System.Drawing.Size(33, 30)
-        Me.picUpgradeClass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picUpgradeClass.TabIndex = 215
-        Me.picUpgradeClass.TabStop = False
-        '
         'PAll
         '
         Me.PAll.BackColor = System.Drawing.Color.Transparent
@@ -403,17 +363,6 @@ Partial Class FrmStudyInfo
         Me.PAll.Name = "PAll"
         Me.PAll.Size = New System.Drawing.Size(1, 45)
         Me.PAll.TabIndex = 72
-        '
-        'picSearch
-        '
-        Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.SEARCH_324
-        Me.picSearch.Location = New System.Drawing.Point(648, 8)
-        Me.picSearch.Name = "picSearch"
-        Me.picSearch.Size = New System.Drawing.Size(33, 30)
-        Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picSearch.TabIndex = 11
-        Me.picSearch.TabStop = False
         '
         'cboNewClass
         '
@@ -476,6 +425,8 @@ Partial Class FrmStudyInfo
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PictureBox3)
+        Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.picPrint)
         Me.GroupBox1.Controls.Add(Me.picChangeStudyStatus)
         Me.GroupBox1.Controls.Add(Me.PanelEx3)
@@ -485,7 +436,7 @@ Partial Class FrmStudyInfo
         Me.GroupBox1.Controls.Add(Me.lblRevertSelection)
         Me.GroupBox1.Controls.Add(Me.lblChangStudyInfoStatus)
         Me.GroupBox1.Controls.Add(Me.lblNew)
-        Me.GroupBox1.Controls.Add(Me.dg)
+        Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.cbCheckAll)
         Me.GroupBox1.Controls.Add(Me.lblSave)
         Me.GroupBox1.Location = New System.Drawing.Point(5, 88)
@@ -494,27 +445,19 @@ Partial Class FrmStudyInfo
         Me.GroupBox1.TabIndex = 215
         Me.GroupBox1.TabStop = False
         '
-        'picPrint
+        'Label7
         '
-        Me.picPrint.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.picPrint.Image = Global.STU_MS.My.Resources.Resources.printer_3214
-        Me.picPrint.Location = New System.Drawing.Point(1004, 27)
-        Me.picPrint.Name = "picPrint"
-        Me.picPrint.Size = New System.Drawing.Size(33, 30)
-        Me.picPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picPrint.TabIndex = 300
-        Me.picPrint.TabStop = False
-        '
-        'picChangeStudyStatus
-        '
-        Me.picChangeStudyStatus.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.picChangeStudyStatus.Image = Global.STU_MS.My.Resources.Resources.change_student_cc
-        Me.picChangeStudyStatus.Location = New System.Drawing.Point(1154, 27)
-        Me.picChangeStudyStatus.Name = "picChangeStudyStatus"
-        Me.picChangeStudyStatus.Size = New System.Drawing.Size(33, 30)
-        Me.picChangeStudyStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picChangeStudyStatus.TabIndex = 218
-        Me.picChangeStudyStatus.TabStop = False
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label7.Enabled = False
+        Me.Label7.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Blue
+        Me.Label7.Location = New System.Drawing.Point(40, 26)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(81, 38)
+        Me.Label7.TabIndex = 301
+        Me.Label7.Text = "ស្វែងរក"
         '
         'PanelEx3
         '
@@ -806,7 +749,7 @@ Partial Class FrmStudyInfo
         Me.lblRevertSelection.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblRevertSelection.Font = New System.Drawing.Font("Khmer OS", 14.25!, System.Drawing.FontStyle.Underline)
         Me.lblRevertSelection.ForeColor = System.Drawing.Color.Blue
-        Me.lblRevertSelection.Location = New System.Drawing.Point(198, 25)
+        Me.lblRevertSelection.Location = New System.Drawing.Point(342, 25)
         Me.lblRevertSelection.Name = "lblRevertSelection"
         Me.lblRevertSelection.Size = New System.Drawing.Size(139, 38)
         Me.lblRevertSelection.TabIndex = 297
@@ -838,18 +781,18 @@ Partial Class FrmStudyInfo
         Me.lblNew.TabIndex = 279
         Me.lblNew.Text = "ថ្មី"
         '
-        'dg
+        'DataGridView1
         '
-        Me.dg.AllowUserToAddRows = False
-        Me.dg.AllowUserToDeleteRows = False
-        Me.dg.AllowUserToResizeColumns = False
-        Me.dg.AllowUserToResizeRows = False
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Khmer OS", 10.0!)
-        Me.dg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dg.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dg.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Khmer OS", 11.25!)
@@ -857,18 +800,18 @@ Partial Class FrmStudyInfo
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.CHECKBOX, Me.Column1, Me.STUDENT_ID, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.STUDY_STATUS_ID, Me.Column14, Me.Column6, Me.Column7, Me.NEW_YEAR_STUDY, Me.NEW_CLASS_ID, Me.Column9, Me.Column13, Me.Column18, Me.Column19, Me.Column2})
-        Me.dg.Location = New System.Drawing.Point(8, 69)
-        Me.dg.MultiSelect = False
-        Me.dg.Name = "dg"
-        Me.dg.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        Me.dg.RowHeadersVisible = False
-        Me.dg.RowTemplate.Height = 25
-        Me.dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dg.Size = New System.Drawing.Size(1344, 495)
-        Me.dg.TabIndex = 277
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column17, Me.CHECKBOX, Me.Column1, Me.STUDENT_ID, Me.Column3, Me.Column4, Me.Column5, Me.Column11, Me.Column12, Me.STUDY_STATUS_ID, Me.STUDY_STATUS_KH, Me.OLD_YEAR_STUDY, Me.OLD_CLASS, Me.NEW_YEAR_STUDY, Me.NEW_CLASS_ID, Me.NEW_CLASS_KH, Me.Column13, Me.Column18, Me.Column19, Me.NEXT_YEAR_CLASS})
+        Me.DataGridView1.Location = New System.Drawing.Point(8, 69)
+        Me.DataGridView1.MultiSelect = False
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowTemplate.Height = 25
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(1344, 495)
+        Me.DataGridView1.TabIndex = 277
         '
         'DataSet1
         '
@@ -944,26 +887,27 @@ Partial Class FrmStudyInfo
         '
         Me.STUDY_STATUS_ID.HeaderText = "STUDY_STATUS_ID"
         Me.STUDY_STATUS_ID.Name = "STUDY_STATUS_ID"
+        Me.STUDY_STATUS_ID.Visible = False
         '
-        'Column14
+        'STUDY_STATUS_KH
         '
-        Me.Column14.HeaderText = "ស្ថានភាពសិក្សា"
-        Me.Column14.Name = "Column14"
-        Me.Column14.Width = 125
+        Me.STUDY_STATUS_KH.HeaderText = "ស្ថានភាពសិក្សា"
+        Me.STUDY_STATUS_KH.Name = "STUDY_STATUS_KH"
+        Me.STUDY_STATUS_KH.Width = 125
         '
-        'Column6
+        'OLD_YEAR_STUDY
         '
-        Me.Column6.HeaderText = "ឆ្នាំសិក្សាចាស់"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 115
+        Me.OLD_YEAR_STUDY.HeaderText = "ឆ្នាំសិក្សាចាស់"
+        Me.OLD_YEAR_STUDY.Name = "OLD_YEAR_STUDY"
+        Me.OLD_YEAR_STUDY.ReadOnly = True
+        Me.OLD_YEAR_STUDY.Width = 115
         '
-        'Column7
+        'OLD_CLASS
         '
-        Me.Column7.HeaderText = "ថ្នាក់ចាស់"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 80
+        Me.OLD_CLASS.HeaderText = "ថ្នាក់ចាស់"
+        Me.OLD_CLASS.Name = "OLD_CLASS"
+        Me.OLD_CLASS.ReadOnly = True
+        Me.OLD_CLASS.Width = 80
         '
         'NEW_YEAR_STUDY
         '
@@ -978,17 +922,18 @@ Partial Class FrmStudyInfo
         Me.NEW_CLASS_ID.Name = "NEW_CLASS_ID"
         Me.NEW_CLASS_ID.Visible = False
         '
-        'Column9
+        'NEW_CLASS_KH
         '
-        Me.Column9.HeaderText = "ថ្នាក់ថ្មី"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 70
+        Me.NEW_CLASS_KH.HeaderText = "ថ្នាក់ថ្មី"
+        Me.NEW_CLASS_KH.Name = "NEW_CLASS_KH"
+        Me.NEW_CLASS_KH.ReadOnly = True
+        Me.NEW_CLASS_KH.Width = 70
         '
         'Column13
         '
         Me.Column13.HeaderText = "ផ្សេងៗ"
         Me.Column13.Name = "Column13"
+        Me.Column13.Visible = False
         Me.Column13.Width = 150
         '
         'Column18
@@ -1002,10 +947,98 @@ Partial Class FrmStudyInfo
         Me.Column19.Name = "Column19"
         Me.Column19.Visible = False
         '
-        'Column2
+        'NEXT_YEAR_CLASS
         '
-        Me.Column2.HeaderText = "ឆ្នាំសិក្សាបន្ទាប់"
-        Me.Column2.Name = "Column2"
+        Me.NEXT_YEAR_CLASS.HeaderText = "ឆ្នាំសិក្សាបន្ទាប់"
+        Me.NEXT_YEAR_CLASS.Name = "NEXT_YEAR_CLASS"
+        Me.NEXT_YEAR_CLASS.Width = 150
+        '
+        'picUpgradeClass
+        '
+        Me.picUpgradeClass.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picUpgradeClass.Image = Global.STU_MS.My.Resources.Resources.UPGRDAE_CLASS_23123
+        Me.picUpgradeClass.Location = New System.Drawing.Point(1145, 8)
+        Me.picUpgradeClass.Name = "picUpgradeClass"
+        Me.picUpgradeClass.Size = New System.Drawing.Size(33, 30)
+        Me.picUpgradeClass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picUpgradeClass.TabIndex = 215
+        Me.picUpgradeClass.TabStop = False
+        '
+        'picSearch
+        '
+        Me.picSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picSearch.Image = Global.STU_MS.My.Resources.Resources.SEARCH_324
+        Me.picSearch.Location = New System.Drawing.Point(648, 8)
+        Me.picSearch.Name = "picSearch"
+        Me.picSearch.Size = New System.Drawing.Size(33, 30)
+        Me.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picSearch.TabIndex = 11
+        Me.picSearch.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox3.Image = Global.STU_MS.My.Resources.Resources.SEARCH_324
+        Me.PictureBox3.Location = New System.Drawing.Point(8, 30)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(33, 30)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 302
+        Me.PictureBox3.TabStop = False
+        '
+        'picPrint
+        '
+        Me.picPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picPrint.Image = Global.STU_MS.My.Resources.Resources.printer_3214
+        Me.picPrint.Location = New System.Drawing.Point(1004, 27)
+        Me.picPrint.Name = "picPrint"
+        Me.picPrint.Size = New System.Drawing.Size(33, 30)
+        Me.picPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picPrint.TabIndex = 300
+        Me.picPrint.TabStop = False
+        '
+        'picChangeStudyStatus
+        '
+        Me.picChangeStudyStatus.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picChangeStudyStatus.Image = Global.STU_MS.My.Resources.Resources.change_student_cc
+        Me.picChangeStudyStatus.Location = New System.Drawing.Point(1154, 27)
+        Me.picChangeStudyStatus.Name = "picChangeStudyStatus"
+        Me.picChangeStudyStatus.Size = New System.Drawing.Size(33, 30)
+        Me.picChangeStudyStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picChangeStudyStatus.TabIndex = 218
+        Me.picChangeStudyStatus.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.STU_MS.My.Resources.Resources.new_student
+        Me.PictureBox1.Location = New System.Drawing.Point(10, 4)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(33, 30)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 215
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox2.Image = Global.STU_MS.My.Resources.Resources.minimize_box_blue
+        Me.PictureBox2.Location = New System.Drawing.Point(1281, 3)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(33, 35)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 13
+        Me.PictureBox2.TabStop = False
+        '
+        'btn_close
+        '
+        Me.btn_close.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_close.Image = Global.STU_MS.My.Resources.Resources.red_close_button_png_image_2878
+        Me.btn_close.Location = New System.Drawing.Point(1322, 5)
+        Me.btn_close.Name = "btn_close"
+        Me.btn_close.Size = New System.Drawing.Size(35, 32)
+        Me.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.btn_close.TabIndex = 10
+        Me.btn_close.TabStop = False
         '
         'FrmStudyInfo
         '
@@ -1019,26 +1052,27 @@ Partial Class FrmStudyInfo
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PanelEx2.ResumeLayout(False)
         Me.PanelEx2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btn_close, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx1.ResumeLayout(False)
         Me.PanelEx1.PerformLayout()
         Me.GroupPanel1.ResumeLayout(False)
         Me.GroupPanel1.PerformLayout()
-        CType(Me.picUpgradeClass, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.picPrint, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picChangeStudyStatus, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEx3.ResumeLayout(False)
         Me.PanelEx3.PerformLayout()
         Me.PanelEx5.ResumeLayout(False)
         Me.PanelEx5.PerformLayout()
-        CType(Me.dg, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsStudentList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picUpgradeClass, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picSearch, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picPrint, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picChangeStudyStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn_close, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1053,7 +1087,7 @@ Partial Class FrmStudyInfo
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cboOldClass As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents lbl_upgrade_class As System.Windows.Forms.Label
+    Friend WithEvents lblUpgradeClass As System.Windows.Forms.Label
     Friend WithEvents cbCheckAll As System.Windows.Forms.CheckBox
     Friend WithEvents PanelEx1 As DevComponents.DotNetBar.PanelEx
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -1062,7 +1096,7 @@ Partial Class FrmStudyInfo
     Friend WithEvents cboNewYearStudy As System.Windows.Forms.ComboBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents lblSearch As System.Windows.Forms.Label
-    Friend WithEvents dg As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents PAll As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
@@ -1099,6 +1133,8 @@ Partial Class FrmStudyInfo
     Friend WithEvents lblCompanyInfro As Label
     Friend WithEvents picChangeStudyStatus As PictureBox
     Friend WithEvents picPrint As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents Label7 As Label
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
     Friend WithEvents CHECKBOX As DataGridViewCheckBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
@@ -1109,14 +1145,14 @@ Partial Class FrmStudyInfo
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents STUDY_STATUS_ID As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents STUDY_STATUS_KH As DataGridViewTextBoxColumn
+    Friend WithEvents OLD_YEAR_STUDY As DataGridViewTextBoxColumn
+    Friend WithEvents OLD_CLASS As DataGridViewTextBoxColumn
     Friend WithEvents NEW_YEAR_STUDY As DataGridViewTextBoxColumn
     Friend WithEvents NEW_CLASS_ID As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents NEW_CLASS_KH As DataGridViewTextBoxColumn
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column18 As DataGridViewTextBoxColumn
     Friend WithEvents Column19 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents NEXT_YEAR_CLASS As DataGridViewTextBoxColumn
 End Class
